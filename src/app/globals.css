@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F3F4F7;
+  --foreground: #15151A;
+  --surface: #F8F9FB;
+  --surface-secondary: #EAECF1;
+  --surface-lavender: #E9E7F8;
+  --surface-blue: #EEF1FF;
+  --secondary: #656873;
+  --muted-text: #858692;
+  --border: rgba(21, 21, 26, 0.10);
+  --accent-primary: #6D28D9;
+  --accent-secondary: #7C3AED;
+  --accent-blue: #5865F2;
+  --success: #19A974;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-display);
+  --color-primary: #15151A;
+  --color-secondary: #656873;
+  --color-muted: #858692;
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-lavender: var(--surface-lavender);
+  --color-surface-blue: var(--surface-blue);
+  --color-border: var(--border);
+  --color-accent: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-blue: var(--accent-blue);
+  --color-success: var(--success);
+
+  --animate-marquee: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-manrope), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  #home, #work, #services, #process, #about, #pricing, #start-project, #foundation {
+    scroll-margin-top: 100px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
