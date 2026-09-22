@@ -17,7 +17,7 @@ const technologies = [
 
 export function FounderSection() {
   return (
-    <section id="about" className="py-16 md:py-28 lg:py-36 bg-surface border-t border-border overflow-hidden">
+    <section id="about" className="py-16 md:py-28 lg:py-36 bg-[#151C22] border-t border-white/10 overflow-hidden">
       <Container>
         {/* DESKTOP LAYOUT (>= 1024px) */}
         <div className="hidden lg:grid lg:grid-cols-12 gap-16 items-start">
@@ -29,7 +29,7 @@ export function FounderSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="font-mono text-xs tracking-[0.25em] uppercase text-secondary font-semibold block mb-4">
+              <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-4">
                 ABOUT DEADCODE LABS
               </span>
               <h2 className="font-display text-6xl xl:text-7xl font-bold tracking-tight mb-8 leading-[1.05] text-foreground">
@@ -52,13 +52,13 @@ export function FounderSection() {
 
               {/* Action Buttons */}
               <div className="flex items-center gap-4 mb-14">
-                <Button size="lg" className="group text-[15px] px-8 h-13 bg-foreground text-background hover:bg-charcoal transition-all" asChild>
+                <Button size="lg" className="group text-[15px] px-8 h-13 transition-all" asChild>
                   <a href="/start-a-project">
                     Start a Conversation
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Button>
-                <Button variant="outline" size="lg" className="group text-[15px] px-7 h-13 border-border hover:bg-muted text-foreground" asChild>
+                <Button variant="outline" size="lg" className="group text-[15px] px-7 h-13 border-white/10 text-foreground" asChild>
                   <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer">
                     View Portfolio
                     <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-secondary group-hover:text-foreground" />
@@ -67,7 +67,7 @@ export function FounderSection() {
               </div>
 
               {/* Technology Stack Grid in Left Column */}
-              <div className="pt-8 border-t border-border/70 max-w-xl">
+              <div className="pt-8 border-t border-white/10 max-w-xl">
                 <div className="flex items-center justify-between mb-5">
                   <h4 className="font-mono text-xs tracking-widest uppercase text-foreground font-semibold">
                     Core Technical Foundation
@@ -78,7 +78,7 @@ export function FounderSection() {
                   {technologies.map((tech) => (
                     <div
                       key={tech.id}
-                      className="p-3.5 rounded-xl bg-background/80 border border-border/80 hover:border-accent/40 transition-colors group"
+                      className="p-3.5 rounded-xl bg-[#11161B]/80 border border-white/10 hover:border-accent/40 transition-colors group"
                     >
                       <span className="font-mono text-[10px] text-secondary/60 block mb-1">
                         {tech.id}
@@ -106,7 +106,15 @@ export function FounderSection() {
               className="space-y-6"
             >
               {/* Founder Portrait Card */}
-              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-border/80 shadow-[0_16px_40px_rgba(32,29,26,0.06)] bg-background">
+              <div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.5)] bg-[#11161B]"
+                >
                 <Image
                   src="/images/founder.jpg"
                   alt="Divyanshu Verma — Founder & Software Engineer at DEADCODE LABS"
@@ -115,29 +123,30 @@ export function FounderSection() {
                   className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#201D1A]/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#11161B] via-[#11161B]/20 to-transparent pointer-events-none opacity-80" />
                 
                 {/* Overlay Badge */}
                 <div className="absolute bottom-5 left-5 right-5 text-white pointer-events-none">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#7C8A78]" />
+                    <span className="w-2 h-2 rounded-full bg-accent" />
                     <span className="font-mono text-[11px] tracking-widest uppercase text-white/80 font-medium">
                       Studio Principal
                     </span>
                   </div>
                   <h3 className="font-display text-2xl font-bold tracking-tight">Divyanshu Verma</h3>
                 </div>
+                </motion.div>
               </div>
 
               {/* Founder Identity & Experience Block */}
-              <div className="p-6 rounded-xl bg-background border border-border/80 flex items-center justify-between">
+              <div className="p-6 rounded-xl bg-[#11161B] border border-white/10 flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-foreground text-sm tracking-tight">Divyanshu Verma</h4>
                   <p className="text-xs text-secondary mt-0.5">
                     Founder · Software Engineer · Product Builder
                   </p>
                 </div>
-                <div className="text-right border-l border-border/60 pl-6 shrink-0">
+                <div className="text-right border-l border-white/10 pl-6 shrink-0">
                   <span className="font-display text-3xl font-bold text-foreground block leading-none">
                     6+
                   </span>
@@ -163,12 +172,12 @@ export function FounderSection() {
         <div className="flex flex-col lg:hidden space-y-6">
           {/* 1. Heading */}
           <div>
-            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-secondary font-semibold block mb-2">
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent font-semibold block mb-2">
               ABOUT DEADCODE LABS
             </span>
             <h2 
               className="font-display font-bold tracking-tight text-foreground leading-[1.05]"
-              style={{ fontSize: "clamp(36px, 10vw, 54px)" }}
+              style={{ fontSize: "clamp(34px, 10vw, 48px)" }}
             >
               Engineering <br />
               <span className="italic font-normal text-accent font-display">meets</span> aesthetics.
@@ -181,7 +190,7 @@ export function FounderSection() {
           </p>
 
           {/* 3. Founder portrait */}
-          <div className="relative aspect-[4/5] w-full max-w-[340px] mx-auto rounded-2xl overflow-hidden border border-border/80 shadow-[0_12px_30px_rgba(32,29,26,0.06)] bg-background">
+          <div className="relative aspect-[4/5] w-full max-w-[340px] mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.5)] bg-[#11161B]">
             <Image
               src="/images/founder.jpg"
               alt="Divyanshu Verma — Founder, DEADCODE LABS"
@@ -189,7 +198,7 @@ export function FounderSection() {
               sizes="90vw"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#201D1A]/50 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#11161B] via-[#11161B]/20 to-transparent pointer-events-none opacity-80" />
             <div className="absolute bottom-4 left-4 right-4 text-white">
               <span className="font-mono text-[10px] tracking-widest uppercase text-white/80 block">
                 Founder · Software Engineer
@@ -199,7 +208,7 @@ export function FounderSection() {
           </div>
 
           {/* 4. 6+ Years Experience */}
-          <div className="p-4 rounded-xl bg-background border border-border/80 flex items-center justify-between">
+          <div className="p-4 rounded-xl bg-[#11161B] border border-white/10 flex items-center justify-between">
             <div>
               <span className="font-mono text-[11px] tracking-wider uppercase text-secondary font-semibold block">
                 Independent Track Record
@@ -208,7 +217,7 @@ export function FounderSection() {
                 Crafting digital products & software
               </span>
             </div>
-            <div className="text-right border-l border-border/60 pl-5 shrink-0">
+            <div className="text-right border-l border-white/10 pl-5 shrink-0">
               <span className="font-display text-3xl font-bold text-foreground leading-none block">
                 6+
               </span>
@@ -225,7 +234,7 @@ export function FounderSection() {
             </span>
             <div className="grid grid-cols-2 gap-2">
               {technologies.map((tech) => (
-                <div key={tech.id} className="p-3 rounded-lg bg-background border border-border/70">
+                <div key={tech.id} className="p-3 rounded-lg bg-[#11161B] border border-white/10">
                   <span className="font-mono text-[9px] text-secondary/70 block mb-0.5">{tech.id}</span>
                   <span className="text-xs font-semibold text-foreground block">{tech.name}</span>
                 </div>
@@ -245,13 +254,13 @@ export function FounderSection() {
 
           {/* 7. Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button size="lg" className="w-full sm:w-auto h-12 text-sm bg-foreground text-background font-medium" asChild>
+            <Button size="lg" className="w-full sm:w-auto h-12 text-sm font-medium" asChild>
               <a href="/start-a-project">
                 Start a Conversation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 text-sm border-border text-foreground font-medium" asChild>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 text-sm border-white/10 text-foreground font-medium" asChild>
               <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer">
                 View Portfolio
                 <ArrowUpRight className="ml-2 h-4 w-4 text-secondary" />

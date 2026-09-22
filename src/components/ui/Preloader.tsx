@@ -10,8 +10,8 @@ const sequence = [
   "आइडिया को हकीकत में बदल रहे हैं",
 ];
 
-const GREETING_STEP_MS = 150; 
-const EXIT_DURATION = 0.6; 
+const GREETING_STEP_MS = 100; 
+const EXIT_DURATION = 0.5; 
 
 export function Preloader() {
   const [index, setIndex] = useState(0);
@@ -24,7 +24,7 @@ export function Preloader() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!hasSeen && !prefersReducedMotion) {
-      setShowPreloader(true);
+      setTimeout(() => setShowPreloader(true), 0);
       document.body.style.overflow = "hidden";
       sessionStorage.setItem("deadcode-preloader-running", "true");
     } else {
@@ -40,11 +40,11 @@ export function Preloader() {
     let timeout: NodeJS.Timeout;
 
     if (phase === "black") {
-      timeout = setTimeout(() => setPhase("brand"), 500);
+      timeout = setTimeout(() => setPhase("brand"), 300);
     } else if (phase === "brand") {
-      timeout = setTimeout(() => setPhase("sequence"), 600);
+      timeout = setTimeout(() => setPhase("sequence"), 400);
     } else if (phase === "final") {
-      timeout = setTimeout(() => setPhase("exit"), 500);
+      timeout = setTimeout(() => setPhase("exit"), 350);
     }
 
     return () => clearTimeout(timeout);
@@ -55,7 +55,7 @@ export function Preloader() {
     if (!showPreloader || phase !== "sequence") return;
 
     if (index >= sequence.length) {
-      setPhase("final");
+      setTimeout(() => setPhase("final"), 0);
       return;
     }
 
@@ -97,7 +97,7 @@ export function Preloader() {
           style={{ height: "100dvh" }}
         >
           {/* Solid Black background layer until exit */}
-          {phase !== "exit" && <div className="absolute inset-0 bg-[#0D0D11]" />}
+          {phase !== "exit" && <div className="absolute inset-0 bg-[#11161B]" />}
 
           {/* Curved SVG wipe exit */}
           {phase === "exit" && (
@@ -114,7 +114,7 @@ export function Preloader() {
               >
                 <motion.path
                   d="M 0 0 L 100 0 L 100 100 L 0 100 Z"
-                  fill="#0D0D11"
+                  fill="#11161B"
                   initial={{
                     d: "M 0 0 L 100 0 L 100 100 L 0 100 Z",
                   }}
@@ -132,7 +132,7 @@ export function Preloader() {
 
           {/* Multilingual sequence */}
           {phase === "sequence" && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-white px-4 text-center">
+            <div className="relative flex items-center justify-center w-full h-24 z-10 text-foreground px-4 text-center">
               <AnimatePresence mode="wait">
                 {index < sequence.length && (
                   <motion.span
@@ -155,7 +155,7 @@ export function Preloader() {
 
           {/* DEADCODE LABS reveal */}
           {(phase === "brand" || phase === "final") && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-white">
+            <div className="relative flex items-center justify-center w-full h-24 z-10 text-foreground">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -163,10 +163,10 @@ export function Preloader() {
                 transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
                 className="text-center"
               >
-                <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-gray-400 block mb-2 font-semibold">
+                <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-accent block mb-2 font-semibold">
                   DIGITAL PRODUCT STUDIO
                 </span>
-                <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-white">
+                <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-foreground">
                   DEADCODE LABS
                 </span>
               </motion.div>

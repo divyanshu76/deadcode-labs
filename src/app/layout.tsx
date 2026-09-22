@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Manrope, DM_Serif_Display } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { Preloader } from "@/components/ui/Preloader";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -64,9 +65,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${dmSerifDisplay.variable} h-full antialiased`}
+      className={`${inter.variable} ${dmSerifDisplay.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <CustomCursor />
         <Preloader />
         <Navbar />
         <main className="flex-1 flex flex-col">

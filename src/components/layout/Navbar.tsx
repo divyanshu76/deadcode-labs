@@ -120,14 +120,14 @@ export function Navbar() {
             className={cn(
               "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-350 ease-out w-full",
               isScrolled 
-                ? "bg-[#F3F4F7]/82 backdrop-blur-[18px] border border-[rgba(21,21,26,0.08)] shadow-sm px-6 h-[62px] rounded-[20px]" 
+                ? "bg-[#11161B]/72 backdrop-blur-[20px] border border-white/10 shadow-sm px-6 h-[62px] rounded-[20px]" 
                 : "bg-transparent px-3 h-[70px] rounded-[20px]"
             )}
           >
-            {/* Left Brand */}
             <div className="flex items-center shrink-0">
               <Link href="/" className="font-bold text-[17px] tracking-tight text-foreground outline-none">
-                DEADCODE
+                DEADCODE<span className="text-accent">.</span>
+                <span className="text-secondary/80 text-[14px]">LABS</span>
               </Link>
             </div>
 
@@ -174,8 +174,9 @@ export function Navbar() {
               </div>
               <Link href="/#start-project" onClick={(e) => handleNavClick(e, "/#start-project")} className="outline-none">
                 <Button 
+                  variant="default"
                   className={cn(
-                    "bg-foreground text-white hover:bg-[#282832] transition-colors rounded-[12px] font-medium border border-transparent text-sm",
+                    "rounded-[12px] text-sm",
                     isScrolled ? "h-[40px] px-5 text-[13.5px]" : "h-[44px] px-5 text-[14px]"
                   )}
                 >
@@ -192,20 +193,20 @@ export function Navbar() {
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
             isScrolled || mobileMenuOpen
-              ? "bg-[#F3F4F7]/90 backdrop-blur-[18px] border border-[rgba(21,21,26,0.08)] shadow-sm px-4 h-[56px] rounded-[16px] flex items-center"
+              ? "bg-[#11161B]/90 backdrop-blur-[20px] border border-white/10 shadow-sm px-4 h-[56px] rounded-[16px] flex items-center"
               : "bg-transparent px-2 h-[60px] flex items-center"
           )}
         >
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
               <Link href="/" className="font-bold text-lg tracking-tight text-foreground outline-none" onClick={() => setMobileMenuOpen(false)}>
-                DEADCODE
+                DEADCODE<span className="text-accent">.</span>LABS
               </Link>
             </div>
 
             {/* Mobile Menu Toggle Button */}
             <button
-              className="p-2 -mr-1 text-foreground relative z-[220] outline-none min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-black/5"
+              className="p-2 -mr-1 text-foreground relative z-[220] outline-none min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/5"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}

@@ -75,7 +75,7 @@ export function MobileNav({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[70] bg-black/30 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[1900] bg-black/60 backdrop-blur-sm lg:hidden"
           />
 
           {/* Drawer Panel */}
@@ -84,27 +84,36 @@ export function MobileNav({
             initial="initial"
             animate="enter"
             exit="exit"
-            className="fixed right-0 top-0 h-dvh w-full max-w-[320px] sm:max-w-sm bg-[#F3F4F7] z-[90] shadow-[-10px_0_40px_rgba(0,0,0,0.12)] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-border"
+            className="fixed right-0 top-0 h-dvh w-full max-w-[320px] sm:max-w-sm bg-[#151C22] z-[2000] shadow-[-10px_0_40px_rgba(0,0,0,0.5)] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/10"
           >
             {/* SVG Curve */}
-            <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[#F3F4F7] stroke-none">
+            <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[#151C22] stroke-none z-0">
               {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" />}
             </svg>
 
-            {/* Padding top to account for the persistent Navbar pill */}
-            <div className="pt-[70px] flex flex-col h-full justify-between relative z-10">
+            <div className="flex flex-col h-full justify-between relative z-10">
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between pb-5 border-b border-white/10 pt-2">
+                <span className="font-bold text-lg tracking-tight text-foreground leading-tight">
+                  DEADCODE<span className="text-accent">.</span><br/>LABS
+                </span>
+                <button
+                  onClick={onClose}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-[#F5F1EC] hover:text-accent hover:bg-white/10 transition-colors z-[2100]"
+                  aria-label="Close menu"
+                >
+                  <X size={20} />
+                </button>
+              </div>
 
               {/* Nav Links */}
-              <div className="flex flex-col space-y-4 my-auto py-6">
-                <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-secondary/70 font-semibold">
-                  STUDIO NAVIGATION
-                </span>
+              <div className="flex flex-col space-y-5 my-auto py-6">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground hover:text-accent transition-colors py-1"
+                    className="group flex items-center gap-4 font-display text-[28px] sm:text-[32px] font-semibold tracking-tight text-foreground hover:text-accent hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
                   >
                     {link.name.toUpperCase()}
                   </Link>
@@ -112,13 +121,13 @@ export function MobileNav({
               </div>
 
               {/* Social & Contact Footer */}
-              <div className="border-t border-border/70 pt-5 space-y-3 relative z-10">
-                <div className="flex items-center space-x-5 text-secondary">
+              <div className="border-t border-white/10 pt-6 space-y-4">
+                <div className="flex items-center space-x-6 text-secondary">
                   <a
                     href="https://github.com/divyanshu76"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors text-xs font-mono"
+                    className="hover:text-accent transition-colors text-[13px] font-mono"
                   >
                     GitHub
                   </a>
@@ -126,7 +135,7 @@ export function MobileNav({
                     href="https://www.instagram.com/truly_divyanshu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors text-xs font-mono"
+                    className="hover:text-accent transition-colors text-[13px] font-mono"
                   >
                     Instagram
                   </a>
@@ -134,12 +143,12 @@ export function MobileNav({
                     href="https://www.linkedin.com/in/divyanshuverma09/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors text-xs font-mono"
+                    className="hover:text-accent transition-colors text-[13px] font-mono"
                   >
                     LinkedIn
                   </a>
                 </div>
-                <p className="text-[11px] font-mono text-secondary/60">
+                <p className="text-[12px] font-mono text-secondary">
                   Studio Office · Lucknow / Global Edge
                 </p>
               </div>

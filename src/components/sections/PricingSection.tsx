@@ -93,13 +93,14 @@ export function PricingSection() {
               key={pkg.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -3 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.4, ease: "easeOut" }}
               className={cn(
-                "relative p-8 rounded-2xl flex flex-col justify-between border transition-all duration-300",
+                "relative p-8 flex flex-col justify-between premium-card transition-all duration-300 shadow-xl",
                 pkg.highlighted
-                  ? "bg-surface border-accent/40 shadow-[0_12px_36px_rgba(117,96,122,0.08)] ring-1 ring-accent/30"
-                  : "bg-surface/70 border-border/80 hover:border-border"
+                  ? "border-accent/40 ring-1 ring-accent/30"
+                  : ""
               )}
             >
               {pkg.highlighted && (
@@ -144,8 +145,8 @@ export function PricingSection() {
                   className={cn(
                     "w-full h-11 text-sm font-medium",
                     pkg.highlighted
-                      ? "bg-foreground text-background hover:bg-charcoal"
-                      : "border-border hover:bg-muted text-foreground"
+                      ? ""
+                      : ""
                   )}
                   asChild
                 >
@@ -163,17 +164,17 @@ export function PricingSection() {
         <div className="block lg:hidden">
           <div
             onScroll={handleScroll}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6 px-4 -mx-4 scroll-smooth"
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6 px-4 -mx-4 scroll-smooth"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {packages.map((pkg) => (
               <div
                 key={pkg.name}
                 className={cn(
-                  "w-[82vw] max-w-[310px] snap-center shrink-0 flex flex-col justify-between p-6 rounded-2xl border transition-all",
+                  "w-[90vw] max-w-[340px] snap-center shrink-0 flex flex-col justify-between p-6 premium-card transition-all",
                   pkg.highlighted
-                    ? "bg-surface border-accent/40 shadow-lg ring-1 ring-accent/30"
-                    : "bg-surface border-border/80"
+                    ? "border-accent/40 ring-1 ring-accent/30"
+                    : ""
                 )}
               >
                 <div>
@@ -213,8 +214,8 @@ export function PricingSection() {
                     className={cn(
                       "w-full h-10 text-xs font-medium",
                       pkg.highlighted
-                        ? "bg-foreground text-background"
-                        : "border-border text-foreground"
+                        ? ""
+                        : ""
                     )}
                     asChild
                   >

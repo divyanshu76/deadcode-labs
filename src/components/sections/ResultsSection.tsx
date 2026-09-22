@@ -4,40 +4,34 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
 const metrics = [
-  { id: "01", label: "DEPLOYMENTS", value: "140+" },
-  { id: "02", label: "CODE COMMITS", value: "10k+" },
-  { id: "03", label: "UPTIME", value: "99.9%" },
+  { id: "01", label: "Global Deployments", value: "140+" },
+  { id: "02", label: "Production Commits", value: "10k+" },
+  { id: "03", label: "Systems Uptime", value: "99.9%" },
+  { id: "04", label: "Bespoke Projects", value: "50+" },
 ];
 
 export function ResultsSection() {
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-16 md:py-24 bg-background">
       <Container>
-        {/* Technical Dashboard Row */}
-        <div className="border-t border-b border-border/80">
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/80">
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={metric.id}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.4 }}
-                className="py-5 px-4 md:px-8 flex items-center justify-between hover:bg-surface/50 transition-colors group"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-[10px] text-secondary font-medium">{metric.id}</span>
-                  <span className="text-border">/</span>
-                  <span className="font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-foreground group-hover:text-accent transition-colors">
-                    {metric.label}
-                  </span>
-                </div>
-                <span className="font-mono text-[13px] font-bold text-foreground">
-                  ({metric.value})
-                </span>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {metrics.map((metric, index) => (
+            <motion.div
+              key={metric.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="flex flex-col"
+            >
+              <div className="text-[32px] md:text-[42px] font-display font-bold text-foreground mb-1 md:mb-2 leading-none">
+                {metric.value}
+              </div>
+              <span className="text-[13px] md:text-[14px] font-mono text-secondary">
+                {metric.label}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </Container>
     </section>

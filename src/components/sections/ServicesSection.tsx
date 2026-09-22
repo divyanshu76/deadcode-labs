@@ -61,7 +61,7 @@ export function ServicesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-secondary font-semibold block mb-3">
+            <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-3">
               CAPABILITIES & EXPERTISE
             </span>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
@@ -71,8 +71,8 @@ export function ServicesSection() {
           </motion.div>
         </div>
 
-        {/* Compact editorial cards: ~160px-210px on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {/* Compact editorial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             const slug = service.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -82,9 +82,10 @@ export function ServicesSection() {
                 key={service.number}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06, duration: 0.45 }}
-                className="group relative bg-surface border border-border/80 rounded-xl md:rounded-2xl p-5 md:p-7 flex flex-col justify-between hover:border-accent/40 hover:shadow-[0_8px_30px_rgba(32,29,26,0.05)] transition-all duration-300"
+                whileHover={{ scale: 1.01, y: -3 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.06, duration: 0.4, ease: "easeOut" }}
+                className="group relative premium-card p-[18px] md:p-7 flex flex-col justify-between shadow-xl"
               >
                 <Link href={`/services#${slug}`} className="absolute inset-0 z-20" aria-label={`Explore ${service.title}`}>
                   <span className="sr-only">Explore {service.title}</span>
@@ -92,20 +93,20 @@ export function ServicesSection() {
 
                 <div>
                   <div className="flex items-center justify-between mb-3 md:mb-5">
-                    <div className="w-9 h-9 md:w-11 md:h-11 rounded-lg bg-muted flex items-center justify-center text-foreground group-hover:bg-accent/10 group-hover:text-accent transition-colors">
-                      <Icon size={18} className="md:hidden" strokeWidth={1.75} />
+                    <div className="w-[36px] h-[36px] md:w-[44px] md:h-[44px] rounded-lg bg-white/5 flex items-center justify-center text-foreground group-hover:bg-accent/10 group-hover:text-accent transition-colors">
+                      <Icon size={20} className="md:hidden" strokeWidth={1.75} />
                       <Icon size={22} className="hidden md:block" strokeWidth={1.75} />
                     </div>
-                    <span className="font-mono text-xs md:text-sm text-secondary font-semibold">
+                    <span className="font-mono text-[12px] md:text-sm text-secondary font-semibold">
                       {service.number}
                     </span>
                   </div>
 
-                  <h3 className="text-base md:text-xl font-bold text-foreground tracking-tight mb-1.5 group-hover:text-accent transition-colors">
+                  <h3 className="text-[17px] md:text-xl font-bold text-foreground tracking-tight mb-2 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-[13px] md:text-sm text-secondary leading-relaxed line-clamp-2 md:line-clamp-3 mb-4">
+                  <p className="text-[14.5px] md:text-[15px] text-secondary leading-relaxed line-clamp-2 md:line-clamp-3 mb-4">
                     {service.description}
                   </p>
                 </div>
@@ -113,7 +114,7 @@ export function ServicesSection() {
                 <div className="pt-3 border-t border-border/50 flex items-center justify-between">
                   <div className="hidden sm:flex gap-1.5">
                     {service.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-background border border-border/60 text-secondary">
+                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#11161B] border border-white/10 text-secondary">
                         {tag}
                       </span>
                     ))}

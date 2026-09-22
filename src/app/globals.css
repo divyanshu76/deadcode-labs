@@ -1,38 +1,48 @@
 @import "tailwindcss";
 
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
 :root {
-  --background: #F3F4F7;
-  --foreground: #15151A;
-  --surface: #F8F9FB;
-  --surface-secondary: #EAECF1;
-  --surface-lavender: #E9E7F8;
-  --surface-blue: #EEF1FF;
-  --secondary: #656873;
-  --muted-text: #858692;
-  --border: rgba(21, 21, 26, 0.10);
-  --accent-primary: #6D28D9;
-  --accent-secondary: #7C3AED;
-  --accent-blue: #5865F2;
-  --success: #19A974;
+  --background: #11161B;
+  --background-soft: #151C22;
+  --foreground: #F5F1EC;
+  --surface: #1B232A;
+  --surface-elevated: #222C34;
+  --card: #252F37;
+  --card-hover: #2B363F;
+  --secondary: #B8C0C7;
+  --muted-text: #87919A;
+  --very-muted: #68727A;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent-primary: #E4573F;
+  --accent-secondary: #FF7A59;
+  --accent-hover: #F06A4F;
+  --success: #45B982;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-inter);
   --font-display: var(--font-display);
-  --color-primary: #15151A;
-  --color-secondary: #656873;
-  --color-muted: #858692;
   --color-surface: var(--surface);
-  --color-surface-secondary: var(--surface-secondary);
-  --color-surface-lavender: var(--surface-lavender);
-  --color-surface-blue: var(--surface-blue);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-accent: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
-  --color-accent-blue: var(--accent-blue);
+  --color-accent-hover: var(--accent-hover);
   --color-success: var(--success);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted-text);
+  --color-very-muted: var(--very-muted);
 
   --animate-marquee: marquee 35s linear infinite;
 }
@@ -42,11 +52,35 @@
   100% { transform: translateX(-50%); }
 }
 
+@layer utilities {
+  .premium-card {
+    background: linear-gradient(145deg, rgba(37,47,55,0.92), rgba(27,35,42,0.96));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+  .premium-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(228,87,63,0.35);
+    box-shadow: 0 20px 60px rgba(228,87,63,0.08);
+  }
+  .ambient-bg {
+    background-color: var(--background);
+    background-image: 
+      radial-gradient(circle at 20% 10%, rgba(228,87,63,0.08), transparent 35%),
+      radial-gradient(circle at 80% 30%, rgba(255,122,89,0.05), transparent 30%);
+  }
+}
+
 @layer base {
   body {
     background-color: var(--background);
+    background-image: 
+      radial-gradient(circle at 20% 10%, rgba(228,87,63,0.08), transparent 35%),
+      radial-gradient(circle at 80% 30%, rgba(255,122,89,0.05), transparent 30%);
     color: var(--foreground);
-    font-family: var(--font-manrope), sans-serif;
+    font-family: var(--font-inter), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
