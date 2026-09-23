@@ -99,23 +99,23 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium">Name</label>
-                      <input required name="name" type="text" id="name" className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="John Doe" />
+                      <input required name="name" type="text" id="name" className="w-full glass-input rounded-xl px-4 py-3 transition-colors" placeholder="John Doe" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">Email</label>
-                      <input required name="email" type="email" id="email" className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="john@company.com" />
+                      <input required name="email" type="email" id="email" className="w-full glass-input rounded-xl px-4 py-3 transition-colors" placeholder="john@company.com" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium">Company</label>
-                    <input type="text" name="company" id="company" className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="Company Name" />
+                    <input type="text" name="company" id="company" className="w-full glass-input rounded-xl px-4 py-3 transition-colors" placeholder="Company Name" />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="type" className="text-sm font-medium">Project Type</label>
-                      <select required name="type" id="type" className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors appearance-none">
+                      <select required name="type" id="type" className="w-full glass-input rounded-xl px-4 py-3 transition-colors appearance-none">
                         <option value="">Select type...</option>
                         <option value="website">Website</option>
                         <option value="ecommerce">E-commerce</option>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="budget" className="text-sm font-medium">Budget Range</label>
-                      <select required name="budget" id="budget" className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors appearance-none">
+                      <select required name="budget" id="budget" className="w-full glass-input rounded-xl px-4 py-3 transition-colors appearance-none">
                         <option value="">Select budget...</option>
                         <option value="25-50">₹25k – ₹50k</option>
                         <option value="50-100">₹50k – ₹1L</option>
@@ -137,7 +137,7 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <label htmlFor="description" className="text-sm font-medium">Project Description</label>
-                    <textarea required name="description" id="description" rows={5} className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none" placeholder="Tell us what you're trying to achieve..."></textarea>
+                    <textarea required name="description" id="description" rows={5} className="w-full glass-input rounded-xl px-4 py-3 transition-colors resize-none" placeholder="Tell us what you're trying to achieve..."></textarea>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full group">

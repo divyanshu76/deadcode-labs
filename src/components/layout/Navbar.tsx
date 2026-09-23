@@ -120,14 +120,14 @@ export function Navbar() {
             className={cn(
               "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-350 ease-out w-full",
               isScrolled 
-                ? "bg-[#11161B]/72 backdrop-blur-[20px] border border-white/10 shadow-sm px-6 h-[62px] rounded-[20px]" 
-                : "bg-transparent px-3 h-[70px] rounded-[20px]"
+                ? "glass-elevated px-6 h-[62px]" 
+                : "bg-transparent px-3 h-[70px] rounded-[24px]"
             )}
           >
             <div className="flex items-center shrink-0">
-              <Link href="/" className="font-bold text-[17px] tracking-tight text-foreground outline-none">
-                DEADCODE<span className="text-accent">.</span>
-                <span className="text-secondary/80 text-[14px]">LABS</span>
+              <Link href="/" className="font-bold text-[17px] tracking-tight text-[#3B2A21] outline-none">
+                DEADCODE<span className="text-[#C96F3D]">.</span>
+                <span className="text-[#927E6E] text-[14px]">LABS</span>
               </Link>
             </div>
 
@@ -147,7 +147,7 @@ export function Navbar() {
                       label={link.name}
                       className={cn(
                         "font-medium text-[14px] transition-colors duration-300",
-                        isExactActive ? "text-foreground font-semibold" : "text-secondary hover:text-foreground"
+                        isExactActive ? "text-[#3B2A21] font-semibold" : "text-[#6D5A4B] hover:text-[#3B2A21]"
                       )}
                       staggerDuration={0.02}
                       transition={{ duration: 0.5, type: "spring" }}
@@ -155,7 +155,7 @@ export function Navbar() {
                     {isExactActive && (
                       <motion.div 
                         layoutId="nav-active-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C96F3D]"
                       />
                     )}
                   </Link>
@@ -170,7 +170,7 @@ export function Navbar() {
                   <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-success opacity-40 duration-[3000ms]"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 m-auto bg-success"></span>
                 </span>
-                <span className="text-[12.5px] text-secondary font-medium tracking-tight">Available for selected projects</span>
+                <span className="text-[12.5px] text-[#6D5A4B] font-medium tracking-tight">Available for selected projects</span>
               </div>
               <Link href="/#start-project" onClick={(e) => handleNavClick(e, "/#start-project")} className="outline-none">
                 <Button 
@@ -193,20 +193,20 @@ export function Navbar() {
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
             isScrolled || mobileMenuOpen
-              ? "bg-[#11161B]/90 backdrop-blur-[20px] border border-white/10 shadow-sm px-4 h-[56px] rounded-[16px] flex items-center"
+              ? "bg-white/55 backdrop-blur-[20px] border border-white/65 shadow-[0_8px_28px_rgba(83,58,39,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
               : "bg-transparent px-2 h-[60px] flex items-center"
           )}
         >
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
-              <Link href="/" className="font-bold text-lg tracking-tight text-foreground outline-none" onClick={() => setMobileMenuOpen(false)}>
-                DEADCODE<span className="text-accent">.</span>LABS
+              <Link href="/" className="font-bold text-lg tracking-tight text-[#3B2A21] outline-none" onClick={() => setMobileMenuOpen(false)}>
+                DEADCODE<span className="text-[#C96F3D]">.</span>LABS
               </Link>
             </div>
 
             {/* Mobile Menu Toggle Button */}
             <button
-              className="p-2 -mr-1 text-foreground relative z-[220] outline-none min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/5"
+              className="p-2 -mr-1 text-[#3B2A21] relative z-[220] outline-none min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}

@@ -7,6 +7,7 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { Preloader } from "@/components/ui/Preloader";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { BackgroundSpheres } from "@/components/ui/BackgroundSpheres";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -67,7 +68,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${dmSerifDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col ambient-bg text-foreground relative">
+        <BackgroundSpheres />
         <CustomCursor />
         <Preloader />
         <Navbar />

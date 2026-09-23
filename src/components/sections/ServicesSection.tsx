@@ -52,7 +52,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-16 md:py-28 bg-background border-t border-border">
+    <section id="services" className="py-16 md:py-28 relative z-10">
       <Container>
         <div className="mb-10 md:mb-16 max-w-3xl">
           <motion.div
@@ -61,12 +61,12 @@ export function ServicesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-3">
+            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-3">
               CAPABILITIES & EXPERTISE
             </span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1]">
               Everything digital. <br />
-              <span className="italic font-normal text-accent font-display">Engineered</span> properly.
+              <span className="italic font-normal text-[#C96F3D] font-display">Engineered</span> properly.
             </h2>
           </motion.div>
         </div>
@@ -93,20 +93,20 @@ export function ServicesSection() {
 
                 <div>
                   <div className="flex items-center justify-between mb-3 md:mb-5">
-                    <div className="w-[36px] h-[36px] md:w-[44px] md:h-[44px] rounded-lg bg-white/5 flex items-center justify-center text-foreground group-hover:bg-accent/10 group-hover:text-accent transition-colors">
+                    <div className="w-[36px] h-[36px] md:w-[44px] md:h-[44px] rounded-[14px] glass-pill flex items-center justify-center text-[#3B2A21] group-hover:bg-[#C96F3D]/12 group-hover:text-[#C96F3D] transition-colors">
                       <Icon size={20} className="md:hidden" strokeWidth={1.75} />
                       <Icon size={22} className="hidden md:block" strokeWidth={1.75} />
                     </div>
-                    <span className="font-mono text-[12px] md:text-sm text-secondary font-semibold">
+                    <span className="font-mono text-[12px] md:text-sm text-[#927E6E] font-semibold">
                       {service.number}
                     </span>
                   </div>
 
-                  <h3 className="text-[17px] md:text-xl font-bold text-foreground tracking-tight mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-[17px] md:text-xl font-bold text-[#3B2A21] tracking-tight mb-2 group-hover:text-[#C96F3D] transition-colors">
                     {service.title}
                   </h3>
 
-                  <p className="text-[14.5px] md:text-[15px] text-secondary leading-relaxed line-clamp-2 md:line-clamp-3 mb-4">
+                  <p className="text-[14.5px] md:text-[15px] text-[#6D5A4B] leading-relaxed line-clamp-2 md:line-clamp-3 mb-4">
                     {service.description}
                   </p>
                 </div>
@@ -114,12 +114,12 @@ export function ServicesSection() {
                 <div className="pt-3 border-t border-border/50 flex items-center justify-between">
                   <div className="hidden sm:flex gap-1.5">
                     {service.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#11161B] border border-white/10 text-secondary">
+                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded glass-pill text-[#6D5A4B]">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center text-xs font-semibold text-accent group-hover:translate-x-0.5 transition-transform">
+                  <div className="flex items-center text-xs font-semibold text-[#C96F3D] group-hover:translate-x-0.5 transition-transform">
                     Explore <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </div>
                 </div>

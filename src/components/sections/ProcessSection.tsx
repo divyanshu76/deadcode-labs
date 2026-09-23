@@ -45,21 +45,21 @@ const timeline = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="py-14 md:py-24 bg-surface border-t border-border overflow-hidden">
+    <section id="process" className="py-14 md:py-24 relative z-10 border-t border-white/50 overflow-hidden">
       <Container>
         <div className="max-w-3xl mb-10 md:mb-16">
-          <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-2">
+          <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-2">
             METHODOLOGY
           </span>
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-3"
+            className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1] mb-3"
           >
             The execution flow.
           </motion.h2>
-          <p className="text-sm md:text-base text-secondary max-w-xl leading-relaxed">
+          <p className="text-sm md:text-base text-[#6D5A4B] max-w-xl leading-relaxed">
             We follow an engineering-first sprint methodology ensuring predictable velocity, zero communication friction, and exceptional delivery standards.
           </p>
         </div>
@@ -68,14 +68,14 @@ export function ProcessSection() {
         <div className="relative">
           {/* Desktop Horizontal Timeline */}
           <div className="hidden lg:block relative">
-            <div className="absolute top-[2.75rem] left-0 right-0 h-[2px] bg-border/60"></div>
+            <div className="absolute top-[2.75rem] left-0 right-0 h-[2px] bg-white/50"></div>
             <div className="absolute top-[2.75rem] left-0 right-0 h-[2px] overflow-hidden">
               <motion.div 
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
-                className="absolute inset-y-0 left-0 bg-accent"
+                className="absolute inset-y-0 left-0 bg-[#C96F3D]"
               />
             </div>
             
@@ -91,12 +91,12 @@ export function ProcessSection() {
                     transition={{ delay: 0.2 + (index * 0.08) }}
                     className="relative group pr-2"
                   >
-                    <div className="w-20 h-20 rounded-full bg-background border-2 border-border flex flex-col items-center justify-center font-mono text-xs font-bold mb-6 relative z-10 transition-all duration-300 group-hover:border-accent group-hover:scale-105 shadow-sm">
-                      <Icon className="w-5 h-5 mb-1 text-secondary group-hover:text-accent transition-colors" />
-                      <span className="text-secondary group-hover:text-foreground transition-colors">{item.step}</span>
+                    <div className="w-20 h-20 rounded-full glass-panel border border-[rgba(255,255,255,0.70)] flex flex-col items-center justify-center font-mono text-xs font-bold mb-6 relative z-10 transition-all duration-300 group-hover:border-[#C96F3D] group-hover:bg-[rgba(255,255,255,0.60)] group-hover:scale-105">
+                      <Icon className="w-5 h-5 mb-1 text-[#927E6E] group-hover:text-[#C96F3D] transition-colors" />
+                      <span className="text-[#927E6E] group-hover:text-[#3B2A21] transition-colors">{item.step}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-1.5 tracking-tight">{item.title}</h3>
-                    <p className="text-xs text-secondary leading-relaxed">
+                    <h3 className="text-lg font-bold text-[#3B2A21] mb-1.5 tracking-tight">{item.title}</h3>
+                    <p className="text-xs text-[#6D5A4B] leading-relaxed">
                       {item.description}
                     </p>
                   </motion.div>
@@ -121,22 +121,22 @@ export function ProcessSection() {
                 >
                   <div className="flex items-start gap-3.5 py-4">
                     {/* Step circle */}
-                    <div className="w-10 h-10 shrink-0 rounded-full bg-background border border-border flex items-center justify-center group-hover:border-accent transition-colors">
-                      <Icon className="w-4 h-4 text-secondary group-hover:text-accent transition-colors" />
+                    <div className="w-10 h-10 shrink-0 rounded-full glass-panel border border-[rgba(255,255,255,0.70)] flex items-center justify-center group-hover:border-[#C96F3D] group-hover:bg-[rgba(255,255,255,0.60)] transition-colors">
+                      <Icon className="w-4 h-4 text-[#927E6E] group-hover:text-[#C96F3D] transition-colors" />
                     </div>
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline gap-2 mb-1">
-                        <span className="text-accent font-mono text-[11px] font-bold">{item.step}</span>
-                        <h3 className="text-base font-bold tracking-tight text-foreground">{item.title}</h3>
+                        <span className="text-[#C96F3D] font-mono text-[11px] font-bold">{item.step}</span>
+                        <h3 className="text-base font-bold tracking-tight text-[#3B2A21]">{item.title}</h3>
                       </div>
-                      <p className="text-xs text-secondary leading-relaxed">
+                      <p className="text-xs text-[#6D5A4B] leading-relaxed">
                         {item.description}
                       </p>
                     </div>
                   </div>
                   {!isLast && (
-                    <div className="h-[1px] bg-border/50 ml-[52px]" />
+                    <div className="h-[1px] bg-white/50 ml-[52px]" />
                   )}
                 </motion.div>
               );

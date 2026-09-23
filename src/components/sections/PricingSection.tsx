@@ -63,7 +63,7 @@ export function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-16 md:py-28 bg-background border-t border-border overflow-hidden">
+    <section id="pricing" className="py-16 md:py-28 relative z-10 border-t border-white/50 overflow-hidden">
       <Container>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
@@ -73,14 +73,14 @@ export function PricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-secondary font-semibold block mb-3">
+            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#927E6E] font-semibold block mb-3">
               ENGAGEMENT MODELS
             </span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1] mb-4">
               Clear frameworks. <br />
-              <span className="italic font-normal text-accent font-display">No</span> guesswork.
+              <span className="italic font-normal text-[#C96F3D] font-display">No</span> guesswork.
             </h2>
-            <p className="text-base md:text-lg text-secondary leading-relaxed">
+            <p className="text-base md:text-lg text-[#6D5A4B] leading-relaxed">
               Transparent, fixed-scope sprints and ongoing advisory. Every tier delivers production-ready engineering with zero bloat.
             </p>
           </motion.div>
@@ -97,38 +97,38 @@ export function PricingSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1, duration: 0.4, ease: "easeOut" }}
               className={cn(
-                "relative p-8 flex flex-col justify-between premium-card transition-all duration-300 shadow-xl",
+                "relative p-8 flex flex-col justify-between transition-all duration-300 shadow-xl rounded-[24px]",
                 pkg.highlighted
-                  ? "border-accent/40 ring-1 ring-accent/30"
-                  : ""
+                  ? "glass-elevated border-[#C96F3D]/40 ring-1 ring-[#C96F3D]/25 shadow-[0_30px_80px_rgba(201,111,61,0.15)] -translate-y-2"
+                  : "glass-panel hover:-translate-y-1"
               )}
             >
               {pkg.highlighted && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/15 text-accent text-[11px] font-mono tracking-wider uppercase font-semibold self-start mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C96F3D]/12 text-[#C96F3D] text-[11px] font-mono tracking-wider uppercase font-semibold self-start mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C96F3D]" />
                   Most Popular
                 </div>
               )}
 
               <div>
-                <h3 className="font-display text-2xl font-bold text-foreground mb-1">
+                <h3 className="font-display text-2xl font-bold text-[#3B2A21] mb-1">
                   {pkg.name}
                 </h3>
-                <p className="text-xs font-mono text-secondary mb-4">
+                <p className="text-xs font-mono text-[#927E6E] mb-4">
                   {pkg.tagline}
                 </p>
-                <div className="font-mono text-xl font-bold text-foreground pb-5 mb-5 border-b border-border/60">
+                <div className="font-mono text-xl font-bold text-[#3B2A21] pb-5 mb-5 border-b border-white/50">
                   {pkg.price}
                 </div>
 
                 <div className="space-y-3 mb-6">
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-secondary font-semibold block">
+                  <span className="text-[11px] font-mono tracking-wider uppercase text-[#927E6E] font-semibold block">
                     Key Inclusions
                   </span>
                   <ul className="space-y-2.5">
                     {pkg.inclusions.map((item, i) => (
-                      <li key={i} className="flex items-start text-[14px] text-secondary">
-                        <span className="shrink-0 mr-2.5 mt-0.5 text-accent font-medium">—</span>
+                      <li key={i} className="flex items-start text-[14px] text-[#6D5A4B]">
+                        <span className="shrink-0 mr-2.5 mt-0.5 text-[#C96F3D] font-medium">—</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -136,8 +136,8 @@ export function PricingSection() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-border/50">
-                <span className="text-xs font-mono text-secondary block mb-3">
+              <div className="pt-4 border-t border-white/50">
+                <span className="text-xs font-mono text-[#927E6E] block mb-3">
                   Est: {pkg.timeline}
                 </span>
                 <Button
@@ -171,42 +171,42 @@ export function PricingSection() {
               <div
                 key={pkg.name}
                 className={cn(
-                  "w-[90vw] max-w-[340px] snap-center shrink-0 flex flex-col justify-between p-6 premium-card transition-all",
+                  "w-[90vw] max-w-[340px] snap-center shrink-0 flex flex-col justify-between p-6 transition-all rounded-[24px]",
                   pkg.highlighted
-                    ? "border-accent/40 ring-1 ring-accent/30"
-                    : ""
+                    ? "glass-elevated border-[#C96F3D]/40 ring-1 ring-[#C96F3D]/25 shadow-[0_30px_80px_rgba(201,111,61,0.15)]"
+                    : "glass-panel"
                 )}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-display text-2xl font-bold text-foreground">
+                    <h3 className="font-display text-2xl font-bold text-[#3B2A21]">
                       {pkg.name}
                     </h3>
                     {pkg.highlighted && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-mono tracking-wider uppercase font-semibold">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#C96F3D]/12 text-[#C96F3D] text-[10px] font-mono tracking-wider uppercase font-semibold">
                         Featured
                       </span>
                     )}
                   </div>
-                  <p className="text-xs font-mono text-secondary mb-3">
+                  <p className="text-xs font-mono text-[#927E6E] mb-3">
                     {pkg.tagline}
                   </p>
-                  <div className="font-mono text-lg font-bold text-foreground pb-3 mb-4 border-b border-border/60">
+                  <div className="font-mono text-lg font-bold text-[#3B2A21] pb-3 mb-4 border-b border-white/50">
                     {pkg.price}
                   </div>
 
                   <ul className="space-y-2 mb-4">
                     {pkg.inclusions.map((item, i) => (
-                      <li key={i} className="flex items-start text-[13px] text-secondary">
-                        <span className="shrink-0 mr-2 text-accent font-medium">—</span>
+                      <li key={i} className="flex items-start text-[13px] text-[#6D5A4B]">
+                        <span className="shrink-0 mr-2 text-[#C96F3D] font-medium">—</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-3 border-t border-border/50">
-                  <span className="text-[11px] font-mono text-secondary block mb-2.5">
+                <div className="pt-3 border-t border-white/50">
+                  <span className="text-[11px] font-mono text-[#927E6E] block mb-2.5">
                     {pkg.timeline}
                   </span>
                   <Button
@@ -235,12 +235,12 @@ export function PricingSection() {
                 key={i}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
-                  activeSnapIndex === i ? "w-6 bg-accent" : "w-1.5 bg-border"
+                  activeSnapIndex === i ? "w-6 bg-[#C96F3D]" : "w-1.5 bg-white/50"
                 )}
               />
             ))}
           </div>
-          <p className="text-center text-[11px] font-mono text-secondary/70 mt-2">
+          <p className="text-center text-[11px] font-mono text-[#927E6E]/70 mt-2">
             Swipe horizontally to compare engagement models
           </p>
         </div>

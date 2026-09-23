@@ -14,21 +14,21 @@ export function WhyUsBento() {
         <motion.div
           whileHover="hover"
           whileTap="hover"
-          className="md:col-span-2 group relative overflow-hidden bg-[#252F37] border border-white/10 rounded-[20px] p-6 md:p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:bg-[#2B363F] hover:shadow-2xl hover:border-[#E4573F]/40 hover:-translate-y-1"
+          className="md:col-span-2 group relative overflow-hidden premium-card p-6 md:p-8 flex flex-col justify-between"
         >
           <div className="absolute -bottom-10 -right-10 text-[180px] font-display font-bold text-white/[0.03] leading-none pointer-events-none select-none">
             01
           </div>
           
           <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-            <div className="w-12 h-12 rounded-xl bg-[#1B232A] flex items-center justify-center border border-white/5 transition-colors group-hover:border-[#E4573F]/30">
-              <Code2 className="text-[#E4573F] w-6 h-6" />
+            <div className="w-12 h-12 rounded-xl bg-white/55 flex items-center justify-center border border-white/65 transition-colors group-hover:border-[#C96F3D]/50 shadow-[0_4px_12px_rgba(83,58,39,0.06)]">
+              <Code2 className="text-[#C96F3D] w-6 h-6" />
             </div>
             
             <div>
               <div className="relative overflow-hidden mb-3 font-display text-2xl md:text-3xl font-bold h-10 flex items-center">
                 {/* Default Text Layer */}
-                <div className="absolute inset-0 flex text-[#F5F1EC]">
+                <div className="absolute inset-0 flex text-[#3B2A21]">
                   {"AI & Automation".split("").map((char, index) => (
                     <motion.span
                       key={`default-${index}`}
@@ -41,7 +41,7 @@ export function WhyUsBento() {
                   ))}
                 </div>
                 {/* Hover Text Layer (Copper) */}
-                <div className="absolute inset-0 flex text-[#E4573F]">
+                <div className="absolute inset-0 flex text-[#C96F3D]">
                   {"AI & Automation".split("").map((char, index) => (
                     <motion.span
                       key={`hover-${index}`}
@@ -55,7 +55,7 @@ export function WhyUsBento() {
                   ))}
                 </div>
               </div>
-              <p className="text-[#B8C0C7] text-sm md:text-base leading-relaxed max-w-xl relative z-20">
+              <p className="text-[#6D5A4B] text-sm md:text-base leading-relaxed max-w-xl relative z-20">
                 We build AI agents and intelligent workflows that automate repetitive operations, connect your systems, and create measurable leverage for your business.
               </p>
             </div>
@@ -66,7 +66,7 @@ export function WhyUsBento() {
         <motion.div
           whileHover="hover"
           whileTap="hover"
-          className="md:col-span-1 md:row-span-2 group relative overflow-hidden bg-[#252F37] border border-white/10 rounded-[20px] p-6 md:p-8 flex flex-col shadow-xl transition-all duration-300 hover:bg-[#2B363F] hover:shadow-2xl hover:border-[#E4573F]/40 hover:-translate-y-1"
+          className="md:col-span-1 md:row-span-2 group relative overflow-hidden premium-card p-6 md:p-8 flex flex-col"
         >
           <div className="absolute top-10 right-10 text-[140px] font-display font-bold text-white/[0.03] leading-none pointer-events-none select-none">
             02
@@ -74,10 +74,10 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full">
             <div>
-              <h3 className="font-display text-xl font-bold text-[#F5F1EC] mb-3 group-hover:text-[#E4573F] transition-colors">
+              <h3 className="font-display text-xl font-bold text-[#3B2A21] mb-3 group-hover:text-[#C96F3D] transition-colors">
                 From Idea to Production
               </h3>
-              <p className="text-[#B8C0C7] text-sm leading-relaxed mb-6">
+              <p className="text-[#6D5A4B] text-sm leading-relaxed mb-6">
                 Bring us the idea. We shape the architecture, build the product, deploy it, and stay involved through launch and iteration.
               </p>
             </div>
@@ -90,35 +90,35 @@ export function WhyUsBento() {
                   initial={{ x: -8, y: 8, rotateZ: -10 }}
                   variants={{ hover: { x: -15, y: 10, rotateZ: -16 } }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute w-full h-full bg-[#11161B] border border-white/5 rounded-2xl shadow-lg z-0"
+                  className="absolute w-full h-full glass-soft rounded-2xl shadow-lg z-0"
                 />
                 {/* Second Card */}
                 <motion.div
                   initial={{ x: -5, y: 5, rotateZ: -6 }}
                   variants={{ hover: { x: -10, y: 7, rotateZ: -11 } }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute w-full h-full bg-[#151C22] border border-white/5 rounded-2xl shadow-lg z-10"
+                  className="absolute w-full h-full glass-panel rounded-2xl shadow-lg z-10"
                 />
                 {/* Third Card */}
                 <motion.div
                   initial={{ x: -2, y: 2, rotateZ: -3 }}
                   variants={{ hover: { x: -5, y: 4, rotateZ: -6 } }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute w-full h-full bg-[#1B232A] border border-white/10 rounded-2xl shadow-lg z-20"
+                  className="absolute w-full h-full glass-elevated rounded-2xl shadow-lg z-20"
                 />
                 {/* Front Card */}
                 <motion.div
                   initial={{ x: 0, y: 0, rotateZ: 0 }}
                   variants={{ hover: { y: -5, scale: 1.02 } }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute w-full h-full bg-[#F5F1EC] rounded-2xl shadow-2xl z-30 p-5 flex flex-col justify-between"
+                  className="absolute w-full h-full glass-panel rounded-2xl shadow-2xl z-30 p-5 flex flex-col justify-between"
                 >
                   <div className="font-mono text-[14px] font-bold text-[#11161B] space-y-2 mt-1">
                     <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#E4573F]"/> Idea.</div>
                     <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#E4573F]"/> Architecture.</div>
                     <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-[#E4573F]"/> Production.</div>
                   </div>
-                  <div className="text-[10px] font-mono font-bold text-[#E4573F] mt-auto">
+                  <div className="text-[10px] font-mono font-bold text-[#C96F3D] mt-auto">
                     {">"} READY TO EXECUTE <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>_</motion.span>
                   </div>
                 </motion.div>
@@ -131,7 +131,7 @@ export function WhyUsBento() {
         <motion.div
           whileHover="hover"
           whileTap="hover"
-          className="md:col-span-1 group relative overflow-hidden bg-[#252F37] border border-white/10 rounded-[20px] p-6 shadow-xl transition-all duration-300 hover:bg-[#2B363F] hover:shadow-2xl hover:border-[#E4573F]/40 hover:-translate-y-1"
+          className="md:col-span-1 group relative overflow-hidden premium-card p-6"
         >
           <div className="absolute -bottom-8 -right-4 text-[120px] font-display font-bold text-white/[0.03] leading-none pointer-events-none select-none">
             03
@@ -139,10 +139,10 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full justify-between">
             <div className="mb-8">
-              <h3 className="font-display text-xl font-bold text-[#F5F1EC] mb-2 group-hover:text-[#E4573F] transition-colors">
+              <h3 className="font-display text-xl font-bold text-[#3B2A21] mb-2 group-hover:text-[#C96F3D] transition-colors">
                 Built by Experienced Engineers
               </h3>
-              <p className="text-[#B8C0C7] text-sm leading-relaxed line-clamp-3">
+              <p className="text-[#6D5A4B] text-sm leading-relaxed line-clamp-3">
                 Work directly with experienced engineers across frontend, backend, AI, automation, and product engineering from kickoff to launch.
               </p>
             </div>
@@ -184,7 +184,7 @@ export function WhyUsBento() {
         <motion.div
           whileHover="hover"
           whileTap="hover"
-          className="md:col-span-1 group relative overflow-hidden bg-[#252F37] border border-white/10 rounded-[20px] p-6 shadow-xl transition-all duration-300 hover:bg-[#2B363F] hover:shadow-2xl hover:border-[#E4573F]/40 hover:-translate-y-1"
+          className="md:col-span-1 group relative overflow-hidden premium-card p-6"
         >
           <div className="absolute -bottom-8 -right-4 text-[120px] font-display font-bold text-white/[0.03] leading-none pointer-events-none select-none">
             04
@@ -192,10 +192,10 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full justify-between">
             <div className="mb-8">
-              <h3 className="font-display text-xl font-bold text-[#F5F1EC] mb-2 group-hover:text-[#E4573F] transition-colors">
+              <h3 className="font-display text-xl font-bold text-[#3B2A21] mb-2 group-hover:text-[#C96F3D] transition-colors">
                 No Handoffs
               </h3>
-              <p className="text-[#B8C0C7] text-sm leading-relaxed line-clamp-3">
+              <p className="text-[#6D5A4B] text-sm leading-relaxed line-clamp-3">
                 One focused team from strategy through deployment. No unnecessary handoffs, no rotating teams, and no communication gaps.
               </p>
             </div>
@@ -203,8 +203,8 @@ export function WhyUsBento() {
             {/* Pipeline Animation */}
             <div className="flex items-center justify-between text-[#87919A] mt-auto pt-4 relative w-full">
               <motion.div 
-                variants={{ hover: { backgroundColor: "rgba(228, 87, 63, 0.4)" } }}
-                className="absolute top-[30px] left-2 right-2 h-[1px] bg-white/5 transition-colors" 
+                variants={{ hover: { backgroundColor: "rgba(201, 111, 61, 0.25)" } }}
+                className="absolute top-[30px] left-2 right-2 h-[1px] bg-white/40 transition-colors" 
               />
               {[
                 { icon: Phone, label: "CALL" },
@@ -213,7 +213,7 @@ export function WhyUsBento() {
                 { icon: ArrowRight, label: "DEPLOY" },
                 { icon: Rocket, label: "LAUNCH", isEnd: true },
               ].map((step, i) => (
-                <div key={step.label} className="flex flex-col items-center gap-1.5 relative z-10 bg-[#252F37] px-0.5 sm:px-1 group-hover:bg-[#2B363F] transition-colors">
+                <div key={step.label} className="flex flex-col items-center gap-1.5 relative z-10 bg-white/45 backdrop-blur-[10px] px-0.5 sm:px-1 group-hover:bg-white/58 transition-colors rounded">
                   <div className="relative w-8 h-8 flex items-center justify-center">
                     {step.isEnd && (
                       <motion.div
@@ -226,18 +226,18 @@ export function WhyUsBento() {
                     )}
                     <motion.div
                       variants={{
-                        hover: step.isEnd ? { color: "#E4573F", borderColor: "rgba(228,87,63,0.5)" } : { color: "#F5F1EC", borderColor: "rgba(255,255,255,0.2)" }
+                        hover: step.isEnd ? { color: "#C96F3D", borderColor: "rgba(201,111,61,0.5)" } : { color: "#3B2A21", borderColor: "rgba(255,255,255,0.4)" }
                       }}
-                      className="bg-[#1B232A] w-[22px] h-[22px] md:w-7 md:h-7 rounded-full flex items-center justify-center border border-white/5 relative z-10 transition-colors"
+                      className="bg-white/55 w-[22px] h-[22px] md:w-7 md:h-7 rounded-full flex items-center justify-center border border-white/65 relative z-10 transition-colors"
                     >
                       <step.icon className="w-3 h-3 md:w-3.5 md:h-3.5" />
                     </motion.div>
                   </div>
                   <motion.span 
                     variants={{
-                      hover: step.isEnd ? { color: "#E4573F" } : { color: "#F5F1EC" }
+                      hover: step.isEnd ? { color: "#C96F3D" } : { color: "#3B2A21" }
                     }}
-                    className="text-[8px] md:text-[9px] font-mono font-semibold tracking-widest text-[#87919A] transition-colors"
+                    className="text-[8px] md:text-[9px] font-mono font-semibold tracking-widest text-[#927E6E] transition-colors"
                   >
                     {step.label}
                   </motion.span>
@@ -251,17 +251,17 @@ export function WhyUsBento() {
         <motion.div
           whileHover="hover"
           whileTap="hover"
-          className="md:col-span-3 group relative overflow-hidden bg-[#252F37] border border-white/10 rounded-[20px] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between shadow-xl transition-all duration-300 hover:bg-[#2B363F] hover:shadow-2xl hover:border-[#E4573F]/40 hover:-translate-y-1"
+          className="md:col-span-3 group relative overflow-hidden premium-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between"
         >
           <div className="absolute -top-10 -left-6 text-[220px] font-display font-bold text-white/[0.03] leading-none pointer-events-none select-none">
             05
           </div>
           
           <div className="relative z-10 md:w-5/12 flex flex-col mb-10 md:mb-0">
-            <h3 className="font-display text-2xl font-bold text-[#F5F1EC] mb-3 group-hover:text-[#E4573F] transition-colors">
+            <h3 className="font-display text-2xl font-bold text-[#3B2A21] mb-3 group-hover:text-[#C96F3D] transition-colors">
               Deep Engineering
             </h3>
-            <p className="text-[#B8C0C7] text-sm md:text-base leading-relaxed max-w-md">
+            <p className="text-[#6D5A4B] text-sm md:text-base leading-relaxed max-w-md">
               Web, e-commerce, AI, automation, SaaS, APIs, and complex digital systems — engineered as one cohesive product.
             </p>
           </div>

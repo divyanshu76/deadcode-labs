@@ -17,7 +17,7 @@ const technologies = [
 
 export function FounderSection() {
   return (
-    <section id="about" className="py-16 md:py-28 lg:py-36 bg-[#151C22] border-t border-white/10 overflow-hidden">
+    <section id="about" className="py-16 md:py-28 lg:py-36 relative z-10 border-t border-white/50 overflow-hidden">
       <Container>
         {/* DESKTOP LAYOUT (>= 1024px) */}
         <div className="hidden lg:grid lg:grid-cols-12 gap-16 items-start">
@@ -29,18 +29,18 @@ export function FounderSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-4">
+              <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-4">
                 ABOUT DEADCODE LABS
               </span>
-              <h2 className="font-display text-6xl xl:text-7xl font-bold tracking-tight mb-8 leading-[1.05] text-foreground">
+              <h2 className="font-display text-6xl xl:text-7xl font-bold tracking-tight mb-8 leading-[1.05] text-[#3B2A21]">
                 Engineering <br />
-                <span className="italic font-normal text-accent font-display">meets</span> <br />
+                <span className="italic font-normal text-[#C96F3D] font-display">meets</span> <br />
                 aesthetics.
               </h2>
 
-              <div className="space-y-5 text-base xl:text-lg text-secondary leading-relaxed mb-10 max-w-xl">
+              <div className="space-y-5 text-base xl:text-lg text-[#6D5A4B] leading-relaxed mb-10 max-w-xl">
                 <p>
-                  DEADCODE LABS is founded and led by <strong className="text-foreground font-semibold">Divyanshu Verma</strong>, a software engineer and digital product designer obsessed with craftsmanship, speed, and architectural clarity.
+                  DEADCODE LABS is founded and led by <strong className="text-[#3B2A21] font-semibold">Divyanshu Verma</strong>, a software engineer and digital product designer obsessed with craftsmanship, speed, and architectural clarity.
                 </p>
                 <p>
                   We operate as a boutique engineering studio. There are no layers of account managers, no offshore junior handoffs, and zero generic boilerplate templates. Every digital product, website, and system is tailored directly to your commercial ambitions.
@@ -67,18 +67,18 @@ export function FounderSection() {
               </div>
 
               {/* Technology Stack Grid in Left Column */}
-              <div className="pt-8 border-t border-white/10 max-w-xl">
+              <div className="pt-8 border-t border-white/40 max-w-xl">
                 <div className="flex items-center justify-between mb-5">
-                  <h4 className="font-mono text-xs tracking-widest uppercase text-foreground font-semibold">
+                  <h4 className="font-mono text-xs tracking-widest uppercase text-[#3B2A21] font-semibold">
                     Core Technical Foundation
                   </h4>
-                  <span className="text-xs text-secondary font-mono">Modern Production Stack</span>
+                  <span className="text-xs text-[#927E6E] font-mono">Modern Production Stack</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {technologies.map((tech) => (
                     <div
                       key={tech.id}
-                      className="p-3.5 rounded-xl bg-[#11161B]/80 border border-white/10 hover:border-accent/40 transition-colors group"
+                      className="p-3.5 rounded-xl glass-panel hover:border-[#C96F3D]/40 transition-colors group"
                     >
                       <span className="font-mono text-[10px] text-secondary/60 block mb-1">
                         {tech.id}
@@ -113,33 +113,31 @@ export function FounderSection() {
                   whileHover={{ scale: 1.01 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.5)] bg-[#11161B]"
+                  className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden glass-crystal p-2"
                 >
                 <Image
                   src="/images/founder.jpg"
                   alt="Divyanshu Verma — Founder & Software Engineer at DEADCODE LABS"
                   fill
                   sizes="(min-width: 1024px) 38vw, 90vw"
-                  className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                  className="object-cover object-center rounded-xl transition-transform duration-700 hover:scale-[1.02]"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#11161B] via-[#11161B]/20 to-transparent pointer-events-none opacity-80" />
-                
-                {/* Overlay Badge */}
-                <div className="absolute bottom-5 left-5 right-5 text-white pointer-events-none">
+                {/* Overlay Badge - changed to subtle glass metadata */}
+                <div className="absolute bottom-5 left-5 right-5 pointer-events-none glass-panel p-3 rounded-xl border border-white/40 shadow-[0_8px_16px_rgba(0,0,0,0.1)]">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-accent" />
-                    <span className="font-mono text-[11px] tracking-widest uppercase text-white/80 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-[#C96F3D]" />
+                    <span className="font-mono text-[10px] tracking-widest uppercase text-[#3B2A21] font-semibold">
                       Studio Principal
                     </span>
                   </div>
-                  <h3 className="font-display text-2xl font-bold tracking-tight">Divyanshu Verma</h3>
+                  <h3 className="font-display text-xl font-bold tracking-tight text-[#3B2A21]">Divyanshu Verma</h3>
                 </div>
                 </motion.div>
               </div>
 
               {/* Founder Identity & Experience Block */}
-              <div className="p-6 rounded-xl bg-[#11161B] border border-white/10 flex items-center justify-between">
+              <div className="p-6 rounded-xl glass-panel flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-foreground text-sm tracking-tight">Divyanshu Verma</h4>
                   <p className="text-xs text-secondary mt-0.5">
@@ -190,25 +188,25 @@ export function FounderSection() {
           </p>
 
           {/* 3. Founder portrait */}
-          <div className="relative aspect-[4/5] w-full max-w-[340px] mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.5)] bg-[#11161B]">
+          <div className="relative aspect-[4/5] w-full max-w-[340px] mx-auto rounded-2xl overflow-hidden glass-crystal p-1.5">
             <Image
               src="/images/founder.jpg"
               alt="Divyanshu Verma — Founder, DEADCODE LABS"
               fill
               sizes="90vw"
-              className="object-cover object-center"
+              className="object-cover object-center rounded-xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#11161B] via-[#11161B]/20 to-transparent pointer-events-none opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 text-white">
-              <span className="font-mono text-[10px] tracking-widest uppercase text-white/80 block">
+            {/* Subtle Glass Metadata */}
+            <div className="absolute bottom-4 left-4 right-4 pointer-events-none glass-panel p-3 rounded-xl border border-white/40 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
+              <span className="font-mono text-[9px] tracking-widest uppercase text-[#3B2A21]/80 font-semibold block mb-0.5">
                 Founder · Software Engineer
               </span>
-              <span className="font-display text-xl font-bold">Divyanshu Verma</span>
+              <span className="font-display text-lg font-bold text-[#3B2A21]">Divyanshu Verma</span>
             </div>
           </div>
 
           {/* 4. 6+ Years Experience */}
-          <div className="p-4 rounded-xl bg-[#11161B] border border-white/10 flex items-center justify-between">
+          <div className="p-4 rounded-xl glass-panel flex items-center justify-between">
             <div>
               <span className="font-mono text-[11px] tracking-wider uppercase text-secondary font-semibold block">
                 Independent Track Record
@@ -234,7 +232,7 @@ export function FounderSection() {
             </span>
             <div className="grid grid-cols-2 gap-2">
               {technologies.map((tech) => (
-                <div key={tech.id} className="p-3 rounded-lg bg-[#11161B] border border-white/10">
+                <div key={tech.id} className="p-3 rounded-lg glass-panel">
                   <span className="font-mono text-[9px] text-secondary/70 block mb-0.5">{tech.id}</span>
                   <span className="text-xs font-semibold text-foreground block">{tech.name}</span>
                 </div>

@@ -34,23 +34,27 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative pt-28 pb-12 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-background">
-      <div className="absolute inset-0 -z-30 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
-      <div className="absolute left-0 right-0 top-0 -z-30 m-auto h-[350px] w-[350px] rounded-full bg-[#E4573F]/10 blur-[120px]"></div>
+    <section id="home" className="relative pt-28 pb-12 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-[#F3EDE5]">
+      {/* Warm grid */}
+      <div className="absolute inset-0 -z-30 bg-[linear-gradient(to_right,rgba(116,88,66,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(116,88,66,0.04)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
+      {/* Warm ambient light orb */}
+      <div className="absolute left-0 right-0 top-0 -z-30 m-auto h-[400px] w-[400px] rounded-full bg-white/70 blur-[80px]"></div>
+      {/* Subtle copper warm glow */}
+      <div className="absolute right-0 bottom-0 -z-30 w-[300px] h-[300px] rounded-full bg-[#C96F3D]/10 blur-[100px]"></div>
       
       <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
           
           {/* Left Content */}
-          <div className="flex flex-col space-y-5 md:space-y-7 relative z-10 w-full lg:w-[52%]">
+          <div className="flex flex-col space-y-5 md:space-y-7 relative z-10 w-full lg:w-[52%] glass-soft p-6 md:p-10 rounded-[32px]">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
               transition={{ duration: 0.5, delay: baseDelay }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border/80 w-fit"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill w-fit"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span className="font-mono text-[11px] tracking-widest uppercase text-secondary font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C96F3D] animate-pulse" />
+              <span className="font-mono text-[11px] tracking-widest uppercase text-[#6D5A4B] font-semibold">
                 Digital Product & Systems Studio
               </span>
             </motion.div>
@@ -59,21 +63,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: baseDelay + 0.05 }}
-              className="font-display tracking-tight leading-[0.92] md:leading-[0.95] text-foreground font-bold"
+              className="font-display tracking-tight leading-[0.92] md:leading-[0.95] text-[#3B2A21] font-bold"
               style={{
                 fontSize: "clamp(42px, 12vw, 92px)",
               }}
             >
               DIGITAL <br className="hidden sm:block" />
               IDEAS, <br />
-              <span className="text-accent font-display">ENGINEERED.</span>
+              <span className="text-[#C96F3D] font-display">ENGINEERED.</span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: baseDelay + 0.1 }}
-              className="text-base md:text-xl text-secondary max-w-[330px] md:max-w-md leading-[1.55]"
+              className="text-base md:text-xl text-[#6D5A4B] max-w-[330px] md:max-w-md leading-[1.55]"
             >
               DEADCODE LABS designs and builds premium digital products, websites, e-commerce experiences and intelligent systems for ambitious businesses.
             </motion.p>
@@ -90,7 +94,7 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 sm:h-14 px-8 text-base border-border hover:bg-muted" asChild>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 sm:h-14 px-8 text-base" asChild>
                 <Link href="/work">
                   Explore Our Work
                 </Link>
@@ -114,24 +118,24 @@ export function Hero() {
             <motion.div 
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative z-20 w-full max-w-md lg:max-w-lg bg-surface/80 backdrop-blur-xl border border-border/60 rounded-3xl p-6 md:p-8 shadow-2xl"
+              className="relative z-20 w-full max-w-md lg:max-w-lg glass-panel p-6 md:p-8"
             >
               <div className="flex items-center justify-between mb-6 md:mb-8">
                 <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
-                  <div className="w-3 h-3 rounded-full bg-border"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
                 </div>
-                <span className="text-xs font-semibold text-secondary px-2 py-1 bg-muted rounded-full">Digital Product</span>
+                <span className="text-xs font-semibold text-[#6D5A4B] px-3 py-1 glass-pill rounded-full">Digital Product</span>
               </div>
               
               <div className="space-y-5 md:space-y-6">
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-secondary">Performance</span>
-                    <span className="font-medium text-emerald-500">Excellent</span>
+                    <span className="text-[#6D5A4B]">Performance</span>
+                    <span className="font-medium text-emerald-600">Excellent</span>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden flex">
+                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "98%" }}
@@ -144,10 +148,10 @@ export function Hero() {
                 
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-secondary">Experience</span>
-                    <span className="font-medium text-accent">Optimized</span>
+                    <span className="text-[#6D5A4B]">Experience</span>
+                    <span className="font-medium text-[#C96F3D]">Optimized</span>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden flex">
+                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
@@ -160,16 +164,16 @@ export function Hero() {
                 
                 <div>
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-secondary">Automation</span>
-                    <span className="font-medium">Connected</span>
+                    <span className="text-[#6D5A4B]">Automation</span>
+                    <span className="font-medium text-[#3B2A21]">Connected</span>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden flex">
+                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
                     <motion.div 
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.5, ease: "easeOut", delay: baseDelay + 1.2 }}
-                      className="bg-foreground h-2 rounded-full"
+                      className="bg-[#3B2A21] h-2 rounded-full"
                     ></motion.div>
                   </div>
                 </div>
@@ -184,12 +188,12 @@ export function Hero() {
                 rotate: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 },
                 x: { type: "spring", damping: 30, stiffness: 100 }
               }}
-              className="absolute -right-4 top-12 z-10 bg-surface border border-border p-4 rounded-2xl shadow-xl w-32 hidden lg:block"
+              className="absolute -right-4 top-12 z-10 glass-crystal p-4 rounded-2xl w-32 hidden lg:block"
             >
-              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mb-2">
-                <div className="w-4 h-4 bg-accent rounded-full"></div>
+              <div className="w-8 h-8 rounded-full bg-[#C96F3D]/12 flex items-center justify-center mb-2">
+                <div className="w-4 h-4 bg-[#C96F3D] rounded-full"></div>
               </div>
-              <p className="text-xs font-medium text-foreground">AI Copilot</p>
+              <p className="text-xs font-medium text-[#3B2A21]">AI Copilot</p>
             </motion.div>
             
             <motion.div 
@@ -199,13 +203,13 @@ export function Hero() {
                 rotate: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.5 },
                 x: { type: "spring", damping: 30, stiffness: 100 }
               }}
-              className="absolute -left-8 bottom-24 z-30 bg-surface border border-border p-4 rounded-2xl shadow-xl w-40 hidden lg:block"
+              className="absolute -left-8 bottom-24 z-30 glass-crystal p-4 rounded-2xl w-40 hidden lg:block"
             >
-              <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center mb-2">
-                <div className="w-4 h-4 bg-blue rounded-full"></div>
+              <div className="w-8 h-8 rounded-full bg-[#6D5A4B]/12 flex items-center justify-center mb-2">
+                <div className="w-4 h-4 bg-[#6D5A4B] rounded-full"></div>
               </div>
-              <p className="text-xs font-medium text-foreground">Workflow Active</p>
-              <p className="text-[10px] text-secondary mt-1">Synced instantly</p>
+              <p className="text-xs font-medium text-[#3B2A21]">Workflow Active</p>
+              <p className="text-[10px] text-[#927E6E] mt-1">Synced instantly</p>
             </motion.div>
           </motion.div>
         </div>
