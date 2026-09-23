@@ -1,0 +1,2490 @@
+<USER_REQUEST>
+# DEADCODE LABS — FINAL MASTER UI/UX + 3D + PERFORMANCE POLISH PROMPT
+
+You are working on an existing production-quality Next.js website for:
+
+DEADCODE LABS
+
+This is NOT a request to redesign the website from scratch.
+
+The existing visual identity, typography, content structure, sections and overall architecture are already approved.
+
+Your task is to perform a HIGH-QUALITY FINAL POLISH + BUG FIX + REAL 3D HERO INTEGRATION.
+
+============================================================
+0. MOST IMPORTANT RULE — DO NOT BREAK EXISTING WORK
+============================================================
+
+Before changing anything:
+
+1. Inspect the existing project structure.
+2. Inspect all existing components involved in:
+   - Navbar
+   - MobileNav
+   - Hero
+   - Preloader
+   - Cursor
+   - Featured Work
+   - Project detail pages
+   - WhyUsBento / Deep Engineering
+   - global CSS
+   - animation utilities
+3. Inspect the provided OriginKit 3D component code completely.
+4. Understand how the current architecture works.
+5. Reuse existing components whenever possible.
+
+DO NOT rebuild the entire website.
+
+DO NOT replace working sections with generic alternatives.
+
+DO NOT change the approved content unnecessarily.
+
+DO NOT remove existing animations that are already working.
+
+DO NOT introduce unnecessary dependencies.
+
+Make surgical, production-quality changes.
+
+The final result must feel like the SAME DEADCODE LABS website,
+just significantly more polished, interactive, premium and technically stable.
+
+============================================================
+1. APPROVED DEADCODE LABS VISUAL LANGUAGE
+============================================================
+
+Maintain the current premium crystalline / editorial glassmorphism
+visual language.
+
+Primary background:
+
+#F3EDE5
+
+Deep Brown:
+
+#35261F
+
+Primary Copper:
+
+#D46F3D
+
+Warm Copper:
+
+#E47C45
+
+Soft Ivory:
+
+#F8F3EC
+
+Muted Brown:
+
+#806D5E
+
+Dark Preloader:
+
+#211C1A
+
+Glass:
+
+rgba(255,255,255,0.35)
+
+Borders:
+
+rgba(255,255,255,0.55)
+
+The website should feel:
+
+- premium
+- editorial
+- architectural
+- sophisticated
+- warm
+- technological
+- minimal
+- cinematic
+
+Avoid:
+
+- neon purple
+- electric blue
+- cyberpunk styling
+- excessive gradients
+- rainbow colors
+- excessive glow
+- cheap SaaS styling
+- excessive rounded cards
+- excessive animation
+
+Copper should remain the primary accent.
+
+============================================================
+2. CRITICAL — REAL ORIGINKIT 3D COMPONENT
+============================================================
+
+I have provided the ORIGINAL ORIGINKIT 3D INTERACTIVE COMPONENT CODE.
+
+THIS IS THE MOST IMPORTANT PART OF THIS TASK.
+
+The supplied OriginKit component is the ACTUAL 3D EXPERIENCE
+that must be integrated into the DEADCODE LABS HERO.
+
+DO NOT:
+
+- recreate it
+- approximate it
+- replace it with CSS
+- replace it with SVG
+- replace it with simple Framer Motion blobs
+- replace it with an image
+- replace it with a video
+- simplify the geometry
+- create a fake Three.js version
+
+USE THE ACTUAL PROVIDED ORIGINKIT COMPONENT CODE.
+
+First inspect the entire supplied component.
+
+Identify:
+
+- component name
+- imports
+- Three.js dependencies
+- React Three Fiber dependencies
+- Drei dependencies
+- shaders
+- materials
+- geometries
+- textures
+- camera
+- lighting
+- postprocessing
+- animation loop
+- pointer interaction
+- drag interaction
+- responsive behaviour
+- CSS requirements
+- required assets
+
+Preserve the original 3D logic.
+
+Only create an integration wrapper around it if necessary.
+
+============================================================
+3. ORIGINKIT → DEADCODE LABS HERO
+============================================================
+
+Integrate the REAL OriginKit 3D component into the EXISTING
+DEADCODE LABS HERO.
+
+The current hero content must remain:
+
+Eyebrow:
+
+DIGITAL PRODUCT & SYSTEMS STUDIO
+
+Headline:
+
+DIGITAL
+IDEAS,
+ENGINEERED.
+
+Description:
+
+DEADCODE LABS designs and builds premium digital products,
+websites, e-commerce experiences and intelligent systems
+for ambitious businesses.
+
+Primary CTA:
+
+Start a Project
+
+Secondary CTA:
+
+Explore Our Work
+
+Desktop hero composition:
+
+LEFT:
+Existing typography + description + CTAs.
+
+RIGHT:
+REAL OriginKit interactive 3D object.
+
+Approximate allocation:
+
+Left: 42–46%
+Right: 54–58%
+
+The 3D object must feel like a premium physical/digital sculpture
+floating inside the hero.
+
+It must NOT cover the headline.
+
+It must NOT interfere with buttons.
+
+It must NOT interfere with navbar.
+
+It must NOT interfere with cursor.
+
+============================================================
+4. ORIGINKIT COLOR ADAPTATION
+============================================================
+
+Keep the ORIGINAL OriginKit geometry, animation and interaction.
+
+Only adapt its visual palette to DEADCODE LABS.
+
+Preferred 3D palette:
+
+- warm ivory
+- cream
+- muted copper
+- deep brown
+- warm grey
+- subtle champagne
+
+No:
+
+- neon purple
+- bright blue
+- bright green
+- rainbow
+- cyberpunk
+
+If the component exposes shader uniforms:
+
+modify the color uniforms.
+
+If it uses material colors:
+
+modify the material colors.
+
+If colors are hardcoded:
+
+extract them into clearly named constants/uniforms.
+
+DO NOT rewrite the shader unnecessarily.
+
+The final object should look designed specifically for
+DEADCODE LABS.
+
+============================================================
+5. HERO BACKGROUND ANIMATION
+============================================================
+
+The hero currently feels too static.
+
+Add a PREMIUM BACKGROUND ANIMATION ONLY INSIDE THE HERO.
+
+Do NOT spread this animation throughout the website.
+
+The hero background should have subtle depth behind the
+OriginKit object and existing glass UI.
+
+Use approximately 3–4 layers:
+
+Layer 1:
+Large extremely soft ivory ambient orb.
+
+Layer 2:
+Subtle copper atmospheric glow.
+
+Layer 3:
+Very subtle architectural grid / fine lines.
+
+Layer 4:
+Very subtle floating particles / dust / light points if
+performance allows.
+
+Motion must be:
+
+- slow
+- elegant
+- cinematic
+- barely noticeable
+- premium
+
+Example timing:
+
+10–18 seconds.
+
+No fast movement.
+
+No distracting particles.
+
+No flashy effects.
+
+The background should feel alive without looking animated.
+
+Pointer interaction:
+
+The background may subtly react to pointer position.
+
+Use:
+
+useMotionValue
+useSpring
+GPU transforms
+
+Do NOT trigger React re-render on every mouse movement.
+
+============================================================
+6. HERO 3D DEPTH
+============================================================
+
+The OriginKit object should have subtle depth interaction.
+
+Desktop:
+
+- smooth pointer tracking
+- subtle rotation
+- subtle parallax
+- inertial movement
+- no jitter
+
+Do not make the object aggressively follow the mouse.
+
+Suggested maximum rotation:
+
+approximately ±4 degrees.
+
+Mobile:
+
+- dramatically reduce interaction
+- reduce DPR
+- reduce expensive effects
+- maintain smooth rendering
+
+The hero must remain usable if WebGL is unavailable.
+
+Provide a graceful fallback if necessary.
+
+============================================================
+7. MOBILE NAVIGATION — CRITICAL BUG FIX
+============================================================
+
+The mobile hamburger is STILL glitching.
+
+Current problems:
+
+1. Opening drawer causes incorrect positioning.
+2. Closing drawer creates a visible glitch.
+3. The drawer appears to slide from the wrong side.
+4. Hamburger/X transition is not synchronized.
+5. Closing animation causes elements to remain visible temporarily.
+6. Drawer sometimes clips into the page.
+7. Navbar/drawer stacking context is incorrect.
+
+FIX THIS PROPERLY.
+
+============================================================
+8. MOBILE DRAWER ARCHITECTURE
+============================================================
+
+The mobile navigation drawer must open FROM THE RIGHT SIDE.
+
+Correct structure:
+
+Viewport
+│
+├── Backdrop
+│
+├── Drawer
+│
+└── Navbar / Hamburger Toggle
+
+Drawer:
+
+position: fixed
+
+right: 0
+
+top: 0
+
+height: 100dvh
+
+width:
+
+approximately 78–86vw
+
+max-width:
+
+420px
+
+The drawer must NOT originate from the left.
+
+The drawer should have:
+
+- warm ivory background
+- glass effect
+- subtle border
+- premium curved edge if already part of design
+- proper shadow
+- smooth entrance
+
+============================================================
+9. HAMBURGER / X BUTTON
+============================================================
+
+The hamburger toggle must always remain above the drawer.
+
+When closed:
+
+☰
+
+When opened:
+
+×
+
+
+Use a SINGLE button.
+
+Do NOT render separate hamburger and X buttons.
+
+Do NOT duplicate the icon.
+
+Do NOT allow the button to move behind the drawer.
+
+Suggested hierarchy:
+
+Backdrop:
+z-index: 1900
+
+Drawer:
+z-index: 1950
+
+Navbar:
+z-index: 2000+
+
+Toggle:
+z-index: 2100+
+
+The toggle must remain clickable during:
+
+- opening
+- opened state
+- closing
+- animation completion
+
+============================================================
+10. MOBILE MENU ANIMATION
+============================================================
+
+Opening:
+
+drawer enters from RIGHT.
+
+Closing:
+
+drawer exits toward RIGHT.
+
+Both animations must use the same coordinate system.
+
+DO NOT mix:
+
+- transform translateX
+- left/right animation
+- layout animation
+- conflicting Framer Motion variants
+
+Use ONE consistent transform strategy.
+
+Example:
+
+initial:
+x: "100%"
+
+animate:
+x: 0
+
+exit:
+x: "100%"
+
+Use:
+
+overflow: hidden
+
+on the appropriate container.
+
+No horizontal page scrolling.
+
+No ghost drawer after close.
+
+No flickering.
+
+No white flash.
+
+No duplicated navigation.
+
+============================================================
+11. HAMBURGER CLOSING SYNCHRONIZATION
+============================================================
+
+The navbar must NOT immediately reset its stacking context when
+menu state becomes false.
+
+Keep the navbar elevated until the drawer exit animation has
+COMPLETELY finished.
+
+Synchronize this with the actual animation duration.
+
+Do not use arbitrary long delays.
+
+Use Framer Motion's animation lifecycle:
+
+onAnimationComplete
+
+or equivalent state management.
+
+Sequence:
+
+User clicks X
+↓
+drawer starts exit
+↓
+toggle remains above drawer
+↓
+drawer completely exits
+↓
+backdrop removed
+↓
+navbar returns to normal state
+
+No visual glitch.
+
+============================================================
+12. MOBILE NAV CONTENT
+============================================================
+
+Inside the drawer:
+
+DEADCODE.LABS
+
+HOME
+
+WORK
+
+SERVICES
+
+PROCESS
+
+ABOUT
+
+START A PROJECT
+
+Footer social links:
+
+GitHub
+Instagram
+LinkedIn
+
+Contact details if already present.
+
+Typography must be large enough on mobile.
+
+Do NOT make navigation tiny.
+
+Use approximately:
+
+24–32px navigation text depending on viewport.
+
+Maintain comfortable vertical spacing.
+
+============================================================
+13. PRELOADER — PREMIUM DARK UNCOVER
+============================================================
+
+The preloader currently blends too much with the website.
+
+Fix it.
+
+The preloader MUST clearly contrast against the website.
+
+Website:
+
+warm ivory
+
+Preloader:
+
+deep premium brown
+
+Use:
+
+#211C1A
+
+or an equally deep warm brown.
+
+Preloader text:
+
+warm ivory / #F8F3EC
+
+Possible sequence:
+
+LOADING
+
+INITIATING
+
+BUILDING DIGITAL EXPERIENCES
+
+DEADCODE LABS
+
+Keep the existing multilingual / sequential messaging if already
+implemented.
+
+============================================================
+14. PRELOADER UNCOVER ANIMATION
+============================================================
+
+The preloader must perform a clear CINEMATIC UNCOVER transition.
+
+Sequence:
+
+1. Deep brown screen appears.
+2. Messaging animates.
+3. DEADCODE LABS appears.
+4. Curtain begins moving upward.
+5. Curved bottom edge reveals the website.
+6. Dark curtain completely exits viewport.
+7. Website becomes fully visible.
+
+IMPORTANT:
+
+The dark preloader must remain visually distinct from the ivory
+website during the entire reveal.
+
+Do NOT use similar colors.
+
+The dark curtain should be clearly visible while moving.
+
+Use the existing SVG curved reveal architecture if already present.
+
+Do NOT replace it with a generic fade.
+
+Preferred duration:
+
+approximately 2.2–2.8 seconds total.
+
+The reveal should feel physical, like a premium theatre curtain
+or architectural panel uncovering the website.
+
+============================================================
+15. CURSOR — FIX DISAPPEARING BUG
+============================================================
+
+The custom cursor sometimes disappears completely.
+
+Fix it globally.
+
+Requirements:
+
+- visible whenever pointer is inside viewport
+- restores immediately on pointerenter
+- hides only when pointer truly leaves viewport
+- no stale coordinates
+- no NaN positions
+- no stuck hidden state
+- no flickering
+- no disappearance during section transitions
+- no disappearance while interacting with WebGL
+
+Use refs / motion values instead of unnecessary React state.
+
+Handle:
+
+pointermove
+pointerenter
+pointerleave
+
+If pointer re-enters:
+
+restore cursor immediately.
+
+On touch devices:
+
+disable custom cursor completely.
+
+Respect:
+
+prefers-reduced-motion.
+
+The cursor must remain visible over the OriginKit canvas.
+
+============================================================
+16. DEEP ENGINEERING CARD — 3D HOVER BUG
+============================================================
+
+There is a section:
+
+"Why DEADCODE LABS."
+
+Inside it:
+
+"Deep Engineering"
+
+This card contains an isometric block / cube visual.
+
+Current bug:
+
+Before hover:
+
+all blocks are visible.
+
+After hover:
+
+only one block remains visible.
+
+Fix this.
+
+Likely issue:
+
+SVG transform attributes and Framer Motion transforms are
+overwriting each other.
+
+Do NOT mix:
+
+static SVG transform="translate(...)"
+
+with motion variants that replace x/y.
+
+Move the base coordinates into the motion element's initial/base
+position.
+
+Hover should apply an OFFSET relative to the existing position.
+
+Example conceptual architecture:
+
+initial:
+{
+  x: baseX,
+  y: baseY
+}
+
+while hover applies only:
+
+{
+  x: baseX + hoverOffsetX,
+  y: baseY + hoverOffsetY
+}
+
+OR use a single transform strategy.
+
+Every block must remain visible before, during and after hover.
+
+The full isometric structure must never disappear.
+
+Hover should feel like:
+
+- slight depth
+- subtle lift
+- small rotation
+- controlled movement
+
+NOT a destructive animation.
+
+============================================================
+17. PROJECT SECTION — BUTTONS
+============================================================
+
+Project cards currently contain:
+
+View Case Study
+View Live Site
+
+They must NOT look like plain text links.
+
+Make them premium glass buttons.
+
+Structure:
+
+[ View Case Study ↗ ]    [ View Live Site ↗ ]
+
+There must be visible spacing between them.
+
+Desktop:
+
+display flex
+
+gap:
+
+12–16px
+
+Mobile:
+
+allow wrapping if necessary.
+
+Button style:
+
+- glass surface
+- subtle border
+- rounded pill
+- warm ivory/copper
+- smooth hover
+- arrow animation
+
+View Case Study:
+
+warm ivory/copper interaction.
+
+View Live Site:
+
+slightly deeper transparent glass interaction.
+
+Both buttons must remain accessible.
+
+============================================================
+18. PROJECT IMAGE FIX
+============================================================
+
+Project cards and individual project pages must display the
+ACTUAL project images.
+
+Use existing assets:
+
+/projects/LUXE.png
+
+/projects/COZYCRAFTS.png
+
+/projects/FinFlow.png
+
+/projects/AshirwadHampers.png
+
+Project detail hero images must also render.
+
+Do NOT use fake placeholders.
+
+Do NOT darken images excessively.
+
+Do NOT place unnecessary overlay UI over images.
+
+Maintain:
+
+object-fit: cover
+
+appropriate border radius
+
+premium masking
+
+subtle hover scale.
+
+============================================================
+19. NEXT IMAGE WARNING FIX
+============================================================
+
+Current console warnings:
+
+Image with src "/projects/LUXE.png" has "fill" but is missing "sizes".
+
+Same for:
+
+/projects/COZYCRAFTS.png
+/projects/FinFlow.png
+/projects/AshirwadHampers.png
+/images/founder.jpg
+
+Fix every warning.
+
+Every Next.js Image using:
+
+fill
+
+must have an appropriate:
+
+sizes
+
+Example:
+
+sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+
+Choose sizes based on the ACTUAL layout.
+
+Do NOT blindly use the same sizes everywhere.
+
+The founder portrait should have a suitable sizes value too.
+
+After implementation:
+
+There should be NO missing-sizes warnings.
+
+============================================================
+20. PROJECT IMAGE PERFORMANCE
+============================================================
+
+Use:
+
+priority
+
+only for above-the-fold critical image(s).
+
+Do NOT make every image priority.
+
+Use lazy loading for below-the-fold images.
+
+Maintain:
+
+aspect-ratio
+
+to prevent layout shift.
+
+Avoid CLS.
+
+============================================================
+21. GENERAL 3D / MOTION PERFORMANCE
+============================================================
+
+The website currently feels slightly slower than expected.
+
+Optimize it.
+
+IMPORTANT:
+
+Do NOT remove the premium animation language.
+
+Optimize the implementation.
+
+Rules:
+
+- no unnecessary React state updates per frame
+- use refs
+- use MotionValue where appropriate
+- use transform instead of top/left
+- use opacity/transform for animations
+- avoid expensive box-shadow animation
+- avoid continuous blur animation
+- avoid huge DOM particle counts
+- cap WebGL DPR
+- pause WebGL when not visible
+- lazy-load heavy 3D
+- dispose WebGL resources
+- avoid multiple unnecessary requestAnimationFrame loops
+- avoid duplicate animation systems
+
+============================================================
+22. ORIGINKIT WEBGL PERFORMANCE
+============================================================
+
+For the actual OriginKit component:
+
+Use:
+
+devicePixelRatio clamp.
+
+Recommended concept:
+
+Math.min(window.devicePixelRatio, 1.5)
+
+Use lower DPR on mobile if necessary.
+
+Pause animation when hero leaves viewport.
+
+Use:
+
+IntersectionObserver
+
+where appropriate.
+
+Respect:
+
+prefers-reduced-motion.
+
+Do not continuously render at maximum quality when the hero is
+not visible.
+
+If React Three Fiber is used, avoid unnecessary state changes
+inside useFrame.
+
+Use refs for animated values.
+
+============================================================
+23. HERO FALLBACK
+============================================================
+
+If WebGL initialization fails:
+
+Do NOT leave a blank black rectangle.
+
+Provide a graceful fallback using:
+
+- subtle ambient gradient
+- glass UI
+- static visual fallback if an approved asset exists
+
+The hero must remain usable.
+
+============================================================
+24. RESPONSIVE HERO
+============================================================
+
+Desktop:
+
+Typography left.
+
+3D object right.
+
+Tablet:
+
+Reduce 3D scale.
+
+Mobile:
+
+Stack content naturally.
+
+3D object should become a controlled visual element.
+
+Do NOT allow the 3D object to push content outside viewport.
+
+Do NOT create horizontal overflow.
+
+Hero must work at:
+
+320px
+360px
+390px
+430px
+768px
+834px
+1024px
+1280px
+1440px
+1920px
+
+============================================================
+25. MOBILE PERFORMANCE
+============================================================
+
+On mobile:
+
+- reduce 3D DPR
+- reduce particle count
+- reduce pointer intensity
+- reduce ambient animation
+- disable unnecessary blur
+- reduce shadow complexity
+- disable custom cursor
+- keep typography readable
+- prevent layout jumps
+
+The site must feel smooth on normal smartphones.
+
+============================================================
+26. ACCESSIBILITY
+============================================================
+
+Maintain:
+
+semantic HTML
+
+keyboard navigation
+
+visible focus states
+
+aria-label for hamburger
+
+aria-expanded
+
+aria-controls
+
+accessible buttons
+
+accessible links
+
+reduced-motion support
+
+The hamburger should have:
+
+aria-label="Open menu"
+
+when closed.
+
+And:
+
+aria-label="Close menu"
+
+when open.
+
+============================================================
+27. NO HORIZONTAL OVERFLOW
+============================================================
+
+There must be NO horizontal scrolling on:
+
+mobile
+tablet
+desktop
+
+Check:
+
+html
+body
+main
+hero
+mobile drawer
+3D canvas
+SVGs
+large headings
+
+especially the mobile navigation animation.
+
+============================================================
+28. EXISTING WEBSITE STRUCTURE MUST REMAIN
+============================================================
+
+Keep the current section architecture.
+
+Do not delete or reorder sections unless absolutely required
+for fixing a bug.
+
+Existing major sections include:
+
+Hero
+
+Trust / Udyam
+
+Results
+
+Selected Work
+
+Services
+
+Pricing
+
+Why DEADCODE LABS
+
+Execution / Process
+
+About
+
+Foundation
+
+Contact / CTA
+
+Footer
+
+Maintain the existing content.
+
+============================================================
+29. FLOATING UI ELEMENTS
+============================================================
+
+Keep existing:
+
+N floating badge
+
+Back-to-top button
+
+WhatsApp button
+
+But make sure they do not overlap incorrectly with:
+
+mobile drawer
+
+hamburger
+
+3D canvas
+
+CTA buttons
+
+On mobile:
+
+maintain safe-area spacing.
+
+============================================================
+30. MOBILE DRAWER MUST NOT SHOW PAGE CONTENT THROUGH IT
+============================================================
+
+When menu opens:
+
+the drawer must feel like a proper full-screen navigation layer.
+
+Behind it:
+
+page should be visually suppressed with backdrop.
+
+No underlying hero text should bleed through incorrectly.
+
+No clipped page content should appear beside the drawer.
+
+No duplicate page columns.
+
+No horizontal page movement.
+
+============================================================
+31. CSS / FRAMER MOTION RULE
+============================================================
+
+Do not combine multiple systems that control the SAME transform.
+
+For any element:
+
+Choose ONE:
+
+Framer Motion transform
+
+OR
+
+CSS transform
+
+OR
+
+SVG transform
+
+Do not let them overwrite each other.
+
+This is particularly important for:
+
+- mobile drawer
+- hamburger
+- Deep Engineering blocks
+- hero 3D wrapper
+- cursor
+- project image hover
+
+============================================================
+32. DO NOT ADD RANDOM ANIMATIONS
+============================================================
+
+Animations should have hierarchy.
+
+HERO:
+
+strongest motion.
+
+3D object:
+
+interactive.
+
+Cards:
+
+subtle hover depth.
+
+Sections:
+
+subtle reveal.
+
+Project images:
+
+small scale.
+
+Navigation:
+
+smooth.
+
+Footer:
+
+minimal.
+
+Do NOT animate everything simultaneously.
+
+============================================================
+33. HERO MOTION HIERARCHY
+============================================================
+
+The hero should feel like the most alive section of the site.
+
+Use:
+
+REAL OriginKit 3D animation
++
+subtle background atmosphere
++
+subtle grid movement
++
+glass reflection
++
+pointer depth
+
+But keep the typography stable and readable.
+
+The headline should NOT constantly move.
+
+============================================================
+34. PRELOADER → HERO TRANSITION
+============================================================
+
+The preloader should reveal the exact hero beneath it.
+
+Do NOT reload or recreate the hero after the preloader.
+
+Avoid:
+
+flash of white
+
+flash of unstyled content
+
+layout shift
+
+3D canvas popping in late
+
+cursor appearing incorrectly
+
+Recommended sequence:
+
+Preloader
+↓
+Hero DOM already mounted/prepared
+↓
+Dark curtain starts uncover
+↓
+Hero becomes visible
+↓
+OriginKit 3D settles into position
+↓
+Hero background animation begins smoothly
+
+============================================================
+35. CODE QUALITY
+============================================================
+
+Write clean production-quality TypeScript.
+
+Avoid:
+
+any
+
+unnecessary useEffect
+
+unnecessary state
+
+duplicate components
+
+duplicate event listeners
+
+memory leaks
+
+unhandled promises
+
+console errors
+
+temporary debug logs
+
+Do not leave TODOs for critical functionality.
+
+============================================================
+36. REQUIRED VALIDATION
+============================================================
+
+After implementation run:
+
+npm run build
+
+npx tsc --noEmit
+
+If lint script exists:
+
+npm run lint
+
+Fix every error.
+
+Then inspect browser console.
+
+There must be no:
+
+hydration errors
+
+WebGL errors
+
+uncaught exceptions
+
+missing asset errors
+
+missing module errors
+
+Image sizes warnings
+
+duplicate key warnings
+
+animation errors
+
+============================================================
+37. MANUAL QA CHECKLIST
+============================================================
+
+Test:
+
+Desktop Chrome
+
+Mobile Chrome
+
+Responsive DevTools
+
+Test widths:
+
+320
+360
+390
+430
+768
+834
+1024
+1280
+1440
+1920
+
+Check:
+
+[ ] Hero loads correctly
+[ ] REAL OriginKit 3D object renders
+[ ] 3D interaction works
+[ ] Hero background animation visible
+[ ] Hero remains readable
+[ ] Cursor works
+[ ] Cursor does not disappear
+[ ] Mobile hamburger opens
+[ ] Drawer comes from RIGHT
+[ ] X stays above drawer
+[ ] Closing animation is clean
+[ ] No drawer glitch
+[ ] No horizontal overflow
+[ ] Deep Engineering blocks remain visible
+[ ] Deep Engineering hover works
+[ ] Project images render
+[ ] Project buttons look like buttons
+[ ] Case Study button works
+[ ] Live Site button works
+[ ] Founder image renders
+[ ] Next Image warnings gone
+[ ] Preloader dark curtain visible
+[ ] Preloader uncover animation visible
+[ ] No white flash
+[ ] No hydration errors
+[ ] No console errors
+[ ] Site scroll remains smooth
+[ ] WebGL pauses when hero is not visible
+[ ] Reduced-motion works
+[ ] Mobile performance remains smooth
+
+============================================================
+38. FINAL DESIGN QUALITY BAR
+============================================================
+
+The final website should feel like a premium international
+digital product studio.
+
+Think:
+
+editorial design
++
+architectural precision
++
+glass interface
++
+warm copper identity
++
+REAL interactive 3D
++
+cinematic motion
++
+high-end engineering
+
+NOT:
+
+generic agency template
+
+NOT:
+
+cheap portfolio
+
+NOT:
+
+over-animated landing page
+
+NOT:
+
+random 3D decoration
+
+The OriginKit object must feel like an intentional part of the
+DEADCODE LABS identity.
+
+============================================================
+39. FINAL RULE
+============================================================
+
+DO NOT STOP after making changes.
+
+Inspect the implementation.
+
+Run the build.
+
+Check the console.
+
+Fix warnings.
+
+Check responsive behaviour.
+
+Check the actual mobile drawer opening AND closing.
+
+Check the actual OriginKit WebGL component.
+
+Check the cursor.
+
+Check the preloader reveal.
+
+Check the Deep Engineering hover.
+
+Check project images.
+
+Then provide a concise implementation summary containing:
+
+1. Files changed
+2. OriginKit integration location
+3. Mobile navigation fix
+4. Hero animation implementation
+5. Preloader fix
+6. Cursor fix
+7. Performance improvements
+8. Build/typecheck/lint result
+
+Do NOT claim something was fixed unless you actually verified it.
+
+FINAL GOAL:
+
+DEADCODE LABS should retain its existing premium identity while
+gaining a REAL OriginKit interactive 3D hero, cinematic hero
+background motion, flawless mobile navigation, visible dark
+preloader uncover animation, reliable cursor interaction,
+smooth project interactions, correct images, and buttery-smooth
+performance — without breaking any existing section or design.
+“Use the exact OriginKit 3D component code supplied below. Do not recreate, approximate, replace, simplify, or invent another 3D animation.”
+
+// Nacre Spine — Originkit
+
+"use client"
+
+import { useEffect, useRef } from "react"
+import type { CSSProperties } from "react"
+
+const DEFAULT_COLORS = [
+    "#F4F5F9",
+    "#BCE9E0",
+    "#8CCDF2",
+    "#5B7BF0",
+    "#3A2AE0",
+    "#7A3CF0",
+    "#D6BEF7",
+]
+
+const DEFAULT_SURFACE = {
+    translucency: 5,
+
+    sheen: 5,
+
+    specular: 5,
+
+    rim: 6,
+}
+
+const DEFAULT_FRAMING = {
+    size: 5,
+
+    x: 0,
+    y: 0,
+
+    turn: -18,
+
+    tilt: 14,
+}
+
+const DEFAULTS = {
+    background: "#161618",
+    discs: 221,
+    depth: 7.6,
+    discSize: 6.1,
+    thickness: 3,
+    parallax: 10,
+    drag: true,
+    rotate: true,
+    speed: 5,
+    direction: "ccw",
+    morph: 0,
+    drift: 10,
+}
+
+const CAM_DIST = 5.0
+
+const KNOT_CENTER_Y = -0.469
+
+const POSE_ROLL = (28 * Math.PI) / 180
+const POSE_PITCH = (22 * Math.PI) / 180
+
+const KNOT_RADIUS = 3.28
+
+const FIT = 0.33
+
+const LIGHT = (() => {
+    const v = [-0.42, 0.72, -0.55]
+    const m = Math.hypot(v[0], v[1], v[2])
+    return [v[0] / m, v[1] / m, v[2] / m]
+})()
+
+const FOG = 0.24
+
+const SPIN_RATE = 0.09
+const MORPH_RATE = 0.32
+
+const DRIFT_RATE = 0.012
+
+const HOVER_REACH = 0.16
+
+const HOVER_ANCHOR = 0.5
+
+const DISC_SPAN = 0.32
+const THICK_SPAN = 0.12
+
+const BAND_MIN_PX = 0.75
+
+type RGB = [number, number, number]
+
+function parseColor(input: string): RGB {
+    const s = (input || "").trim()
+    if (s.charAt(0) === "#") {
+        let h = s.slice(1)
+        if (h.length === 3 || h.length === 4) {
+            h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2]
+        }
+        const n = parseInt(h.slice(0, 6), 16)
+        if (!isFinite(n)) return [255, 255, 255]
+        return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+    }
+    const m = s.match(/-?\d*\.?\d+/g)
+    if (m && m.length >= 3) {
+        return [Number(m[0]), Number(m[1]), Number(m[2])]
+    }
+    return [255, 255, 255]
+}
+
+function rampAt(stops: RGB[], u: number, out: RGB) {
+    const n = stops.length
+    if (n === 1) {
+        out[0] = stops[0][0]
+        out[1] = stops[0][1]
+        out[2] = stops[0][2]
+        return
+    }
+    const x = u - Math.floor(u)
+    const f = x * n
+    const i0 = Math.floor(f) % n
+    const i1 = (i0 + 1) % n
+    let k = f - Math.floor(f)
+    k = k * k * (3 - 2 * k)
+    const a = stops[i0]
+    const b = stops[i1]
+    out[0] = a[0] + (b[0] - a[0]) * k
+    out[1] = a[1] + (b[1] - a[1]) * k
+    out[2] = a[2] + (b[2] - a[2]) * k
+}
+
+function clamp(v: number, lo: number, hi: number) {
+    return v < lo ? lo : v > hi ? hi : v
+}
+
+function rgbString(r: number, g: number, b: number, a: number) {
+    return (
+        "rgba(" +
+        Math.round(clamp(r, 0, 255)) +
+        "," +
+        Math.round(clamp(g, 0, 255)) +
+        "," +
+        Math.round(clamp(b, 0, 255)) +
+        "," +
+        clamp(a, 0, 1).toFixed(3) +
+        ")"
+    )
+}
+
+function knot(
+    t: number,
+    a: number,
+    b: number,
+    p: Float64Array,
+    off: number
+) {
+    const s1 = Math.sin(t)
+    const c1 = Math.cos(t)
+    const s2 = Math.sin(2 * t)
+    const c2 = Math.cos(2 * t)
+    const s3 = Math.sin(3 * t)
+    const c3 = Math.cos(3 * t)
+    p[off] = s1 + a * s2
+    p[off + 1] = c1 - a * c2
+    p[off + 2] = -b * s3
+    p[off + 3] = c1 + 2 * a * c2
+    p[off + 4] = -s1 + 2 * a * s2
+    p[off + 5] = -3 * b * c3
+}
+
+function ellipseAxes(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    out: Float64Array
+) {
+    const E = (a + d) * 0.5
+    const F = (a - d) * 0.5
+    const G = (b + c) * 0.5
+    const H = (b - c) * 0.5
+    const Q = Math.hypot(E, H)
+    const R = Math.hypot(F, G)
+    out[0] = Q + R
+    out[1] = Math.abs(Q - R)
+    out[2] = (Math.atan2(H, E) + Math.atan2(G, F)) * 0.5
+}
+
+export interface NacreSpineSurface {
+    translucency?: number
+    sheen?: number
+    specular?: number
+    rim?: number
+}
+
+export interface NacreSpineFraming {
+    size?: number
+    x?: number
+    y?: number
+    turn?: number
+    tilt?: number
+}
+
+export interface NacreSpineProps {
+    colors?: string[]
+    background?: string
+
+    discs?: number
+
+    depth?: number
+
+    discSize?: number
+
+    thickness?: number
+    surface?: NacreSpineSurface
+
+    parallax?: number
+
+    drag?: boolean
+
+    rotate?: boolean
+
+    speed?: number
+    direction?: "cw" | "ccw"
+
+    morph?: number
+
+    drift?: number
+    framing?: NacreSpineFraming
+    style?: CSSProperties
+}
+
+interface Live {
+    stops: RGB[]
+    bg: RGB
+    discs: number
+    depth: number
+    discSize: number
+    thickness: number
+    translucency: number
+    sheen: number
+    specular: number
+    rim: number
+    parallax: number
+    drag: boolean
+    rotate: boolean
+    speed: number
+    dir: number
+    morph: number
+    drift: number
+    size: number
+    panX: number
+    panY: number
+    turn: number
+    tilt: number
+}
+
+export default function NacreSpine({
+    colors = ["#F4F5F9","#BCE9E0","#8CCDF2","#5B7BF0","#3A2AE0","#7A3CF0","#D6BEF7"],
+    background = DEFAULTS.background,
+    discs = DEFAULTS.discs,
+    depth = DEFAULTS.depth,
+    discSize = DEFAULTS.discSize,
+    thickness = DEFAULTS.thickness,
+    surface,
+    parallax = DEFAULTS.parallax,
+    drag = DEFAULTS.drag,
+    rotate = DEFAULTS.rotate,
+    speed = DEFAULTS.speed,
+    direction = DEFAULTS.direction,
+    morph = DEFAULTS.morph,
+    drift = DEFAULTS.drift,
+    framing,
+    style,
+}: NacreSpineProps) {
+    const surf = { ...DEFAULT_SURFACE, ...surface }
+    const frm = { ...DEFAULT_FRAMING, ...framing }
+
+    const hostRef = useRef<HTMLDivElement | null>(null)
+    const canvasRef = useRef<HTMLCanvasElement | null>(null)
+    const liveRef = useRef<Live | null>(null)
+
+    const list = colors && colors.length > 0 ? colors : DEFAULT_COLORS
+    liveRef.current = {
+        stops: list.map(parseColor),
+        bg: parseColor(background),
+        discs: Math.max(8, Math.round(discs)),
+        depth,
+        discSize,
+        thickness,
+        translucency: surf.translucency,
+        sheen: surf.sheen,
+        specular: surf.specular,
+        rim: surf.rim,
+        parallax,
+        drag,
+        rotate,
+        speed,
+        dir: direction === "ccw" ? -1 : 1,
+        morph,
+        drift,
+        size: frm.size,
+        panX: frm.x,
+        panY: frm.y,
+        turn: frm.turn,
+        tilt: frm.tilt,
+    }
+
+    useEffect(() => {
+        const host = hostRef.current
+        const canvas = canvasRef.current
+        if (!host || !canvas) return
+        const ctx = canvas.getContext("2d")
+        if (!ctx) return
+
+        let width = 0
+        let height = 0
+        let dpr = 1
+
+        let denseN = 0
+        let dense = new Float64Array(0)
+        let arc = new Float64Array(0)
+        let tAt = new Float64Array(0)
+
+        let discN = 0
+        let sx = new Float64Array(0)
+        let sy = new Float64Array(0)
+        let sz = new Float64Array(0)
+        let mA = new Float64Array(0)
+        let mB = new Float64Array(0)
+        let mC = new Float64Array(0)
+        let mD = new Float64Array(0)
+        let offX = new Float64Array(0)
+        let offY = new Float64Array(0)
+        let rad = new Float64Array(0)
+        let facing = new Float64Array(0)
+        let lambert = new Float64Array(0)
+        let order: number[] = []
+
+        const axes = new Float64Array(3)
+        const probe = new Float64Array(6)
+        const col: RGB = [0, 0, 0]
+
+        const ensureDense = (n: number) => {
+            if (n === denseN) return
+            denseN = n
+            dense = new Float64Array(n * 6)
+            arc = new Float64Array(n)
+            tAt = new Float64Array(n)
+        }
+
+        const ensureDiscs = (n: number) => {
+            if (n === discN) return
+            discN = n
+            sx = new Float64Array(n)
+            sy = new Float64Array(n)
+            sz = new Float64Array(n)
+            mA = new Float64Array(n)
+            mB = new Float64Array(n)
+            mC = new Float64Array(n)
+            mD = new Float64Array(n)
+            offX = new Float64Array(n)
+            offY = new Float64Array(n)
+            rad = new Float64Array(n)
+            facing = new Float64Array(n)
+            lambert = new Float64Array(n)
+            order = new Array(n)
+            for (let i = 0; i < n; i++) order[i] = i
+        }
+
+        const resize = () => {
+            const w = Math.max(1, host.clientWidth)
+            const h = Math.max(1, host.clientHeight)
+            const d = Math.min(2, window.devicePixelRatio || 1)
+            if (w === width && h === height && d === dpr) return
+            width = w
+            height = h
+            dpr = d
+
+            canvas.width = Math.round(w * d)
+            canvas.height = Math.round(h * d)
+        }
+
+        let pointerX = 0
+        let pointerY = 0
+        let cursorX = 0
+        let cursorY = 0
+        let hovering = false
+        let leanX = 0
+        let leanY = 0
+        let rampShift = 0
+
+        let fitX = 0
+        let fitY = 0
+        let fitted = false
+
+        let dragging = false
+        let dragId = -1
+        let grabX = 0
+        let grabY = 0
+        let baseYaw = 0
+        let baseTilt = 0
+        let dragYaw = 0
+        let dragTilt = 0
+
+        const DRAG_ROT_RATE = 0.012
+
+        const onDown = (e: PointerEvent) => {
+            const p = liveRef.current
+            if (!p || !p.drag || dragging) return
+            dragging = true
+            dragId = e.pointerId
+            grabX = e.clientX
+            grabY = e.clientY
+            baseYaw = dragYaw
+            baseTilt = dragTilt
+            canvas.style.cursor = "grabbing"
+            try {
+                canvas.setPointerCapture(e.pointerId)
+            } catch {
+            }
+        }
+
+        const endDrag = (e: PointerEvent) => {
+            if (!dragging || e.pointerId !== dragId) return
+            dragging = false
+            dragId = -1
+            const p = liveRef.current
+            canvas.style.cursor = p && p.drag ? "grab" : "default"
+
+            const r = canvas.getBoundingClientRect()
+            if (
+                e.clientX < r.left ||
+                e.clientX > r.right ||
+                e.clientY < r.top ||
+                e.clientY > r.bottom
+            ) {
+                pointerX = 0
+                pointerY = 0
+                hovering = false
+            }
+            try {
+                canvas.releasePointerCapture(e.pointerId)
+            } catch {
+            }
+        }
+
+        const onWindowUp = (e: PointerEvent) => endDrag(e)
+
+        const onMove = (e: PointerEvent) => {
+            const r = canvas.getBoundingClientRect()
+            if (r.width === 0 || r.height === 0) return
+
+            const kx = width / r.width
+            const ky = height / r.height
+            cursorX = (e.clientX - r.left) * kx
+            cursorY = (e.clientY - r.top) * ky
+            pointerX = (cursorX / width) * 2 - 1
+            pointerY = (cursorY / height) * 2 - 1
+            hovering = true
+            if (dragging && e.pointerId === dragId) {
+                dragYaw = baseYaw + (e.clientX - grabX) * kx * DRAG_ROT_RATE
+                dragTilt = clamp(
+                    baseTilt + (e.clientY - grabY) * ky * DRAG_ROT_RATE,
+                    -1.2,
+                    1.2
+                )
+            }
+        }
+
+        const onLeave = () => {
+            if (dragging) return
+            pointerX = 0
+            pointerY = 0
+            hovering = false
+        }
+        const onCancel = (e: PointerEvent) => {
+            endDrag(e)
+            pointerX = 0
+            pointerY = 0
+            hovering = false
+        }
+
+        canvas.addEventListener("pointerdown", onDown)
+        canvas.addEventListener("pointermove", onMove)
+        canvas.addEventListener("pointerup", endDrag)
+        canvas.addEventListener("pointerleave", onLeave)
+        canvas.addEventListener("pointercancel", onCancel)
+        window.addEventListener("pointerup", onWindowUp)
+
+        let ro: ResizeObserver | null = null
+        if (typeof ResizeObserver !== "undefined") {
+            ro = new ResizeObserver(resize)
+            ro.observe(host)
+        } else {
+            window.addEventListener("resize", resize)
+        }
+        resize()
+
+        let raf = 0
+        let last = 0
+        let clock = 0
+        let spin = 0
+
+        const frame = (now: number) => {
+            raf = requestAnimationFrame(frame)
+            const p = liveRef.current
+            if (!p) return
+
+            const dt = last === 0 ? 1 / 60 : Math.min(0.05, (now - last) / 1000)
+            last = now
+            clock += dt
+
+            resize()
+            if (width === 0 || height === 0) return
+
+            if (p.rotate) spin += dt * p.speed * SPIN_RATE * p.dir
+            const mp = clock * MORPH_RATE
+
+            const leanK = p.parallax / 10
+            if (!dragging) {
+                const ease = Math.min(1, dt * 4)
+                leanX += (pointerX - leanX) * ease
+                leanY += (pointerY - leanY) * ease
+            }
+
+            if (!p.drag && (dragYaw !== 0 || dragTilt !== 0)) {
+                const back = Math.min(1, dt * 4)
+                dragYaw += (0 - dragYaw) * back
+                dragTilt += (0 - dragTilt) * back
+                if (Math.abs(dragYaw) < 0.001) dragYaw = 0
+                if (Math.abs(dragTilt) < 0.001) dragTilt = 0
+            }
+
+            const yaw =
+                (p.turn * Math.PI) / 180 + spin + leanX * 0.45 * leanK + dragYaw
+            const tilt =
+                (p.tilt * Math.PI) / 180 - leanY * 0.32 * leanK + dragTilt
+
+            const mk = p.morph / 10
+            const aAmp = 2 + mk * 0.55 * Math.sin(mp)
+            const bAmp = (p.depth / 5) * (1 + mk * 0.4 * Math.sin(mp * 0.77 + 1.7))
+
+            const n = p.discs
+            ensureDiscs(n)
+            ensureDense(Math.min(3600, Math.max(600, n * 6)))
+
+            let total = 0
+            for (let i = 0; i < denseN; i++) {
+                const t = (Math.PI * 2 * i) / (denseN - 1)
+                tAt[i] = t
+                knot(t, aAmp, bAmp, dense, i * 6)
+                if (i > 0) {
+                    const o = i * 6
+                    const q = o - 6
+                    total += Math.hypot(
+                        dense[o] - dense[q],
+                        dense[o + 1] - dense[q + 1],
+                        dense[o + 2] - dense[q + 2]
+                    )
+                }
+                arc[i] = total
+            }
+
+            const cyw = Math.cos(yaw)
+            const syw = Math.sin(yaw)
+            const ct = Math.cos(tilt)
+            const st = Math.sin(tilt)
+            const cr = Math.cos(POSE_ROLL)
+            const sr = Math.sin(POSE_ROLL)
+            const cp = Math.cos(POSE_PITCH)
+            const sp = Math.sin(POSE_PITCH)
+
+            const sizeK = 0.35 + (p.size / 10) * 1.3
+            const S = Math.min(width, height) * FIT * sizeK
+            const cx = width * 0.5
+            const cy = height * 0.5
+
+            const radius = (p.discSize / 10) * DISC_SPAN
+            const halfThick = ((p.thickness / 10) * THICK_SPAN) / 2
+
+            let cursor = 0
+            for (let i = 0; i < n; i++) {
+                const u = i / n
+                const s = u * total
+                while (cursor < denseN - 2 && arc[cursor + 1] < s) cursor++
+                const segLen = arc[cursor + 1] - arc[cursor]
+                const f = segLen > 1e-9 ? (s - arc[cursor]) / segLen : 0
+                const t = tAt[cursor] + (tAt[cursor + 1] - tAt[cursor]) * f
+
+                knot(t, aAmp, bAmp, probe, 0)
+
+                const x0 = probe[0] / KNOT_RADIUS
+                const y0 = (probe[1] - KNOT_CENTER_Y) / KNOT_RADIUS
+                const z0 = probe[2] / KNOT_RADIUS
+                let dx = probe[3]
+                let dy = probe[4]
+                let dz = probe[5]
+                const dm = Math.hypot(dx, dy, dz) || 1
+                dx /= dm
+                dy /= dm
+                dz /= dm
+
+                const xr = x0 * cr - y0 * sr
+                const yr = x0 * sr + y0 * cr
+                const x = xr
+                const y = yr * cp - z0 * sp
+                const z = yr * sp + z0 * cp
+
+                const ndxr = dx * cr - dy * sr
+                const ndyr = dx * sr + dy * cr
+                const ndx = ndxr
+                const ndy = ndyr * cp - dz * sp
+                const ndz = ndyr * sp + dz * cp
+
+                const x1 = x * cyw + z * syw
+                const z1 = -x * syw + z * cyw
+                const y2 = y * ct - z1 * st
+                const z2 = y * st + z1 * ct
+
+                const nx1 = ndx * cyw + ndz * syw
+                const nz1 = -ndx * syw + ndz * cyw
+                const ny2 = ndy * ct - nz1 * st
+                const nz2 = ndy * st + nz1 * ct
+
+                const dep = Math.max(0.4, z2 + CAM_DIST)
+                const pers = CAM_DIST / dep
+
+                sx[i] = cx + x1 * pers * S
+                sy[i] = cy - y2 * pers * S
+                sz[i] = z2
+
+                let vx = -x1
+                let vy = -y2
+                let vz = -CAM_DIST - z2
+                const vm = Math.hypot(vx, vy, vz) || 1
+                vx /= vm
+                vy /= vm
+                vz /= vm
+                facing[i] = Math.abs(nx1 * vx + ny2 * vy + nz2 * vz)
+                lambert[i] = Math.abs(
+                    nx1 * LIGHT[0] + ny2 * LIGHT[1] + nz2 * LIGHT[2]
+                )
+
+                const sgn = nz2 < 0 ? 1 : -1
+                offX[i] = nx1 * sgn * halfThick * pers * S
+                offY[i] = -ny2 * sgn * halfThick * pers * S
+
+                let ux: number
+                let uy: number
+                let uz: number
+                if (Math.abs(nz2) < 0.9) {
+                    ux = -ny2
+                    uy = nx1
+                    uz = 0
+                } else {
+                    ux = 0
+                    uy = -nz2
+                    uz = ny2
+                }
+                const um = Math.hypot(ux, uy, uz) || 1
+                ux /= um
+                uy /= um
+                uz /= um
+                const wx = ny2 * uz - nz2 * uy
+                const wy = nz2 * ux - nx1 * uz
+                const wz = nx1 * uy - ny2 * ux
+                const wm = Math.hypot(wx, wy, wz) || 1
+
+                const k = radius * pers * S
+
+                mA[i] = ux * k
+                mB[i] = -uy * k
+                mC[i] = (wx / wm) * k
+                mD[i] = -(wy / wm) * k
+
+                rad[i] = k + Math.hypot(offX[i], offY[i])
+            }
+
+            let bxMin = Infinity
+            let bxMax = -Infinity
+            let byMin = Infinity
+            let byMax = -Infinity
+            for (let i = 0; i < n; i++) {
+                const rr = rad[i]
+                if (sx[i] - rr < bxMin) bxMin = sx[i] - rr
+                if (sx[i] + rr > bxMax) bxMax = sx[i] + rr
+                if (sy[i] - rr < byMin) byMin = sy[i] - rr
+                if (sy[i] + rr > byMax) byMax = sy[i] + rr
+            }
+            const wantX = cx - (bxMin + bxMax) * 0.5
+            const wantY = cy - (byMin + byMax) * 0.5
+            if (fitted) {
+                const settle = Math.min(1, dt * 8)
+                fitX += (wantX - fitX) * settle
+                fitY += (wantY - fitY) * settle
+            } else {
+                fitX = wantX
+                fitY = wantY
+                fitted = true
+            }
+
+            const shiftX = fitX + p.panX
+            const shiftY = fitY + p.panY
+            for (let i = 0; i < n; i++) {
+                sx[i] += shiftX
+                sy[i] += shiftY
+            }
+
+            let nearest = -1
+            if (hovering) {
+                const reach = Math.min(width, height) * HOVER_REACH
+                let bestD2 = reach * reach
+                for (let i = 0; i < n; i++) {
+                    const ddx = sx[i] - cursorX
+                    const ddy = sy[i] - cursorY
+                    const d2 = ddx * ddx + ddy * ddy
+                    if (d2 < bestD2) {
+                        bestD2 = d2
+                        nearest = i
+                    }
+                }
+            }
+            if (nearest >= 0) {
+                let delta = HOVER_ANCHOR - nearest / n - rampShift
+                delta -= Math.round(delta)
+                rampShift += delta * Math.min(1, dt * 5)
+            } else {
+                rampShift += dt * p.drift * DRIFT_RATE
+            }
+
+            order.sort((p1, p2) => sz[p2] - sz[p1])
+
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+            ctx.fillStyle = rgbString(p.bg[0], p.bg[1], p.bg[2], 1)
+            ctx.fillRect(0, 0, width, height)
+
+            const sheenK = p.sheen / 10
+            const rimK = p.rim / 10
+            const specK = p.specular / 10
+
+            const clearA = 1 - 0.78 * (p.translucency / 10)
+
+            const gm = Math.hypot(LIGHT[0], LIGHT[1]) || 1
+            const gx = LIGHT[0] / gm
+            const gy = -LIGHT[1] / gm
+
+            ctx.lineJoin = "round"
+
+            for (let q = 0; q < n; q++) {
+                const i = order[q]
+                const a = mA[i]
+                const b = mB[i]
+                const c = mC[i]
+                const d = mD[i]
+                ellipseAxes(a, b, c, d, axes)
+                const major = axes[0]
+                const minor = axes[1]
+                const rot = axes[2]
+                if (major < 0.35) continue
+
+                const ox = offX[i]
+                const oy = offY[i]
+                const bleed = major + Math.hypot(ox, oy) + 4
+                const px = sx[i]
+                const py = sy[i]
+                if (
+                    px < -bleed ||
+                    px > width + bleed ||
+                    py < -bleed ||
+                    py > height + bleed
+                ) {
+                    continue
+                }
+
+                rampAt(p.stops, i / n + rampShift, col)
+
+                const shade = 0.44 + 0.56 * lambert[i]
+                const fres = Math.pow(1 - facing[i], 3)
+
+                let r = col[0] * shade
+                let g = col[1] * shade
+                let bl = col[2] * shade
+
+                const kk = facing[i] * 3.4 + (i / n) * 6.283 + clock * 0.15
+                const im = clamp(fres * rimK * 0.9, 0, 1)
+                r += (205 + 50 * Math.sin(kk) - r) * im
+                g += (214 + 41 * Math.sin(kk + 2.1) - g) * im
+                bl += (242 + 13 * Math.sin(kk + 4.2) - bl) * im
+
+                const fog = clamp((sz[i] + 1) * 0.5, 0, 1) * FOG
+                r += (p.bg[0] - r) * fog
+                g += (p.bg[1] - g) * fog
+                bl += (p.bg[2] - bl) * fog
+
+                const alpha =
+                    clearA + (1 - clearA) * Math.pow(1 - facing[i], 1.6)
+
+                const fx = px + ox
+                const fy = py + oy
+
+                const span = Math.hypot(ox, oy) * 2
+                if (span >= BAND_MIN_PX) {
+                    const bx = px - ox
+                    const by = py - oy
+                    const ex = -oy / (span * 0.5)
+                    const ey = ox / (span * 0.5)
+
+                    const h = Math.hypot(a * ex + b * ey, c * ex + d * ey)
+                    const hx = ex * h
+                    const hy = ey * h
+
+                    ctx.beginPath()
+                    ctx.moveTo(bx - hx, by - hy)
+                    ctx.lineTo(fx - hx, fy - hy)
+                    ctx.lineTo(fx + hx, fy + hy)
+                    ctx.lineTo(bx + hx, by + hy)
+                    ctx.closePath()
+                    ctx.moveTo(bx + major * Math.cos(rot), by + major * Math.sin(rot))
+                    ctx.ellipse(bx, by, major, minor, rot, 0, Math.PI * 2)
+                    ctx.moveTo(fx + major * Math.cos(rot), fy + major * Math.sin(rot))
+                    ctx.ellipse(fx, fy, major, minor, rot, 0, Math.PI * 2)
+
+                    ctx.fillStyle = rgbString(
+                        r * 0.82,
+                        g * 0.82,
+                        bl * 0.86,
+                        alpha * 0.8
+                    )
+                    ctx.fill()
+                }
+
+                const ext = Math.hypot(a * gx + b * gy, c * gx + d * gy) || major
+
+                const grad = ctx.createLinearGradient(
+                    fx - gx * ext,
+                    fy - gy * ext,
+                    fx + gx * ext,
+                    fy + gy * ext
+                )
+                const dk = 1 - 0.3 * sheenK
+                const hiMix = 0.2 + 0.55 * sheenK
+                grad.addColorStop(0, rgbString(r * dk, g * dk, bl * dk, alpha))
+                grad.addColorStop(0.55, rgbString(r, g, bl, alpha))
+                grad.addColorStop(
+                    1,
+                    rgbString(
+                        r + (255 - r) * hiMix,
+                        g + (255 - g) * hiMix,
+                        bl + (255 - bl) * hiMix,
+                        alpha
+                    )
+                )
+
+                ctx.beginPath()
+                ctx.ellipse(fx, fy, major, minor, rot, 0, Math.PI * 2)
+                ctx.fillStyle = grad
+                ctx.fill()
+
+                if (specK > 0 && major > 2) {
+                    const scx = fx + gx * ext * 0.42
+                    const scy = fy + gy * ext * 0.42
+                    const sr2 = Math.max(1.5, major * 0.62)
+                    const spec = ctx.createRadialGradient(
+                        scx,
+                        scy,
+                        0,
+                        scx,
+                        scy,
+                        sr2
+                    )
+                    spec.addColorStop(0, rgbString(255, 255, 255, 0.5 * specK))
+                    spec.addColorStop(1, rgbString(255, 255, 255, 0))
+                    ctx.fillStyle = spec
+                    ctx.fill()
+                }
+
+                if (rimK > 0) {
+                    ctx.lineWidth = clamp(major * 0.055 + 0.4, 0.5, 2.6)
+                    ctx.strokeStyle = rgbString(
+                        r + (255 - r) * 0.7,
+                        g + (255 - g) * 0.7,
+                        bl + (255 - bl) * 0.7,
+                        clamp((0.35 + 0.65 * fres) * rimK, 0, 1)
+                    )
+                    ctx.stroke()
+                }
+            }
+        }
+
+        raf = requestAnimationFrame(frame)
+
+        return () => {
+            cancelAnimationFrame(raf)
+            canvas.removeEventListener("pointerdown", onDown)
+            canvas.removeEventListener("pointermove", onMove)
+            canvas.removeEventListener("pointerup", endDrag)
+            canvas.removeEventListener("pointerleave", onLeave)
+            canvas.removeEventListener("pointercancel", onCancel)
+            window.removeEventListener("pointerup", onWindowUp)
+            if (ro) ro.disconnect()
+            else window.removeEventListener("resize", resize)
+        }
+    }, [])
+
+    return (
+        <div
+            ref={hostRef}
+            style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                overflow: "hidden",
+                background,
+                ...style,
+            }}
+        >
+            <canvas
+                ref={canvasRef}
+                style={{
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    cursor: drag ? "grab" : "default",
+
+                    touchAction: drag ? "none" : "auto",
+                }}
+            />
+        </div>
+    )
+}
+
+Do not sacrifice visual quality to hide warnings. Fix the actual root causes. Audit unnecessary re-renders, Framer Motion subscriptions, event listeners, animation loops, image loading, 3D rendering DPR, and component lifecycle. The website must remain buttery smooth without changing the existing visual structure unnecessarily.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-23T17:35:24+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\prati\Downloads\DEADCODE\src\components\sections\FounderSection.tsx (LANGUAGE_TSX)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\prati\Downloads\DEADCODE\src\components\layout\MobileNav.tsx (LANGUAGE_TSX)
+- c:\Users\prati\Downloads\DEADCODE\src\components\layout\Navbar.tsx (LANGUAGE_TSX)
+- c:\Users\prati\Downloads\DEADCODE\src\components\ui\Button.tsx (LANGUAGE_TSX)
+- c:\Users\prati\Downloads\DEADCODE\src\components\ui\Preloader.tsx (LANGUAGE_TSX)
+- c:\Users\prati\Downloads\DEADCODE\src\app\work\[slug]\page.tsx (LANGUAGE_TSX)
+No browser pages are currently open.
+</ADDITIONAL_METADATA>

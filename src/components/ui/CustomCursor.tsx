@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function CustomCursor() {
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isProjectHover, setIsProjectHover] = useState(false);
 
   // References for direct DOM manipulation to bypass React state for high-frequency updates
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -16,6 +13,9 @@ export function CustomCursor() {
   const position = useRef({ x: 0, y: 0 });
   const targetPosition = useRef({ x: 0, y: 0 });
   const requestRef = useRef<number>(0);
+  const isVisible = useRef(false);
+  const isHovering = useRef(false);
+  const isProjectHover = useRef(false);
 
   useEffect(() => {
     // Check if device is fine pointer (desktop)
@@ -31,11 +31,49 @@ export function CustomCursor() {
     
     const onMouseMove = (e: MouseEvent) => {
       targetPosition.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+      if (!isVisible.current) {
+        isVisible.current = true;
+        updateStyles();
+      }
     };
 
-    const onMouseLeave = () => setIsVisible(false);
-    const onMouseEnter = () => setIsVisible(true);
+    const onMouseLeave = () => {
+      isVisible.current = false;
+      updateStyles();
+    };
+    
+    const onMouseEnter = () => {
+      isVisible.current = true;
+      updateStyles();
+    };
+
+    const updateStyles = () => {
+      if (!cursorRef.current || !dotRef.current) return;
+      
+      const v = isVisible.current;
+      const h = isHovering.current;
+      const p = isProjectHover.current;
+      
+      const size = p ? "60px" : h ? "52px" : "36px";
+      const opacity = v ? "1" : "0";
+      const borderColor = p ? "rgba(228, 87, 63, 0.4)" : "rgba(228, 87, 63, 0.65)";
+      const bg = p ? "rgba(17, 22, 27, 0.5)" : "transparent";
+      const blur = p ? "blur(4px)" : "none";
+      
+      cursorRef.current.style.width = size;
+      cursorRef.current.style.height = size;
+      cursorRef.current.style.opacity = opacity;
+      cursorRef.current.style.borderColor = borderColor;
+      cursorRef.current.style.backgroundColor = bg;
+      cursorRef.current.style.backdropFilter = blur;
+      
+      const span = cursorRef.current.querySelector("span");
+      if (span) {
+        span.style.opacity = p ? "1" : "0";
+      }
+      
+      dotRef.current.style.opacity = (v && !p) ? (h ? "0.3" : "1") : "0";
+    };
     
     // Interpolation loop
     const updateCursor = () => {
@@ -66,15 +104,16 @@ export function CustomCursor() {
       const projectCard = target.closest(".project-card");
       
       if (projectCard) {
-        setIsProjectHover(true);
-        setIsHovering(false);
+        isProjectHover.current = true;
+        isHovering.current = false;
       } else if (clickable) {
-        setIsHovering(true);
-        setIsProjectHover(false);
+        isHovering.current = true;
+        isProjectHover.current = false;
       } else {
-        setIsHovering(false);
-        setIsProjectHover(false);
+        isHovering.current = false;
+        isProjectHover.current = false;
       }
+      updateStyles();
     };
 
     document.addEventListener("mouseover", handleMouseOver, { passive: true });
@@ -86,7 +125,7 @@ export function CustomCursor() {
       document.removeEventListener("mouseover", handleMouseOver);
       cancelAnimationFrame(requestRef.current);
     };
-  }, [isVisible]);
+  }, []); // Empty dependency array: NEVER tears down loop!
 
   if (isMobile) return null;
 
@@ -95,19 +134,18 @@ export function CustomCursor() {
       {/* Outer Ring */}
       <div
         ref={cursorRef}
-        className={`fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border transition-all duration-300 ease-out flex items-center justify-center`}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border transition-all duration-300 ease-out flex items-center justify-center"
         style={{
-          width: isProjectHover ? "60px" : isHovering ? "52px" : "36px",
-          height: isProjectHover ? "60px" : isHovering ? "52px" : "36px",
-          opacity: isVisible ? 1 : 0,
-          borderColor: isProjectHover ? "rgba(228, 87, 63, 0.4)" : "rgba(228, 87, 63, 0.65)",
-          backgroundColor: isProjectHover ? "rgba(17, 22, 27, 0.5)" : "transparent",
-          backdropFilter: isProjectHover ? "blur(4px)" : "none",
+          width: "36px",
+          height: "36px",
+          opacity: 0,
+          borderColor: "rgba(228, 87, 63, 0.65)",
+          backgroundColor: "transparent",
         }}
       >
         <span 
           className="font-mono text-[9px] tracking-widest text-[#E4573F] font-bold transition-opacity duration-200"
-          style={{ opacity: isProjectHover ? 1 : 0 }}
+          style={{ opacity: 0 }}
         >
           VIEW
         </span>
@@ -117,9 +155,7 @@ export function CustomCursor() {
       <div
         ref={dotRef}
         className="fixed top-0 left-0 w-[6px] h-[6px] bg-[#E4573F] rounded-full pointer-events-none z-[10000] transition-opacity duration-200"
-        style={{
-          opacity: isVisible && !isProjectHover ? (isHovering ? 0.3 : 1) : 0,
-        }}
+        style={{ opacity: 0 }}
       />
     </>
   );

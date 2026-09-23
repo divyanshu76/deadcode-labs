@@ -33,9 +33,9 @@ export function IsometricBoxes02({ className = "" }: { className?: string }) {
   // w = 40 (from -20 to 20), h = 20 for top face
   const Cube = ({ x, y, delay, highlight = false }: { x: number, y: number, delay: number, highlight?: boolean }) => (
     <motion.g
-      transform={`translate(${x}, ${y})`}
+      initial={{ x, y }}
       variants={{
-        hover: { y: -5, x: 2 }
+        hover: { y: y - 5, x: x + 2 }
       }}
       transition={{ type: "spring", stiffness: 300, damping: 25, delay }}
     >
@@ -57,9 +57,9 @@ export function IsometricBoxes02({ className = "" }: { className?: string }) {
         className="w-full h-full"
       >
         <motion.g
-          transform="translate(100, 20)"
+          initial={{ x: 100, y: 20 }}
           variants={{
-            hover: { y: -4, x: 3, scale: 1.025 }
+            hover: { y: 16, x: 103, scale: 1.025 }
           }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
         >

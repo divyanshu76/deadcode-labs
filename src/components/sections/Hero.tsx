@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -10,7 +10,25 @@ import Link from "next/link";
 export function Hero() {
   const [isReady, setIsReady] = useState(false);
   const [baseDelay, setBaseDelay] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Parallax motion values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const smoothOptions = { damping: 30, stiffness: 60, mass: 0.5 };
+  const smoothX = useSpring(mouseX, smoothOptions);
+  const smoothY = useSpring(mouseY, smoothOptions);
+
+  // Background Parallax Layer Transform
+  const bgX = useTransform(smoothX, [-0.5, 0.5], [12, -12]);
+  const bgY = useTransform(smoothY, [-0.5, 0.5], [12, -12]);
+  
+  // Floating elements Transforms
+  const cardTranslateX = useTransform(smoothX, [-0.5, 0.5], [12, -12]);
+  const cardTranslateY = useTransform(smoothY, [-0.5, 0.5], [12, -12]);
+
+  const floatTranslateX1 = useTransform(smoothX, [-0.5, 0.5], [18, -18]);
+  const floatTranslateX2 = useTransform(smoothX, [-0.5, 0.5], [14, -14]);
 
   useEffect(() => {
     const hasSeen = sessionStorage.getItem("deadcode-preloader-seen");
@@ -20,27 +38,46 @@ export function Hero() {
     }
     setIsReady(true);
     
-    // Desktop only parallax handler
+    // Desktop only parallax handler without React state re-renders
     if (window.innerWidth >= 1024 && !prefersReducedMotion) {
       const handleMouseMove = (e: MouseEvent) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20; // max 10px
-        const y = (e.clientY / window.innerHeight - 0.5) * 20; // max 10px
-        setMousePosition({ x, y });
+        const x = e.clientX / window.innerWidth - 0.5;
+        const y = e.clientY / window.innerHeight - 0.5;
+        mouseX.set(x);
+        mouseY.set(y);
       };
       
-      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
   }, []);
 
   return (
     <section id="home" className="relative pt-28 pb-12 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-[#F3EDE5]">
-      {/* Warm grid */}
-      <div className="absolute inset-0 -z-30 bg-[linear-gradient(to_right,rgba(116,88,66,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(116,88,66,0.04)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
-      {/* Warm ambient light orb */}
-      <div className="absolute left-0 right-0 top-0 -z-30 m-auto h-[400px] w-[400px] rounded-full bg-white/70 blur-[80px] motion-safe:animate-[ambient-drift_10s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift_16s_ease-in-out_infinite_alternate]"></div>
-      {/* Subtle copper warm glow */}
-      <div className="absolute right-0 bottom-0 -z-30 w-[300px] h-[300px] rounded-full bg-[#C96F3D]/10 blur-[100px] motion-safe:animate-[ambient-drift-reverse_9s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift-reverse_14s_ease-in-out_infinite_alternate]"></div>
+      {/* Background Animated Parallax System */}
+      <motion.div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{ x: bgX, y: bgY }}
+      >
+        {/* Layer 3: Subtle architectural grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(116,88,66,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(116,88,66,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-70"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_50%,rgba(116,88,66,0.015),transparent)]"></div>
+        
+        {/* Layer 1: Warm ambient light orb */}
+        <div className="absolute right-[-10%] top-[-10%] m-auto h-[600px] w-[600px] rounded-full bg-white/60 blur-[100px] motion-safe:animate-[ambient-drift_16s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift_22s_ease-in-out_infinite_alternate]"></div>
+        
+        {/* Layer 2: Secondary copper light */}
+        <div className="absolute right-[20%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#C96F3D]/8 blur-[120px] motion-safe:animate-[ambient-drift-reverse_12s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift-reverse_18s_ease-in-out_infinite_alternate]"></div>
+        
+        {/* Layer 4: Micro particles (SVG) */}
+        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="85%" cy="30%" r="1" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_12s_ease-in-out_infinite_alternate]" />
+          <circle cx="75%" cy="60%" r="1" fill="#3B2A21" className="motion-safe:animate-[ambient-drift-reverse_15s_ease-in-out_infinite_alternate]" />
+          <circle cx="90%" cy="80%" r="1.5" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_18s_ease-in-out_infinite_alternate]" />
+          <circle cx="65%" cy="20%" r="1" fill="#6D5A4B" className="motion-safe:animate-[ambient-drift-reverse_14s_ease-in-out_infinite_alternate]" />
+          <circle cx="50%" cy="75%" r="0.5" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_20s_ease-in-out_infinite_alternate]" />
+        </svg>
+      </motion.div>
       
       <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
@@ -110,15 +147,17 @@ export function Hero() {
           </div>
           </div>
           
-          {/* Right Visual (Interactive) */}
+          {/* Right Visual (Interactive cards restored) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.97 }}
-            animate={isReady ? { opacity: 1, scale: 1, x: mousePosition.x * -1, y: mousePosition.y * -1 } : { opacity: 0, scale: 0.97 }}
+            animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
             transition={{ 
               opacity: { duration: 0.8, delay: baseDelay + 0.2 }, 
               scale: { duration: 0.8, delay: baseDelay + 0.2 },
-              x: { type: "spring", damping: 30, stiffness: 100 },
-              y: { type: "spring", damping: 30, stiffness: 100 }
+            }}
+            style={{ 
+              x: cardTranslateX, 
+              y: cardTranslateY,
             }}
             className="relative lg:h-[600px] flex items-center justify-center w-full lg:w-[50%]"
           >
@@ -190,13 +229,13 @@ export function Hero() {
             
             {/* Background floating elements — desktop only */}
             <motion.div 
-              animate={{ y: [0, 8, 0], x: mousePosition.x * -1.5, rotate: [0, 1, 0] }}
+              animate={{ y: [0, 8, 0], rotate: [0, 1, 0] }}
               transition={{ 
                 y: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 },
                 rotate: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 },
-                x: { type: "spring", damping: 30, stiffness: 100 }
               }}
-              className="absolute -right-4 top-12 z-10 glass-crystal p-4 rounded-2xl w-32 hidden lg:block"
+              style={{ x: floatTranslateX1 }}
+              className="absolute -right-4 top-12 z-10 glass-crystal p-4 rounded-2xl w-32 hidden lg:block shadow-sm"
             >
               <div className="w-8 h-8 rounded-full bg-[#C96F3D]/12 flex items-center justify-center mb-2">
                 <div className="w-4 h-4 bg-[#C96F3D] rounded-full"></div>
@@ -205,13 +244,13 @@ export function Hero() {
             </motion.div>
             
             <motion.div 
-              animate={{ y: [0, -8, 0], x: mousePosition.x * -1.2, rotate: [0, -1, 0] }}
+              animate={{ y: [0, -8, 0], rotate: [0, -1, 0] }}
               transition={{ 
                 y: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.5 },
                 rotate: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.5 },
-                x: { type: "spring", damping: 30, stiffness: 100 }
               }}
-              className="absolute -left-8 bottom-24 z-30 glass-crystal p-4 rounded-2xl w-40 hidden lg:block"
+              style={{ x: floatTranslateX2 }}
+              className="absolute -left-8 bottom-24 z-30 glass-crystal p-4 rounded-2xl w-40 hidden lg:block shadow-sm"
             >
               <div className="w-8 h-8 rounded-full bg-[#6D5A4B]/12 flex items-center justify-center mb-2">
                 <div className="w-4 h-4 bg-[#6D5A4B] rounded-full"></div>

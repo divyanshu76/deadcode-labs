@@ -47,9 +47,7 @@ export function Navbar() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
   // Active section observer
@@ -114,7 +112,7 @@ export function Navbar() {
         transition={{ duration: 0.6, delay: baseDelay, ease: [0.76, 0, 0.24, 1] }}
         className={cn(
           "fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 lg:top-[16px] lg:left-[32px] lg:right-[32px] pointer-events-none",
-          mobileMenuOpen ? "z-[2200]" : "z-[80]"
+          "z-[80]"
         )}
       >
         {/* DESKTOP NAVBAR (>= 1024px) */}
@@ -195,7 +193,7 @@ export function Navbar() {
         <div 
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
-            isScrolled && !mobileMenuOpen
+            (isScrolled)
               ? "bg-white/55 backdrop-blur-[20px] border border-white/65 shadow-[0_8px_28px_rgba(83,58,39,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
               : "bg-transparent px-2 h-[60px] flex items-center"
           )}
@@ -207,22 +205,28 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Toggle Button */}
-            <button
-              className="p-2 -mr-1 text-[#3B2A21] relative z-[220] outline-none min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-            >
-              <div className="flex flex-col justify-center items-center w-6 h-5 relative">
-                <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 rotate-45" : "top-0")} />
-                <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300 top-2", mobileMenuOpen ? "opacity-0" : "opacity-100")} />
-                <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 -rotate-45" : "top-4")} />
-              </div>
-            </button>
+            <div className="w-11 h-11" aria-hidden="true" /> {/* Spacer for hamburger */}
           </div>
         </div>
       </motion.header>
+
+      {/* INDEPENDENT MOBILE HAMBURGER BUTTON */}
+      <button
+        className="lg:hidden fixed z-[10001] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-[#3B2A21]"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={mobileMenuOpen}
+        style={{
+          top: "max(18px, env(safe-area-inset-top))",
+          right: "max(16px, env(safe-area-inset-right))"
+        }}
+      >
+        <div className="flex flex-col justify-center items-center w-6 h-5 relative">
+          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 rotate-45" : "top-0")} />
+          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300 top-2", mobileMenuOpen ? "opacity-0" : "opacity-100")} />
+          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 -rotate-45" : "top-4")} />
+        </div>
+      </button>
 
       {/* Mobile Navigation Panel */}
       <MobileNav 

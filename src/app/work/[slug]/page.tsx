@@ -82,6 +82,7 @@ export default async function ProjectPage({ params }: Props) {
                 src={project.image}
                 alt={`${project.title} screenshot`}
                 fill
+                sizes="(max-width: 768px) 100vw, 80vw"
                 className="object-cover"
                 priority
               />

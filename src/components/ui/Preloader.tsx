@@ -97,7 +97,7 @@ export function Preloader() {
           style={{ height: "100dvh" }}
         >
           {/* Solid Black background layer until exit */}
-          {phase !== "exit" && <div className="absolute inset-0 bg-[#F3EDE5]" />}
+          {phase !== "exit" && <div className="absolute inset-0 bg-[#211C1A]" />}
 
           {/* Curved SVG wipe exit */}
           {phase === "exit" && (
@@ -108,10 +108,10 @@ export function Preloader() {
               transition={{ duration: EXIT_DURATION, ease: [0.76, 0, 0.24, 1] }}
             >
               {/* Solid part of the glass sheet */}
-              <div className="w-full h-full bg-[#F3EDE5]" />
+              <div className="w-full h-full bg-[#211C1A]" />
               {/* The trailing curve */}
               <svg
-                className="w-full h-[15vh] fill-[#F3EDE5] translate-y-[-1px]"
+                className="w-full h-[15vh] fill-[#211C1A] translate-y-[-1px]"
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
               >
@@ -122,7 +122,7 @@ export function Preloader() {
 
           {/* Multilingual sequence */}
           {phase === "sequence" && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#3B2A21] px-4 text-center">
+            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#F8F3EC] px-4 text-center">
               <AnimatePresence mode="wait">
                 {index < sequence.length && (
                   <motion.span
@@ -145,7 +145,7 @@ export function Preloader() {
 
           {/* DEADCODE LABS reveal */}
           {(phase === "brand" || phase === "final") && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#3B2A21]">
+            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#F8F3EC]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -156,7 +156,7 @@ export function Preloader() {
                 <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-[#C96F3D] block mb-2 font-semibold">
                   DIGITAL PRODUCT STUDIO
                 </span>
-                <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#3B2A21]">
+                <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#F3EDE5]">
                   DEADCODE LABS
                 </span>
               </motion.div>

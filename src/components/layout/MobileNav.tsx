@@ -41,7 +41,7 @@ export function MobileNav({
     },
     exit: {
       d: `M100 0 L100 ${windowHeight} Q-100 ${windowHeight / 2} 100 0`,
-      transition: { duration: 0.8, ease: easeCurve },
+      transition: { duration: 0.4, ease: easeCurve },
     },
   };
 
@@ -84,7 +84,7 @@ export function MobileNav({
             initial="initial"
             animate="enter"
             exit="exit"
-            className="fixed right-0 top-0 h-dvh w-full max-w-[320px] sm:max-w-sm glass-elevated z-[2000] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/60 rounded-l-2xl rounded-r-none"
+            className="fixed right-0 top-0 h-[100dvh] w-full max-w-[320px] sm:max-w-sm glass-elevated z-[2000] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/60 rounded-l-2xl rounded-r-none"
           >
             {/* SVG Curve */}
             <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[rgba(255,255,255,0.60)] stroke-none z-0">
