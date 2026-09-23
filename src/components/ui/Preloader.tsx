@@ -11,7 +11,7 @@ const sequence = [
 ];
 
 const GREETING_STEP_MS = 100; 
-const EXIT_DURATION = 0.5; 
+const EXIT_DURATION = 0.8; 
 
 export function Preloader() {
   const [index, setIndex] = useState(0);
@@ -93,7 +93,7 @@ export function Preloader() {
       {(showPreloader || phase === "exit") && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[200] flex items-center justify-center pointer-events-auto"
+          className="fixed inset-0 z-[99999] flex items-center justify-center pointer-events-auto"
           style={{ height: "100dvh" }}
         >
           {/* Solid Black background layer until exit */}
@@ -103,29 +103,19 @@ export function Preloader() {
           {phase === "exit" && (
             <motion.div
               className="absolute inset-0 z-0"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
+              initial={{ y: "0%" }}
+              animate={{ y: "-100%" }}
+              transition={{ duration: EXIT_DURATION, ease: [0.76, 0, 0.24, 1] }}
             >
+              {/* Solid part of the glass sheet */}
+              <div className="w-full h-full bg-[#F3EDE5]" />
+              {/* The trailing curve */}
               <svg
-                className="absolute inset-0 w-full h-full"
+                className="w-full h-[15vh] fill-[#F3EDE5] translate-y-[-1px]"
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
-                style={{ width: "100%", height: "100%" }}
               >
-                <motion.path
-                  d="M 0 0 L 100 0 L 100 100 L 0 100 Z"
-                  fill="#F3EDE5"
-                  initial={{
-                    d: "M 0 0 L 100 0 L 100 100 L 0 100 Z",
-                  }}
-                  animate={{
-                    d: "M 0 0 L 100 0 L 100 -20 Q 50 20 0 -20 Z",
-                  }}
-                  transition={{
-                    duration: EXIT_DURATION,
-                    ease: [0.76, 0, 0.24, 1],
-                  }}
-                />
+                <path d="M 0 0 L 100 0 L 100 0 Q 50 100 0 0 Z" />
               </svg>
             </motion.div>
           )}

@@ -123,16 +123,6 @@ export function FounderSection() {
                   className="object-cover object-center rounded-xl transition-transform duration-700 hover:scale-[1.02]"
                   priority
                 />
-                {/* Overlay Badge - changed to subtle glass metadata */}
-                <div className="absolute bottom-5 left-5 right-5 pointer-events-none glass-panel p-3 rounded-xl border border-white/40 shadow-[0_8px_16px_rgba(0,0,0,0.1)]">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#C96F3D]" />
-                    <span className="font-mono text-[10px] tracking-widest uppercase text-[#3B2A21] font-semibold">
-                      Studio Principal
-                    </span>
-                  </div>
-                  <h3 className="font-display text-xl font-bold tracking-tight text-[#3B2A21]">Divyanshu Verma</h3>
-                </div>
                 </motion.div>
               </div>
 
@@ -196,13 +186,6 @@ export function FounderSection() {
               sizes="90vw"
               className="object-cover object-center rounded-xl"
             />
-            {/* Subtle Glass Metadata */}
-            <div className="absolute bottom-4 left-4 right-4 pointer-events-none glass-panel p-3 rounded-xl border border-white/40 shadow-[0_4px_12px_rgba(0,0,0,0.1)]">
-              <span className="font-mono text-[9px] tracking-widest uppercase text-[#3B2A21]/80 font-semibold block mb-0.5">
-                Founder · Software Engineer
-              </span>
-              <span className="font-display text-lg font-bold text-[#3B2A21]">Divyanshu Verma</span>
-            </div>
           </div>
 
           {/* 4. 6+ Years Experience */}

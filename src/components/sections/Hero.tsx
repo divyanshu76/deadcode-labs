@@ -38,16 +38,23 @@ export function Hero() {
       {/* Warm grid */}
       <div className="absolute inset-0 -z-30 bg-[linear-gradient(to_right,rgba(116,88,66,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(116,88,66,0.04)_1px,transparent_1px)] bg-[size:28px_28px]"></div>
       {/* Warm ambient light orb */}
-      <div className="absolute left-0 right-0 top-0 -z-30 m-auto h-[400px] w-[400px] rounded-full bg-white/70 blur-[80px]"></div>
+      <div className="absolute left-0 right-0 top-0 -z-30 m-auto h-[400px] w-[400px] rounded-full bg-white/70 blur-[80px] motion-safe:animate-[ambient-drift_10s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift_16s_ease-in-out_infinite_alternate]"></div>
       {/* Subtle copper warm glow */}
-      <div className="absolute right-0 bottom-0 -z-30 w-[300px] h-[300px] rounded-full bg-[#C96F3D]/10 blur-[100px]"></div>
+      <div className="absolute right-0 bottom-0 -z-30 w-[300px] h-[300px] rounded-full bg-[#C96F3D]/10 blur-[100px] motion-safe:animate-[ambient-drift-reverse_9s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift-reverse_14s_ease-in-out_infinite_alternate]"></div>
       
       <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
           
           {/* Left Content */}
-          <div className="flex flex-col space-y-5 md:space-y-7 relative z-10 w-full lg:w-[52%] glass-soft p-6 md:p-10 rounded-[32px]">
-            <motion.div
+          <div className="flex flex-col relative z-10 w-full lg:w-[52%] glass-soft p-6 md:p-10 rounded-[32px] overflow-hidden">
+            {/* Moving Glass Reflection */}
+            <div 
+              className="absolute inset-0 z-0 pointer-events-none opacity-20 motion-safe:animate-[glass-reflection_12s_ease-in-out_infinite]"
+              style={{ background: 'linear-gradient(120deg, transparent 25%, rgba(255,255,255,1) 42%, transparent 58%)' }}
+            />
+            
+            <div className="relative z-10 flex flex-col space-y-5 md:space-y-7">
+              <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
               transition={{ duration: 0.5, delay: baseDelay }}
@@ -100,6 +107,7 @@ export function Hero() {
                 </Link>
               </Button>
             </motion.div>
+          </div>
           </div>
           
           {/* Right Visual (Interactive) */}

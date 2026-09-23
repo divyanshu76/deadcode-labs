@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { projects } from "@/data/projects";
 import Link from "next/link";
+import Image from "next/image";
 
 export function FeaturedWorkSection() {
   const displayProjects = projects.slice(0, 4);
@@ -38,26 +39,30 @@ export function FeaturedWorkSection() {
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.015, y: -4 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
-              className="group flex flex-col relative premium-card p-3 md:p-5 h-full rounded-[24px]"
+              className="group flex flex-col relative premium-card p-3 md:p-5 h-full rounded-[24px] hover:-translate-y-1 transition-transform duration-500 ease-out"
             >
-              <Link href={`/work/${project.slug}`} className="absolute inset-0 z-20" aria-label={`View ${project.title} case study`}>
-                <span className="sr-only">View {project.title} case study</span>
-              </Link>
-
               {/* Project Image Area */}
               <div
-                className="relative overflow-hidden rounded-[16px] border border-white/40 mb-4 md:mb-5 aspect-[16/10] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="relative overflow-hidden rounded-[16px] border border-white/40 mb-4 md:mb-5 aspect-[16/10] transition-transform duration-700 ease-out z-0 bg-[#3B2A21]/5"
               >
-                <div className="absolute inset-0 flex items-center justify-center bg-[#3B2A21]/5">
-                   <span className="font-display text-2xl font-bold text-[#6D5A4B]/50">{project.title}</span>
-                </div>
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} project screenshot`}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                     <span className="font-display text-2xl font-bold text-[#6D5A4B]/50">{project.title}</span>
+                  </div>
+                )}
               </div>
 
               {/* Information Row */}
-              <div className="flex flex-col justify-between gap-3 relative z-10 pointer-events-none mt-2 flex-grow glass-panel rounded-[16px] p-4">
+              <div className="flex flex-col justify-between gap-3 relative z-10 pointer-events-auto mt-2 flex-grow glass-panel rounded-[16px] p-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#C96F3D] group-hover:text-[#A9512C] transition-colors">
@@ -76,8 +81,23 @@ export function FeaturedWorkSection() {
                   </p>
                 </div>
                 
-                <div className="flex items-center text-[13px] font-semibold text-[#C96F3D] mt-auto group-hover:text-[#A9512C] transition-all">
-                  View Case Study <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                <div className="flex flex-wrap items-center gap-2 mt-auto pt-2">
+                  <Link 
+                    href={`/work/${project.slug}`} 
+                    className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#3B2A21] hover:text-[#C96F3D] transition-all bg-white/40 hover:bg-white/60 border border-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(59,42,33,0.02)]"
+                  >
+                    View Case Study <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                  </Link>
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#6D5A4B] hover:text-[#C96F3D] transition-all bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md px-4 py-2 rounded-full"
+                    >
+                      View Live Site <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

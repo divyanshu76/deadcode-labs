@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Navbar } from "@/components/layout/Navbar";
@@ -75,17 +76,29 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* Hero Visual Fallback */}
-          <div className="aspect-video w-full rounded-[2rem] overflow-hidden bg-foreground text-background flex items-center justify-center mb-24 md:mb-40 shadow-2xl relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent pointer-events-none opacity-50"></div>
-            <div className="text-center p-8 relative z-10">
-              <span className="text-xl md:text-3xl font-mono tracking-widest uppercase opacity-20 block mb-6">
-                {project.category}
-              </span>
-              <h2 className="text-4xl md:text-7xl font-bold tracking-tighter opacity-80">
-                {project.title}
-              </h2>
+          {project.image ? (
+            <div className="aspect-[16/10] md:aspect-video w-full rounded-[2rem] overflow-hidden mb-24 md:mb-40 shadow-2xl relative border border-white/40">
+              <Image 
+                src={project.image}
+                alt={`${project.title} screenshot`}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
-          </div>
+          ) : (
+            <div className="aspect-video w-full rounded-[2rem] overflow-hidden bg-foreground text-background flex items-center justify-center mb-24 md:mb-40 shadow-2xl relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent pointer-events-none opacity-50"></div>
+              <div className="text-center p-8 relative z-10">
+                <span className="text-xl md:text-3xl font-mono tracking-widest uppercase opacity-20 block mb-6">
+                  {project.category}
+                </span>
+                <h2 className="text-4xl md:text-7xl font-bold tracking-tighter opacity-80">
+                  {project.title}
+                </h2>
+              </div>
+            </div>
+          )}
 
           {/* Content Details */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">

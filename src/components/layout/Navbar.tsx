@@ -112,7 +112,10 @@ export function Navbar() {
         initial={{ opacity: 0, y: -8 }}
         animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
         transition={{ duration: 0.6, delay: baseDelay, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 lg:top-[16px] lg:left-[32px] lg:right-[32px] z-[80] pointer-events-none"
+        className={cn(
+          "fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 lg:top-[16px] lg:left-[32px] lg:right-[32px] pointer-events-none",
+          mobileMenuOpen ? "z-[2200]" : "z-[80]"
+        )}
       >
         {/* DESKTOP NAVBAR (>= 1024px) */}
         <div className="hidden lg:block w-full max-w-[1440px] mx-auto pointer-events-auto">
@@ -192,7 +195,7 @@ export function Navbar() {
         <div 
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
-            isScrolled || mobileMenuOpen
+            isScrolled && !mobileMenuOpen
               ? "bg-white/55 backdrop-blur-[20px] border border-white/65 shadow-[0_8px_28px_rgba(83,58,39,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
               : "bg-transparent px-2 h-[60px] flex items-center"
           )}

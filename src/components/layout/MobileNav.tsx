@@ -91,21 +91,7 @@ export function MobileNav({
               {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" className="fill-[rgba(255,255,255,0.60)]" />}
             </svg>
 
-            <div className="flex flex-col h-full justify-between relative z-10">
-              {/* Drawer Header */}
-              <div className="flex items-center justify-between pb-5 border-b border-white/40 pt-2">
-                <span className="font-bold text-lg tracking-tight text-[#3B2A21] leading-tight">
-                  DEADCODE<span className="text-[#C96F3D]">.</span><br/>LABS
-                </span>
-                <button
-                  onClick={onClose}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/50 border border-white/60 text-[#3B2A21] hover:text-[#C96F3D] hover:bg-white/65 transition-colors z-[2100]"
-                  aria-label="Close menu"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-
+            <div className="flex flex-col h-full justify-between relative z-10 pt-16">
               {/* Nav Links */}
               <div className="flex flex-col space-y-5 my-auto py-6">
                 {navLinks.map((link) => (
