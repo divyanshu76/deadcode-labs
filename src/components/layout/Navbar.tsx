@@ -15,7 +15,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const pathname = usePathname();
-  
+
   const [isReady, setIsReady] = useState(false);
   const [baseDelay, setBaseDelay] = useState(0);
 
@@ -23,7 +23,7 @@ export function Navbar() {
     const isRunning = sessionStorage.getItem("deadcode-preloader-running") === "true";
     const hasSeen = sessionStorage.getItem("deadcode-preloader-seen") === "true";
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
+
     if (isRunning || (!hasSeen && !prefersReducedMotion)) {
       setBaseDelay(2.6);
     }
@@ -117,11 +117,11 @@ export function Navbar() {
       >
         {/* DESKTOP NAVBAR (>= 1024px) */}
         <div className="hidden lg:block w-full max-w-[1440px] mx-auto pointer-events-auto">
-          <div 
+          <div
             className={cn(
               "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-350 ease-out w-full",
-              isScrolled 
-                ? "glass-elevated px-6 h-[62px]" 
+              isScrolled
+                ? "glass-elevated px-6 h-[62px]"
                 : "bg-transparent px-3 h-[70px] rounded-[24px]"
             )}
           >
@@ -136,7 +136,7 @@ export function Navbar() {
             <nav className="flex items-center gap-7 xl:gap-8 justify-center">
               {navLinks.map((link) => {
                 const isExactActive = (pathname === "/" && activeSection === link.id);
-                
+
                 return (
                   <Link
                     key={link.name}
@@ -154,7 +154,7 @@ export function Navbar() {
                       transition={{ duration: 0.5, type: "spring" }}
                     />
                     {isExactActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="nav-active-dot"
                         className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C96F3D]"
                       />
@@ -174,7 +174,7 @@ export function Navbar() {
                 <span className="text-[12.5px] text-[#6D5A4B] font-medium tracking-tight">Available for selected projects</span>
               </div>
               <Link href="/#start-project" onClick={(e) => handleNavClick(e, "/#start-project")} className="outline-none">
-                <Button 
+                <Button
                   variant="default"
                   className={cn(
                     "rounded-[12px] text-sm",
@@ -190,7 +190,7 @@ export function Navbar() {
         </div>
 
         {/* MOBILE & TABLET COMPACT NAVBAR (< 1024px) */}
-        <div 
+        <div
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
             (isScrolled)
@@ -229,10 +229,10 @@ export function Navbar() {
       </button>
 
       {/* Mobile Navigation Panel */}
-      <MobileNav 
-        isOpen={mobileMenuOpen} 
-        onClose={() => setMobileMenuOpen(false)} 
-        navLinks={allMobileLinks} 
+      <MobileNav
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        navLinks={allMobileLinks}
       />
     </>
   );
