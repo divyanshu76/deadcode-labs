@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { X } from "lucide-react";
 
 export function MobileNav({
   isOpen,
@@ -27,8 +26,8 @@ export function MobileNav({
 
   const slide = {
     initial: { x: "100%" },
-    enter: { x: 0, transition: { duration: 0.5, ease: easeCurve } },
-    exit: { x: "100%", transition: { duration: 0.4, ease: easeCurve } },
+    enter: { x: 0, transition: { duration: 0.65, ease: easeCurve } },
+    exit: { x: "100%", transition: { duration: 0.55, ease: easeCurve } },
   };
 
   const curve = {
@@ -37,12 +36,30 @@ export function MobileNav({
     },
     enter: {
       d: `M100 0 L100 ${windowHeight} Q100 ${windowHeight / 2} 100 0`,
-      transition: { duration: 0.8, ease: easeCurve },
+      transition: { duration: 0.65, ease: easeCurve },
     },
     exit: {
-      d: `M100 0 L100 ${windowHeight} Q-100 ${windowHeight / 2} 100 0`,
-      transition: { duration: 0.4, ease: easeCurve },
+      d: `M100 0 L100 ${windowHeight} Q100 ${windowHeight / 2} 100 0`,
+      transition: { duration: 0.55, ease: easeCurve },
     },
+  };
+
+  const linkContainerVariants = {
+    initial: { opacity: 0 },
+    enter: {
+      opacity: 1,
+      transition: { staggerChildren: 0.08, delayChildren: 0.2 },
+    },
+    exit: {
+      opacity: 0,
+      transition: { staggerChildren: 0.03, staggerDirection: -1 },
+    },
+  };
+
+  const linkVariants = {
+    initial: { opacity: 0, x: 30 },
+    enter: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeCurve } },
+    exit: { opacity: 0, x: 15, transition: { duration: 0.2, ease: easeCurve } },
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -74,6 +91,7 @@ export function MobileNav({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
             onClick={onClose}
             className="fixed inset-0 z-[1900] bg-[#3B2A21]/30 backdrop-blur-sm lg:hidden"
           />
@@ -93,22 +111,39 @@ export function MobileNav({
 
             <div className="flex flex-col h-full justify-between relative z-10 pt-16">
               {/* Nav Links */}
-              <div className="flex flex-col space-y-5 my-auto py-6">
+              <motion.div 
+                variants={linkContainerVariants}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                className="flex flex-col space-y-4 my-auto py-6 items-start text-left w-full"
+              >
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className="group flex items-center gap-4 font-display text-[28px] sm:text-[32px] font-semibold tracking-tight text-[#3B2A21] hover:text-[#C96F3D] hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
-                  >
-                    {link.name.toUpperCase()}
-                  </Link>
+                  <motion.div key={link.name} variants={linkVariants} className="w-full">
+                    <Link
+                      href={link.href}
+                      onClick={(e) => handleLinkClick(e, link.href)}
+                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-[#3B2A21] hover:text-[#C96F3D] hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
+                    >
+                      {link.name.toUpperCase()}
+                    </Link>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Social & Contact Footer */}
-              <div className="border-t border-white/40 pt-6 space-y-4">
-                <div className="flex items-center space-x-6 text-[#6D5A4B]">
+              <motion.div 
+                variants={{
+                  initial: { opacity: 0 },
+                  enter: { opacity: 1, transition: { delay: 0.4, duration: 0.5 } },
+                  exit: { opacity: 0, transition: { duration: 0.2 } }
+                }}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                className="border-t border-white/40 pt-6 space-y-4 text-left w-full"
+              >
+                <div className="flex items-center justify-start space-x-6 text-[#6D5A4B]">
                   <a
                     href="https://github.com/divyanshu76"
                     target="_blank"
@@ -137,7 +172,7 @@ export function MobileNav({
                 <p className="text-[12px] font-mono text-[#927E6E]">
                   Studio Office · Lucknow / Global Edge
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </>

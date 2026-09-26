@@ -159,6 +159,10 @@ export function PricingSection() {
                     KEY INCLUSIONS
                   </span>
                   <ul className="space-y-[8px]">
+                    <li className="flex items-start text-[14px] text-[#C96F3D] font-medium leading-[1.45]">
+                      <span className="shrink-0 mr-2 mt-[2px] font-bold text-[13px]">✦</span>
+                      <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
+                    </li>
                     {pkg.inclusions.map((item, i) => (
                       <li key={i} className="flex items-start text-[14px] text-[#3B2A21] font-medium leading-[1.45]">
                         <span className="shrink-0 mr-2 mt-[2px] text-[#C96F3D] font-bold text-[13px]">—</span>
@@ -247,6 +251,10 @@ export function PricingSection() {
                       KEY INCLUSIONS
                     </span>
                     <ul className="space-y-[8px]">
+                      <li className="flex items-start text-[13px] text-[#C96F3D] font-medium leading-[1.45]">
+                        <span className="shrink-0 mr-[6px] mt-[2px] font-bold text-[12px]">✦</span>
+                        <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
+                      </li>
                       {pkg.inclusions.map((item, i) => (
                         <li key={i} className="flex items-start text-[13px] text-[#3B2A21] font-medium leading-[1.45]">
                           <span className="shrink-0 mr-[6px] mt-[2px] text-[#C96F3D] font-bold text-[12px]">—</span>
@@ -296,7 +304,7 @@ export function PricingSection() {
         {/* Disclaimer Note */}
         <div className="text-center mt-12 md:mt-14">
           <p className="text-[11px] font-mono text-[#927E6E]/70 max-w-xl mx-auto px-4">
-            Hosting, domains, paid software, third-party services and applicable taxes are billed separately where required.
+            *Standard domain registration included for 1 year. Growth & Product plans include standard .com / .in registration. Premium domains and renewals are billed separately.
           </p>
         </div>
       </Container>

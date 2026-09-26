@@ -23,38 +23,51 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deadcode.design"),
-  title: "DEADCODE LABS | Premium Digital Product Studio",
-  description: "Boutique digital product studio engineering bespoke websites, e-commerce storefronts, AI systems, and scalable web applications for ambitious global brands.",
+  metadataBase: new URL("https://deadcode.space"),
+  title: {
+    default: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
+    template: "%s | DEADCODE LABS",
+  },
+  description: "A premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation for ambitious businesses.",
   keywords: [
     "Digital Product Studio",
     "Web Development",
-    "Next.js Architecture",
+    "Full-Stack Development",
     "E-commerce",
-    "Headless Shopify",
     "AI Products",
     "Workflow Automation",
-    "UI/UX Design Engineering",
+    "Custom Web Applications",
+    "UI/UX"
   ],
-  authors: [{ name: "Divyanshu Verma", url: "https://www.divyanshu.space" }],
-  creator: "Divyanshu Verma",
+  authors: [{ name: "Divyanshu Verma", url: "https://github.com/divyanshu76" }],
+  creator: "DEADCODE LABS",
+  alternates: {
+    canonical: "https://deadcode.space",
+  },
   openGraph: {
-    title: "DEADCODE LABS | Premium Digital Product Studio",
-    description: "Digital ideas, engineered. Bespoke digital experiences, web apps, and intelligent platforms.",
-    url: "https://deadcode.design",
+    title: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
+    description: "A premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation for ambitious businesses.",
+    url: "https://deadcode.space",
     siteName: "DEADCODE LABS",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DEADCODE LABS | Premium Digital Product Studio",
-    description: "Digital ideas, engineered. Bespoke digital experiences, web apps, and intelligent platforms.",
+    title: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
+    description: "A premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation for ambitious businesses.",
     creator: "@truly_divyanshu",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

@@ -50,6 +50,17 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
+  // Handle ESC key to close mobile nav
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
   // Active section observer
   useEffect(() => {
     if (pathname !== "/") return;
@@ -212,12 +223,12 @@ export function Navbar() {
 
       {/* INDEPENDENT MOBILE HAMBURGER BUTTON */}
       <button
-        className="lg:hidden fixed z-[10001] p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-[#3B2A21]"
+        className="lg:hidden fixed z-[2100] top-4 right-4 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-[#3B2A21]"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={mobileMenuOpen}
         style={{
-          top: "max(18px, env(safe-area-inset-top))",
+          top: "max(16px, env(safe-area-inset-top))",
           right: "max(16px, env(safe-area-inset-right))"
         }}
       >

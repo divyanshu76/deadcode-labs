@@ -1,7 +1,17 @@
-"use client";
-
+import { Metadata } from "next";
 import { FeaturedWorkSection } from "@/components/sections/FeaturedWorkSection";
 import { Container } from "@/components/ui/Container";
+
+export const metadata: Metadata = {
+  title: "Work & Projects",
+  description: "Explore our portfolio of bespoke websites, e-commerce platforms, and scalable web applications engineered by DEADCODE LABS.",
+  alternates: {
+    canonical: "https://deadcode.space/work",
+  },
+  openGraph: {
+    url: "https://deadcode.space/work",
+  },
+};
 
 export default function WorkPage() {
   return (

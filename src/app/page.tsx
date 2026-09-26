@@ -13,8 +13,31 @@ import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DEADCODE LABS",
+    "url": "https://deadcode.space",
+    "logo": "https://deadcode.space/icon.svg",
+    "description": "Premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation.",
+    "sameAs": [
+      "https://github.com/divyanshu76",
+      "https://www.instagram.com/truly_divyanshu/",
+      "https://www.linkedin.com/in/divyanshuverma09/"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Divyanshu Verma",
+      "url": "https://github.com/divyanshu76"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Hero />
       <UdyamTrustSection />
       <TrustSlider />

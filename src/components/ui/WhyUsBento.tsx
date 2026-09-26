@@ -153,7 +153,7 @@ export function WhyUsBento() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="w-10 h-10 md:w-[42px] md:h-[42px] rounded-full border-[2.5px] border-[#252F37] group-hover:border-[#2B363F] transition-colors bg-[#11161B] overflow-hidden absolute left-0 z-40 shadow-lg"
               >
-                <Image src="/images/founder.jpg" alt="Engineer" fill className="object-cover" />
+                <Image src="/images/founder.jpg" alt="DEADCODE LABS experienced engineer team member" fill className="object-cover" />
               </motion.div>
               <motion.div
                 variants={{ hover: { x: 8, y: -4, rotate: 2, scale: 1.05 } }}

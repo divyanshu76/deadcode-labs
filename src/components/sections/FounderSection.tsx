@@ -1,254 +1,228 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
-const technologies = [
-  { id: "01", name: "React / Next.js", note: "Architecture & SSR" },
-  { id: "02", name: "TypeScript", note: "Type-safe Systems" },
-  { id: "03", name: "Tailwind CSS", note: "Custom Design Tokens" },
-  { id: "04", name: "Node.js / APIs", note: "Scalable Backends" },
-  { id: "05", name: "Databases", note: "PostgreSQL & Supabase" },
-  { id: "06", name: "UI / UX", note: "Design Engineering" },
+const divyanshuTechGroups = [
+  {
+    category: "FRONTEND",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    category: "BACKEND",
+    items: ["Node.js", "Python", "FastAPI", "REST APIs"],
+  },
+  {
+    category: "DATABASE & CLOUD",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Supabase", "Firebase"],
+  },
+  {
+    category: "PRODUCT / COMMERCE",
+    items: ["Shopify", "Liquid", "UI/UX"],
+  },
+];
+
+const alokCapabilities = [
+  "Client Relations",
+  "Project Management",
+  "Requirements Gathering",
+  "Client Communication",
+  "Project Coordination",
+  "Delivery Coordination",
+  "Client Success",
+  "Business Operations",
+  "Documentation & Workflow",
 ];
 
 export function FounderSection() {
   return (
-    <section id="about" className="py-16 md:py-28 lg:py-36 relative z-10 border-t border-white/50 overflow-hidden">
+    <section id="about" className="py-12 md:py-20 lg:py-32 relative z-10 border-t border-white/50 overflow-hidden">
       <Container>
-        {/* DESKTOP LAYOUT (>= 1024px) */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-16 items-start">
-          {/* Left Column */}
-          <div className="lg:col-span-7">
+        {/* DESKTOP & MOBILE SHARED HEADING */}
+        <div className="mb-12 md:mb-20 lg:mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 lg:items-center">
+            
+            {/* LEFT: Heading */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-xl"
             >
-              <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-4">
+              <span className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-3 md:mb-4">
                 ABOUT DEADCODE LABS
               </span>
-              <h2 className="font-display text-6xl xl:text-7xl font-bold tracking-tight mb-8 leading-[1.05] text-[#3B2A21]">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-[#3B2A21]">
                 Engineering <br />
-                <span className="italic font-normal text-[#C96F3D] font-display">meets</span> <br />
-                aesthetics.
+                <span className="italic font-normal text-[#C96F3D] font-display">meets</span> aesthetics.
               </h2>
-
-              <div className="space-y-5 text-base xl:text-lg text-[#6D5A4B] leading-relaxed mb-10 max-w-xl">
-                <p>
-                  DEADCODE LABS is founded and led by <strong className="text-[#3B2A21] font-semibold">Divyanshu Verma</strong>, a software engineer and digital product designer obsessed with craftsmanship, speed, and architectural clarity.
-                </p>
-                <p>
-                  We operate as a boutique engineering studio. There are no layers of account managers, no offshore junior handoffs, and zero generic boilerplate templates. Every digital product, website, and system is tailored directly to your commercial ambitions.
-                </p>
-                <p>
-                  Our standard is singular: deliver software that performs with architectural rigor, scales effortlessly, and looks like a fine-art editorial publication.
-                </p>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex items-center gap-4 mb-14">
-                <Button size="lg" className="group text-[15px] px-8 h-13 transition-all" asChild>
-                  <a href="/start-a-project">
-                    Start a Conversation
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" className="group text-[15px] px-7 h-13 border-white/10 text-foreground" asChild>
-                  <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer">
-                    View Portfolio
-                    <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-secondary group-hover:text-foreground" />
-                  </a>
-                </Button>
-              </div>
-
-              {/* Technology Stack Grid in Left Column */}
-              <div className="pt-8 border-t border-white/40 max-w-xl">
-                <div className="flex items-center justify-between mb-5">
-                  <h4 className="font-mono text-xs tracking-widest uppercase text-[#3B2A21] font-semibold">
-                    Core Technical Foundation
-                  </h4>
-                  <span className="text-xs text-[#927E6E] font-mono">Modern Production Stack</span>
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {technologies.map((tech) => (
-                    <div
-                      key={tech.id}
-                      className="p-3.5 rounded-xl glass-panel hover:border-[#C96F3D]/40 transition-colors group"
-                    >
-                      <span className="font-mono text-[10px] text-secondary/60 block mb-1">
-                        {tech.id}
-                      </span>
-                      <span className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors block">
-                        {tech.name}
-                      </span>
-                      <span className="text-[11px] text-secondary block mt-0.5">
-                        {tech.note}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
-          </div>
 
-          {/* Right Column: Founder Portrait & Credentials */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+            {/* RIGHT: Studio Statement & Metadata */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="space-y-6"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="glass-panel p-5 sm:p-6 md:p-8 rounded-2xl border border-white/40 shadow-sm relative overflow-hidden"
             >
-              {/* Founder Portrait Card */}
-              <div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden glass-crystal p-2"
-                >
-                <Image
-                  src="/images/founder.jpg"
-                  alt="Divyanshu Verma — Founder & Software Engineer at DEADCODE LABS"
-                  fill
-                  sizes="(min-width: 1024px) 38vw, 90vw"
-                  className="object-cover object-center rounded-xl transition-transform duration-700 hover:scale-[1.02]"
-                  priority
-                />
-                </motion.div>
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-[#C96F3D]/5 rounded-bl-full -z-10"></div>
+              <p className="text-[14.5px] sm:text-[15px] md:text-base xl:text-lg text-[#6D5A4B] leading-relaxed mb-6 md:mb-8">
+                DEADCODE LABS is a digital product studio focused on engineering high-performance web applications, scalable systems, e-commerce experiences, AI-enabled products and automation-driven solutions.
+              </p>
+              
+              <div className="flex flex-wrap gap-2 md:gap-3 pt-5 md:pt-6 border-t border-white/30">
+                {["FULL-STACK ENGINEERING", "DIGITAL PRODUCTS", "AI & AUTOMATION", "E-COMMERCE"].map((tag, i) => (
+                  <div key={i} className="font-mono text-[9px] md:text-[10px] xl:text-[11px] tracking-wider uppercase px-2.5 py-1.5 rounded bg-white/40 text-[#3B2A21] font-semibold border border-white/20 shadow-sm">
+                    {tag}
+                  </div>
+                ))}
               </div>
+            </motion.div>
 
-              {/* Founder Identity & Experience Block */}
-              <div className="p-6 rounded-xl glass-panel flex items-center justify-between">
+          </div>
+        </div>
+
+        {/* FOUNDING TEAM SECTION */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="flex items-center gap-4 mb-6 md:mb-8">
+            <h3 className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-widest uppercase text-[#3B2A21] font-semibold">
+              Founding Team
+            </h3>
+            <div className="h-px bg-[#3B2A21]/10 flex-1"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 mb-8 md:mb-12 lg:items-start">
+            
+            {/* Divyanshu Profile Card */}
+            <div className="p-5 sm:p-6 md:p-8 rounded-2xl glass-panel group hover:-translate-y-1 transition-all duration-500 border border-white/40 hover:border-[#C96F3D]/30 hover:shadow-xl hover:shadow-[#3B2A21]/5 relative overflow-hidden flex flex-col">
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-[#C96F3D]/5 rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
                 <div>
-                  <h4 className="font-bold text-foreground text-sm tracking-tight">Divyanshu Verma</h4>
-                  <p className="text-xs text-secondary mt-0.5">
-                    Founder · Software Engineer · Product Builder
+                  <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Divyanshu Verma</h4>
+                  <p className="text-[12px] sm:text-[13px] md:text-sm text-[#C96F3D] font-medium mt-1.5 uppercase tracking-wider">
+                    Founding Full Stack Developer
+                  </p>
+                  <p className="text-[11px] sm:text-[12px] md:text-[13px] text-secondary mt-1">
+                    6+ Years Experience
                   </p>
                 </div>
-                <div className="text-right border-l border-white/10 pl-6 shrink-0">
-                  <span className="font-display text-3xl font-bold text-foreground block leading-none">
+                <div className="hidden sm:block text-right border-l-2 border-[#C96F3D]/20 pl-4 shrink-0">
+                  <span className="font-display text-2xl md:text-3xl font-bold text-foreground block leading-none">
                     6+
                   </span>
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-secondary block mt-1">
+                  <span className="font-mono text-[9px] md:text-[10px] tracking-wider uppercase text-secondary block mt-1">
                     Years Exp.
                   </span>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* MOBILE LAYOUT (< 1024px) 
-            Specified order:
-            1. Heading
-            2. Short intro
-            3. Founder portrait
-            4. 6+ Years Experience
-            5. Technology Stack
-            6. Description
-            7. Buttons
-        */}
-        <div className="flex flex-col lg:hidden space-y-6">
-          {/* 1. Heading */}
-          <div>
-            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-accent font-semibold block mb-2">
-              ABOUT DEADCODE LABS
-            </span>
-            <h2 
-              className="font-display font-bold tracking-tight text-foreground leading-[1.05]"
-              style={{ fontSize: "clamp(34px, 10vw, 48px)" }}
-            >
-              Engineering <br />
-              <span className="italic font-normal text-accent font-display">meets</span> aesthetics.
-            </h2>
-          </div>
-
-          {/* 2. Short intro */}
-          <p className="text-[15px] text-secondary leading-relaxed">
-            DEADCODE LABS is founded by <strong className="text-foreground font-semibold">Divyanshu Verma</strong>, a software engineer and digital product designer focused on creating high-quality web applications, bespoke digital systems, and editorial brand experiences.
-          </p>
-
-          {/* 3. Founder portrait */}
-          <div className="relative aspect-[4/5] w-full max-w-[340px] mx-auto rounded-2xl overflow-hidden glass-crystal p-1.5">
-            <Image
-              src="/images/founder.jpg"
-              alt="Divyanshu Verma — Founder, DEADCODE LABS"
-              fill
-              sizes="90vw"
-              className="object-cover object-center rounded-xl"
-            />
-          </div>
-
-          {/* 4. 6+ Years Experience */}
-          <div className="p-4 rounded-xl glass-panel flex items-center justify-between">
-            <div>
-              <span className="font-mono text-[11px] tracking-wider uppercase text-secondary font-semibold block">
-                Independent Track Record
-              </span>
-              <span className="text-xs text-secondary mt-0.5 block">
-                Crafting digital products & software
-              </span>
-            </div>
-            <div className="text-right border-l border-white/10 pl-5 shrink-0">
-              <span className="font-display text-3xl font-bold text-foreground leading-none block">
-                6+
-              </span>
-              <span className="font-mono text-[10px] uppercase text-secondary tracking-widest block mt-0.5">
-                Years
-              </span>
-            </div>
-          </div>
-
-          {/* 5. Technology Stack */}
-          <div className="pt-2">
-            <span className="font-mono text-[11px] tracking-widest uppercase text-foreground font-semibold block mb-3">
-              Technology Stack
-            </span>
-            <div className="grid grid-cols-2 gap-2">
-              {technologies.map((tech) => (
-                <div key={tech.id} className="p-3 rounded-lg glass-panel">
-                  <span className="font-mono text-[9px] text-secondary/70 block mb-0.5">{tech.id}</span>
-                  <span className="text-xs font-semibold text-foreground block">{tech.name}</span>
+              
+              <p className="text-[13.5px] md:text-[14.5px] text-secondary leading-relaxed mb-6 md:mb-8">
+                Full-stack developer focused on building high-performance web applications, digital products and scalable systems. Combines product thinking, engineering discipline and interface craftsmanship to turn complex ideas into polished digital experiences.
+              </p>
+              
+              <div className="pt-5 md:pt-6 border-t border-white/40">
+                <span className="font-mono text-[9px] md:text-[10px] tracking-widest uppercase text-[#3B2A21] font-semibold block mb-4 md:mb-5">
+                  Full-Stack Capabilities
+                </span>
+                <div className="space-y-4 md:space-y-5">
+                  {divyanshuTechGroups.map((group, idx) => (
+                    <div key={idx}>
+                      <span className="font-mono text-[8px] sm:text-[9px] text-[#C96F3D] font-semibold block mb-1.5 md:mb-2 tracking-widest">
+                        {group.category}
+                      </span>
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
+                        {group.items.map((item, i) => (
+                          <div
+                            key={i}
+                            className="px-2 py-1 md:px-2.5 md:py-1.5 rounded-lg bg-white/30 hover:bg-white/60 border border-white/20 hover:border-[#C96F3D]/30 transition-all group/chip"
+                          >
+                            <span className="text-[10px] sm:text-[11px] font-semibold text-foreground group-hover/chip:text-[#C96F3D] transition-colors">
+                              {item}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
+
+            {/* Alok Profile Card */}
+            <div className="p-5 sm:p-6 md:p-8 rounded-2xl glass-panel group hover:-translate-y-1 transition-all duration-500 border border-white/40 hover:border-[#C96F3D]/30 hover:shadow-xl hover:shadow-[#3B2A21]/5 relative overflow-hidden flex flex-col">
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-[#C96F3D]/5 rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
+                <div>
+                  <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Alok Verma</h4>
+                  <p className="text-[12px] sm:text-[13px] md:text-sm text-[#C96F3D] font-medium mt-1.5 uppercase tracking-wider">
+                    Founding Client Success Lead
+                  </p>
+                  <p className="text-[11px] sm:text-[12px] md:text-[13px] text-secondary mt-1">
+                    Project Operations · 3 Years Experience
+                  </p>
+                </div>
+                <div className="hidden sm:block text-right border-l-2 border-[#C96F3D]/20 pl-4 shrink-0">
+                  <span className="font-display text-2xl md:text-3xl font-bold text-foreground block leading-none">
+                    3
+                  </span>
+                  <span className="font-mono text-[9px] md:text-[10px] tracking-wider uppercase text-secondary block mt-1">
+                    Years Exp.
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-[13.5px] md:text-[14.5px] text-secondary leading-relaxed mb-6 md:mb-8">
+                Focused on client success, project coordination and clear communication. Works closely with clients to understand requirements, align expectations and keep projects moving smoothly from planning through delivery.
+              </p>
+              
+              <div className="pt-5 md:pt-6 border-t border-white/40">
+                <span className="font-mono text-[9px] md:text-[10px] tracking-widest uppercase text-[#3B2A21] font-semibold block mb-4 md:mb-5">
+                  Operational Capabilities
+                </span>
+                <div className="flex flex-wrap gap-1.5 md:gap-2.5">
+                  {alokCapabilities.map((capability, idx) => (
+                    <div
+                      key={idx}
+                      className="px-2.5 py-1.5 md:px-3 md:py-2 rounded-lg bg-white/30 hover:bg-white/60 border border-white/20 hover:border-[#C96F3D]/30 transition-all text-[11px] md:text-xs font-medium text-foreground hover:text-[#C96F3D]"
+                    >
+                      {capability}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* 6. Description */}
-          <div className="space-y-3 text-[14.5px] text-secondary leading-relaxed pt-2">
-            <p>
-              We operate without the agency bloat. No recycled templates, no non-technical middle managers. You collaborate directly with the engineers designing and shipping your code.
-            </p>
-            <p>
-              Our philosophy is uncompromising: build digital systems that look beautiful, scale flawlessly, and solve real business problems.
-            </p>
-          </div>
-
-          {/* 7. Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button size="lg" className="w-full sm:w-auto h-12 text-sm font-medium" asChild>
+          {/* CTA Row directly below founding cards */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+            <Button size="lg" className="w-full sm:w-auto group text-[13.5px] sm:text-[14px] md:text-[15px] px-6 sm:px-8 h-12 md:h-13 transition-all bg-white/40 hover:bg-white/60 border border-white/40 hover:border-[#C96F3D]/50 text-[#3B2A21] backdrop-blur-md shadow-sm hover:shadow-md hover:-translate-y-0.5" asChild>
               <a href="/start-a-project">
                 Start a Conversation
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-[#C96F3D]" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 text-sm border-white/10 text-foreground font-medium" asChild>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto group text-[13.5px] sm:text-[14px] md:text-[15px] px-6 sm:px-7 h-12 md:h-13 border-white/30 hover:border-white/60 bg-transparent hover:bg-white/10 text-[#6D5A4B] hover:text-[#3B2A21] backdrop-blur-sm transition-all hover:-translate-y-0.5" asChild>
               <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer">
                 View Portfolio
-                <ArrowUpRight className="ml-2 h-4 w-4 text-secondary" />
+                <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C96F3D]/70 group-hover:text-[#C96F3D]" />
               </a>
             </Button>
           </div>
-        </div>
+
+        </motion.div>
+
       </Container>
     </section>
   );
