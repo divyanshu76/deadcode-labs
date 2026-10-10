@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { CookieSettingsTrigger } from "@/components/ui/CookieSettingsTrigger";
 
 export function Footer() {
   return (
@@ -14,15 +15,15 @@ export function Footer() {
               Digital ideas, engineered. Boutique digital product studio crafting high-end software, platforms, and experiences.
             </p>
             <div className="flex flex-col space-y-1.5 pt-2">
-              <a href="mailto:divyanshuv0905@gmail.com" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm font-mono">
-                divyanshuv0905@gmail.com
+              <a href="mailto:contact@deadcode.space" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm font-mono">
+                contact@deadcode.space
               </a>
               <a href="tel:+919151741310" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm font-mono">
                 +91 9151741310
               </a>
             </div>
           </div>
-          
+
           <div className="flex flex-col space-y-2.5">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#927E6E] font-semibold mb-1">Capabilities</h4>
             <Link href="/services#web-experiences" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">Web Experiences</Link>
@@ -40,11 +41,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#927E6E] font-mono">
-          <p>© {new Date().getFullYear()} DEADCODE LABS. All rights reserved.</p>
-          <div className="flex space-x-6">
-            <Link href="/legal/privacy" className="hover:text-[#3B2A21] transition-colors">Privacy</Link>
-            <Link href="/legal/terms" className="hover:text-[#3B2A21] transition-colors">Terms</Link>
+        <div className="pt-6 border-t border-white/40 flex flex-col items-center justify-between gap-6">
+          <div className="w-full flex flex-wrap gap-4 text-xs font-mono text-[#927E6E] justify-center md:justify-start">
+            <Link href="/privacy-policy" className="hover:text-[#3B2A21] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-[#3B2A21] transition-colors">Terms & Conditions</Link>
+            <Link href="/cookie-policy" className="hover:text-[#3B2A21] transition-colors">Cookie Policy</Link>
+            <Link href="/service-terms" className="hover:text-[#3B2A21] transition-colors">Service Terms</Link>
+            <Link href="/disclaimer" className="hover:text-[#3B2A21] transition-colors">Disclaimer</Link>
+            <Link href="/intellectual-property" className="hover:text-[#3B2A21] transition-colors">Intellectual Property</Link>
+            <Link href="/accessibility" className="hover:text-[#3B2A21] transition-colors">Accessibility</Link>
+            <Link href="/security" className="hover:text-[#3B2A21] transition-colors">Security</Link>
+            <CookieSettingsTrigger />
+          </div>
+          <div className="w-full flex text-xs font-mono text-[#927E6E] justify-center md:justify-start">
+            <p>© 2023 DEADCODE LABS. All rights reserved.</p>
           </div>
         </div>
       </Container>

@@ -111,17 +111,17 @@ export function FinalCTASection() {
               Prefer a direct conversation?
             </p>
             <a
-              href="mailto:divyanshuv0905@gmail.com"
+              href="mailto:contact@deadcode.space"
               className="group relative inline-flex items-center gap-3 text-base md:text-xl font-light
                          text-[#6D5A4B] hover:text-[#3B2A21] transition-colors duration-300
                          focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C96F3D]/50 rounded"
-              aria-label="Send email to divyanshuv0905@gmail.com"
+              aria-label="Send email to contact@deadcode.space"
             >
               <span
                 className="relative pb-1 border-b border-[#B5A090]/40
                            group-hover:border-[#C96F3D] transition-colors duration-300"
               >
-                divyanshuv0905@gmail.com
+                contact@deadcode.space
               </span>
               <ArrowRight
                 className="h-4 w-4 md:h-5 md:w-5 text-[#C96F3D] opacity-0 -translate-x-3

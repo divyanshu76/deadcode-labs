@@ -698,7 +698,7 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
           Try Again
         </Button>
         <a
-          href="mailto:divyanshuv0905@gmail.com"
+          href="mailto:contact@deadcode.space"
           className="text-sm text-[#C96F3D] hover:text-[#A9512C] underline underline-offset-4
                      transition-colors font-medium"
         >

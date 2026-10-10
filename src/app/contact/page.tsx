@@ -37,8 +37,8 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div>
                   <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Email</h3>
-                  <a href="mailto:divyanshuv0905@gmail.com" className="text-xl font-medium hover:text-accent transition-colors">
-                    divyanshuv0905@gmail.com
+                  <a href="mailto:contact@deadcode.space" className="text-xl font-medium hover:text-accent transition-colors">
+                    contact@deadcode.space
                   </a>
                 </div>
                 
@@ -91,7 +91,7 @@ export default function ContactPage() {
                     const subject = `New Project Inquiry: ${type || 'General'}`;
                     const body = `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nType: ${type}\nBudget: ${budget}\n\nDescription:\n${desc}`;
                     
-                    window.location.href = `mailto:divyanshuv0905@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = `mailto:contact@deadcode.space?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     setIsSubmitted(true);
                   }}
                   className="bg-surface border border-border p-8 md:p-12 rounded-[2.5rem] shadow-sm space-y-6"

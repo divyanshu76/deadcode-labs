@@ -8,6 +8,7 @@ import { BackToTop } from "@/components/ui/BackToTop";
 import { Preloader } from "@/components/ui/Preloader";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BackgroundSpheres } from "@/components/ui/BackgroundSpheres";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -92,6 +93,7 @@ export default function RootLayout({
         <Footer />
         <FloatingWhatsApp />
         <BackToTop />
+        <CookieConsent />
       </body>
     </html>
   );
