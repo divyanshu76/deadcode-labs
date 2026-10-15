@@ -22,7 +22,7 @@ export function TrustStrip() {
               <span className="text-[11px] md:text-lg font-mono tracking-widest text-[#6D5A4B] uppercase">
                 {item}
               </span>
-              <span className="text-[#C96F3D]/40 text-sm md:text-xl font-light ml-6 md:ml-16">/</span>
+              <span className="text-[#E10600]/40 text-sm md:text-xl font-light ml-6 md:ml-16">/</span>
             </div>
           ))}
         </div>

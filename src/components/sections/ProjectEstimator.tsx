@@ -168,10 +168,10 @@ function SelectCard({ label, selected, onClick }: SelectCardProps) {
       className={cn(
         "text-left px-4 py-3.5 md:px-5 md:py-4 rounded-xl border transition-all duration-200",
         "flex items-center justify-between group",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C96F3D]/50 focus-visible:ring-offset-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]/50 focus-visible:ring-offset-2",
         selected
-          ? "border-[#C96F3D] bg-[rgba(201,111,61,0.07)] shadow-[0_0_0_1px_rgba(201,111,61,0.2)]"
-          : "border-white/50 bg-white/20 hover:border-[#C96F3D]/40 hover:bg-white/30"
+          ? "border-[#E10600] bg-[rgba(225,6,0,0.06)] shadow-[0_0_0_1px_rgba(225,6,0,0.18)]"
+          : "border-white/50 bg-white/20 hover:border-[#E10600]/40 hover:bg-white/30"
       )}
     >
       <span
@@ -189,8 +189,8 @@ function SelectCard({ label, selected, onClick }: SelectCardProps) {
           "w-4 h-4 rounded-full border flex-shrink-0 flex items-center justify-center",
           "transition-all duration-200 ml-3",
           selected
-            ? "border-[#C96F3D] bg-[#C96F3D]"
-            : "border-[#B5A090] group-hover:border-[#C96F3D]/60"
+            ? "border-[#E10600] bg-[#E10600]"
+            : "border-[#B5A090] group-hover:border-[#E10600]/60"
         )}
       >
         {selected && (
@@ -233,7 +233,7 @@ function Field({ id, label, required, error, children }: FieldProps) {
       >
         {label}
         {required && (
-          <span className="text-[#C96F3D] ml-0.5" aria-label="required">
+          <span className="text-[#E10600] ml-0.5" aria-label="required">
             *
           </span>
         )}
@@ -243,14 +243,14 @@ function Field({ id, label, required, error, children }: FieldProps) {
         <p
           role="alert"
           id={`${id}-error`}
-          className="text-xs text-[#C96F3D] mt-0.5 flex items-center gap-1.5"
+          className="text-xs text-[#E10600] mt-0.5 flex items-center gap-1.5"
         >
           <span
-            className="inline-block w-3.5 h-3.5 rounded-full bg-[#C96F3D]/12 flex-shrink-0
+            className="inline-block w-3.5 h-3.5 rounded-full bg-[#E10600]/12 flex-shrink-0
                        flex items-center justify-center"
             aria-hidden="true"
           >
-            <span className="block w-1 h-1 rounded-full bg-[#C96F3D]" />
+            <span className="block w-1 h-1 rounded-full bg-[#E10600]" />
           </span>
           {error}
         </p>
@@ -281,7 +281,7 @@ function Step1Type({ data, errors, dispatch }: StepProps) {
           What do you need?
         </h3>
         {errors.projectType && (
-          <p role="alert" className="text-xs text-[#C96F3D] mt-1">
+          <p role="alert" className="text-xs text-[#E10600] mt-1">
             {errors.projectType}
           </p>
         )}
@@ -382,7 +382,7 @@ function Step3Budget({ data, errors, dispatch }: StepProps) {
           Not sure? That&apos;s completely fine. We&apos;ll help define the scope first.
         </p>
         {errors.budget && (
-          <p role="alert" className="text-xs text-[#C96F3D] mt-1">
+          <p role="alert" className="text-xs text-[#E10600] mt-1">
             {errors.budget}
           </p>
         )}
@@ -493,10 +493,10 @@ function Step4Contact({ data, errors, dispatch }: StepProps) {
               }
               className={cn(
                 "px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-200",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C96F3D]/50",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]/50",
                 data.preferredContact === method
-                  ? "border-[#C96F3D] bg-[rgba(201,111,61,0.08)] text-[#3A2920]"
-                  : "border-white/50 bg-white/20 text-[#6F5A4B] hover:border-[#C96F3D]/40 hover:text-[#3A2920]"
+                  ? "border-[#E10600] bg-[rgba(225,6,0,0.08)] text-[#3A2920]"
+                  : "border-white/50 bg-white/20 text-[#6F5A4B] hover:border-[#E10600]/40 hover:text-[#3A2920]"
               )}
             >
               {method}
@@ -531,8 +531,8 @@ function ReviewRow({ label, value, onEdit }: ReviewRowProps) {
       <button
         type="button"
         onClick={onEdit}
-        className="text-[11px] text-[#C96F3D] font-semibold hover:underline flex-shrink-0 mt-0.5
-                   focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C96F3D]/50 rounded px-1"
+        className="text-[11px] text-[#E10600] font-semibold hover:underline flex-shrink-0 mt-0.5
+                   focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E10600]/50 rounded px-1"
         aria-label={`Edit ${label}`}
       >
         Edit
@@ -644,10 +644,10 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       className="flex flex-col items-center text-center py-10 md:py-14 gap-5"
     >
       <div className="w-16 h-16 rounded-full bg-[rgba(201,111,61,0.10)] flex items-center justify-center">
-        <CheckCircle2 className="w-8 h-8 text-[#C96F3D]" aria-hidden="true" />
+        <CheckCircle2 className="w-8 h-8 text-[#E10600]" aria-hidden="true" />
       </div>
       <div>
-        <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold mb-2">
+        <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold mb-2">
           BRIEF RECEIVED
         </p>
         <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-[#3A2920] mb-3">
@@ -663,7 +663,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
         onClick={onReset}
         className="mt-2 text-sm text-[#6F5A4B] hover:text-[#3A2920] underline underline-offset-4
                    transition-colors focus-visible:outline-none focus-visible:ring-1
-                   focus-visible:ring-[#C96F3D]/50 rounded"
+                   focus-visible:ring-[#E10600]/50 rounded"
       >
         Back to site
       </button>
@@ -681,8 +681,8 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
       transition={{ duration: 0.3, ease: easeOut }}
       className="flex flex-col items-center text-center py-10 md:py-14 gap-5"
     >
-      <div className="w-16 h-16 rounded-full bg-[rgba(201,111,61,0.07)] flex items-center justify-center">
-        <XCircle className="w-8 h-8 text-[#C96F3D]/70" aria-hidden="true" />
+      <div className="w-16 h-16 rounded-full bg-[rgba(225,6,0,0.06)] flex items-center justify-center">
+        <XCircle className="w-8 h-8 text-[#E10600]/70" aria-hidden="true" />
       </div>
       <div>
         <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-[#3A2920] mb-2">
@@ -699,7 +699,7 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
         </Button>
         <a
           href="mailto:contact@deadcode.space"
-          className="text-sm text-[#C96F3D] hover:text-[#A9512C] underline underline-offset-4
+          className="text-sm text-[#E10600] hover:text-[#B80500] underline underline-offset-4
                      transition-colors font-medium"
         >
           Email us directly
@@ -727,9 +727,9 @@ function ProgressBar({ step }: { step: number }) {
             className={cn(
               "h-[3px] rounded-full transition-all duration-400",
               i < step
-                ? "bg-[#C96F3D]/45"
+                ? "bg-[#E10600]/45"
                 : i === step
-                ? "bg-[#C96F3D]"
+                ? "bg-[#E10600]"
                 : "bg-[#B5A090]/22"
             )}
           />
@@ -737,7 +737,7 @@ function ProgressBar({ step }: { step: number }) {
             className={cn(
               "hidden md:block text-[9px] font-mono uppercase tracking-wider",
               "transition-colors duration-200",
-              i === step ? "text-[#C96F3D]" : "text-[#B5A090]/55"
+              i === step ? "text-[#E10600]" : "text-[#B5A090]/55"
             )}
           >
             {String(i + 1).padStart(2, "0")}
@@ -848,7 +848,7 @@ export function ProjectEstimator() {
           <div className="max-w-[820px] mx-auto">
             {/* ── Section Header ── */}
             <div className="text-center mb-10 md:mb-16">
-              <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-3">
+              <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-3">
                 PROJECT ESTIMATOR
               </span>
               <h2

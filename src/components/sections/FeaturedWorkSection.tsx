@@ -16,7 +16,7 @@ export function FeaturedWorkSection() {
       <Container>
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-16 gap-4 md:gap-8">
           <div>
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-2">
+            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-2">
               PORTFOLIO ARCHIVE
             </span>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1]">
@@ -33,8 +33,8 @@ export function FeaturedWorkSection() {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-          {projects.slice(0, 6).map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {projects.slice(0, 4).map((project, index) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export function FeaturedWorkSection() {
                     src={project.image}
                     alt={`${project.title} ${project.category.toLowerCase()} project`}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                   />
                 ) : (
@@ -66,7 +66,7 @@ export function FeaturedWorkSection() {
               <div className="flex flex-col justify-between gap-3 relative z-10 pointer-events-auto mt-2 flex-grow glass-panel rounded-[16px] p-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#C96F3D] group-hover:text-[#A9512C] transition-colors">
+                    <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#E10600] group-hover:text-[#B30500] transition-colors">
                       {project.category}
                     </span>
                     <span className="text-[#927D6C]">•</span>
@@ -85,7 +85,7 @@ export function FeaturedWorkSection() {
                 <div className="flex flex-wrap items-center gap-2 mt-auto pt-2">
                   <Link 
                     href={`/work/${project.slug}`} 
-                    className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#3B2A21] hover:text-[#C96F3D] transition-all bg-white/40 hover:bg-white/60 border border-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(59,42,33,0.02)]"
+                    className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#3B2A21] hover:text-[#E10600] transition-all bg-white/40 hover:bg-white/60 border border-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(59,42,33,0.02)]"
                   >
                     View Case Study <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
                   </Link>
@@ -94,7 +94,7 @@ export function FeaturedWorkSection() {
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#6D5A4B] hover:text-[#C96F3D] transition-all bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md px-4 py-2 rounded-full"
+                      className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#6D5A4B] hover:text-[#E10600] transition-all bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md px-4 py-2 rounded-full"
                     >
                       View Live Site <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
                     </a>

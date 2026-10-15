@@ -153,7 +153,7 @@ export function Preloader() {
                 transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
                 className="text-center"
               >
-                <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-[#C96F3D] block mb-2 font-semibold">
+                <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-[#E10600] block mb-2 font-semibold">
                   DIGITAL PRODUCT STUDIO
                 </span>
                 <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#F3EDE5]">

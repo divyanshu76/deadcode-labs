@@ -32,10 +32,10 @@
   --text-secondary: #6F5A4B;
   --text-muted: #927D6C;
 
-  /* Accent copper/orange */
-  --accent: #C96F3D;
-  --accent-soft: #DE8552;
-  --accent-dark: #A9512C;
+  /* Accent Red */
+  --accent: #E10600;
+  --accent-soft: rgba(225, 6, 0, 0.75);
+  --accent-dark: #B80500;
 
   /* Shadows */
   --shadow-soft: 0 20px 60px rgba(83, 58, 39, 0.10);
@@ -248,7 +248,7 @@
   }
   .glass-input:focus {
     border-color: var(--accent);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 0 0 1px var(--accent), 0 4px 12px rgba(201, 111, 61, 0.15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 0 0 1px var(--accent), 0 4px 12px rgba(225, 6, 0, 0.15);
     outline: none;
   }
 }
@@ -289,7 +289,7 @@
   }
 
   ::selection {
-    background: rgba(201, 111, 61, 0.20);
+    background: rgba(225, 6, 0, 0.18);
     color: var(--text-primary);
   }
 }

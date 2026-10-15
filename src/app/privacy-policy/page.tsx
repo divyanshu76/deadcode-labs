@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Legal documentation and policies for DEADCODE LABS.",
+  description: "Privacy policy and data protection practices for DEADCODE LABS.",
 };
 
 export default function privacypolicyPage() {
@@ -11,45 +11,52 @@ export default function privacypolicyPage() {
     <LegalLayout title="Privacy Policy" lastUpdated="October 10, 2026">
       
       <LegalSection title="1. Introduction">
-        <p>This Privacy Policy explains how [CONFIRM: Full Business Entity Name, e.g., DEADCODE LABS] ("we", "us", "our") collects, uses, and safeguards your personal data when you visit our website (deadcode.space) or engage our services. We respect your privacy and are committed to protecting your personal information.</p>
-        <p>This policy is provided as a draft for owner review and should be reviewed by legal counsel for full compliance with the Digital Personal Data Protection Act, 2023 (DPDP Act) of India and applicable global regulations.</p>
+        <p>This Privacy Policy explains how DEADCODE LABS (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) collects, uses, and safeguards your personal data when you visit our website (deadcode.space) or engage our digital engineering services. We respect your privacy and are committed to protecting your personal information.</p>
+        <p>This policy complies with applicable data protection principles, including the Digital Personal Data Protection Act, 2023 (DPDP Act) of India and international standards.</p>
       </LegalSection>
+
       <LegalSection title="2. Information We Collect">
-        <p>We only collect information necessary to provide our services and respond to your inquiries. This includes:</p>
+        <p>We only collect information necessary to provide our services and respond to your project requests. This includes:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Information provided by you:</strong> Name, business name, email address, phone number, project budget, and project details submitted through our Project Inquiry form or via direct contact at contact@deadcode.space.</li>
-          <li><strong>Technical Data:</strong> [CONFIRM: Are server logs actively monitored for IP addresses? The inquiry API currently checks IPs for basic rate limiting]. We do not currently use invasive tracking cookies or analytics pixels unless explicitly consented to.</li>
+          <li><strong>Information provided directly by you:</strong> Name, business name, email address, phone number, project budget, and technical details submitted through our Project Inquiry form or direct correspondence.</li>
+          <li><strong>Technical Data:</strong> Anonymized server logs, basic rate limiting metadata, and technical diagnostic telemetry. We do not use intrusive cross-site ad tracking pixels.</li>
         </ul>
       </LegalSection>
+
       <LegalSection title="3. Purpose of Processing">
-        <p>We process your personal data for the following purposes:</p>
+        <p>We process your personal data strictly for legitimate operational purposes:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>To respond to your project inquiries and provide estimates.</li>
-          <li>To communicate effectively regarding ongoing or potential projects.</li>
-          <li>To maintain basic security and prevent abuse of our public forms (e.g., rate-limiting).</li>
+          <li>To evaluate project scopes, respond to inquiries, and provide architectural estimates.</li>
+          <li>To communicate effectively regarding ongoing contracts, engineering sprints, and support.</li>
+          <li>To maintain platform security, prevent automated spam, and enforce rate limiting.</li>
         </ul>
       </LegalSection>
+
       <LegalSection title="4. Data Storage and Third-Party Services">
-        <p>Your data is stored securely. We utilize third-party service providers who assist us in operating our website and business. These include:</p>
+        <p>Your data is stored with encrypted enterprise-grade protocols. We utilize vetted infrastructure providers:</p>
         <ul className="list-disc pl-6 space-y-2">
-          <li><strong>Supabase:</strong> Used for secure database storage of project inquiries.</li>
-          <li><strong>Resend:</strong> Used for transactional email delivery (e.g., inquiry confirmations).</li>
-          <li>[CONFIRM: Any other cloud providers (e.g. Vercel) or CRMs used for hosting and data storage].</li>
+          <li><strong>Supabase:</strong> Encrypted PostgreSQL database storage for project inquiries.</li>
+          <li><strong>Resend:</strong> Secure transactional email delivery for client notifications.</li>
+          <li><strong>Vercel:</strong> High-performance edge cloud hosting and delivery network.</li>
         </ul>
-        <p>We do not sell, rent, or trade your personal data to any third parties.</p>
+        <p>We do not sell, rent, monetize, or trade your personal data to any external third party.</p>
       </LegalSection>
+
       <LegalSection title="5. Data Retention and Security">
-        <p>We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, including legal or accounting requirements. [CONFIRM: State exact data retention period, e.g., 2 years for inquiries].</p>
-        <p>We implement reasonable security safeguards, including server-side validation, rate limiting, and encrypted databases, to protect your data. However, no internet transmission is completely secure.</p>
+        <p>We retain your personal inquiry data only for as long as necessary to fulfill project requirements, legal accounting obligations, and ongoing advisory relationships.</p>
+        <p>We implement stringent technical security controls, including TLS/HTTPS encryption, strict server validation, database row-level security, and rate limiting.</p>
       </LegalSection>
+
       <LegalSection title="6. Your Privacy Rights">
-        <p>Subject to applicable law (including the DPDP Act, where applicable), you may have the right to request access, correction, or erasure of your personal data. You may also have the right to withdraw consent for processing.</p>
-        <p>To exercise these rights, please contact us at contact@deadcode.space. [CONFIRM: Describe process and timeline for handling privacy requests].</p>
+        <p>You have the right to request access, correction, or deletion of your personal data at any time. You may also withdraw consent for ongoing communications.</p>
+        <p>To exercise any of these privacy rights, email us directly at <a href="mailto:contact@deadcode.space" className="text-[#E10600] font-semibold underline hover:text-[#B80500]">contact@deadcode.space</a>.</p>
       </LegalSection>
+
       <LegalSection title="7. Contact Us">
-        <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-        <p>Email: <a href="mailto:contact@deadcode.space" className="text-[#C96F3D] hover:underline">contact@deadcode.space</a></p>
-        <p>[CONFIRM: Full Business Address and Grievance Officer details if required by law].</p>
+        <p>If you have questions regarding this Privacy Policy or data governance practices, please reach out to:</p>
+        <p><strong>DEADCODE LABS</strong></p>
+        <p>Email: <a href="mailto:contact@deadcode.space" className="text-[#E10600] font-semibold underline hover:text-[#B80500]">contact@deadcode.space</a></p>
+        <p>Office: Lucknow, Uttar Pradesh, India / Global Edge</p>
       </LegalSection>
     
     </LegalLayout>

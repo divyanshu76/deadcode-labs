@@ -138,7 +138,7 @@ export function Navbar() {
           >
             <div className="flex items-center shrink-0">
               <Link href="/" className="font-bold text-[17px] tracking-tight text-[#3B2A21] outline-none">
-                DEADCODE<span className="text-[#C96F3D]">.</span>
+                DEADCODE<span className="text-[#E10600]">.</span>
                 <span className="text-[#927E6E] text-[14px]">LABS</span>
               </Link>
             </div>
@@ -167,7 +167,7 @@ export function Navbar() {
                     {isExactActive && (
                       <motion.div
                         layoutId="nav-active-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#C96F3D]"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E10600]"
                       />
                     )}
                   </Link>
@@ -212,7 +212,7 @@ export function Navbar() {
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
               <Link href="/" className="font-bold text-lg tracking-tight text-[#3B2A21] outline-none" onClick={() => setMobileMenuOpen(false)}>
-                DEADCODE<span className="text-[#C96F3D]">.</span>LABS
+                DEADCODE<span className="text-[#E10600]">.</span>LABS
               </Link>
             </div>
 

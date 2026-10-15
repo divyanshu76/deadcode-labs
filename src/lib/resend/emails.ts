@@ -18,7 +18,7 @@ const C = {
   espresso: "#3A2920",
   espressoMid: "#6F5A4B",
   espressoLight: "#927D6C",
-  copper: "#C96F3D",
+  copper: "#E10600",
   copperDark: "#A9512C",
   border: "#D9CEBD",
   white: "#FFFFFF",

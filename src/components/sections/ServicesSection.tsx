@@ -61,12 +61,12 @@ export function ServicesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-3">
+            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-3">
               CAPABILITIES & EXPERTISE
             </span>
             <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1]">
               Everything digital. <br />
-              <span className="italic font-normal text-[#C96F3D] font-display">Engineered</span> properly.
+              <span className="italic font-normal text-[#E10600] font-display">Engineered</span> properly.
             </h2>
           </motion.div>
         </div>
@@ -93,7 +93,7 @@ export function ServicesSection() {
 
                 <div>
                   <div className="flex items-center justify-between mb-3 md:mb-5">
-                    <div className="w-[36px] h-[36px] md:w-[44px] md:h-[44px] rounded-[14px] glass-pill flex items-center justify-center text-[#3B2A21] group-hover:bg-[#C96F3D]/12 group-hover:text-[#C96F3D] transition-colors">
+                    <div className="w-[36px] h-[36px] md:w-[44px] md:h-[44px] rounded-[14px] glass-pill flex items-center justify-center text-[#3B2A21] group-hover:bg-[#E10600]/12 group-hover:text-[#E10600] transition-colors">
                       <Icon size={20} className="md:hidden" strokeWidth={1.75} />
                       <Icon size={22} className="hidden md:block" strokeWidth={1.75} />
                     </div>
@@ -102,7 +102,7 @@ export function ServicesSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-[17px] md:text-xl font-bold text-[#3B2A21] tracking-tight mb-2 group-hover:text-[#C96F3D] transition-colors">
+                  <h3 className="text-[17px] md:text-xl font-bold text-[#3B2A21] tracking-tight mb-2 group-hover:text-[#E10600] transition-colors">
                     {service.title}
                   </h3>
 
@@ -119,7 +119,7 @@ export function ServicesSection() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center text-xs font-semibold text-[#C96F3D] group-hover:translate-x-0.5 transition-transform">
+                  <div className="flex items-center text-xs font-semibold text-[#E10600] group-hover:translate-x-0.5 transition-transform">
                     Explore <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </div>
                 </div>

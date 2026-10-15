@@ -11,7 +11,7 @@ export default function intellectualpropertyPage() {
     <LegalLayout title="Intellectual Property Policy" lastUpdated="October 10, 2026">
       
       <LegalSection title="1. Ownership of Website Content">
-        <p>All content, branding, designs, graphics, and code architecture presented on deadcode.space are the intellectual property of [CONFIRM: Business Entity Name] unless otherwise noted. Unauthorized copying, framing, or distribution is prohibited.</p>
+        <p>All content, branding, designs, graphics, and code architecture presented on deadcode.space are the intellectual property of DEADCODE LABS unless otherwise noted. Unauthorized copying, framing, or distribution is prohibited.</p>
       </LegalSection>
       <LegalSection title="2. Client Assets">
         <p>Any materials, logos, or content provided by clients during a project remain the intellectual property of the respective client. We do not claim ownership over client-provided materials.</p>
@@ -20,7 +20,7 @@ export default function intellectualpropertyPage() {
         <p>Our projects frequently utilize open-source frameworks (e.g., React, Next.js, Tailwind CSS). These components remain under their respective open-source licenses (such as MIT or Apache 2.0).</p>
       </LegalSection>
       <LegalSection title="4. Reporting Infringement">
-        <p>If you believe that any content on our website infringes upon your intellectual property rights, please contact us immediately at <a href="mailto:contact@deadcode.space" className="text-[#C96F3D] hover:underline">contact@deadcode.space</a> with a detailed description of the alleged infringement.</p>
+        <p>If you believe that any content on our website infringes upon your intellectual property rights, please contact us immediately at <a href="mailto:contact@deadcode.space" className="text-[#E10600] hover:underline">contact@deadcode.space</a> with a detailed description of the alleged infringement.</p>
       </LegalSection>
     
     </LegalLayout>

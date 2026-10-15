@@ -22,7 +22,7 @@ export default function termsandconditionsPage() {
         </ul>
       </LegalSection>
       <LegalSection title="3. Intellectual Property">
-        <p>The content on this Website, including text, graphics, logos, and software, is the property of [CONFIRM: Business Entity Name] and is protected by intellectual property laws. You may not reproduce or distribute any content without our prior written permission.</p>
+        <p>The content on this Website, including text, graphics, logos, brand elements, and software architecture, is the property of DEADCODE LABS and is protected by intellectual property laws. You may not reproduce or distribute any content without our prior written permission.</p>
       </LegalSection>
       <LegalSection title="4. Informational Content and Estimates">
         <p>Information provided on this Website, including pricing estimates or project timelines, is for informational purposes only. Official project scopes, timelines, and costs will be governed by a separate, signed agreement.</p>
@@ -31,10 +31,10 @@ export default function termsandconditionsPage() {
         <p>To the maximum extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, resulting from your use of the Website.</p>
       </LegalSection>
       <LegalSection title="6. Governing Law">
-        <p>These terms shall be governed and construed in accordance with the laws of [CONFIRM: Jurisdiction, e.g., India/Uttar Pradesh], without regard to its conflict of law provisions.</p>
+        <p>These terms shall be governed and construed in accordance with the laws of India, with jurisdiction in Uttar Pradesh, without regard to conflict of law provisions.</p>
       </LegalSection>
       <LegalSection title="7. Contact Us">
-        <p>Questions about the Terms & Conditions should be sent to us at <a href="mailto:contact@deadcode.space" className="text-[#C96F3D] hover:underline">contact@deadcode.space</a>.</p>
+        <p>Questions about the Terms & Conditions should be sent to us at <a href="mailto:contact@deadcode.space" className="text-[#E10600] hover:underline">contact@deadcode.space</a>.</p>
       </LegalSection>
     
     </LegalLayout>

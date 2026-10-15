@@ -95,7 +95,7 @@ export function PricingSection() {
             </span>
             <h2 className="font-display text-[32px] md:text-[44px] font-bold tracking-tight text-[#3B2A21] leading-[1.1] mb-4">
               Clear frameworks. <br />
-              <span className="italic font-normal text-[#C96F3D] font-display">No</span> guesswork.
+              <span className="italic font-normal text-[#E10600] font-display">No</span> guesswork.
             </h2>
             <p className="text-[14px] md:text-[15px] text-[#6D5A4B] leading-relaxed max-w-2xl mx-auto">
               Transparent, fixed-scope sprints and ongoing advisory. Every tier delivers production-ready engineering with zero bloat.
@@ -116,13 +116,13 @@ export function PricingSection() {
               className={cn(
                 "relative flex-1 max-w-[380px] min-h-[640px] p-[30px] flex flex-col transition-all duration-300 shadow-xl rounded-[24px]",
                 pkg.highlighted
-                  ? "glass-elevated border-[#C96F3D]/30 ring-1 ring-[#C96F3D]/20 shadow-[0_20px_60px_rgba(201,111,61,0.12)] -translate-y-1"
+                  ? "glass-elevated border-[#E10600]/30 ring-1 ring-[#E10600]/20 shadow-[0_20px_60px_rgba(225,6,0,0.12)] -translate-y-1"
                   : "glass-panel"
               )}
             >
               {pkg.highlighted && (
-                <div className="absolute top-[30px] right-[30px] inline-flex items-center gap-1.5 px-[10px] py-[6px] rounded-full bg-[#C96F3D]/10 text-[#C96F3D] text-[10px] font-mono tracking-wider uppercase font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C96F3D]" />
+                <div className="absolute top-[30px] right-[30px] inline-flex items-center gap-1.5 px-[10px] py-[6px] rounded-full bg-[#E10600]/10 text-[#E10600] text-[10px] font-mono tracking-wider uppercase font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E10600]" />
                   MOST POPULAR
                 </div>
               )}
@@ -159,13 +159,13 @@ export function PricingSection() {
                     KEY INCLUSIONS
                   </span>
                   <ul className="space-y-[8px]">
-                    <li className="flex items-start text-[14px] text-[#C96F3D] font-medium leading-[1.45]">
+                    <li className="flex items-start text-[14px] text-[#E10600] font-medium leading-[1.45]">
                       <span className="shrink-0 mr-2 mt-[2px] font-bold text-[13px]">✦</span>
                       <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
                     </li>
                     {pkg.inclusions.map((item, i) => (
                       <li key={i} className="flex items-start text-[14px] text-[#3B2A21] font-medium leading-[1.45]">
-                        <span className="shrink-0 mr-2 mt-[2px] text-[#C96F3D] font-bold text-[13px]">—</span>
+                        <span className="shrink-0 mr-2 mt-[2px] text-[#E10600] font-bold text-[13px]">—</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -208,13 +208,13 @@ export function PricingSection() {
                 className={cn(
                   "w-[86vw] max-w-[340px] min-h-[480px] snap-center shrink-0 flex flex-col p-[22px] transition-all rounded-[24px]",
                   pkg.highlighted
-                    ? "glass-elevated border-[#C96F3D]/30 ring-1 ring-[#C96F3D]/20 shadow-[0_20px_50px_rgba(201,111,61,0.12)]"
+                    ? "glass-elevated border-[#E10600]/30 ring-1 ring-[#E10600]/20 shadow-[0_20px_50px_rgba(225,6,0,0.12)]"
                     : "glass-panel"
                 )}
               >
                 {pkg.highlighted && (
-                  <div className="absolute top-[22px] right-[22px] inline-flex items-center gap-1 px-[8px] py-[5px] rounded-full bg-[#C96F3D]/10 text-[#C96F3D] text-[9px] font-mono tracking-wider uppercase font-semibold">
-                    <span className="w-1 h-1 rounded-full bg-[#C96F3D]" />
+                  <div className="absolute top-[22px] right-[22px] inline-flex items-center gap-1 px-[8px] py-[5px] rounded-full bg-[#E10600]/10 text-[#E10600] text-[9px] font-mono tracking-wider uppercase font-semibold">
+                    <span className="w-1 h-1 rounded-full bg-[#E10600]" />
                     MOST POPULAR
                   </div>
                 )}
@@ -251,13 +251,13 @@ export function PricingSection() {
                       KEY INCLUSIONS
                     </span>
                     <ul className="space-y-[8px]">
-                      <li className="flex items-start text-[13px] text-[#C96F3D] font-medium leading-[1.45]">
+                      <li className="flex items-start text-[13px] text-[#E10600] font-medium leading-[1.45]">
                         <span className="shrink-0 mr-[6px] mt-[2px] font-bold text-[12px]">✦</span>
                         <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
                       </li>
                       {pkg.inclusions.map((item, i) => (
                         <li key={i} className="flex items-start text-[13px] text-[#3B2A21] font-medium leading-[1.45]">
-                          <span className="shrink-0 mr-[6px] mt-[2px] text-[#C96F3D] font-bold text-[12px]">—</span>
+                          <span className="shrink-0 mr-[6px] mt-[2px] text-[#E10600] font-bold text-[12px]">—</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -294,7 +294,7 @@ export function PricingSection() {
                 key={i}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
-                  activeSnapIndex === i ? "w-6 bg-[#C96F3D]" : "w-1.5 bg-white/50"
+                  activeSnapIndex === i ? "w-6 bg-[#E10600]" : "w-1.5 bg-white/50"
                 )}
               />
             ))}

@@ -15,7 +15,7 @@ export function WhyUsSection() {
           transition={{ duration: 0.6 }}
           className="mb-10 md:mb-16"
         >
-          <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#C96F3D] font-semibold block mb-3 text-center lg:text-left">
+          <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-3 text-center lg:text-left">
             STUDIO PHILOSOPHY
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#3B2A21] leading-[1.08] text-center lg:text-left">

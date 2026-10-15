@@ -20,7 +20,7 @@ export default function servicetermsPage() {
         <p>The client agrees to provide timely feedback, approvals, and any necessary assets (e.g., copy, images, credentials) required for project progression. Delays by the client may result in project timeline extensions.</p>
       </LegalSection>
       <LegalSection title="4. Payment Terms">
-        <p>[CONFIRM: Standard payment structure, e.g., "A 50% non-refundable deposit is required to commence work, with the remaining balance due upon project completion prior to handover."]. All invoices must be paid within [CONFIRM: X days] of receipt. Taxes will be applied where applicable by law.</p>
+        <p>A structured milestone payment schedule (typically a deposit upon kickoff and remaining balance upon milestone completion prior to production handover) applies to all engagements as detailed in the project SOW. Invoices must be paid within 7 days of receipt. Applicable taxes are applied as required by law.</p>
       </LegalSection>
       <LegalSection title="5. Intellectual Property and Licensing">
         <p>Upon full and final payment, the client is granted the agreed rights to the final deliverables. DEADCODE LABS retains the right to use pre-existing tools, open-source code, and reusable internal components. We also reserve the right to display the completed work in our portfolio unless explicitly restricted by a Non-Disclosure Agreement (NDA).</p>

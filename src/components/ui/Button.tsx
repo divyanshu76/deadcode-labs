@@ -13,9 +13,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C96F3D]/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
           {
-            "bg-[rgba(201,111,61,0.76)] text-[#FFF9F2] backdrop-blur-[18px] saturate-125 border border-white/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(201,111,61,0.15)] hover:-translate-y-[2px] hover:bg-[rgba(201,111,61,0.82)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_40px_rgba(201,111,61,0.25)]": variant === "default",
+            "bg-[#E10600] text-white backdrop-blur-[18px] saturate-125 border border-white/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(225,6,0,0.22)] hover:-translate-y-[2px] hover:bg-[#C70500] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_40px_rgba(225,6,0,0.32)]": variant === "default",
             "glass-pill text-[#3A2920] hover:-translate-y-[2px] hover:bg-[rgba(255,255,255,0.35)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_12px_30px_rgba(75,52,38,0.1)]": variant === "outline",
             "hover:bg-white/30 text-[#3B2A21]": variant === "ghost",
             "text-[#3B2A21] underline-offset-4 hover:underline": variant === "link",

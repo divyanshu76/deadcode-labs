@@ -26,7 +26,7 @@ export default function accessibilityPage() {
         <p>While we aim for comprehensive accessibility, some complex visual features (such as intensive WebGL or Framer Motion animations) may present challenges. Users can utilize their system's "Prefers Reduced Motion" settings, which our website respects to minimize animations.</p>
       </LegalSection>
       <LegalSection title="4. Feedback">
-        <p>We welcome your feedback on the accessibility of our website. If you encounter accessibility barriers, please let us know by emailing <a href="mailto:contact@deadcode.space" className="text-[#C96F3D] hover:underline">contact@deadcode.space</a>.</p>
+        <p>We welcome your feedback on the accessibility of our website. If you encounter accessibility barriers, please let us know by emailing <a href="mailto:contact@deadcode.space" className="text-[#E10600] hover:underline">contact@deadcode.space</a>.</p>
       </LegalSection>
     
     </LegalLayout>

@@ -71,11 +71,11 @@ export function Hero() {
         
         {/* Layer 4: Micro particles (SVG) */}
         <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="85%" cy="30%" r="1" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_12s_ease-in-out_infinite_alternate]" />
+          <circle cx="85%" cy="30%" r="1" fill="#E10600" className="motion-safe:animate-[ambient-drift_12s_ease-in-out_infinite_alternate]" />
           <circle cx="75%" cy="60%" r="1" fill="#3B2A21" className="motion-safe:animate-[ambient-drift-reverse_15s_ease-in-out_infinite_alternate]" />
-          <circle cx="90%" cy="80%" r="1.5" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_18s_ease-in-out_infinite_alternate]" />
+          <circle cx="90%" cy="80%" r="1.5" fill="#E10600" className="motion-safe:animate-[ambient-drift_18s_ease-in-out_infinite_alternate]" />
           <circle cx="65%" cy="20%" r="1" fill="#6D5A4B" className="motion-safe:animate-[ambient-drift-reverse_14s_ease-in-out_infinite_alternate]" />
-          <circle cx="50%" cy="75%" r="0.5" fill="#C96F3D" className="motion-safe:animate-[ambient-drift_20s_ease-in-out_infinite_alternate]" />
+          <circle cx="50%" cy="75%" r="0.5" fill="#E10600" className="motion-safe:animate-[ambient-drift_20s_ease-in-out_infinite_alternate]" />
         </svg>
       </motion.div>
       
@@ -97,7 +97,7 @@ export function Hero() {
               transition={{ duration: 0.5, delay: baseDelay }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill w-fit"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C96F3D] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E10600] animate-pulse" />
               <span className="font-mono text-[11px] tracking-widest uppercase text-[#6D5A4B] font-semibold">
                 Digital Product & Systems Studio
               </span>
@@ -114,7 +114,7 @@ export function Hero() {
             >
               DIGITAL <br className="hidden sm:block" />
               IDEAS, <br />
-              <span className="text-[#C96F3D] font-display">ENGINEERED.</span>
+              <span className="text-[#E10600] font-display">ENGINEERED.</span>
             </motion.h1>
             
             <motion.p 
@@ -196,7 +196,7 @@ export function Hero() {
                 <div>
                   <div className="flex justify-between text-sm mb-2">
                     <span className="text-[#6D5A4B]">Experience</span>
-                    <span className="font-medium text-[#C96F3D]">Optimized</span>
+                    <span className="font-medium text-[#E10600]">Optimized</span>
                   </div>
                   <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
                     <motion.div 
@@ -204,7 +204,7 @@ export function Hero() {
                       whileInView={{ width: "100%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.5, ease: "easeOut", delay: baseDelay + 1.0 }}
-                      className="bg-accent h-2 rounded-full"
+                      className="bg-[#E10600] h-2 rounded-full"
                     ></motion.div>
                   </div>
                 </div>
@@ -237,8 +237,8 @@ export function Hero() {
               style={{ x: floatTranslateX1 }}
               className="absolute -right-4 top-12 z-10 glass-crystal p-4 rounded-2xl w-32 hidden lg:block shadow-sm"
             >
-              <div className="w-8 h-8 rounded-full bg-[#C96F3D]/12 flex items-center justify-center mb-2">
-                <div className="w-4 h-4 bg-[#C96F3D] rounded-full"></div>
+              <div className="w-8 h-8 rounded-full bg-[#E10600]/12 flex items-center justify-center mb-2">
+                <div className="w-4 h-4 bg-[#E10600] rounded-full"></div>
               </div>
               <p className="text-xs font-medium text-[#3B2A21]">AI Copilot</p>
             </motion.div>

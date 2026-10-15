@@ -15,10 +15,10 @@ export function Footer() {
               Digital ideas, engineered. Boutique digital product studio crafting high-end software, platforms, and experiences.
             </p>
             <div className="flex flex-col space-y-1.5 pt-2">
-              <a href="mailto:contact@deadcode.space" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm font-mono">
+              <a href="mailto:contact@deadcode.space" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm font-mono">
                 contact@deadcode.space
               </a>
-              <a href="tel:+919151741310" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm font-mono">
+              <a href="tel:+919151741310" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm font-mono">
                 +91 9151741310
               </a>
             </div>
@@ -26,18 +26,18 @@ export function Footer() {
 
           <div className="flex flex-col space-y-2.5">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#927E6E] font-semibold mb-1">Capabilities</h4>
-            <Link href="/services#web-experiences" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">Web Experiences</Link>
-            <Link href="/services#e-commerce" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">E-Commerce Systems</Link>
-            <Link href="/services#ai-products" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">AI Product Design</Link>
-            <Link href="/services#saas-digital-products" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">SaaS & Systems</Link>
+            <Link href="/services#web-experiences" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Web Experiences</Link>
+            <Link href="/services#e-commerce" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">E-Commerce Systems</Link>
+            <Link href="/services#ai-products" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">AI Product Design</Link>
+            <Link href="/services#saas-digital-products" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">SaaS & Systems</Link>
           </div>
 
           <div className="flex flex-col space-y-2.5">
             <h4 className="font-mono text-xs uppercase tracking-widest text-[#927E6E] font-semibold mb-1">Studio Network</h4>
-            <a href="https://www.linkedin.com/in/divyanshuverma09/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">LinkedIn</a>
-            <a href="https://www.instagram.com/truly_divyanshu/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">Instagram</a>
-            <a href="https://github.com/divyanshu76" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">GitHub</a>
-            <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#C96F3D] transition-colors text-sm">Founder Portfolio ↗</a>
+            <a href="https://www.linkedin.com/in/divyanshuverma09/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">LinkedIn</a>
+            <a href="https://www.instagram.com/truly_divyanshu/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Instagram</a>
+            <a href="https://github.com/divyanshu76" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">GitHub</a>
+            <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Founder Portfolio ↗</a>
           </div>
         </div>
 

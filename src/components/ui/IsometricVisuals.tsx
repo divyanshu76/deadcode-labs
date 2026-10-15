@@ -21,7 +21,7 @@ export function IsometricBox01({ className = "" }: { className?: string }) {
           <path d="M0 60 L60 30 L60 100 L0 130 Z" fill="#CCC3B8" stroke="rgba(116,88,66,0.12)" strokeWidth="1" />
           
           {/* Accent Element on Top Face */}
-          <path d="M0 15 L30 30 L0 45 L-30 30 Z" fill="#C96F3D" opacity="0.85" />
+          <path d="M0 15 L30 30 L0 45 L-30 30 Z" fill="#E10600" opacity="0.85" />
         </g>
       </motion.svg>
     </div>
@@ -40,7 +40,7 @@ export function IsometricBoxes02({ className = "" }: { className?: string }) {
       transition={{ type: "spring", stiffness: 300, damping: 25, delay }}
     >
       {/* Top Face */}
-      <path d="M0 0 L20 10 L0 20 L-20 10 Z" fill={highlight ? "#C96F3D" : "#E4DAD0"} stroke="rgba(116,88,66,0.12)" strokeWidth="0.5" />
+      <path d="M0 0 L20 10 L0 20 L-20 10 Z" fill={highlight ? "#E10600" : "#E4DAD0"} stroke="rgba(116,88,66,0.12)" strokeWidth="0.5" />
       {/* Left Face */}
       <path d="M-20 10 L0 20 L0 40 L-20 30 Z" fill="#D8CFC5" stroke="rgba(116,88,66,0.12)" strokeWidth="0.5" />
       {/* Right Face */}

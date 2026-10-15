@@ -123,7 +123,7 @@ export function MobileNav({
                     <Link
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-[#3B2A21] hover:text-[#C96F3D] hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
+                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-[#3B2A21] hover:text-[#E10600] hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
                     >
                       {link.name.toUpperCase()}
                     </Link>
@@ -156,7 +156,7 @@ export function MobileNav({
                     href="https://www.instagram.com/truly_divyanshu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#C96F3D] transition-colors text-[13px] font-mono"
+                    className="hover:text-[#E10600] transition-colors text-[13px] font-mono"
                   >
                     Instagram
                   </a>
@@ -164,7 +164,7 @@ export function MobileNav({
                     href="https://www.linkedin.com/in/divyanshuverma09/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#C96F3D] transition-colors text-[13px] font-mono"
+                    className="hover:text-[#E10600] transition-colors text-[13px] font-mono"
                   >
                     LinkedIn
                   </a>

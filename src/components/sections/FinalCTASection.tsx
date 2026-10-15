@@ -57,7 +57,7 @@ export function FinalCTASection() {
 
           <div className="relative z-10 flex flex-col items-center">
             {/* Eyebrow */}
-            <p className="text-[#C96F3D] font-mono text-xs tracking-[0.25em] uppercase mb-6 md:mb-8 font-semibold">
+            <p className="text-[#E10600] font-mono text-xs tracking-[0.25em] uppercase mb-6 md:mb-8 font-semibold">
               READY WHEN YOU ARE
             </p>
 
@@ -86,14 +86,14 @@ export function FinalCTASection() {
               id="final-cta-start-project"
               onClick={scrollToEstimator}
               className="group inline-flex items-center gap-2 px-7 md:px-8 h-[50px] md:h-[54px]
-                         bg-[rgba(201,111,61,0.76)] text-[#FFF9F2] text-sm md:text-base font-semibold
+                         bg-[#E10600] text-white text-sm md:text-base font-semibold
                          rounded-full border border-white/45
                          backdrop-blur-[18px] saturate-125
-                         shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(201,111,61,0.20)]
+                         shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(225,6,0,0.22)]
                          transition-all duration-300
-                         hover:-translate-y-[2px] hover:bg-[rgba(201,111,61,0.86)]
-                         hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_40px_rgba(201,111,61,0.30)]
-                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C96F3D]/60
+                         hover:-translate-y-[2px] hover:bg-[#C70500]
+                         hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_40px_rgba(225,6,0,0.32)]
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]/60
                          focus-visible:ring-offset-2 mb-10 md:mb-12"
             >
               Start a Project
@@ -114,17 +114,17 @@ export function FinalCTASection() {
               href="mailto:contact@deadcode.space"
               className="group relative inline-flex items-center gap-3 text-base md:text-xl font-light
                          text-[#6D5A4B] hover:text-[#3B2A21] transition-colors duration-300
-                         focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C96F3D]/50 rounded"
+                         focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E10600]/50 rounded"
               aria-label="Send email to contact@deadcode.space"
             >
               <span
                 className="relative pb-1 border-b border-[#B5A090]/40
-                           group-hover:border-[#C96F3D] transition-colors duration-300"
+                           group-hover:border-[#E10600] transition-colors duration-300"
               >
                 contact@deadcode.space
               </span>
               <ArrowRight
-                className="h-4 w-4 md:h-5 md:w-5 text-[#C96F3D] opacity-0 -translate-x-3
+                className="h-4 w-4 md:h-5 md:w-5 text-[#E10600] opacity-0 -translate-x-3
                            group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                 aria-hidden="true"
               />
@@ -143,7 +143,7 @@ export function FinalCTASection() {
                   rel="noopener noreferrer"
                   className="text-xs md:text-sm font-mono text-[#927D6C] hover:text-[#3B2A21]
                              transition-colors duration-200 underline-offset-4 hover:underline
-                             focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C96F3D]/50 rounded"
+                             focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E10600]/50 rounded"
                 >
                   {link.label}
                 </a>

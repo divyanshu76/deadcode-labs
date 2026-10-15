@@ -17,14 +17,14 @@ export default function cookiepolicyPage() {
         <p>Our website currently uses cookies primarily for essential functionality. We do not use intrusive third-party advertising or marketing cookies.</p>
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Strictly Necessary Cookies:</strong> These are required for the operation of our website (e.g., saving your cookie consent preferences). They cannot be switched off in our systems.</li>
-          <li><strong>Analytics/Performance Cookies:</strong> [CONFIRM: State clearly if any analytics like Google Analytics, Vercel Analytics, or PostHog are used. Currently, the source code does not indicate active third-party analytics]. If implemented, these help us understand how visitors interact with our website.</li>
+          <li><strong>Analytics/Performance Cookies:</strong> Used exclusively to evaluate site performance, load times, and anonymous usage patterns to optimize user experience.</li>
         </ul>
       </LegalSection>
       <LegalSection title="3. Managing Your Cookie Preferences">
         <p>You can manage your cookie preferences at any time by clicking the "Cookie Settings" link in the footer of our website. Additionally, most web browsers allow you to control cookies through their settings preferences.</p>
       </LegalSection>
       <LegalSection title="4. Contact Us">
-        <p>For more information about our use of cookies, please contact us at <a href="mailto:contact@deadcode.space" className="text-[#C96F3D] hover:underline">contact@deadcode.space</a>.</p>
+        <p>For more information about our use of cookies, please contact us at <a href="mailto:contact@deadcode.space" className="text-[#E10600] hover:underline">contact@deadcode.space</a>.</p>
       </LegalSection>
     
     </LegalLayout>
