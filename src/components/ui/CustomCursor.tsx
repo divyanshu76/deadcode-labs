@@ -57,7 +57,7 @@ export function CustomCursor() {
       const size = p ? "60px" : h ? "52px" : "36px";
       const opacity = v ? "1" : "0";
       const borderColor = p ? "rgba(225, 6, 0, 0.4)" : "rgba(225, 6, 0, 0.65)";
-      const bg = p ? "rgba(17, 22, 27, 0.5)" : "transparent";
+      const bg = p ? "rgba(42, 42, 42, 0.5)" : "transparent";
       const blur = p ? "blur(4px)" : "none";
       
       cursorRef.current.style.width = size;
@@ -144,7 +144,7 @@ export function CustomCursor() {
         }}
       >
         <span 
-          className="font-mono text-[9px] tracking-widest text-[#E10600] font-bold transition-opacity duration-200"
+          className="font-mono text-[9px] tracking-widest text-signal font-bold transition-opacity duration-200"
           style={{ opacity: 0 }}
         >
           VIEW
@@ -154,7 +154,7 @@ export function CustomCursor() {
       {/* Inner Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-[6px] h-[6px] bg-[#E10600] rounded-full pointer-events-none z-[10000] transition-opacity duration-200"
+        className="fixed top-0 left-0 w-[6px] h-[6px] bg-signal rounded-full pointer-events-none z-[10000] transition-opacity duration-200"
         style={{ opacity: 0 }}
       />
     </>

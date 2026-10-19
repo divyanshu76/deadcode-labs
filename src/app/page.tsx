@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { PhilosophySection } from "@/components/sections/PhilosophySection";
 import { UdyamTrustSection } from "@/components/sections/UdyamTrustSection";
 import { TrustSlider } from "@/components/sections/TrustSlider";
 import { ResultsSection } from "@/components/sections/ResultsSection";
@@ -39,6 +40,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <PhilosophySection />
       <UdyamTrustSection />
       <TrustSlider />
       <ResultsSection />

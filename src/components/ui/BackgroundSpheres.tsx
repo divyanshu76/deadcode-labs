@@ -1,54 +1,46 @@
-import React from "react";
+"use client";
 
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+
+/**
+ * Global ambient layer behind every page: cool moonlit light pools plus
+ * faint silver technical linework that echoes the hero's orbit wire.
+ * One fixed, GPU-cheap layer (CSS + SVG) — no per-section WebGL.
+ */
 export function BackgroundSpheres() {
-  return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Top Left Sphere */}
-      <div 
-        className="absolute top-[-10%] left-[-5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] rounded-full"
-        style={{
-          background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.15) 30%, transparent 60%)",
-          boxShadow: "inset 0 0 60px rgba(255,255,255,0.8), 0 20px 60px rgba(201,111,61,0.08)",
-          filter: "blur(2px)",
-          opacity: 0.9,
-          transform: "translate3d(0, 0, 0)",
-        }}
-      />
-      
-      {/* Middle Right Copper Sphere */}
-      <div 
-        className="absolute top-[35%] right-[-10%] w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] rounded-full"
-        style={{
-          background: "radial-gradient(circle at 40% 40%, rgba(201,111,61,0.25) 0%, rgba(201,111,61,0.08) 50%, transparent 80%)",
-          boxShadow: "inset 0 0 50px rgba(255,255,255,0.3)",
-          filter: "blur(4px)",
-          opacity: 0.85,
-          transform: "translate3d(0, 0, 0)",
-        }}
-      />
-      
-      {/* Bottom Left Glass Disc */}
-      <div 
-        className="absolute bottom-[-5%] left-[15%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] rounded-full"
-        style={{
-          background: "radial-gradient(circle at 50% 10%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 50%, transparent 70%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)",
-          filter: "blur(2px)",
-          opacity: 0.75,
-          transform: "translate3d(0, 0, 0)",
-        }}
-      />
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  // Linework drifts slower than content for depth; disabled for reduced motion.
+  const drift = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const counterDrift = useTransform(scrollYProgress, [0, 1], [0, 90]);
 
-      {/* Center Subtle Crystal Blob */}
-      <div 
-        className="absolute top-[60%] left-[60%] w-[25vw] h-[25vw] max-w-[400px] max-h-[400px] rounded-full"
-        style={{
-          background: "radial-gradient(circle at 70% 30%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.08) 40%, transparent 70%)",
-          filter: "blur(4px)",
-          opacity: 0.65,
-          transform: "translate3d(0, 0, 0)",
-        }}
-      />
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      {/* Moonlit light pools */}
+      <div className="absolute top-[-15%] left-[-10%] w-[55vw] h-[55vw] max-w-[820px] max-h-[820px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(255,255,255,0)_65%)]" />
+      <div className="absolute top-[30%] right-[-15%] w-[50vw] h-[50vw] max-w-[760px] max-h-[760px] rounded-full bg-[radial-gradient(circle,rgba(192,192,192,0.32),rgba(192,192,192,0)_65%)]" />
+      <div className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] max-w-[900px] max-h-[900px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.6),rgba(255,255,255,0)_60%)]" />
+
+      {/* Technical linework: orbit arcs and measurement ticks */}
+      <motion.svg
+        style={reducedMotion ? undefined : { y: drift }}
+        className="absolute -right-[20vw] top-[8vh] w-[90vw] max-w-[1300px] h-auto opacity-60"
+        viewBox="0 0 1000 1000"
+        fill="none"
+      >
+        <ellipse cx="500" cy="500" rx="470" ry="210" transform="rotate(-18 500 500)" stroke="#C0C0C0" strokeOpacity="0.55" strokeWidth="1" />
+        <ellipse cx="500" cy="500" rx="360" ry="150" transform="rotate(-18 500 500)" stroke="#C0C0C0" strokeOpacity="0.35" strokeWidth="1" strokeDasharray="2 10" />
+        <circle cx="912" cy="402" r="3" fill="#E10600" fillOpacity="0.55" />
+      </motion.svg>
+      <motion.svg
+        style={reducedMotion ? undefined : { y: counterDrift }}
+        className="absolute -left-[25vw] top-[55vh] w-[80vw] max-w-[1100px] h-auto opacity-50"
+        viewBox="0 0 1000 1000"
+        fill="none"
+      >
+        <ellipse cx="500" cy="500" rx="460" ry="190" transform="rotate(14 500 500)" stroke="#C0C0C0" strokeOpacity="0.5" strokeWidth="1" />
+        <path d="M40 520 H120 M40 540 H90 M40 560 H120 M40 580 H90" stroke="#A8A8A8" strokeOpacity="0.5" strokeWidth="1" />
+      </motion.svg>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { EASE_IN_OUT_QUART, EASE_OUT_EXPO } from "@/lib/motion";
 
 const sequence = [
   "BUILDING DIGITAL EXPERIENCES",
@@ -10,158 +11,136 @@ const sequence = [
   "आइडिया को हकीकत में बदल रहे हैं",
 ];
 
-const GREETING_STEP_MS = 100; 
-const EXIT_DURATION = 0.8; 
+/** The instrument "powers on" for this long, then the sheet lifts away. */
+const BUILD_MS = 1800;
+const EXIT_S = 0.8;
+const STATUS_STEP_MS = BUILD_MS / sequence.length;
 
+/**
+ * First-visit preloader. Runs on a fixed timeline (≈2.6s, matching
+ * PRELOADER_DURATION_S) and never waits on network, images or WebGL, so it
+ * can't trap the visitor. Shown once per session; skipped for reduced motion.
+ */
 export function Preloader() {
-  const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"black" | "brand" | "sequence" | "final" | "exit" | "done">("black");
-  const [showPreloader, setShowPreloader] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [exiting, setExiting] = useState(false);
+  const [statusIndex, setStatusIndex] = useState(0);
 
   useEffect(() => {
-    const hasSeen = sessionStorage.getItem("deadcode-preloader-seen");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (!hasSeen && !prefersReducedMotion) {
-      setTimeout(() => setShowPreloader(true), 0);
-      document.body.style.overflow = "hidden";
-      sessionStorage.setItem("deadcode-preloader-running", "true");
-    } else {
-      sessionStorage.setItem("deadcode-preloader-seen", "true");
-    }
-    setIsMounted(true);
-  }, []);
-
-  // Timer sequence for main phases
-  useEffect(() => {
-    if (!showPreloader) return;
-
-    let timeout: NodeJS.Timeout;
-
-    if (phase === "black") {
-      timeout = setTimeout(() => setPhase("brand"), 300);
-    } else if (phase === "brand") {
-      timeout = setTimeout(() => setPhase("sequence"), 400);
-    } else if (phase === "final") {
-      timeout = setTimeout(() => setPhase("exit"), 350);
+    let hasSeen = false;
+    let reduced = false;
+    try {
+      hasSeen = sessionStorage.getItem("deadcode-preloader-seen") === "true";
+      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch {
+      hasSeen = true;
     }
 
-    return () => clearTimeout(timeout);
-  }, [phase, showPreloader]);
-
-  // Sequence step timer
-  useEffect(() => {
-    if (!showPreloader || phase !== "sequence") return;
-
-    if (index >= sequence.length) {
-      setTimeout(() => setPhase("final"), 0);
+    if (hasSeen || reduced) {
+      try {
+        sessionStorage.setItem("deadcode-preloader-seen", "true");
+      } catch {
+        /* storage unavailable — nothing to remember */
+      }
       return;
     }
 
-    const timeout = setTimeout(() => {
-      setIndex((prev) => prev + 1);
-    }, GREETING_STEP_MS);
+    sessionStorage.setItem("deadcode-preloader-running", "true");
+    document.body.style.overflow = "hidden";
 
-    return () => clearTimeout(timeout);
-  }, [index, showPreloader, phase]);
+    const timers = [
+      window.setTimeout(() => setVisible(true), 0),
+      ...sequence.slice(1).map((_, i) => window.setTimeout(() => setStatusIndex(i + 1), STATUS_STEP_MS * (i + 1))),
+      window.setTimeout(() => setExiting(true), BUILD_MS),
+      window.setTimeout(() => {
+        setVisible(false);
+        document.body.style.overflow = "";
+        sessionStorage.setItem("deadcode-preloader-seen", "true");
+        sessionStorage.removeItem("deadcode-preloader-running");
+      }, BUILD_MS + EXIT_S * 1000 + 50),
+    ];
 
-  // Exit sequence
-  const handleExitComplete = useCallback(() => {
-    if (phase === "exit") {
-      setPhase("done");
-      setShowPreloader(false);
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
       document.body.style.overflow = "";
-      sessionStorage.setItem("deadcode-preloader-seen", "true");
-      sessionStorage.removeItem("deadcode-preloader-running");
-    }
-  }, [phase]);
-
-  useEffect(() => {
-    if (phase !== "exit") return;
-    const timeout = setTimeout(() => {
-      handleExitComplete();
-    }, EXIT_DURATION * 1000 + 50);
-    return () => clearTimeout(timeout);
-  }, [phase, handleExitComplete]);
-
-  if (!isMounted) return null;
-  if (phase === "done" && !showPreloader) return null;
+    };
+  }, []);
 
   return (
     <AnimatePresence>
-      {(showPreloader || phase === "exit") && (
+      {visible && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[99999] flex items-center justify-center pointer-events-auto"
+          className="fixed inset-0 z-[99999] pointer-events-auto"
           style={{ height: "100dvh" }}
+          role="status"
+          aria-label="Loading DEADCODE LABS"
         >
-          {/* Solid Black background layer until exit */}
-          {phase !== "exit" && <div className="absolute inset-0 bg-[#211C1A]" />}
+          {/* Charcoal sheet that lifts away with a curved trailing edge */}
+          <motion.div
+            className="absolute inset-0"
+            initial={{ y: "0%" }}
+            animate={{ y: exiting ? "-100%" : "0%" }}
+            transition={{ duration: EXIT_S, ease: EASE_IN_OUT_QUART }}
+          >
+            <div className="w-full h-full bg-ink-950" />
+            <svg className="w-full h-[15vh] fill-ink-950 -translate-y-px" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 0 0 L 100 0 L 100 0 Q 50 100 0 0 Z" />
+            </svg>
+          </motion.div>
 
-          {/* Curved SVG wipe exit */}
-          {phase === "exit" && (
-            <motion.div
-              className="absolute inset-0 z-0"
-              initial={{ y: "0%" }}
-              animate={{ y: "-100%" }}
-              transition={{ duration: EXIT_DURATION, ease: [0.76, 0, 0.24, 1] }}
+          <motion.div
+            className="absolute inset-0 flex flex-col items-center justify-center px-6 text-silver-bright"
+            animate={{ opacity: exiting ? 0 : 1, y: exiting ? -24 : 0 }}
+            transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
+          >
+            {/* Corner metadata */}
+            <div className="absolute top-6 left-6 right-6 flex justify-between font-mono text-[10px] tracking-[0.24em] uppercase text-silver-dark">
+              <span>Digital Product Studio</span>
+              <span className="hidden sm:inline">Lucknow / Global</span>
+            </div>
+
+            <motion.span
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.1 }}
+              className="font-display text-5xl sm:text-6xl md:text-7xl tracking-tight"
             >
-              {/* Solid part of the glass sheet */}
-              <div className="w-full h-full bg-[#211C1A]" />
-              {/* The trailing curve */}
-              <svg
-                className="w-full h-[15vh] fill-[#211C1A] translate-y-[-1px]"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-              >
-                <path d="M 0 0 L 100 0 L 100 0 Q 50 100 0 0 Z" />
-              </svg>
-            </motion.div>
-          )}
+              DEADCODE <span className="italic text-silver">LABS</span>
+            </motion.span>
 
-          {/* Multilingual sequence */}
-          {phase === "sequence" && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#F8F3EC] px-4 text-center">
+            {/* Silver progress line with a red signal riding its tip */}
+            <div className="relative mt-8 w-[min(280px,70vw)] h-px bg-white/10 overflow-visible">
+              <motion.div
+                className="absolute inset-y-0 left-0 w-full origin-left bg-linear-to-r from-silver-dark via-silver to-white"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: BUILD_MS / 1000, ease: [0.65, 0, 0.35, 1] }}
+              />
+              <motion.span
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-signal shadow-[0_0_12px_rgba(225,6,0,0.8)]"
+                initial={{ left: "0%" }}
+                animate={{ left: "100%" }}
+                transition={{ duration: BUILD_MS / 1000, ease: [0.65, 0, 0.35, 1] }}
+              />
+            </div>
+
+            {/* Multilingual status line */}
+            <div className="relative mt-5 h-5 w-full flex justify-center overflow-hidden">
               <AnimatePresence mode="wait">
-                {index < sequence.length && (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{
-                      duration: 0.12,
-                      ease: [0.25, 1, 0.5, 1],
-                    }}
-                    className={`absolute font-medium tracking-tight select-none text-2xl sm:text-3xl md:text-4xl ${index % 2 !== 0 ? 'font-sans' : 'font-display uppercase tracking-widest'}`}
-                  >
-                    {sequence[index]}
-                  </motion.span>
-                )}
+                <motion.span
+                  key={statusIndex}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.18 }}
+                  className={`absolute text-[11px] tracking-[0.2em] text-silver-dark ${statusIndex % 2 ? "font-sans tracking-normal" : "font-mono uppercase"}`}
+                >
+                  {sequence[statusIndex]}
+                </motion.span>
               </AnimatePresence>
             </div>
-          )}
-
-          {/* DEADCODE LABS reveal */}
-          {(phase === "brand" || phase === "final") && (
-            <div className="relative flex items-center justify-center w-full h-24 z-10 text-[#F8F3EC]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-                className="text-center"
-              >
-                <span className="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-[#E10600] block mb-2 font-semibold">
-                  DIGITAL PRODUCT STUDIO
-                </span>
-                <span className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-[#F3EDE5]">
-                  DEADCODE LABS
-                </span>
-              </motion.div>
-            </div>
-          )}
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

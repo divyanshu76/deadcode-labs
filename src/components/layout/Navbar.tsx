@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,8 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const pathname = usePathname();
+  // Over the dark homepage hero (before the frosted bar appears) the nav uses light text.
+  const onDark = pathname === "/" && !isScrolled;
 
   const [isReady, setIsReady] = useState(false);
   const [baseDelay, setBaseDelay] = useState(0);
@@ -122,6 +124,7 @@ export function Navbar() {
         animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
         transition={{ duration: 0.6, delay: baseDelay, ease: [0.76, 0, 0.24, 1] }}
         className={cn(
+          onDark && "on-dark",
           "fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 lg:top-[16px] lg:left-[32px] lg:right-[32px] pointer-events-none",
           "z-[80]"
         )}
@@ -132,14 +135,14 @@ export function Navbar() {
             className={cn(
               "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-350 ease-out w-full",
               isScrolled
-                ? "glass-elevated px-6 h-[62px]"
+                ? "glass-elevated metal-edge px-6 h-[62px]"
                 : "bg-transparent px-3 h-[70px] rounded-[24px]"
             )}
           >
             <div className="flex items-center shrink-0">
-              <Link href="/" className="font-bold text-[17px] tracking-tight text-[#3B2A21] outline-none">
-                DEADCODE<span className="text-[#E10600]">.</span>
-                <span className="text-[#927E6E] text-[14px]">LABS</span>
+              <Link href="/" className="font-bold text-[17px] tracking-tight text-charcoal outline-none">
+                DEADCODE<span className="text-signal">.</span>
+                <span className="text-ink-muted text-[14px]">LABS</span>
               </Link>
             </div>
 
@@ -159,7 +162,7 @@ export function Navbar() {
                       label={link.name}
                       className={cn(
                         "font-medium text-[14px] transition-colors duration-300",
-                        isExactActive ? "text-[#3B2A21] font-semibold" : "text-[#6D5A4B] hover:text-[#3B2A21]"
+                        isExactActive ? "text-charcoal font-semibold" : "text-ink-soft hover:text-charcoal"
                       )}
                       staggerDuration={0.02}
                       transition={{ duration: 0.5, type: "spring" }}
@@ -167,7 +170,7 @@ export function Navbar() {
                     {isExactActive && (
                       <motion.div
                         layoutId="nav-active-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E10600]"
+                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-signal"
                       />
                     )}
                   </Link>
@@ -182,19 +185,20 @@ export function Navbar() {
                   <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-success opacity-40 duration-[3000ms]"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 m-auto bg-success"></span>
                 </span>
-                <span className="text-[12.5px] text-[#6D5A4B] font-medium tracking-tight">Available for selected projects</span>
+                <span className="text-[12.5px] text-ink-soft font-medium tracking-tight">Available for selected projects</span>
               </div>
-              <Link href="/#start-project" onClick={(e) => handleNavClick(e, "/#start-project")} className="outline-none">
-                <Button
-                  variant="default"
-                  className={cn(
-                    "rounded-[12px] text-sm",
-                    isScrolled ? "h-[40px] px-5 text-[13.5px]" : "h-[44px] px-5 text-[14px]"
-                  )}
-                >
+              <Button
+                asChild
+                variant="default"
+                className={cn(
+                  "rounded-[12px] text-sm",
+                  isScrolled ? "h-[40px] px-5 text-[13.5px]" : "h-[44px] px-5 text-[14px]"
+                )}
+              >
+                <Link href="/#start-project" onClick={(e) => handleNavClick(e, "/#start-project")}>
                   Start a Project
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
           </div>
@@ -205,14 +209,14 @@ export function Navbar() {
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
             (isScrolled)
-              ? "bg-white/55 backdrop-blur-[20px] border border-white/65 shadow-[0_8px_28px_rgba(83,58,39,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
+              ? "bg-white/65 backdrop-blur-[20px] border border-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_28px_rgba(42,42,42,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
               : "bg-transparent px-2 h-[60px] flex items-center"
           )}
         >
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
-              <Link href="/" className="font-bold text-lg tracking-tight text-[#3B2A21] outline-none" onClick={() => setMobileMenuOpen(false)}>
-                DEADCODE<span className="text-[#E10600]">.</span>LABS
+              <Link href="/" className="font-bold text-lg tracking-tight text-charcoal outline-none" onClick={() => setMobileMenuOpen(false)}>
+                DEADCODE<span className="text-signal">.</span>LABS
               </Link>
             </div>
 
@@ -223,7 +227,10 @@ export function Navbar() {
 
       {/* INDEPENDENT MOBILE HAMBURGER BUTTON */}
       <button
-        className="lg:hidden fixed z-[2100] top-4 right-4 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-[#3B2A21]"
+        className={cn(
+          "lg:hidden fixed z-[2100] top-4 right-4 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-charcoal",
+          onDark && !mobileMenuOpen && "on-dark"
+        )}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={mobileMenuOpen}

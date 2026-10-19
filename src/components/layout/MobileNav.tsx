@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 
 export function MobileNav({
@@ -93,7 +93,7 @@ export function MobileNav({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             onClick={onClose}
-            className="fixed inset-0 z-[1900] bg-[#3B2A21]/30 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[1900] bg-charcoal/30 backdrop-blur-sm lg:hidden"
           />
 
           {/* Drawer Panel */}
@@ -105,8 +105,8 @@ export function MobileNav({
             className="fixed right-0 top-0 h-[100dvh] w-full max-w-[320px] sm:max-w-sm glass-elevated z-[2000] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/60 rounded-l-2xl rounded-r-none"
           >
             {/* SVG Curve */}
-            <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[rgba(255,255,255,0.60)] stroke-none z-0">
-              {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" className="fill-[rgba(255,255,255,0.60)]" />}
+            <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[rgba(255,255,255,0.55)] stroke-none z-0">
+              {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" className="fill-[rgba(255,255,255,0.55)]" />}
             </svg>
 
             <div className="flex flex-col h-full justify-between relative z-10 pt-16">
@@ -123,7 +123,7 @@ export function MobileNav({
                     <Link
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-[#3B2A21] hover:text-[#E10600] hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
+                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-charcoal hover:text-signal hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
                     >
                       {link.name.toUpperCase()}
                     </Link>
@@ -143,7 +143,7 @@ export function MobileNav({
                 exit="exit"
                 className="border-t border-white/40 pt-6 space-y-4 text-left w-full"
               >
-                <div className="flex items-center justify-start space-x-6 text-[#6D5A4B]">
+                <div className="flex items-center justify-start space-x-6 text-ink-soft">
                   <a
                     href="https://github.com/divyanshu76"
                     target="_blank"
@@ -156,7 +156,7 @@ export function MobileNav({
                     href="https://www.instagram.com/truly_divyanshu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#E10600] transition-colors text-[13px] font-mono"
+                    className="hover:text-signal transition-colors text-[13px] font-mono"
                   >
                     Instagram
                   </a>
@@ -164,12 +164,12 @@ export function MobileNav({
                     href="https://www.linkedin.com/in/divyanshuverma09/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#E10600] transition-colors text-[13px] font-mono"
+                    className="hover:text-signal transition-colors text-[13px] font-mono"
                   >
                     LinkedIn
                   </a>
                 </div>
-                <p className="text-[12px] font-mono text-[#927E6E]">
+                <p className="text-[12px] font-mono text-ink-muted">
                   Studio Office · Lucknow / Global Edge
                 </p>
               </motion.div>

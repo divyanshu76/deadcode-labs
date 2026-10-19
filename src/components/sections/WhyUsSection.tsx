@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { WhyUsBento } from "@/components/ui/WhyUsBento";
 
@@ -15,10 +15,10 @@ export function WhyUsSection() {
           transition={{ duration: 0.6 }}
           className="mb-10 md:mb-16"
         >
-          <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-3 text-center lg:text-left">
-            STUDIO PHILOSOPHY
+          <span className="chapter-label mb-4 flex justify-center lg:justify-start">
+            10 — STUDIO PHILOSOPHY
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#3B2A21] leading-[1.08] text-center lg:text-left">
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-charcoal leading-[1.08] text-center lg:text-left">
             Why DEADCODE LABS.
           </h2>
         </motion.div>

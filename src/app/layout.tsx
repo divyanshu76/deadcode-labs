@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +9,7 @@ import { Preloader } from "@/components/ui/Preloader";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BackgroundSpheres } from "@/components/ui/BackgroundSpheres";
 import { CookieConsent } from "@/components/ui/CookieConsent";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,11 +17,13 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const dmSerifDisplay = DM_Serif_Display({
+// Editorial display serif, self-hosted by next/font at build time.
+const instrumentSerif = Instrument_Serif({
   variable: "--font-display",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400"],
   style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -80,20 +83,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${dmSerifDisplay.variable} h-full antialiased`}
+      className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col ambient-bg text-foreground relative">
-        <BackgroundSpheres />
-        <CustomCursor />
-        <Preloader />
-        <Navbar />
-        <main className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
-        <BackToTop />
-        <CookieConsent />
+        <MotionProvider>
+          <BackgroundSpheres />
+          <CustomCursor />
+          <Preloader />
+          <Navbar />
+          <main className="flex-1 flex flex-col">
+            {children}
+          </main>
+          <Footer />
+          <FloatingWhatsApp />
+          <BackToTop />
+          <CookieConsent />
+        </MotionProvider>
       </body>
     </html>
   );

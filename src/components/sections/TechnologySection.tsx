@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 
 const techCategories = [
@@ -28,7 +28,7 @@ const techCategories = [
 
 export function TechnologySection() {
   return (
-    <section id="foundation" className="py-16 md:py-24 bg-background border-t border-white/10 overflow-hidden">
+    <section id="foundation" className="py-16 md:py-24 relative z-10 border-t border-white/50 overflow-hidden">
       <Container>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
           <motion.div
@@ -37,10 +37,10 @@ export function TechnologySection() {
             viewport={{ once: true }}
             className="max-w-2xl"
           >
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-accent font-semibold block mb-3">
-              TECHNICAL STANDARDS
+            <span className="chapter-label mb-4">
+              09 — TECHNICAL STANDARDS
             </span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+            <h2 className="font-display text-[length:clamp(40px,6vw,80px)] tracking-[-0.015em] text-foreground leading-[1.02]">
               The foundation.
             </h2>
             <p className="text-base md:text-lg text-secondary mt-4 max-w-xl leading-relaxed">
@@ -49,8 +49,8 @@ export function TechnologySection() {
           </motion.div>
         </div>
 
-        {/* Compact 5-column editorial grid on desktop, 2-3 on tablet, 2 on mobile */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6 pt-8 border-t border-white/10">
+        {/* The stack as one system: groups hang from a silver rail (desktop) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 pt-8 lg:pt-12 border-t border-silver/70">
           {techCategories.map((group, index) => (
             <motion.div
               key={group.category}
@@ -58,9 +58,16 @@ export function TechnologySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="space-y-3"
+              className="space-y-3 premium-card metal-edge rounded-[20px] p-4 sm:p-5"
             >
-              <h3 className="font-mono text-xs font-semibold tracking-wider uppercase text-foreground border-b border-white/10 pb-2">
+              {/* Rail connector and node */}
+              <span className="hidden lg:block absolute -top-12 left-6 w-px h-12 bg-silver/80" aria-hidden="true" />
+              <span
+                className={`hidden lg:block absolute -top-[53px] left-[19.5px] w-3 h-3 rounded-full border bg-[var(--bg-primary)] ${index === 0 ? "border-signal" : "border-silver-dark"}`}
+                aria-hidden="true"
+              />
+              <span className="block font-mono text-[10px] tracking-[0.2em] text-ink-muted">S.{String(index + 1).padStart(2, "0")}</span>
+              <h3 className="font-mono text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-foreground border-b border-silver/60 pb-2">
                 {group.category}
               </h3>
               <ul className="space-y-2">

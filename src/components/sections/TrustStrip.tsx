@@ -19,10 +19,10 @@ export function TrustStrip() {
         <div className="flex items-center justify-start md:justify-center animate-marquee whitespace-nowrap">
           {duplicatedCapabilities.map((item, index) => (
             <div key={`${item}-${index}`} className="flex items-center mx-3 md:mx-8">
-              <span className="text-[11px] md:text-lg font-mono tracking-widest text-[#6D5A4B] uppercase">
+              <span className="text-[11px] md:text-lg font-mono tracking-widest text-ink-soft uppercase">
                 {item}
               </span>
-              <span className="text-[#E10600]/40 text-sm md:text-xl font-light ml-6 md:ml-16">/</span>
+              <span className="text-signal/40 text-sm md:text-xl font-light ml-6 md:ml-16">/</span>
             </div>
           ))}
         </div>

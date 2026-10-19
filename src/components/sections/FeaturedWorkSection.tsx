@@ -1,108 +1,128 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Building2, ShoppingBag, LineChart } from "lucide-react";
+import { motion } from "motion/react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { projects } from "@/data/projects";
-import Link from "next/link";
-import Image from "next/image";
+import { EASE_OUT_EXPO } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
+/**
+ * Case-study gallery: alternating asymmetric editorial rows. Every project
+ * name and link is always visible — nothing depends on hover.
+ */
 export function FeaturedWorkSection() {
   const displayProjects = projects.slice(0, 4);
+  const total = String(displayProjects.length).padStart(2, "0");
 
   return (
-    <section id="work" className="py-14 md:py-24 relative z-10">
+    <section id="work" className="py-16 md:py-28 relative z-10">
       <Container>
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 md:mb-16 gap-4 md:gap-8">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div>
-            <span className="font-mono text-xs tracking-[0.25em] uppercase text-[#E10600] font-semibold block mb-2">
-              PORTFOLIO ARCHIVE
-            </span>
-            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-[#3B2A21] leading-[1.1]">
-              Selected work.
+            <span className="chapter-label mb-4">03 — PORTFOLIO ARCHIVE</span>
+            <h2 className="font-display text-[length:clamp(44px,7vw,96px)] tracking-[-0.02em] text-charcoal leading-[0.98]">
+              Selected <span className="italic text-silver-dark">work.</span>
             </h2>
-            <p className="text-sm md:text-base text-[#6D5A4B] mt-2 max-w-md">
+            <p className="text-sm md:text-base text-ink-soft mt-4 max-w-md">
               Real commercial products, platforms, and digital systems built with architectural rigor.
             </p>
           </div>
-          <Button variant="outline" className="group text-sm border-border text-foreground" asChild>
+          <Button variant="outline" className="group text-sm" asChild>
             <Link href="/work">
               View All Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {projects.slice(0, 4).map((project, index) => (
-            <motion.div
-              key={project.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
-              className="group flex flex-col relative premium-card p-3 md:p-5 h-full rounded-[24px] hover:-translate-y-1 transition-transform duration-500 ease-out"
-            >
-              {/* Project Image Area */}
-              <div
-                className="relative overflow-hidden rounded-[16px] border border-white/40 mb-4 md:mb-5 aspect-[16/10] transition-transform duration-700 ease-out z-0 bg-[#3B2A21]/5"
+        <div className="flex flex-col gap-16 md:gap-24">
+          {displayProjects.map((project, index) => {
+            const reversed = index % 2 === 1;
+            return (
+              <article
+                key={project.slug}
+                className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center"
               >
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} ${project.category.toLowerCase()} project`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <span className="font-display text-2xl font-bold text-[#6D5A4B]/50">{project.title}</span>
-                  </div>
-                )}
-              </div>
+                {/* Image: revealed through a rising clip mask */}
+                <motion.div
+                  initial={{ clipPath: "inset(18% 0% 0% 0% round 24px)", opacity: 0.4 }}
+                  whileInView={{ clipPath: "inset(0% 0% 0% 0% round 24px)", opacity: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 1.1, ease: EASE_OUT_EXPO }}
+                  className={cn(
+                    "relative lg:col-span-7 aspect-[16/10] rounded-[24px] overflow-hidden bg-ink-850/5 metal-edge shadow-[0_30px_70px_rgba(28,28,28,0.18)]",
+                    reversed && "lg:order-2"
+                  )}
+                >
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} ${project.category.toLowerCase()} project`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 58vw"
+                      className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-display text-3xl text-ink-muted">{project.title}</span>
+                    </div>
+                  )}
+                </motion.div>
 
-              {/* Information Row */}
-              <div className="flex flex-col justify-between gap-3 relative z-10 pointer-events-auto mt-2 flex-grow glass-panel rounded-[16px] p-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[11px] font-mono font-bold tracking-wider uppercase text-[#E10600] group-hover:text-[#B30500] transition-colors">
-                      {project.category}
+                {/* Editorial metadata */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.8, delay: 0.15, ease: EASE_OUT_EXPO }}
+                  className={cn("lg:col-span-5", reversed && "lg:order-1")}
+                >
+                  <div className="flex items-center gap-4 font-mono text-[11px] tracking-[0.2em] uppercase">
+                    <span className="text-charcoal">
+                      {String(index + 1).padStart(2, "0")} <span className="text-ink-muted">/ {total}</span>
                     </span>
-                    <span className="text-[#927D6C]">•</span>
-                    <span className="text-xs text-[#927D6C] font-mono">
-                      {project.technology.slice(0, 3).join(", ")}
-                    </span>
+                    <span className="h-px flex-1 bg-silver/70" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#3A2920] tracking-tight transition-colors mb-1">
+
+                  <h3 className="font-display text-[length:clamp(40px,5vw,72px)] leading-none tracking-[-0.02em] text-charcoal mt-6">
                     {project.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-[#6F5A4B] line-clamp-2 max-w-xl leading-relaxed">
-                    {project.shortDescription}
-                  </p>
-                </div>
-                
-                <div className="flex flex-wrap items-center gap-2 mt-auto pt-2">
-                  <Link 
-                    href={`/work/${project.slug}`} 
-                    className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#3B2A21] hover:text-[#E10600] transition-all bg-white/40 hover:bg-white/60 border border-white/50 backdrop-blur-md px-4 py-2 rounded-full shadow-[0_2px_10px_rgba(59,42,33,0.02)]"
-                  >
-                    View Case Study <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                  </Link>
-                  {project.liveUrl && (
-                    <a 
-                      href={project.liveUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="group/btn flex items-center text-[12px] md:text-[13px] font-semibold text-[#6D5A4B] hover:text-[#E10600] transition-all bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md px-4 py-2 rounded-full"
+                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-signal mt-4">{project.category}</p>
+                  <p className="text-[15px] md:text-base text-ink-soft leading-relaxed mt-4 max-w-md">{project.shortDescription}</p>
+
+                  <dl className="mt-6 pt-5 border-t border-silver/60 flex gap-3 font-mono text-[11px] text-ink-muted">
+                    <dt className="uppercase tracking-[0.16em]">Stack</dt>
+                    <dd className="text-ink-soft">{project.technology.slice(0, 3).join(" · ")}</dd>
+                  </dl>
+
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
+                    <Link
+                      href={`/work/${project.slug}`}
+                      className="group/btn inline-flex items-center gap-2 text-[14px] font-semibold text-charcoal border-b border-charcoal/30 pb-1 hover:border-signal hover:text-signal transition-colors"
                     >
-                      View Live Site <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                      View Case Study
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                    </Link>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn inline-flex items-center gap-2 text-[14px] font-medium text-ink-soft hover:text-signal transition-colors"
+                      >
+                        View Live Site
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                        <span className="sr-only">(opens in a new tab)</span>
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              </article>
+            );
+          })}
         </div>
       </Container>
     </section>

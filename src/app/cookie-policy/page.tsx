@@ -24,7 +24,7 @@ export default function cookiepolicyPage() {
         <p>You can manage your cookie preferences at any time by clicking the "Cookie Settings" link in the footer of our website. Additionally, most web browsers allow you to control cookies through their settings preferences.</p>
       </LegalSection>
       <LegalSection title="4. Contact Us">
-        <p>For more information about our use of cookies, please contact us at <a href="mailto:contact@deadcode.space" className="text-[#E10600] hover:underline">contact@deadcode.space</a>.</p>
+        <p>For more information about our use of cookies, please contact us at <a href="mailto:contact@deadcode.space" className="text-signal hover:underline">contact@deadcode.space</a>.</p>
       </LegalSection>
     
     </LegalLayout>

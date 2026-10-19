@@ -2,62 +2,123 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CookieSettingsTrigger } from "@/components/ui/CookieSettingsTrigger";
 
+const NAV = [
+  { label: "Home", href: "/#home" },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "About", href: "/#about" },
+  { label: "Start a Project", href: "/#start-project" },
+];
+
+const CAPABILITIES = [
+  { label: "Web Experiences", href: "/services#web-experiences" },
+  { label: "E-Commerce Systems", href: "/services#e-commerce" },
+  { label: "AI Product Design", href: "/services#ai-products" },
+  { label: "SaaS & Systems", href: "/services#saas-digital-products" },
+];
+
+const NETWORK = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/divyanshuverma09/" },
+  { label: "Instagram", href: "https://www.instagram.com/truly_divyanshu/" },
+  { label: "GitHub", href: "https://github.com/divyanshu76" },
+  { label: "Founder Portfolio ↗", href: "https://www.divyanshu.space/" },
+];
+
+const LEGAL = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
+  { label: "Service Terms", href: "/service-terms" },
+  { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Intellectual Property", href: "/intellectual-property" },
+  { label: "Accessibility", href: "/accessibility" },
+  { label: "Security", href: "/security" },
+];
+
+const linkClass = "text-ink-soft hover:text-silver-bright transition-colors text-sm";
+const headingClass = "font-mono text-[10.5px] uppercase tracking-[0.22em] text-ink-muted mb-1";
+
+/** The closing chapter: a dark stage carrying navigation, contact and the brand signature. */
 export function Footer() {
   return (
-    <footer className="glass-panel text-[#3B2A21] pt-14 md:pt-20 pb-8 md:pb-10 rounded-t-[24px] md:rounded-t-[36px] mt-12 md:mt-20 border-t border-white/50 relative z-10">
+    <footer className="dark-stage relative z-10 mt-12 md:mt-20 pt-16 md:pt-24 pb-8 md:pb-10 rounded-t-[28px] md:rounded-t-[44px] overflow-hidden">
+      <div className="metal-rule absolute top-0 inset-x-[8%] opacity-40" aria-hidden="true" />
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
-          <div className="md:col-span-2 flex flex-col space-y-3 md:space-y-4">
-            <Link href="/" className="font-display font-bold text-2xl tracking-tight text-[#3B2A21]">
-              DEADCODE LABS
-            </Link>
-            <p className="text-[#6D5A4B] max-w-sm text-sm md:text-base leading-relaxed">
-              Digital ideas, engineered. Boutique digital product studio crafting high-end software, platforms, and experiences.
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10 md:gap-12 mb-14 md:mb-20">
+          <div className="col-span-2 md:col-span-5 flex flex-col gap-4">
+            <span className="chapter-label">12 — Studio Signature</span>
+            <p className="font-display text-3xl md:text-4xl leading-[1.08] text-silver-bright max-w-md">
+              Digital ideas, <span className="italic text-silver">engineered.</span>
             </p>
-            <div className="flex flex-col space-y-1.5 pt-2">
-              <a href="mailto:contact@deadcode.space" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm font-mono">
+            <p className="text-ink-soft max-w-sm text-sm md:text-[15px] leading-relaxed">
+              Boutique digital product studio crafting high-end software, platforms, and experiences.
+            </p>
+            <div className="flex flex-col gap-1.5 pt-2">
+              <a href="mailto:contact@deadcode.space" className="text-silver-bright hover:text-signal transition-colors text-sm font-mono w-fit">
                 contact@deadcode.space
               </a>
-              <a href="tel:+919151741310" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm font-mono">
+              <a href="tel:+919151741310" className="text-ink-soft hover:text-signal transition-colors text-sm font-mono w-fit">
                 +91 9151741310
               </a>
             </div>
           </div>
 
-          <div className="flex flex-col space-y-2.5">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[#927E6E] font-semibold mb-1">Capabilities</h4>
-            <Link href="/services#web-experiences" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Web Experiences</Link>
-            <Link href="/services#e-commerce" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">E-Commerce Systems</Link>
-            <Link href="/services#ai-products" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">AI Product Design</Link>
-            <Link href="/services#saas-digital-products" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">SaaS & Systems</Link>
+          <nav aria-label="Footer" className="md:col-span-2 flex flex-col gap-2.5">
+            <h4 className={headingClass}>Navigate</h4>
+            {NAV.map((l) => (
+              <Link key={l.href} href={l.href} className={linkClass}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="md:col-span-3 flex flex-col gap-2.5">
+            <h4 className={headingClass}>Capabilities</h4>
+            {CAPABILITIES.map((l) => (
+              <Link key={l.href} href={l.href} className={linkClass}>
+                {l.label}
+              </Link>
+            ))}
           </div>
 
-          <div className="flex flex-col space-y-2.5">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-[#927E6E] font-semibold mb-1">Studio Network</h4>
-            <a href="https://www.linkedin.com/in/divyanshuverma09/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">LinkedIn</a>
-            <a href="https://www.instagram.com/truly_divyanshu/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Instagram</a>
-            <a href="https://github.com/divyanshu76" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">GitHub</a>
-            <a href="https://www.divyanshu.space/" target="_blank" rel="noopener noreferrer" className="text-[#6D5A4B] hover:text-[#E10600] transition-colors text-sm">Founder Portfolio ↗</a>
+          <div className="col-span-2 md:col-span-2 flex flex-col gap-2.5">
+            <h4 className={headingClass}>Studio Network</h4>
+            {NETWORK.map((l) => (
+              <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {l.label}
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/40 flex flex-col items-center justify-between gap-6">
-          <div className="w-full flex flex-wrap gap-4 text-xs font-mono text-[#927E6E] justify-center md:justify-start">
-            <Link href="/privacy-policy" className="hover:text-[#3B2A21] transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-[#3B2A21] transition-colors">Terms & Conditions</Link>
-            <Link href="/cookie-policy" className="hover:text-[#3B2A21] transition-colors">Cookie Policy</Link>
-            <Link href="/service-terms" className="hover:text-[#3B2A21] transition-colors">Service Terms</Link>
-            <Link href="/disclaimer" className="hover:text-[#3B2A21] transition-colors">Disclaimer</Link>
-            <Link href="/intellectual-property" className="hover:text-[#3B2A21] transition-colors">Intellectual Property</Link>
-            <Link href="/accessibility" className="hover:text-[#3B2A21] transition-colors">Accessibility</Link>
-            <Link href="/security" className="hover:text-[#3B2A21] transition-colors">Security</Link>
+        {/* Registration */}
+        <div className="flex flex-wrap items-center gap-3 pb-6 font-mono text-[10.5px] tracking-[0.18em] uppercase text-ink-muted">
+          <span>MSME · Udyam Registration</span>
+          <span className="px-2.5 py-1 rounded-md border border-white/10 bg-white/[0.04] text-silver-bright tracking-[0.12em]">
+            UDYAM-UP-57-0055432
+          </span>
+        </div>
+
+        <div className="pt-6 border-t border-white/10 flex flex-col gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-3 text-xs font-mono text-ink-muted [&_button]:text-ink-muted [&_button:hover]:text-silver-bright">
+            {LEGAL.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-silver-bright transition-colors">
+                {l.label}
+              </Link>
+            ))}
             <CookieSettingsTrigger />
           </div>
-          <div className="w-full flex text-xs font-mono text-[#927E6E] justify-center md:justify-start">
-            <p>© 2023 DEADCODE LABS. All rights reserved.</p>
-          </div>
+          <p className="text-xs font-mono text-ink-muted">© 2023 DEADCODE LABS. All rights reserved.</p>
         </div>
       </Container>
+
+      {/* Brand signature: an oversized wordmark sinking into the floor */}
+      <div aria-hidden="true" className="mt-10 md:mt-14 select-none pointer-events-none overflow-hidden">
+        <p className="font-display text-center leading-[0.8] tracking-[-0.03em] text-[length:clamp(64px,17vw,300px)] bg-linear-to-b from-white/[0.14] to-white/0 bg-clip-text text-transparent translate-y-[18%]">
+          DEADCODE<span className="italic">LABS</span>
+        </p>
+      </div>
     </footer>
   );
 }

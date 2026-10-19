@@ -1,266 +1,162 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
+import { HeroVisual } from "@/components/three/HeroVisual";
+import { useIntroDelay } from "@/hooks/useIntroDelay";
+import { EASE_OUT_EXPO } from "@/lib/motion";
+
+const STATUS = [
+  { label: "Performance", value: "Excellent", accent: false },
+  { label: "Experience", value: "Optimized", accent: true },
+  { label: "Automation", value: "Connected", accent: false },
+];
+
+const HEADLINE = ["DIGITAL", "IDEAS,", "ENGINEERED."] as const;
 
 export function Hero() {
-  const [isReady, setIsReady] = useState(false);
-  const [baseDelay, setBaseDelay] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { isReady, delay, entranceAt } = useIntroDelay();
 
-  // Parallax motion values
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const smoothOptions = { damping: 30, stiffness: 60, mass: 0.5 };
-  const smoothX = useSpring(mouseX, smoothOptions);
-  const smoothY = useSpring(mouseY, smoothOptions);
+  // 0 while the hero fills the viewport → 1 once it has scrolled out.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0.25]);
 
-  // Background Parallax Layer Transform
-  const bgX = useTransform(smoothX, [-0.5, 0.5], [12, -12]);
-  const bgY = useTransform(smoothY, [-0.5, 0.5], [12, -12]);
-  
-  // Floating elements Transforms
-  const cardTranslateX = useTransform(smoothX, [-0.5, 0.5], [12, -12]);
-  const cardTranslateY = useTransform(smoothY, [-0.5, 0.5], [12, -12]);
-
-  const floatTranslateX1 = useTransform(smoothX, [-0.5, 0.5], [18, -18]);
-  const floatTranslateX2 = useTransform(smoothX, [-0.5, 0.5], [14, -14]);
-
-  useEffect(() => {
-    const hasSeen = sessionStorage.getItem("deadcode-preloader-seen");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!hasSeen && !prefersReducedMotion) {
-      setBaseDelay(2.6);
-    }
-    setIsReady(true);
-    
-    // Desktop only parallax handler without React state re-renders
-    if (window.innerWidth >= 1024 && !prefersReducedMotion) {
-      const handleMouseMove = (e: MouseEvent) => {
-        const x = e.clientX / window.innerWidth - 0.5;
-        const y = e.clientY / window.innerHeight - 0.5;
-        mouseX.set(x);
-        mouseY.set(y);
-      };
-      
-      window.addEventListener("mousemove", handleMouseMove, { passive: true });
-      return () => window.removeEventListener("mousemove", handleMouseMove);
-    }
-  }, []);
+  const reveal = (step: number) => ({
+    initial: { opacity: 0, y: 18 },
+    animate: isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
+    transition: { duration: 0.7, ease: EASE_OUT_EXPO, delay: delay + step },
+  });
 
   return (
-    <section id="home" className="relative pt-28 pb-12 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 overflow-hidden bg-[#F3EDE5]">
-      {/* Background Animated Parallax System */}
-      <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none" 
-        style={{ x: bgX, y: bgY }}
-      >
-        {/* Layer 3: Subtle architectural grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(116,88,66,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(116,88,66,0.02)_1px,transparent_1px)] bg-[size:40px_40px] opacity-70"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_50%,rgba(116,88,66,0.015),transparent)]"></div>
-        
-        {/* Layer 1: Warm ambient light orb */}
-        <div className="absolute right-[-10%] top-[-10%] m-auto h-[600px] w-[600px] rounded-full bg-white/60 blur-[100px] motion-safe:animate-[ambient-drift_16s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift_22s_ease-in-out_infinite_alternate]"></div>
-        
-        {/* Layer 2: Secondary copper light */}
-        <div className="absolute right-[20%] bottom-[-10%] w-[400px] h-[400px] rounded-full bg-[#C96F3D]/8 blur-[120px] motion-safe:animate-[ambient-drift-reverse_12s_ease-in-out_infinite_alternate] md:motion-safe:animate-[ambient-drift-reverse_18s_ease-in-out_infinite_alternate]"></div>
-        
-        {/* Layer 4: Micro particles (SVG) */}
-        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="85%" cy="30%" r="1" fill="#E10600" className="motion-safe:animate-[ambient-drift_12s_ease-in-out_infinite_alternate]" />
-          <circle cx="75%" cy="60%" r="1" fill="#3B2A21" className="motion-safe:animate-[ambient-drift-reverse_15s_ease-in-out_infinite_alternate]" />
-          <circle cx="90%" cy="80%" r="1.5" fill="#E10600" className="motion-safe:animate-[ambient-drift_18s_ease-in-out_infinite_alternate]" />
-          <circle cx="65%" cy="20%" r="1" fill="#6D5A4B" className="motion-safe:animate-[ambient-drift-reverse_14s_ease-in-out_infinite_alternate]" />
-          <circle cx="50%" cy="75%" r="0.5" fill="#E10600" className="motion-safe:animate-[ambient-drift_20s_ease-in-out_infinite_alternate]" />
-        </svg>
-      </motion.div>
-      
-      <Container>
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
-          
-          {/* Left Content */}
-          <div className="flex flex-col relative z-10 w-full lg:w-[52%] glass-soft p-6 md:p-10 rounded-[32px] overflow-hidden">
-            {/* Moving Glass Reflection */}
-            <div 
-              className="absolute inset-0 z-0 pointer-events-none opacity-20 motion-safe:animate-[glass-reflection_12s_ease-in-out_infinite]"
-              style={{ background: 'linear-gradient(120deg, transparent 25%, rgba(255,255,255,1) 42%, transparent 58%)' }}
-            />
-            
-            <div className="relative z-10 flex flex-col space-y-5 md:space-y-7">
-              <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-              transition={{ duration: 0.5, delay: baseDelay }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill w-fit"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E10600] animate-pulse" />
-              <span className="font-mono text-[11px] tracking-widest uppercase text-[#6D5A4B] font-semibold">
-                Digital Product & Systems Studio
-              </span>
-            </motion.div>
+    <section
+      ref={sectionRef}
+      id="home"
+      className="dark-stage relative z-10 overflow-hidden lg:min-h-[max(100svh,760px)] pt-28 md:pt-32 pb-32 lg:pb-36 flex flex-col"
+    >
+      {/* Faint architectural grid in light lines, fading out toward the edges */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.06] [mask-image:radial-gradient(ellipse_at_65%_45%,black_15%,transparent_70%)]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+        aria-hidden="true"
+      />
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: baseDelay + 0.05 }}
-              className="font-display tracking-tight leading-[0.92] md:leading-[0.95] text-[#3B2A21] font-bold"
-              style={{
-                fontSize: "clamp(42px, 12vw, 92px)",
-              }}
-            >
-              DIGITAL <br className="hidden sm:block" />
-              IDEAS, <br />
-              <span className="text-[#E10600] font-display">ENGINEERED.</span>
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: baseDelay + 0.1 }}
-              className="text-base md:text-xl text-[#6D5A4B] max-w-[330px] md:max-w-md leading-[1.55]"
-            >
+      {/* Desktop: the sculpture fills the stage behind the typography */}
+      <div className="hidden lg:block absolute inset-0 z-0">
+        <HeroVisual scrollProgress={scrollYProgress} entranceAt={entranceAt} layout="stage" />
+      </div>
+
+      <Container className="relative z-10 flex-1 flex flex-col">
+        {/* Top meta row */}
+        <motion.div {...reveal(0)} className="flex items-center justify-between gap-4">
+          <span className="inline-flex items-center gap-2 font-mono text-[10.5px] md:text-[11px] tracking-[0.24em] uppercase text-ink-soft">
+            <span className="w-1.5 h-1.5 rounded-full bg-signal motion-safe:animate-pulse" aria-hidden="true" />
+            Digital Product &amp; Systems Studio
+          </span>
+          <span className="hidden md:inline font-mono text-[10.5px] tracking-[0.24em] uppercase text-ink-muted">
+            Chapter 01 — The Idea
+          </span>
+        </motion.div>
+
+        {/* Editorial headline: each line rises out of its own mask */}
+        <h1
+          aria-label="Digital ideas, engineered."
+          className="font-display tracking-[-0.02em] leading-[0.86] text-charcoal mt-8 md:mt-12 lg:mt-14 text-[length:clamp(52px,16vw,120px)] md:text-[length:clamp(72px,11vw,104px)] lg:text-[length:clamp(84px,9.6vw,168px)]"
+        >
+          {HEADLINE.map((line, i) => (
+            <span key={line} className="block overflow-hidden pb-[0.06em]" aria-hidden="true">
+              <motion.span
+                className={i === 2 ? "block italic text-silver" : "block"}
+                initial={{ y: "105%" }}
+                animate={isReady ? { y: "0%" } : { y: "105%" }}
+                transition={{ duration: 1.1, ease: EASE_OUT_EXPO, delay: delay + 0.1 + i * 0.09 }}
+              >
+                {i === 2 ? (
+                  <>
+                    ENGINEERED<span className="not-italic text-signal">.</span>
+                  </>
+                ) : (
+                  line
+                )}
+              </motion.span>
+            </span>
+          ))}
+        </h1>
+
+        {/* Mobile / tablet: the sculpture gets its own stage between headline and copy */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isReady ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.9, delay: delay + 0.2 }}
+          className="lg:hidden relative -mx-6 md:-mx-8 h-[min(82vw,420px)] md:h-[340px] mt-2"
+        >
+          <HeroVisual scrollProgress={scrollYProgress} entranceAt={entranceAt} layout="inline" />
+        </motion.div>
+
+        {/* Supporting copy, actions and system status */}
+        <motion.div
+          style={{ y: copyY, opacity: copyOpacity }}
+          className="mt-6 lg:mt-auto lg:pt-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10"
+        >
+          <div className="max-w-[440px]">
+            <motion.p {...reveal(0.35)} className="text-base md:text-lg text-ink-soft leading-[1.6]">
               DEADCODE LABS designs and builds premium digital products, websites, e-commerce experiences and intelligent systems for ambitious businesses.
             </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: baseDelay + 0.2 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 pt-2"
-            >
-              <Button size="lg" className="w-full sm:w-auto h-12 sm:h-14 px-8 text-base group" asChild>
+            <motion.div {...reveal(0.45)} className="flex flex-col sm:flex-row gap-3 mt-7">
+              <Button size="lg" className="h-13 md:h-14 px-7 text-[15px] group" asChild>
                 <Link href="/#start-project">
                   Start a Project
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 sm:h-14 px-8 text-base" asChild>
-                <Link href="/work">
-                  Explore Our Work
-                </Link>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="h-13 md:h-14 px-7 text-[15px] text-silver-bright border border-white/20 bg-white/[0.04] hover:bg-white/10 hover:border-white/35"
+                asChild
+              >
+                <Link href="/work">Explore Our Work</Link>
               </Button>
             </motion.div>
           </div>
-          </div>
-          
-          {/* Right Visual (Interactive cards restored) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
-            transition={{ 
-              opacity: { duration: 0.8, delay: baseDelay + 0.2 }, 
-              scale: { duration: 0.8, delay: baseDelay + 0.2 },
-            }}
-            style={{ 
-              x: cardTranslateX, 
-              y: cardTranslateY,
-            }}
-            className="relative lg:h-[600px] flex items-center justify-center w-full lg:w-[50%]"
-          >
-            {/* Main floating card */}
-            <motion.div 
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative z-20 w-full max-w-md lg:max-w-lg glass-panel p-6 md:p-8"
-            >
-              <div className="flex items-center justify-between mb-6 md:mb-8">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#E9E0D6] border border-white/40"></div>
-                </div>
-                <span className="text-xs font-semibold text-[#6D5A4B] px-3 py-1 glass-pill rounded-full">Digital Product</span>
+
+          {/* The former status card, re-set as precise studio metadata */}
+          <motion.dl {...reveal(0.55)} className="grid grid-cols-3 lg:grid-cols-1 gap-x-6 gap-y-3 lg:min-w-[240px] border-t border-white/10 pt-5 lg:border-t-0 lg:border-l lg:pl-6 lg:pt-0">
+            {STATUS.map((item) => (
+              <div key={item.label} className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-6">
+                <dt className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted">{item.label}</dt>
+                <dd className={`font-mono text-[11px] tracking-[0.12em] uppercase ${item.accent ? "text-signal" : "text-silver-bright"}`}>
+                  {item.value}
+                </dd>
               </div>
-              
-              <div className="space-y-5 md:space-y-6">
-                <div>
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-[#6D5A4B]">Performance</span>
-                    <span className="font-medium text-emerald-600">Excellent</span>
-                  </div>
-                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "98%" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: baseDelay + 0.8 }}
-                      className="bg-emerald-500 h-2 rounded-full"
-                    ></motion.div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-[#6D5A4B]">Experience</span>
-                    <span className="font-medium text-[#E10600]">Optimized</span>
-                  </div>
-                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: baseDelay + 1.0 }}
-                      className="bg-[#E10600] h-2 rounded-full"
-                    ></motion.div>
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-[#6D5A4B]">Automation</span>
-                    <span className="font-medium text-[#3B2A21]">Connected</span>
-                  </div>
-                  <div className="w-full bg-[#E9E0D6] rounded-full h-2 overflow-hidden flex">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "100%" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: baseDelay + 1.2 }}
-                      className="bg-[#3B2A21] h-2 rounded-full"
-                    ></motion.div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            
-            {/* Background floating elements — desktop only */}
-            <motion.div 
-              animate={{ y: [0, 8, 0], rotate: [0, 1, 0] }}
-              transition={{ 
-                y: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 },
-                rotate: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 },
-              }}
-              style={{ x: floatTranslateX1 }}
-              className="absolute -right-4 top-12 z-10 glass-crystal p-4 rounded-2xl w-32 hidden lg:block shadow-sm"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#E10600]/12 flex items-center justify-center mb-2">
-                <div className="w-4 h-4 bg-[#E10600] rounded-full"></div>
-              </div>
-              <p className="text-xs font-medium text-[#3B2A21]">AI Copilot</p>
-            </motion.div>
-            
-            <motion.div 
-              animate={{ y: [0, -8, 0], rotate: [0, -1, 0] }}
-              transition={{ 
-                y: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.5 },
-                rotate: { repeat: Infinity, duration: 8, ease: "easeInOut", delay: 0.5 },
-              }}
-              style={{ x: floatTranslateX2 }}
-              className="absolute -left-8 bottom-24 z-30 glass-crystal p-4 rounded-2xl w-40 hidden lg:block shadow-sm"
-            >
-              <div className="w-8 h-8 rounded-full bg-[#6D5A4B]/12 flex items-center justify-center mb-2">
-                <div className="w-4 h-4 bg-[#6D5A4B] rounded-full"></div>
-              </div>
-              <p className="text-xs font-medium text-[#3B2A21]">Workflow Active</p>
-              <p className="text-[10px] text-[#927E6E] mt-1">Synced instantly</p>
-            </motion.div>
-          </motion.div>
-        </div>
+            ))}
+          </motion.dl>
+        </motion.div>
+
+        {/* Scroll cue */}
+        <motion.a
+          {...reveal(0.7)}
+          href="#work"
+          className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -bottom-24 flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] uppercase text-ink-muted hover:text-silver-bright transition-colors"
+        >
+          Scroll
+          <span className="relative h-10 w-px bg-white/15 overflow-hidden" aria-hidden="true">
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-silver motion-safe:animate-[scroll-cue_2.4s_ease-in-out_infinite]" />
+          </span>
+        </motion.a>
       </Container>
+
+      {/* Charcoal dissolves into the silver-white editorial canvas below */}
+      <div className="absolute inset-x-0 -bottom-px h-28 bg-linear-to-b from-transparent to-[var(--bg-primary)] pointer-events-none z-10" aria-hidden="true" />
     </section>
   );
 }

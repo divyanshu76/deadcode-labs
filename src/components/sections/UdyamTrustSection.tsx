@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 
 export function UdyamTrustSection() {
   return (
-    <section className="py-4 md:py-6 bg-background">
+    <section className="py-4 md:py-6 relative z-10">
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Desktop & Tablet: Single premium horizontal card */}
@@ -25,7 +25,7 @@ export function UdyamTrustSection() {
             </div>
 
             <div className="flex items-center gap-3 border-l border-border pl-6">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#151C22] border border-accent/20 text-accent font-mono text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-charcoal-deep border border-accent/20 text-accent font-mono text-xs font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-success" />
                 UDYAM-UP-57-0055432
               </span>
@@ -49,7 +49,7 @@ export function UdyamTrustSection() {
             </div>
             <div className="pt-2 border-t border-border/60 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase text-secondary">Registration ID</span>
-              <span className="font-mono text-[11px] font-semibold text-accent px-2 py-0.5 rounded bg-[#151C22] border border-white/10">
+              <span className="font-mono text-[11px] font-semibold text-accent px-2 py-0.5 rounded bg-charcoal-deep border border-white/10">
                 UDYAM-UP-57-0055432
               </span>
             </div>
