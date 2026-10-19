@@ -70,7 +70,7 @@ export function Hero() {
         {/* Editorial headline: each line rises out of its own mask */}
         <h1
           aria-label="Digital ideas, engineered."
-          className="font-display tracking-[-0.02em] leading-[0.86] text-charcoal mt-8 md:mt-12 lg:mt-14 text-[length:clamp(52px,16vw,120px)] md:text-[length:clamp(72px,11vw,104px)] lg:text-[length:clamp(84px,9.6vw,168px)]"
+          className="font-display tracking-[-0.02em] leading-[0.86] text-ink mt-8 md:mt-12 lg:mt-14 text-[length:clamp(52px,16vw,120px)] md:text-[length:clamp(72px,11vw,104px)] lg:text-[length:clamp(84px,9.6vw,168px)]"
         >
           {HEADLINE.map((line, i) => (
             <span key={line} className="block overflow-hidden pb-[0.06em]" aria-hidden="true">
@@ -82,7 +82,7 @@ export function Hero() {
               >
                 {i === 2 ? (
                   <>
-                    ENGINEERED<span className="not-italic text-signal">.</span>
+                    ENGINEERED<span className="not-italic text-signal-bright">.</span>
                   </>
                 ) : (
                   line
@@ -134,7 +134,7 @@ export function Hero() {
             {STATUS.map((item) => (
               <div key={item.label} className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-1 lg:gap-6">
                 <dt className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-muted">{item.label}</dt>
-                <dd className={`font-mono text-[11px] tracking-[0.12em] uppercase ${item.accent ? "text-signal" : "text-silver-bright"}`}>
+                <dd className={`font-mono text-[11px] tracking-[0.12em] uppercase ${item.accent ? "text-signal-bright" : "text-silver-bright"}`}>
                   {item.value}
                 </dd>
               </div>

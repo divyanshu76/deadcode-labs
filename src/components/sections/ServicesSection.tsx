@@ -55,7 +55,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-16 md:py-28 relative z-10">
+    <section id="services" className="atmo atmo-alt py-16 md:py-28 relative z-10">
       <Container>
         <div className="mb-10 md:mb-16 max-w-3xl">
           <motion.div
@@ -67,7 +67,7 @@ export function ServicesSection() {
             <span className="chapter-label mb-4">
               04 — CAPABILITIES & EXPERTISE
             </span>
-            <h2 className="font-display text-[length:clamp(40px,6vw,80px)] tracking-[-0.015em] text-charcoal leading-[1.02]">
+            <h2 className="font-display text-[length:clamp(40px,6vw,80px)] tracking-[-0.015em] text-ink leading-[1.02]">
               Everything digital. <br />
               <span className="italic text-silver-dark">Engineered</span> properly.
             </h2>
@@ -120,9 +120,9 @@ export function ServicesSection() {
                 <div className={cn("flex flex-col min-w-0", !featured && "flex-1")}>
                   <div className="flex items-center justify-between mb-2 md:mb-3">
                     <span className="font-mono text-[11px] tracking-[0.2em] text-ink-muted">{service.number}</span>
-                    <ArrowUpRight className="w-4 h-4 text-ink-muted transition-all duration-300 group-hover:text-signal group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                    <ArrowUpRight className="w-4 h-4 text-ink-muted transition-all duration-300 group-hover:text-signal-bright group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
                   </div>
-                  <h3 className={cn("text-charcoal tracking-tight", featured ? "font-display text-4xl md:text-5xl leading-[1.02]" : "text-[17px] md:text-xl font-semibold")}>
+                  <h3 className={cn("text-ink tracking-tight", featured ? "font-display text-4xl md:text-5xl leading-[1.02]" : "text-[17px] md:text-xl font-semibold")}>
                     {service.title}
                   </h3>
                   <p className={cn("text-ink-soft leading-relaxed mt-2", featured ? "text-base md:text-lg max-w-lg mt-4" : "text-[14px] md:text-[15px]")}>

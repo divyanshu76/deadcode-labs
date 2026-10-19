@@ -197,6 +197,9 @@ export function createStudioEnvironment(renderer: THREE.WebGLRenderer) {
   addPanel("#f2f2f2", 0.9, [0, -6, 3], [10, 4]); // low fill so blacks keep shape
   addPanel(BRAND.signal, 1.4, [6, -1.5, 5], [1.6, 3.2]); // narrow Signal Red panel
 
+  // Note: on Windows (ANGLE → Direct3D 11) the first compile of three's internal
+  // PMREMGGXConvolution shader here logs HLSL "warning X4122" (constant-folding
+  // precision notes). It is generated three.js code, not ours, and is harmless.
   const pmrem = new THREE.PMREMGenerator(renderer);
   const texture = pmrem.fromScene(scene, 0.035).texture;
   pmrem.dispose();

@@ -15,7 +15,7 @@ export default function securityPage() {
       </LegalSection>
       <LegalSection title="2. Responsible Disclosure">
         <p>If you are a security researcher or user who has discovered a potential vulnerability in our website or systems, we ask that you report it to us responsibly.</p>
-        <p>Please email your findings to <a href="mailto:contact@deadcode.space" className="text-signal hover:underline">contact@deadcode.space</a>. Provide enough detail (steps to reproduce, proof of concept) so we can investigate the issue effectively.</p>
+        <p>Please email your findings to <a href="mailto:contact@deadcode.space" className="text-signal-bright hover:underline">contact@deadcode.space</a>. Provide enough detail (steps to reproduce, proof of concept) so we can investigate the issue effectively.</p>
       </LegalSection>
       <LegalSection title="3. Rules of Engagement">
         <p>When investigating potential vulnerabilities, you must:</p>

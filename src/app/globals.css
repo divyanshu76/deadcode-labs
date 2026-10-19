@@ -7,13 +7,13 @@
 }
 
 /* ============================================================
-   DEADCODE LABS — IMMERSIVE DIGITAL ENGINEERING
-   Brand palette: Charcoal Grey · Moonlit Silver · Signal Red
+   DEADCODE LABS — OBSIDIAN GLASS × CINEMATIC ENGINEERING
+   Obsidian charcoal surfaces · silver-white type · Signal Red gradients
    Every component colour should resolve to one of these tokens.
    ============================================================ */
 
 :root {
-  /* ── Brand primitives ── */
+  /* ── Brand primitives (unchanged: the footer and 3D materials rely on these) ── */
   --charcoal: #2A2A2A;
   --charcoal-deep: #1C1C1C;
   --charcoal-soft: #3A3A3A;
@@ -23,48 +23,44 @@
   --silver-dark: #8E8E8E;
   --signal: #E10600;
   --signal-dark: #B80500;
+  --signal-bright: #FF3028;
   --signal-soft: rgba(225, 6, 0, 0.75);
 
-  /* ── Surfaces (light, cool neutral — no cream) ── */
-  --bg-primary: #F4F5F6;
-  --bg-secondary: #EBECEE;
-  --bg-soft: #FAFAFA;
-  --warm-white: #FAFAFA;
+  /* ── Obsidian surfaces: depth comes from shades of charcoal, not one flat black ── */
+  --obsidian-950: #08090B;
+  --bg-primary: #0D0F12;
+  --bg-secondary: #13161A;
+  --bg-soft: #1B1F24;
+  --line-subtle: #252A30;
+  --warm-white: #F2F3F4;
 
-  /* ── Deep charcoal range for dramatic chapters ── */
+  /* ── Deep charcoal range for the hero / footer stage ── */
   --ink-950: #111111;
   --ink-900: #161616;
   --ink-850: #1A1A1A;
 
-  /* ── Glass surfaces ── */
-  --glass-light: rgba(255, 255, 255, 0.22);
-  --glass-medium: rgba(255, 255, 255, 0.34);
-  --glass-strong: rgba(255, 255, 255, 0.48);
-  --glass-elevated: rgba(255, 255, 255, 0.60);
-
-  /* ── Glass borders ── */
-  --glass-border: rgba(255, 255, 255, 0.70);
-  --glass-border-soft: rgba(42, 42, 42, 0.10);
-
-  /* ── Text (charcoal scale, all ≥ 4.5:1 on --bg-primary) ── */
-  --text-primary: #2A2A2A;
-  --text-secondary: #505050;
-  --text-muted: #686868;
+  /* ── Text (all ≥ 4.5:1 on --bg-primary) ── */
+  --text-primary: #F2F3F4;
+  --text-secondary: #B4B8BF;
+  --text-muted: #7C838C;
 
   /* ── Accent ── */
   --accent: var(--signal);
   --accent-soft: var(--signal-soft);
   --accent-dark: var(--signal-dark);
+  --gradient-signal: linear-gradient(135deg, #FF3028 0%, #E10600 42%, #8F0805 100%);
+  --gradient-signal-deep: linear-gradient(135deg, #E10600 0%, #8F0805 48%, #300B0D 100%);
 
-  /* ── Shadows (charcoal-tinted) ── */
-  --shadow-soft: 0 20px 60px rgba(42, 42, 42, 0.10);
-  --shadow-glass: 0 12px 40px rgba(42, 42, 42, 0.08);
-  --shadow-deep: 0 30px 80px rgba(42, 42, 42, 0.16);
+  /* ── Shadows (deep, neutral) ── */
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-glass: 0 18px 48px rgba(0, 0, 0, 0.40);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.55);
 
   /* ── Materials ── */
   --metal-silver: linear-gradient(135deg, #FFFFFF 0%, #D9D9D9 22%, #A9A9A9 48%, #E9E9E9 68%, #B8B8B8 100%);
   --metal-charcoal: linear-gradient(145deg, #4A4A4A 0%, #2A2A2A 45%, #1C1C1C 100%);
-  --edge-silver: linear-gradient(140deg, rgba(255,255,255,0.95) 0%, rgba(192,192,192,0.55) 35%, rgba(255,255,255,0.25) 60%, rgba(160,160,160,0.65) 100%);
+  /* A hairline of moonlight on glass edges — subtle, never chrome. */
+  --edge-silver: linear-gradient(140deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.05) 38%, rgba(255,255,255,0.02) 62%, rgba(255,255,255,0.12) 100%);
 
   /* ── Radii ── */
   --radius-sm: 12px;
@@ -84,23 +80,23 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 
-  /* ── Legacy tokens mapped to the brand system ── */
+  /* ── Legacy tokens mapped to the obsidian system ── */
   --background: var(--bg-primary);
   --background-soft: var(--bg-secondary);
   --foreground: var(--text-primary);
-  --surface: rgba(255, 255, 255, 0.45);
-  --surface-elevated: rgba(255, 255, 255, 0.60);
-  --card: rgba(255, 255, 255, 0.42);
-  --card-hover: rgba(255, 255, 255, 0.58);
+  --surface: rgba(27, 31, 36, 0.60);
+  --surface-elevated: rgba(27, 31, 36, 0.80);
+  --card: rgba(27, 31, 36, 0.55);
+  --card-hover: rgba(33, 38, 44, 0.70);
   --secondary: var(--text-secondary);
   --muted-text: var(--text-muted);
-  --very-muted: #A3A3A3;
-  --border: rgba(255, 255, 255, 0.60);
-  --border-strong: rgba(255, 255, 255, 0.72);
+  --very-muted: #5C626A;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
   --accent-primary: var(--accent);
   --accent-secondary: var(--accent-soft);
   --accent-hover: var(--accent-dark);
-  --success: #2E9E6B;
+  --success: #3DBE85;
 }
 
 @theme inline {
@@ -133,6 +129,11 @@
   --color-silver-dark: var(--silver-dark);
   --color-signal: var(--signal);
   --color-signal-dark: var(--signal-dark);
+  --color-signal-bright: var(--signal-bright);
+  --color-obsidian: var(--obsidian-950);
+  --color-surface-1: var(--bg-secondary);
+  --color-surface-2: var(--bg-soft);
+  --color-line: var(--line-subtle);
   --color-ink: var(--text-primary);
   --color-ink-soft: var(--text-secondary);
   --color-ink-muted: var(--text-muted);
@@ -180,22 +181,27 @@
    ============================================================ */
 
 @layer utilities {
-  /* ── Level 1: Soft glass ── */
+  /* ============================================================
+     OBSIDIAN GLASS — translucent charcoal, a hairline of light on
+     the top edge, deep soft shadows. Blur is used sparingly.
+     ============================================================ */
+
+  /* ── Level 1: Soft glass (large text containers) ── */
   .glass-soft {
-    background: rgba(255, 255, 255, 0.30);
-    backdrop-filter: blur(18px) saturate(115%);
-    -webkit-backdrop-filter: blur(18px) saturate(115%);
-    border: 1px solid rgba(255, 255, 255, 0.70);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 1px 0 0 rgba(255, 255, 255, 0.30), inset 0 -1px 0 rgba(42, 42, 42, 0.05), 0 18px 45px rgba(42, 42, 42, 0.07);
+    background: linear-gradient(180deg, rgba(27, 31, 36, 0.55) 0%, rgba(19, 22, 26, 0.45) 100%);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 60px rgba(0, 0, 0, 0.35);
   }
 
   /* ── Level 2: Standard glass ── */
   .glass-panel {
-    background: rgba(255, 255, 255, 0.38);
-    backdrop-filter: blur(24px) saturate(115%);
-    -webkit-backdrop-filter: blur(24px) saturate(115%);
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), inset 1px 0 0 rgba(255, 255, 255, 0.30), inset 0 -1px 0 rgba(42, 42, 42, 0.06), 0 18px 45px rgba(42, 42, 42, 0.07);
+    background: linear-gradient(170deg, rgba(31, 35, 41, 0.70) 0%, rgba(17, 19, 23, 0.70) 100%);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 24px 60px rgba(0, 0, 0, 0.40);
     border-radius: 24px;
   }
   .glass-panel::before {
@@ -204,17 +210,16 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 18%, transparent 42%);
-    opacity: .55;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 35%);
   }
 
-  /* ── Level 3: Crystal glass ── */
+  /* ── Level 3: Crystal glass (small floating chips) ── */
   .glass-crystal {
-    background: rgba(255, 255, 255, 0.42);
-    backdrop-filter: blur(30px) saturate(120%);
-    -webkit-backdrop-filter: blur(30px) saturate(120%);
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 1px 0 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(42, 42, 42, 0.06), 0 20px 50px rgba(42, 42, 42, 0.10);
+    background: linear-gradient(170deg, rgba(36, 41, 48, 0.72) 0%, rgba(20, 23, 27, 0.72) 100%);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 50px rgba(0, 0, 0, 0.45);
     border-radius: 24px;
   }
   .glass-crystal::before {
@@ -223,17 +228,16 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.14) 18%, transparent 42%);
-    opacity: .60;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%);
   }
 
-  /* ── Level 4: Elevated glass ── */
+  /* ── Level 4: Elevated glass (navigation, drawer, overlays) ── */
   .glass-elevated {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(32px) saturate(120%);
-    -webkit-backdrop-filter: blur(32px) saturate(120%);
-    border: 1px solid rgba(255, 255, 255, 0.80);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), inset 1px 0 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(42, 42, 42, 0.07), 0 24px 60px rgba(42, 42, 42, 0.12);
+    background: linear-gradient(180deg, rgba(22, 25, 30, 0.82) 0%, rgba(13, 15, 18, 0.86) 100%);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 24px 60px rgba(0, 0, 0, 0.50);
     border-radius: 24px;
   }
   .glass-elevated::before {
@@ -242,20 +246,19 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.16) 18%, transparent 42%);
-    opacity: .65;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%);
   }
 
-  /* ── Premium card (hover physics) ── */
+  /* ── Premium card: obsidian glass that warms with a faint red reflection on hover ── */
   .premium-card {
-    background: rgba(255, 255, 255, 0.40);
-    backdrop-filter: blur(24px) saturate(115%);
-    -webkit-backdrop-filter: blur(24px) saturate(115%);
-    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: linear-gradient(165deg, rgba(31, 35, 41, 0.72) 0%, rgba(15, 17, 21, 0.78) 100%);
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 24px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), inset 1px 0 0 rgba(255, 255, 255, 0.30), inset 0 -1px 0 rgba(42, 42, 42, 0.06), 0 18px 45px rgba(42, 42, 42, 0.07);
-    /* No `transform` here: cards are moved by Framer Motion / TiltCard. */
-    transition: box-shadow 0.45s var(--ease-out-expo), background-color 0.45s ease, border-color 0.45s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 24px 60px rgba(0, 0, 0, 0.38);
+    /* No `transform` here: cards are moved by Motion / TiltCard. */
+    transition: box-shadow 0.45s var(--ease-out-expo), border-color 0.45s ease;
   }
   .premium-card::before {
     content: "";
@@ -263,55 +266,52 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.12) 18%, transparent 42%);
-    opacity: .55;
-    transition: opacity 0.4s ease;
+    background: radial-gradient(90% 70% at 90% 0%, rgba(225, 6, 0, 0.10), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
   .premium-card:hover {
-    background: rgba(255, 255, 255, 0.50);
-    border-color: rgba(255, 255, 255, 0.85);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), inset 1px 0 0 rgba(255, 255, 255, 0.40), inset 0 -1px 0 rgba(42, 42, 42, 0.06), 0 26px 60px rgba(42, 42, 42, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 30px 70px rgba(0, 0, 0, 0.50);
   }
-  .premium-card:hover::before {
-    opacity: .75;
+  .premium-card:hover::before,
+  .premium-card:focus-within::before {
+    opacity: 1;
   }
 
   /* ── Ambient background ── */
   .ambient-bg {
     background-color: var(--bg-primary);
-    background-image:
-      radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.95), transparent 42%),
-      radial-gradient(circle at 88% 78%, rgba(192, 192, 192, 0.30), transparent 48%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45), transparent 62%);
   }
 
   /* ── Glass pill / badge ── */
   .glass-pill {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(16px) saturate(115%);
-    -webkit-backdrop-filter: blur(16px) saturate(115%);
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), 0 4px 16px rgba(42, 42, 42, 0.06);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
   /* ── Glass input ── */
   .glass-input {
-    background: rgba(255, 255, 255, 0.40);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(42, 42, 42, 0.14);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.60), 0 2px 8px rgba(42, 42, 42, 0.04);
+    background: rgba(8, 9, 11, 0.55);
+    border: 1px solid var(--line-subtle);
+    color: var(--text-primary);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
+  .glass-input::placeholder {
+    color: var(--text-muted);
+  }
   .glass-input:focus {
-    border-color: var(--accent);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.60), 0 0 0 1px var(--accent), 0 4px 12px rgba(225, 6, 0, 0.15);
+    border-color: var(--signal);
+    background: rgba(8, 9, 11, 0.75);
+    box-shadow: 0 0 0 1px var(--signal), 0 0 0 5px rgba(225, 6, 0, 0.12);
     outline: none;
   }
 
-  /* ── Moonlit silver edge: a 1px reflective gradient border.
-        Works on any element with a border-radius; sits above content
-        without catching pointer events. ── */
+  /* ── Hairline of light on glass edges ── */
   .metal-edge {
   }
   .metal-edge::after {
@@ -327,17 +327,16 @@
     pointer-events: none;
   }
 
-  /* ── Signal edge: the same treatment, tinted red, for the one card
-        that should stand out (e.g. the highlighted pricing tier). ── */
+  /* ── Signal edge: the one card that should stand out ── */
   .signal-edge::after {
-    background: linear-gradient(150deg, rgba(225,6,0,0.85) 0%, rgba(225,6,0,0.25) 40%, rgba(192,192,192,0.55) 75%, rgba(255,255,255,0.9) 100%);
+    background: linear-gradient(150deg, rgba(255,48,40,0.85) 0%, rgba(225,6,0,0.30) 35%, rgba(255,255,255,0.05) 70%, rgba(255,255,255,0.14) 100%);
   }
 
-  /* ── Brushed silver chip for icons ── */
+  /* ── Obsidian chip for markers and icons ── */
   .metal-chip {
-    background: linear-gradient(160deg, #FFFFFF 0%, #EDEDED 45%, #D2D2D2 100%);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0 1px 0 #FFFFFF, inset 0 -2px 4px rgba(42, 42, 42, 0.10), 0 6px 14px rgba(42, 42, 42, 0.12), 0 1px 2px rgba(42, 42, 42, 0.10);
+    background: linear-gradient(160deg, #23272E 0%, #15181C 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 24px rgba(0, 0, 0, 0.45);
   }
 
   /* ── Charcoal satin surface ── */
@@ -345,7 +344,12 @@
     background: var(--metal-charcoal);
     color: var(--silver-bright);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 50px rgba(28, 28, 28, 0.28);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Red-gradient fill for primary actions and progress ── */
+  .bg-signal-gradient {
+    background-image: var(--gradient-signal);
   }
 
   /* ── Pointer-following specular sheen (driven by --mx / --my on the parent) ── */
@@ -354,75 +358,84 @@
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.55), transparent 45%);
+    background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(255, 255, 255, 0.07), transparent 45%);
     opacity: 0;
     transition: opacity 0.4s ease;
-    mix-blend-mode: soft-light;
   }
   .group:hover .tilt-sheen,
   .group:focus-within .tilt-sheen {
     opacity: 1;
   }
 
-  /* ── Dark charcoal glass: selective cinematic contrast panels ── */
+  /* ── Featured obsidian panel: deeper, with a top highlight ── */
   .glass-dark {
-    /* Re-map text tokens inside the panel so existing text-charcoal /
-       text-ink-* classes flip to light without per-element overrides. */
-    --charcoal: #F5F5F5;
-    --text-primary: #F5F5F5;
-    --text-secondary: #CFCFCF;
-    --text-muted: #A8A8A8;
-    background:
-      linear-gradient(165deg, rgba(74, 74, 74, 0.55) 0%, rgba(42, 42, 42, 0.92) 38%, rgba(24, 24, 24, 0.97) 100%);
-    backdrop-filter: blur(24px) saturate(110%);
-    -webkit-backdrop-filter: blur(24px) saturate(110%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--silver-bright);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.16),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-      0 30px 70px rgba(28, 28, 28, 0.32),
-      0 10px 24px rgba(28, 28, 28, 0.18);
+    --text-secondary: #C3C7CD;
+    --text-muted: #8A9099;
+    background: linear-gradient(165deg, rgba(42, 47, 54, 0.85) 0%, rgba(20, 23, 27, 0.92) 40%, rgba(10, 11, 14, 0.96) 100%);
+    backdrop-filter: blur(16px) saturate(115%);
+    -webkit-backdrop-filter: blur(16px) saturate(115%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    color: var(--text-primary);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 34px 80px rgba(0, 0, 0, 0.55);
   }
 
-  /* ── Restrained Signal Red light pooling at the base of a dark panel ── */
+  /* ── Restrained Signal Red light pooling at the base of a panel ── */
   .signal-glow {
     background-image:
-      radial-gradient(120% 60% at 70% 110%, rgba(225, 6, 0, 0.38), rgba(225, 6, 0, 0.08) 45%, transparent 70%),
-      linear-gradient(165deg, rgba(74, 74, 74, 0.55) 0%, rgba(42, 42, 42, 0.92) 38%, rgba(24, 24, 24, 0.97) 100%);
+      radial-gradient(110% 55% at 75% 112%, rgba(225, 6, 0, 0.34), rgba(143, 8, 5, 0.10) 45%, transparent 70%),
+      linear-gradient(165deg, rgba(42, 47, 54, 0.85) 0%, rgba(20, 23, 27, 0.92) 40%, rgba(10, 11, 14, 0.96) 100%);
   }
 
-  /* ── Diagonal light rays falling across glass (decorative overlay) ── */
+  /* ── Diagonal light rays across glass (decorative overlay, very faint on obsidian) ── */
   .light-streaks {
     position: absolute;
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
     background:
-      linear-gradient(118deg, transparent 14%, rgba(255, 255, 255, 0.75) 20%, transparent 27%),
-      linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, 0.5) 33%, transparent 37%),
-      linear-gradient(118deg, transparent 50%, rgba(255, 255, 255, 0.3) 55%, transparent 62%);
-    opacity: 0.7;
+      linear-gradient(118deg, transparent 14%, rgba(255, 255, 255, 0.07) 20%, transparent 27%),
+      linear-gradient(118deg, transparent 30%, rgba(255, 255, 255, 0.045) 33%, transparent 37%),
+      linear-gradient(118deg, transparent 50%, rgba(255, 255, 255, 0.03) 55%, transparent 62%);
   }
 
-  /* ── Inner visual panel (the "image well" of a glass card) ── */
+  /* ── Inner visual well of a card ── */
   .glass-visual {
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(90% 80% at 30% 0%, rgba(255, 255, 255, 0.95), transparent 60%),
-      linear-gradient(160deg, #F4F4F4 0%, #D6D6D6 45%, #A9A9A9 100%);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: inset 0 1px 0 #FFFFFF, inset 0 -18px 30px rgba(42, 42, 42, 0.12);
+      radial-gradient(90% 80% at 25% 0%, rgba(255, 255, 255, 0.07), transparent 60%),
+      linear-gradient(160deg, #1D2127 0%, #121418 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -20px 40px rgba(0, 0, 0, 0.35);
   }
   .glass-visual-dark {
     background:
-      radial-gradient(90% 80% at 30% 0%, rgba(192, 192, 192, 0.45), transparent 60%),
-      radial-gradient(70% 60% at 80% 120%, rgba(225, 6, 0, 0.35), transparent 70%),
-      linear-gradient(160deg, #4A4A4A 0%, #2A2A2A 55%, #161616 100%);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      radial-gradient(90% 80% at 30% 0%, rgba(192, 192, 192, 0.14), transparent 60%),
+      radial-gradient(70% 60% at 80% 120%, rgba(225, 6, 0, 0.30), transparent 70%),
+      linear-gradient(160deg, #23272D 0%, #14171B 55%, #0B0C0F 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
   }
+
+  /* ── Section atmospheres: restrained radial light per chapter. Light pools sit
+        inside the section so no seam appears at its top or bottom edge. ── */
+  .atmo {
+    position: relative;
+    isolation: isolate;
+  }
+  .atmo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--atmo, none);
+  }
+  .atmo-silver-left { --atmo: radial-gradient(42% 32% at 8% 45%, rgba(200, 205, 212, 0.07), transparent 70%); }
+  .atmo-silver-right { --atmo: radial-gradient(42% 32% at 92% 45%, rgba(200, 205, 212, 0.07), transparent 70%); }
+  .atmo-red-right { --atmo: radial-gradient(38% 32% at 94% 60%, rgba(225, 6, 0, 0.09), transparent 70%), radial-gradient(40% 30% at 10% 35%, rgba(200, 205, 212, 0.05), transparent 70%); }
+  .atmo-red-center { --atmo: radial-gradient(45% 32% at 50% 80%, rgba(225, 6, 0, 0.10), transparent 70%), radial-gradient(45% 28% at 50% 32%, rgba(200, 205, 212, 0.045), transparent 70%); }
+  .atmo-alt { --atmo: linear-gradient(180deg, transparent 0%, rgba(19, 22, 26, 0.85) 14%, rgba(19, 22, 26, 0.85) 86%, transparent 100%); }
 
   /* ── Light-on-dark text tokens without a background (e.g. nav over the hero) ── */
   .on-dark {
@@ -474,8 +487,8 @@
   /* ── Architectural grid texture ── */
   .grid-texture {
     background-image:
-      linear-gradient(to right, rgba(42, 42, 42, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(42, 42, 42, 0.035) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
@@ -500,10 +513,6 @@
 
   body {
     background-color: var(--bg-primary);
-    background-image:
-      radial-gradient(circle at 10% 15%, rgba(255, 255, 255, 0.95), transparent 42%),
-      radial-gradient(circle at 88% 78%, rgba(192, 192, 192, 0.30), transparent 48%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45), transparent 62%);
     color: var(--text-primary);
     font-family: var(--font-inter), sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -532,8 +541,8 @@
   }
 
   ::selection {
-    background: rgba(225, 6, 0, 0.18);
-    color: var(--text-primary);
+    background: rgba(225, 6, 0, 0.35);
+    color: #FFFFFF;
   }
 }
 

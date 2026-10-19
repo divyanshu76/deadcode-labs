@@ -13,7 +13,7 @@ const DISCIPLINES = ["Web", "E-Commerce", "Web Apps", "AI Products", "Automation
  */
 export function PhilosophySection() {
   return (
-    <section aria-labelledby="philosophy-heading" className="relative z-10 pt-4 pb-20 md:pb-28">
+    <section aria-labelledby="philosophy-heading" className="atmo atmo-silver-left relative z-10 pt-4 pb-20 md:pb-28">
       {/* The hero's silver line continues into the editorial canvas */}
       <motion.div
         aria-hidden="true"
@@ -36,7 +36,7 @@ export function PhilosophySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: EASE_OUT_EXPO }}
-            className="lg:col-span-9 font-display text-charcoal tracking-[-0.015em] leading-[1.02] text-[length:clamp(34px,6vw,84px)] [text-wrap:balance]"
+            className="lg:col-span-9 font-display text-ink tracking-[-0.015em] leading-[1.02] text-[length:clamp(34px,6vw,84px)] [text-wrap:balance]"
           >
             A boutique digital product studio crafting <span className="italic text-silver-dark">high-end software</span>, platforms, and experiences.
           </motion.h2>
@@ -53,7 +53,7 @@ export function PhilosophySection() {
         >
           {DISCIPLINES.map((d, i) => (
             <li key={d} className="flex items-center gap-3">
-              <span className="text-signal">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-signal-bright">{String(i + 1).padStart(2, "0")}</span>
               {d}
             </li>
           ))}

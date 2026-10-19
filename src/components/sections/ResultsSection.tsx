@@ -32,7 +32,7 @@ export function ResultsSection() {
                 <span className="font-mono text-[11px] text-ink-muted font-semibold">{metric.id}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-signal" aria-hidden="true" />
               </div>
-              <div className="text-[32px] md:text-[44px] font-display font-bold text-charcoal mb-1 md:mb-2 leading-none">
+              <div className="text-[32px] md:text-[44px] font-display font-bold text-ink mb-1 md:mb-2 leading-none">
                 {metric.value}
               </div>
               <span className="text-[11.5px] md:text-[13px] font-mono text-ink-soft font-semibold uppercase tracking-wider">

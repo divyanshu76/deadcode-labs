@@ -19,12 +19,12 @@ export function FeaturedWorkSection() {
   const total = String(displayProjects.length).padStart(2, "0");
 
   return (
-    <section id="work" className="py-16 md:py-28 relative z-10">
+    <section id="work" className="atmo atmo-red-right py-16 md:py-28 relative z-10">
       <Container>
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div>
             <span className="chapter-label mb-4">03 — PORTFOLIO ARCHIVE</span>
-            <h2 className="font-display text-[length:clamp(44px,7vw,96px)] tracking-[-0.02em] text-charcoal leading-[0.98]">
+            <h2 className="font-display text-[length:clamp(44px,7vw,96px)] tracking-[-0.02em] text-ink leading-[0.98]">
               Selected <span className="italic text-silver-dark">work.</span>
             </h2>
             <p className="text-sm md:text-base text-ink-soft mt-4 max-w-md">
@@ -81,16 +81,16 @@ export function FeaturedWorkSection() {
                   className={cn("lg:col-span-5", reversed && "lg:order-1")}
                 >
                   <div className="flex items-center gap-4 font-mono text-[11px] tracking-[0.2em] uppercase">
-                    <span className="text-charcoal">
+                    <span className="text-ink">
                       {String(index + 1).padStart(2, "0")} <span className="text-ink-muted">/ {total}</span>
                     </span>
-                    <span className="h-px flex-1 bg-silver/70" aria-hidden="true" />
+                    <span className="h-px flex-1 bg-white/[0.12]" aria-hidden="true" />
                   </div>
 
-                  <h3 className="font-display text-[length:clamp(40px,5vw,72px)] leading-none tracking-[-0.02em] text-charcoal mt-6">
+                  <h3 className="font-display text-[length:clamp(40px,5vw,72px)] leading-none tracking-[-0.02em] text-ink mt-6">
                     {project.title}
                   </h3>
-                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-signal mt-4">{project.category}</p>
+                  <p className="font-mono text-[11px] tracking-[0.16em] uppercase text-signal-bright mt-4">{project.category}</p>
                   <p className="text-[15px] md:text-base text-ink-soft leading-relaxed mt-4 max-w-md">{project.shortDescription}</p>
 
                   <dl className="mt-6 pt-5 border-t border-silver/60 flex gap-3 font-mono text-[11px] text-ink-muted">
@@ -101,7 +101,7 @@ export function FeaturedWorkSection() {
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
                     <Link
                       href={`/work/${project.slug}`}
-                      className="group/btn inline-flex items-center gap-2 text-[14px] font-semibold text-charcoal border-b border-charcoal/30 pb-1 hover:border-signal hover:text-signal transition-colors"
+                      className="group/btn inline-flex items-center gap-2 text-[14px] font-semibold text-ink border-b border-white/10 pb-1 hover:border-signal hover:text-signal-bright transition-colors"
                     >
                       View Case Study
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
@@ -111,7 +111,7 @@ export function FeaturedWorkSection() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn inline-flex items-center gap-2 text-[14px] font-medium text-ink-soft hover:text-signal transition-colors"
+                        className="group/btn inline-flex items-center gap-2 text-[14px] font-medium text-ink-soft hover:text-signal-bright transition-colors"
                       >
                         View Live Site
                         <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />

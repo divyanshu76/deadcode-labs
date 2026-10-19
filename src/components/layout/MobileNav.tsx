@@ -1,8 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+
+/** Drawer surface colour, shared by the panel and its curved leading edge so they read as one sheet. */
+const SHEET = "rgba(17, 20, 24, 0.97)";
+
+function subscribeResize(onChange: () => void) {
+  window.addEventListener("resize", onChange);
+  return () => window.removeEventListener("resize", onChange);
+}
 
 export function MobileNav({
   isOpen,
@@ -13,14 +21,39 @@ export function MobileNav({
   onClose: () => void;
   navLinks: { name: string; href: string }[];
 }) {
-  const [windowHeight, setWindowHeight] = useState(0);
+  const windowHeight = useSyncExternalStore(subscribeResize, () => window.innerHeight, () => 0);
+  const panelRef = useRef<HTMLDivElement>(null);
 
+  // Move focus into the drawer when it opens, and keep Tab cycling inside it
+  // (plus the toggle button, which doubles as the visible close control).
   useEffect(() => {
-    setWindowHeight(window.innerHeight);
-    const handleResize = () => setWindowHeight(window.innerHeight);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    if (!isOpen) return;
+    const focusFirst = window.setTimeout(() => panelRef.current?.querySelector<HTMLElement>("a")?.focus(), 350);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !panelRef.current) return;
+      const toggle = document.querySelector<HTMLElement>("[data-nav-toggle]");
+      const items = [
+        ...(toggle ? [toggle] : []),
+        ...Array.from(panelRef.current.querySelectorAll<HTMLElement>("a[href], button")),
+      ];
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.clearTimeout(focusFirst);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   const easeCurve: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
@@ -48,7 +81,7 @@ export function MobileNav({
     initial: { opacity: 0 },
     enter: {
       opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.06, delayChildren: 0.22 },
     },
     exit: {
       opacity: 0,
@@ -57,9 +90,9 @@ export function MobileNav({
   };
 
   const linkVariants = {
-    initial: { opacity: 0, x: 30 },
+    initial: { opacity: 0, x: 24 },
     enter: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeCurve } },
-    exit: { opacity: 0, x: 15, transition: { duration: 0.2, ease: easeCurve } },
+    exit: { opacity: 0, x: 12, transition: { duration: 0.2, ease: easeCurve } },
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -93,62 +126,77 @@ export function MobileNav({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             onClick={onClose}
-            className="fixed inset-0 z-[1900] bg-charcoal/30 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[1900] bg-obsidian/70 backdrop-blur-sm lg:hidden"
           />
 
           {/* Drawer Panel */}
           <motion.div
+            ref={panelRef}
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
             variants={slide}
             initial="initial"
             animate="enter"
             exit="exit"
-            className="fixed right-0 top-0 h-[100dvh] w-full max-w-[320px] sm:max-w-sm glass-elevated z-[2000] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/60 rounded-l-2xl rounded-r-none"
+            style={{ backgroundColor: SHEET }}
+            className="fixed right-0 top-0 h-[100dvh] w-full max-w-[320px] sm:max-w-sm z-[2000] lg:hidden flex flex-col justify-between p-6 sm:p-8 border-l border-white/[0.06] shadow-[-30px_0_80px_rgba(0,0,0,0.55)] backdrop-blur-xl"
           >
-            {/* SVG Curve */}
-            <svg className="absolute top-0 left-[-99px] w-[100px] h-full fill-[rgba(255,255,255,0.55)] stroke-none z-0">
-              {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" className="fill-[rgba(255,255,255,0.55)]" />}
+            {/* Curved leading edge, same sheet colour as the panel */}
+            <svg className="absolute top-0 left-[-99px] w-[100px] h-full stroke-none z-0 pointer-events-none" style={{ fill: SHEET }} aria-hidden="true">
+              {windowHeight > 0 && <motion.path variants={curve} initial="initial" animate="enter" exit="exit" />}
             </svg>
 
+            {/* Faint red light pooling at the base of the sheet */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(90%_40%_at_100%_100%,rgba(225,6,0,0.14),transparent_70%)]" aria-hidden="true" />
+
             <div className="flex flex-col h-full justify-between relative z-10 pt-16">
+              <span className="font-mono text-[10px] tracking-[0.28em] uppercase text-ink-muted">Navigation</span>
+
               {/* Nav Links */}
-              <motion.div 
+              <motion.nav
+                aria-label="Mobile"
                 variants={linkContainerVariants}
                 initial="initial"
                 animate="enter"
                 exit="exit"
-                className="flex flex-col space-y-4 my-auto py-6 items-start text-left w-full"
+                className="flex flex-col my-auto py-6 items-start text-left w-full"
               >
-                {navLinks.map((link) => (
-                  <motion.div key={link.name} variants={linkVariants} className="w-full">
+                {navLinks.map((link, i) => (
+                  <motion.div key={link.name} variants={linkVariants} className="w-full border-b border-white/[0.06] last:border-b-0">
                     <Link
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className="group flex items-center justify-start text-left font-display text-[26px] sm:text-[30px] font-semibold tracking-tight text-charcoal hover:text-signal hover:translate-x-1 transition-all duration-200 leading-[1.1] py-1"
+                      className="group flex items-baseline gap-4 py-3 font-display text-[28px] sm:text-[32px] tracking-tight text-ink hover:text-signal-bright focus-visible:text-signal-bright transition-colors duration-200 leading-[1.1]"
                     >
-                      {link.name.toUpperCase()}
+                      <span className="font-mono text-[10px] tracking-[0.2em] text-signal-bright/80 translate-y-[-0.4em]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">{link.name}</span>
                     </Link>
                   </motion.div>
                 ))}
-              </motion.div>
+              </motion.nav>
 
               {/* Social & Contact Footer */}
-              <motion.div 
+              <motion.div
                 variants={{
                   initial: { opacity: 0 },
-                  enter: { opacity: 1, transition: { delay: 0.4, duration: 0.5 } },
+                  enter: { opacity: 1, transition: { delay: 0.45, duration: 0.5 } },
                   exit: { opacity: 0, transition: { duration: 0.2 } }
                 }}
                 initial="initial"
                 animate="enter"
                 exit="exit"
-                className="border-t border-white/40 pt-6 space-y-4 text-left w-full"
+                className="border-t border-white/10 pt-6 space-y-4 text-left w-full"
               >
-                <div className="flex items-center justify-start space-x-6 text-ink-soft">
+                <div className="flex flex-wrap items-center justify-start gap-x-6 gap-y-2 text-ink-soft">
                   <a
                     href="https://github.com/divyanshu76"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-accent transition-colors text-[13px] font-mono"
+                    className="hover:text-signal-bright transition-colors text-[13px] font-mono"
                   >
                     GitHub
                   </a>
@@ -156,7 +204,7 @@ export function MobileNav({
                     href="https://www.instagram.com/truly_divyanshu/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-signal transition-colors text-[13px] font-mono"
+                    className="hover:text-signal-bright transition-colors text-[13px] font-mono"
                   >
                     Instagram
                   </a>
@@ -164,7 +212,7 @@ export function MobileNav({
                     href="https://www.linkedin.com/in/divyanshuverma09/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-signal transition-colors text-[13px] font-mono"
+                    className="hover:text-signal-bright transition-colors text-[13px] font-mono"
                   >
                     LinkedIn
                   </a>

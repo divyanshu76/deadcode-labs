@@ -9,16 +9,16 @@ function MetalDefs({ id }: { id: string }) {
   return (
     <defs>
       <linearGradient id={`${id}-top`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#FFFFFF" />
-        <stop offset="100%" stopColor="#D9D9D9" />
+        <stop offset="0%" stopColor="#4A5058" />
+        <stop offset="100%" stopColor="#2C3036" />
       </linearGradient>
       <linearGradient id={`${id}-left`} x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#CFCFCF" />
-        <stop offset="100%" stopColor="#A8A8A8" />
+        <stop offset="0%" stopColor="#262A30" />
+        <stop offset="100%" stopColor="#1A1D22" />
       </linearGradient>
       <linearGradient id={`${id}-right`} x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#9C9C9C" />
-        <stop offset="100%" stopColor="#6E6E6E" />
+        <stop offset="0%" stopColor="#17191D" />
+        <stop offset="100%" stopColor="#0E1013" />
       </linearGradient>
       <linearGradient id={`${id}-signal`} x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#FF3B30" />
@@ -43,9 +43,9 @@ export function IsometricBox01({ className = "" }: { className?: string }) {
       >
         <MetalDefs id={id} />
         <g transform="translate(100, 50)">
-          <path d="M0 0 L60 30 L0 60 L-60 30 Z" fill={`url(#${id}-top)`} stroke="rgba(255,255,255,0.8)" strokeWidth="1" />
-          <path d="M-60 30 L0 60 L0 130 L-60 100 Z" fill={`url(#${id}-left)`} stroke="rgba(42,42,42,0.12)" strokeWidth="1" />
-          <path d="M0 60 L60 30 L60 100 L0 130 Z" fill={`url(#${id}-right)`} stroke="rgba(42,42,42,0.12)" strokeWidth="1" />
+          <path d="M0 0 L60 30 L0 60 L-60 30 Z" fill={`url(#${id}-top)`} stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
+          <path d="M-60 30 L0 60 L0 130 L-60 100 Z" fill={`url(#${id}-left)`} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+          <path d="M0 60 L60 30 L60 100 L0 130 Z" fill={`url(#${id}-right)`} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
           <path d="M0 15 L30 30 L0 45 L-30 30 Z" fill={`url(#${id}-signal)`} opacity="0.9" />
         </g>
       </motion.svg>
@@ -63,11 +63,11 @@ function IsoCube({ id, x, y, delay, highlight = false }: { id: string; x: number
       <path
         d="M0 0 L20 10 L0 20 L-20 10 Z"
         fill={highlight ? `url(#${id}-signal)` : `url(#${id}-top)`}
-        stroke="rgba(255,255,255,0.85)"
+        stroke="rgba(255,255,255,0.28)"
         strokeWidth="0.5"
       />
-      <path d="M-20 10 L0 20 L0 40 L-20 30 Z" fill={`url(#${id}-left)`} stroke="rgba(42,42,42,0.12)" strokeWidth="0.5" />
-      <path d="M0 20 L20 10 L20 30 L0 40 Z" fill={`url(#${id}-right)`} stroke="rgba(42,42,42,0.12)" strokeWidth="0.5" />
+      <path d="M-20 10 L0 20 L0 40 L-20 30 Z" fill={`url(#${id}-left)`} stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+      <path d="M0 20 L20 10 L20 30 L0 40 Z" fill={`url(#${id}-right)`} stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
     </motion.g>
   );
 }
@@ -95,7 +95,7 @@ export function IsometricBoxes02({ className = "" }: { className?: string }) {
     <div className={cn("relative", className)}>
       <motion.svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true">
         <MetalDefs id={id} />
-        <ellipse cx="100" cy="150" rx="80" ry="8" fill="rgba(42,42,42,0.10)" />
+        <ellipse cx="100" cy="150" rx="80" ry="8" fill="rgba(0,0,0,0.45)" />
         <motion.g
           initial={{ x: 100, y: 20 }}
           variants={{ hover: { y: 16, x: 103, scale: 1.025 } }}

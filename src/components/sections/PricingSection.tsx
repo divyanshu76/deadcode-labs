@@ -80,7 +80,7 @@ export function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="py-14 md:py-20 relative z-10 border-t border-white/50 overflow-hidden">
+    <section id="pricing" className="atmo atmo-red-center py-14 md:py-20 relative z-10 overflow-hidden">
       <Container>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
@@ -93,7 +93,7 @@ export function PricingSection() {
             <span className="chapter-label mb-5 md:mb-6">
               05 — ENGAGEMENT MODELS
             </span>
-            <h2 className="font-display text-[length:clamp(40px,5.5vw,76px)] tracking-[-0.015em] text-charcoal leading-[1.02] mb-5">
+            <h2 className="font-display text-[length:clamp(40px,5.5vw,76px)] tracking-[-0.015em] text-ink leading-[1.02] mb-5">
               Clear frameworks. <br />
               <span className="italic text-silver-dark">No</span> guesswork.
             </h2>
@@ -128,7 +128,7 @@ export function PricingSection() {
               )}
 
               <div className="flex-none">
-                <h3 className="font-display text-[28px] font-bold text-charcoal mb-1">
+                <h3 className="font-display text-[28px] font-bold text-ink mb-1">
                   {pkg.name}
                 </h3>
                 <p className="text-[13px] font-mono text-ink-muted mb-[22px]">
@@ -139,7 +139,7 @@ export function PricingSection() {
                   <span className="block text-[16px] font-medium text-ink-soft leading-[1.3] mb-0.5 tracking-tight">
                     {pkg.priceLabel}
                   </span>
-                  <span className="block font-mono text-[42px] leading-[1.1] font-bold text-charcoal tracking-tighter">
+                  <span className="block font-mono text-[42px] leading-[1.1] font-bold text-ink tracking-tighter">
                     {pkg.price}
                   </span>
                 </div>
@@ -159,13 +159,13 @@ export function PricingSection() {
                     KEY INCLUSIONS
                   </span>
                   <ul className="space-y-[8px]">
-                    <li className={cn("flex items-start text-[14px] font-medium leading-[1.45]", pkg.highlighted ? "text-silver-bright" : "text-signal")}>
-                      <span className="shrink-0 mr-2 mt-[2px] font-bold text-[13px] text-signal">✦</span>
+                    <li className={cn("flex items-start text-[14px] font-medium leading-[1.45]", pkg.highlighted ? "text-silver-bright" : "text-signal-bright")}>
+                      <span className="shrink-0 mr-2 mt-[2px] font-bold text-[13px] text-signal-bright">✦</span>
                       <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
                     </li>
                     {pkg.inclusions.map((item, i) => (
-                      <li key={i} className="flex items-start text-[14px] text-charcoal font-medium leading-[1.45]">
-                        <span className="shrink-0 mr-2 mt-[2px] text-signal font-bold text-[13px]">—</span>
+                      <li key={i} className="flex items-start text-[14px] text-ink font-medium leading-[1.45]">
+                        <span className="shrink-0 mr-2 mt-[2px] text-signal-bright font-bold text-[13px]">—</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -176,7 +176,7 @@ export function PricingSection() {
               {/* Flexible space to push CTA to the bottom */}
               <div className="flex-1 min-h-[24px]" />
 
-              <div className="pt-[20px] border-t border-white/40 mt-auto">
+              <div className="pt-[20px] border-t border-white/10 mt-auto">
                 <span className="text-[11px] font-mono text-ink-muted block mb-3">
                   {pkg.timeline}
                 </span>
@@ -220,7 +220,7 @@ export function PricingSection() {
                 )}
 
                 <div className="flex-none">
-                  <h3 className="font-display text-[24px] font-bold text-charcoal mb-1">
+                  <h3 className="font-display text-[24px] font-bold text-ink mb-1">
                     {pkg.name}
                   </h3>
                   <p className="text-[12px] font-mono text-ink-muted mb-[18px]">
@@ -231,7 +231,7 @@ export function PricingSection() {
                     <span className="block text-[13px] font-medium text-ink-soft leading-[1.3] mb-0.5 tracking-tight">
                       {pkg.priceLabel}
                     </span>
-                    <span className="block font-mono text-[34px] leading-[1.1] font-bold text-charcoal tracking-tighter whitespace-normal break-normal">
+                    <span className="block font-mono text-[34px] leading-[1.1] font-bold text-ink tracking-tighter whitespace-normal break-normal">
                       {pkg.price}
                     </span>
                   </div>
@@ -251,13 +251,13 @@ export function PricingSection() {
                       KEY INCLUSIONS
                     </span>
                     <ul className="space-y-[8px]">
-                      <li className={cn("flex items-start text-[13px] font-medium leading-[1.45]", pkg.highlighted ? "text-silver-bright" : "text-signal")}>
-                        <span className="shrink-0 mr-[6px] mt-[2px] font-bold text-[12px] text-signal">✦</span>
+                      <li className={cn("flex items-start text-[13px] font-medium leading-[1.45]", pkg.highlighted ? "text-silver-bright" : "text-signal-bright")}>
+                        <span className="shrink-0 mr-[6px] mt-[2px] font-bold text-[12px] text-signal-bright">✦</span>
                         <span>{pkg.name === "Launch" ? "1-Year Domain Included*" : "1-Year .com / .in Domain Included*"}</span>
                       </li>
                       {pkg.inclusions.map((item, i) => (
-                        <li key={i} className="flex items-start text-[13px] text-charcoal font-medium leading-[1.45]">
-                          <span className="shrink-0 mr-[6px] mt-[2px] text-signal font-bold text-[12px]">—</span>
+                        <li key={i} className="flex items-start text-[13px] text-ink font-medium leading-[1.45]">
+                          <span className="shrink-0 mr-[6px] mt-[2px] text-signal-bright font-bold text-[12px]">—</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -268,7 +268,7 @@ export function PricingSection() {
                 {/* Flexible space to push CTA to the bottom */}
                 <div className="flex-1 min-h-[20px]" />
 
-                <div className="pt-[16px] border-t border-white/40 mt-auto">
+                <div className="pt-[16px] border-t border-white/10 mt-auto">
                   <span className="text-[11px] font-mono text-ink-muted block mb-3">
                     {pkg.timeline}
                   </span>
@@ -294,7 +294,7 @@ export function PricingSection() {
                 key={i}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-300",
-                  activeSnapIndex === i ? "w-6 bg-signal" : "w-1.5 bg-silver"
+                  activeSnapIndex === i ? "w-6 bg-signal" : "w-1.5 bg-white/20"
                 )}
               />
             ))}

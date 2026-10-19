@@ -171,15 +171,15 @@ function SelectCard({ label, selected, onClick }: SelectCardProps) {
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal/50 focus-visible:ring-offset-2",
         selected
           ? "border-signal bg-[rgba(225,6,0,0.06)] shadow-[0_0_0_1px_rgba(225,6,0,0.18)]"
-          : "border-white/50 bg-white/20 hover:border-signal/40 hover:bg-white/30"
+          : "border-white/10 bg-white/[0.04] hover:border-signal/40 hover:bg-white/[0.08]"
       )}
     >
       <span
         className={cn(
           "block text-sm font-semibold transition-colors duration-200",
           selected
-            ? "text-charcoal"
-            : "text-ink-soft group-hover:text-charcoal"
+            ? "text-ink"
+            : "text-ink-soft group-hover:text-ink"
         )}
       >
         {label}
@@ -233,7 +233,7 @@ function Field({ id, label, required, error, children }: FieldProps) {
       >
         {label}
         {required && (
-          <span className="text-signal ml-0.5" aria-label="required">
+          <span className="text-signal-bright ml-0.5" aria-label="required">
             *
           </span>
         )}
@@ -243,7 +243,7 @@ function Field({ id, label, required, error, children }: FieldProps) {
         <p
           role="alert"
           id={`${id}-error`}
-          className="text-xs text-signal mt-0.5 flex items-center gap-1.5"
+          className="text-xs text-signal-bright mt-0.5 flex items-center gap-1.5"
         >
           <span
             className="inline-block w-3.5 h-3.5 rounded-full bg-signal/12 flex-shrink-0
@@ -261,7 +261,7 @@ function Field({ id, label, required, error, children }: FieldProps) {
 
 const inputCls = cn(
   "glass-input w-full px-4 py-3 rounded-xl",
-  "text-sm text-charcoal placeholder:text-silver",
+  "text-sm text-ink placeholder:text-silver",
   "min-h-[46px] focus:outline-none transition-all duration-200"
 );
 
@@ -277,11 +277,11 @@ function Step1Type({ data, errors, dispatch }: StepProps) {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal mb-1">
+        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink mb-1">
           What do you need?
         </h3>
         {errors.projectType && (
-          <p role="alert" className="text-xs text-signal mt-1">
+          <p role="alert" className="text-xs text-signal-bright mt-1">
             {errors.projectType}
           </p>
         )}
@@ -309,7 +309,7 @@ function Step1Type({ data, errors, dispatch }: StepProps) {
 function Step2Details({ data, errors, dispatch }: StepProps) {
   return (
     <div className="flex flex-col gap-5">
-      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
+      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink">
         Tell us about the project.
       </h3>
 
@@ -375,14 +375,14 @@ function Step3Budget({ data, errors, dispatch }: StepProps) {
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal mb-1">
+        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink mb-1">
           What&apos;s your expected budget?
         </h3>
         <p className="text-sm text-ink-soft">
           Not sure? That&apos;s completely fine. We&apos;ll help define the scope first.
         </p>
         {errors.budget && (
-          <p role="alert" className="text-xs text-signal mt-1">
+          <p role="alert" className="text-xs text-signal-bright mt-1">
             {errors.budget}
           </p>
         )}
@@ -410,7 +410,7 @@ function Step3Budget({ data, errors, dispatch }: StepProps) {
 function Step4Contact({ data, errors, dispatch }: StepProps) {
   return (
     <div className="flex flex-col gap-5">
-      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
+      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink">
         How can we reach you?
       </h3>
 
@@ -495,8 +495,8 @@ function Step4Contact({ data, errors, dispatch }: StepProps) {
                 "px-4 py-2 rounded-full text-xs font-semibold border transition-all duration-200",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal/50",
                 data.preferredContact === method
-                  ? "border-signal bg-[rgba(225,6,0,0.08)] text-charcoal"
-                  : "border-white/50 bg-white/20 text-ink-soft hover:border-signal/40 hover:text-charcoal"
+                  ? "border-signal bg-[rgba(225,6,0,0.08)] text-ink"
+                  : "border-white/10 bg-white/[0.04] text-ink-soft hover:border-signal/40 hover:text-ink"
               )}
             >
               {method}
@@ -524,14 +524,14 @@ function ReviewRow({ label, value, onEdit }: ReviewRowProps) {
         <p className="text-[10px] font-mono uppercase tracking-widest text-ink-muted mb-0.5">
           {label}
         </p>
-        <p className="text-sm text-charcoal font-medium break-words leading-relaxed">
+        <p className="text-sm text-ink font-medium break-words leading-relaxed">
           {value}
         </p>
       </div>
       <button
         type="button"
         onClick={onEdit}
-        className="text-[11px] text-signal font-semibold hover:underline flex-shrink-0 mt-0.5
+        className="text-[11px] text-signal-bright font-semibold hover:underline flex-shrink-0 mt-0.5
                    focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-signal/50 rounded px-1"
         aria-label={`Edit ${label}`}
       >
@@ -553,11 +553,11 @@ interface Step5ReviewProps {
 function Step5Review({ data, onGotoStep, isSubmitting, onSubmit }: Step5ReviewProps) {
   return (
     <div className="flex flex-col gap-5">
-      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
+      <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink">
         Review your project brief.
       </h3>
 
-      <div className="rounded-xl border border-white/40 bg-white/20 px-4 py-1 md:px-5">
+      <div className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-1 md:px-5">
         <ReviewRow
           label="Project type"
           value={data.projectType}
@@ -644,13 +644,13 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       className="flex flex-col items-center text-center py-10 md:py-14 gap-5"
     >
       <div className="w-16 h-16 rounded-full bg-[rgba(192,192,192,0.10)] flex items-center justify-center">
-        <CheckCircle2 className="w-8 h-8 text-signal" aria-hidden="true" />
+        <CheckCircle2 className="w-8 h-8 text-signal-bright" aria-hidden="true" />
       </div>
       <div>
-        <p className="font-mono text-xs tracking-[0.25em] uppercase text-signal font-semibold mb-2">
+        <p className="font-mono text-xs tracking-[0.25em] uppercase text-signal-bright font-semibold mb-2">
           BRIEF RECEIVED
         </p>
-        <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-charcoal mb-3">
+        <h3 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-ink mb-3">
           You&apos;re on our radar.
         </h3>
         <p className="text-sm md:text-base text-ink-soft max-w-sm mx-auto leading-relaxed">
@@ -661,7 +661,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       <button
         type="button"
         onClick={onReset}
-        className="mt-2 text-sm text-ink-soft hover:text-charcoal underline underline-offset-4
+        className="mt-2 text-sm text-ink-soft hover:text-ink underline underline-offset-4
                    transition-colors focus-visible:outline-none focus-visible:ring-1
                    focus-visible:ring-signal/50 rounded"
       >
@@ -685,7 +685,7 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
         <XCircle className="w-8 h-8 text-signal/70" aria-hidden="true" />
       </div>
       <div>
-        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-charcoal mb-2">
+        <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-ink mb-2">
           Something went wrong.
         </h3>
         <p className="text-sm text-ink-soft max-w-sm mx-auto leading-relaxed">
@@ -699,7 +699,7 @@ function ErrorState({ onRetry }: { onRetry: () => void }) {
         </Button>
         <a
           href="mailto:contact@deadcode.space"
-          className="text-sm text-signal hover:text-signal-dark underline underline-offset-4
+          className="text-sm text-signal-bright hover:text-signal-dark underline underline-offset-4
                      transition-colors font-medium"
         >
           Email us directly
@@ -729,15 +729,15 @@ function ProgressBar({ step }: { step: number }) {
               i < step
                 ? "bg-signal/45"
                 : i === step
-                ? "bg-signal"
-                : "bg-silver/22"
+                ? "bg-signal-gradient"
+                : "bg-white/10"
             )}
           />
           <span
             className={cn(
               "hidden md:block text-[9px] font-mono uppercase tracking-wider",
               "transition-colors duration-200",
-              i === step ? "text-signal" : "text-silver/55"
+              i === step ? "text-signal-bright" : "text-silver/55"
             )}
           >
             {String(i + 1).padStart(2, "0")}
@@ -840,7 +840,7 @@ export function ProjectEstimator() {
 
       <section
         id="start-project"
-        className="py-14 md:py-24 border-t border-white/30"
+        className="atmo atmo-alt relative py-14 md:py-24"
         aria-labelledby="estimator-heading"
         style={{ scrollMarginTop: "100px" }}
       >
@@ -853,7 +853,7 @@ export function ProjectEstimator() {
               </span>
               <h2
                 id="estimator-heading"
-                className="font-display text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tight text-charcoal mb-4 leading-[1.05]"
+                className="font-display text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tight text-ink mb-4 leading-[1.05]"
               >
                 Start a project.
               </h2>

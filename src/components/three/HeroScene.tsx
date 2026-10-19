@@ -109,6 +109,10 @@ function Sculpture({
   const pointer = useRef({ x: 0, y: 0 });
   const smoothed = useRef({ x: 0, y: 0 });
   const yaw = useRef(REST_YAW);
+  // Scene time accumulated from R3F's frame delta. We deliberately avoid reading
+  // state.clock (a THREE.Clock, deprecated since r183) so there is one time
+  // source; time also pauses with the render loop while the hero is off-screen.
+  const elapsed = useRef(0);
   const entranceStart = useRef<number | null>(null);
   const reported = useRef(false);
   const cameraDistance = useRef(14);
@@ -216,7 +220,8 @@ function Sculpture({
     if (!group) return;
 
     const delta = Math.min(rawDelta, 0.1);
-    const t = state.clock.elapsedTime;
+    elapsed.current += delta;
+    const t = elapsed.current;
     const now = nowSeconds();
     if (entranceStart.current === null) entranceStart.current = Math.max(entranceAt, now);
 

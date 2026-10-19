@@ -25,7 +25,7 @@ export function UdyamTrustSection() {
             </div>
 
             <div className="flex items-center gap-3 border-l border-border pl-6">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-charcoal-deep border border-accent/20 text-accent font-mono text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-charcoal-deep border border-signal/30 text-signal-bright font-mono text-xs font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-success" />
                 UDYAM-UP-57-0055432
               </span>
@@ -49,7 +49,7 @@ export function UdyamTrustSection() {
             </div>
             <div className="pt-2 border-t border-border/60 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase text-secondary">Registration ID</span>
-              <span className="font-mono text-[11px] font-semibold text-accent px-2 py-0.5 rounded bg-charcoal-deep border border-white/10">
+              <span className="font-mono text-[11px] font-semibold text-signal-bright px-2 py-0.5 rounded bg-charcoal-deep border border-white/10">
                 UDYAM-UP-57-0055432
               </span>
             </div>

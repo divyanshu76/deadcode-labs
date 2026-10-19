@@ -28,7 +28,7 @@ const techCategories = [
 
 export function TechnologySection() {
   return (
-    <section id="foundation" className="py-16 md:py-24 relative z-10 border-t border-white/50 overflow-hidden">
+    <section id="foundation" className="atmo atmo-alt py-16 md:py-24 relative z-10 overflow-hidden">
       <Container>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-6">
           <motion.div
@@ -61,7 +61,7 @@ export function TechnologySection() {
               className="space-y-3 premium-card metal-edge rounded-[20px] p-4 sm:p-5"
             >
               {/* Rail connector and node */}
-              <span className="hidden lg:block absolute -top-12 left-6 w-px h-12 bg-silver/80" aria-hidden="true" />
+              <span className="hidden lg:block absolute -top-12 left-6 w-px h-12 bg-white/[0.12]" aria-hidden="true" />
               <span
                 className={`hidden lg:block absolute -top-[53px] left-[19.5px] w-3 h-3 rounded-full border bg-[var(--bg-primary)] ${index === 0 ? "border-signal" : "border-silver-dark"}`}
                 aria-hidden="true"

@@ -20,7 +20,7 @@ export default function intellectualpropertyPage() {
         <p>Our projects frequently utilize open-source frameworks (e.g., React, Next.js, Tailwind CSS). These components remain under their respective open-source licenses (such as MIT or Apache 2.0).</p>
       </LegalSection>
       <LegalSection title="4. Reporting Infringement">
-        <p>If you believe that any content on our website infringes upon your intellectual property rights, please contact us immediately at <a href="mailto:contact@deadcode.space" className="text-signal hover:underline">contact@deadcode.space</a> with a detailed description of the alleged infringement.</p>
+        <p>If you believe that any content on our website infringes upon your intellectual property rights, please contact us immediately at <a href="mailto:contact@deadcode.space" className="text-signal-bright hover:underline">contact@deadcode.space</a> with a detailed description of the alleged infringement.</p>
       </LegalSection>
     
     </LegalLayout>

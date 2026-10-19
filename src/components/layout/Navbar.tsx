@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
@@ -15,8 +15,12 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const pathname = usePathname();
-  // Over the dark homepage hero (before the frosted bar appears) the nav uses light text.
-  const onDark = pathname === "/" && !isScrolled;
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    // Return focus to the toggle so keyboard users keep their place.
+    toggleRef.current?.focus();
+  };
 
   const [isReady, setIsReady] = useState(false);
   const [baseDelay, setBaseDelay] = useState(0);
@@ -56,7 +60,7 @@ export function Navbar() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+        closeMenu();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -124,7 +128,6 @@ export function Navbar() {
         animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
         transition={{ duration: 0.6, delay: baseDelay, ease: [0.76, 0, 0.24, 1] }}
         className={cn(
-          onDark && "on-dark",
           "fixed top-3 left-3 right-3 md:top-4 md:left-6 md:right-6 lg:top-[16px] lg:left-[32px] lg:right-[32px] pointer-events-none",
           "z-[80]"
         )}
@@ -136,12 +139,12 @@ export function Navbar() {
               "grid grid-cols-[1fr_auto_1fr] items-center transition-all duration-350 ease-out w-full",
               isScrolled
                 ? "glass-elevated metal-edge px-6 h-[62px]"
-                : "bg-transparent px-3 h-[70px] rounded-[24px]"
+                : "bg-transparent border border-transparent px-3 h-[70px] rounded-[24px]"
             )}
           >
             <div className="flex items-center shrink-0">
-              <Link href="/" className="font-bold text-[17px] tracking-tight text-charcoal outline-none">
-                DEADCODE<span className="text-signal">.</span>
+              <Link href="/" className="font-bold text-[17px] tracking-tight text-ink outline-none">
+                DEADCODE<span className="text-signal-bright">.</span>
                 <span className="text-ink-muted text-[14px]">LABS</span>
               </Link>
             </div>
@@ -162,7 +165,7 @@ export function Navbar() {
                       label={link.name}
                       className={cn(
                         "font-medium text-[14px] transition-colors duration-300",
-                        isExactActive ? "text-charcoal font-semibold" : "text-ink-soft hover:text-charcoal"
+                        isExactActive ? "text-ink font-semibold" : "text-ink-soft hover:text-ink"
                       )}
                       staggerDuration={0.02}
                       transition={{ duration: 0.5, type: "spring" }}
@@ -170,7 +173,7 @@ export function Navbar() {
                     {isExactActive && (
                       <motion.div
                         layoutId="nav-active-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-signal"
+                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full bg-signal-gradient shadow-[0_0_10px_rgba(225,6,0,0.6)]"
                       />
                     )}
                   </Link>
@@ -209,14 +212,14 @@ export function Navbar() {
           className={cn(
             "lg:hidden pointer-events-auto w-full transition-all duration-300",
             (isScrolled)
-              ? "bg-white/65 backdrop-blur-[20px] border border-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_28px_rgba(42,42,42,0.08)] px-4 h-[56px] rounded-[16px] flex items-center"
-              : "bg-transparent px-2 h-[60px] flex items-center"
+              ? "bg-[rgba(13,15,18,0.78)] backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_14px_36px_rgba(0,0,0,0.45)] px-4 h-[56px] rounded-[16px] flex items-center"
+              : "bg-transparent border border-transparent px-2 h-[60px] flex items-center"
           )}
         >
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
-              <Link href="/" className="font-bold text-lg tracking-tight text-charcoal outline-none" onClick={() => setMobileMenuOpen(false)}>
-                DEADCODE<span className="text-signal">.</span>LABS
+              <Link href="/" className="font-bold text-lg tracking-tight text-ink outline-none" onClick={closeMenu}>
+                DEADCODE<span className="text-signal-bright">.</span>LABS
               </Link>
             </div>
 
@@ -225,31 +228,40 @@ export function Navbar() {
         </div>
       </motion.header>
 
-      {/* INDEPENDENT MOBILE HAMBURGER BUTTON */}
+      {/* INDEPENDENT MOBILE HAMBURGER BUTTON — stays above the drawer as its close control */}
       <button
-        className={cn(
-          "lg:hidden fixed z-[2100] top-4 right-4 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors hover:bg-white/30 text-charcoal",
-          onDark && !mobileMenuOpen && "on-dark"
-        )}
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        ref={toggleRef}
+        data-nav-toggle
+        className="lg:hidden fixed z-[2100] w-11 h-11 flex items-center justify-center rounded-full bg-[rgba(19,22,26,0.72)] backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_24px_rgba(0,0,0,0.45)] text-ink transition-colors hover:border-white/25"
+        onClick={() => (mobileMenuOpen ? closeMenu() : setMobileMenuOpen(true))}
         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-navigation"
         style={{
-          top: "max(16px, env(safe-area-inset-top))",
-          right: "max(16px, env(safe-area-inset-right))"
+          top: "max(14px, env(safe-area-inset-top))",
+          right: "max(14px, env(safe-area-inset-right))"
         }}
       >
-        <div className="flex flex-col justify-center items-center w-6 h-5 relative">
-          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 rotate-45" : "top-0")} />
-          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300 top-2", mobileMenuOpen ? "opacity-0" : "opacity-100")} />
-          <span className={cn("absolute block w-full h-[2px] bg-current transition-all duration-300", mobileMenuOpen ? "top-2 -rotate-45" : "top-4")} />
-        </div>
+        <span className="relative block w-[18px] h-[12px]" aria-hidden="true">
+          <span
+            className={cn(
+              "absolute right-0 h-[1.5px] w-[18px] rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              mobileMenuOpen ? "top-[5.25px] rotate-45" : "top-0"
+            )}
+          />
+          <span
+            className={cn(
+              "absolute right-0 h-[1.5px] rounded-full bg-signal-gradient transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              mobileMenuOpen ? "top-[5.25px] w-[18px] -rotate-45" : "top-[10.5px] w-[11px]"
+            )}
+          />
+        </span>
       </button>
 
       {/* Mobile Navigation Panel */}
       <MobileNav
         isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
+        onClose={closeMenu}
         navLinks={allMobileLinks}
       />
     </>

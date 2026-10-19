@@ -34,7 +34,7 @@ export default function termsandconditionsPage() {
         <p>These terms shall be governed and construed in accordance with the laws of India, with jurisdiction in Uttar Pradesh, without regard to conflict of law provisions.</p>
       </LegalSection>
       <LegalSection title="7. Contact Us">
-        <p>Questions about the Terms & Conditions should be sent to us at <a href="mailto:contact@deadcode.space" className="text-signal hover:underline">contact@deadcode.space</a>.</p>
+        <p>Questions about the Terms & Conditions should be sent to us at <a href="mailto:contact@deadcode.space" className="text-signal-bright hover:underline">contact@deadcode.space</a>.</p>
       </LegalSection>
     
     </LegalLayout>

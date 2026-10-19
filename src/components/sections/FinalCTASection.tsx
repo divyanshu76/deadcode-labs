@@ -33,7 +33,7 @@ function scrollToEstimator() {
 export function FinalCTASection() {
   return (
     <section
-      className="relative py-16 md:py-24 z-10 text-charcoal overflow-hidden"
+      className="atmo atmo-red-center relative py-16 md:py-24 z-10 text-ink overflow-hidden"
       aria-labelledby="final-cta-heading"
     >
       <Container className="relative z-10">
@@ -70,7 +70,7 @@ export function FinalCTASection() {
             {/* Heading */}
             <h2
               id="final-cta-heading"
-              className="font-display font-bold tracking-tight text-charcoal mb-5 md:mb-7 leading-[0.92]"
+              className="font-display font-bold tracking-tight text-ink mb-5 md:mb-7 leading-[0.92]"
               style={{
                 fontSize: "clamp(2.8rem, 8vw, 6.5rem)",
               }}
@@ -92,12 +92,12 @@ export function FinalCTASection() {
               id="final-cta-start-project"
               onClick={scrollToEstimator}
               className="group inline-flex items-center gap-2 px-7 md:px-8 h-[50px] md:h-[54px]
-                         bg-signal text-white text-sm md:text-base font-semibold
-                         rounded-full border border-white/45
+                         bg-signal-gradient text-white text-sm md:text-base font-semibold
+                         rounded-full border border-white/10
                          backdrop-blur-[18px] saturate-125
                          shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_12px_30px_rgba(225,6,0,0.22)]
                          transition-all duration-300
-                         hover:-translate-y-[2px] hover:bg-signal-dark
+                         hover:-translate-y-[2px] hover:brightness-110
                          hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_40px_rgba(225,6,0,0.32)]
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal/60
                          focus-visible:ring-offset-2 mb-10 md:mb-12"
@@ -110,7 +110,7 @@ export function FinalCTASection() {
             </button>
 
             {/* Divider */}
-            <div className="w-px h-6 bg-silver/40 mb-6 md:mb-8" aria-hidden="true" />
+            <div className="w-px h-6 bg-white/[0.12] mb-6 md:mb-8" aria-hidden="true" />
 
             {/* Direct contact */}
             <p className="text-xs md:text-sm font-mono text-ink-muted mb-3 tracking-wide">
@@ -119,7 +119,7 @@ export function FinalCTASection() {
             <a
               href="mailto:contact@deadcode.space"
               className="group relative inline-flex items-center gap-3 text-base md:text-xl font-light
-                         text-ink-soft hover:text-charcoal transition-colors duration-300
+                         text-ink-soft hover:text-ink transition-colors duration-300
                          focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-signal/50 rounded"
               aria-label="Send email to contact@deadcode.space"
             >
@@ -130,7 +130,7 @@ export function FinalCTASection() {
                 contact@deadcode.space
               </span>
               <ArrowRight
-                className="h-4 w-4 md:h-5 md:w-5 text-signal opacity-0 -translate-x-3
+                className="h-4 w-4 md:h-5 md:w-5 text-signal-bright opacity-0 -translate-x-3
                            group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                 aria-hidden="true"
               />
@@ -147,7 +147,7 @@ export function FinalCTASection() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm font-mono text-ink-muted hover:text-charcoal
+                  className="text-xs md:text-sm font-mono text-ink-muted hover:text-ink
                              transition-colors duration-200 underline-offset-4 hover:underline
                              focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-signal/50 rounded"
                 >

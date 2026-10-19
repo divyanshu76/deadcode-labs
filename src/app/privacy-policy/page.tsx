@@ -49,13 +49,13 @@ export default function privacypolicyPage() {
 
       <LegalSection title="6. Your Privacy Rights">
         <p>You have the right to request access, correction, or deletion of your personal data at any time. You may also withdraw consent for ongoing communications.</p>
-        <p>To exercise any of these privacy rights, email us directly at <a href="mailto:contact@deadcode.space" className="text-signal font-semibold underline hover:text-signal-dark">contact@deadcode.space</a>.</p>
+        <p>To exercise any of these privacy rights, email us directly at <a href="mailto:contact@deadcode.space" className="text-signal-bright font-semibold underline hover:text-signal-dark">contact@deadcode.space</a>.</p>
       </LegalSection>
 
       <LegalSection title="7. Contact Us">
         <p>If you have questions regarding this Privacy Policy or data governance practices, please reach out to:</p>
         <p><strong>DEADCODE LABS</strong></p>
-        <p>Email: <a href="mailto:contact@deadcode.space" className="text-signal font-semibold underline hover:text-signal-dark">contact@deadcode.space</a></p>
+        <p>Email: <a href="mailto:contact@deadcode.space" className="text-signal-bright font-semibold underline hover:text-signal-dark">contact@deadcode.space</a></p>
         <p>Office: Lucknow, Uttar Pradesh, India / Global Edge</p>
       </LegalSection>
     

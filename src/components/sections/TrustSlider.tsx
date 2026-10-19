@@ -11,7 +11,7 @@ export function TrustSlider() {
   const duplicatedItems = [...items, ...items, ...items, ...items];
 
   return (
-    <section className="h-[40px] md:h-[50px] border-y border-white/70 bg-white/35 backdrop-blur-sm relative z-10 flex items-center overflow-hidden">
+    <section className="h-[40px] md:h-[50px] border-y border-white/10 bg-white/[0.04] backdrop-blur-sm relative z-10 flex items-center overflow-hidden">
       <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
         <div className="flex items-center justify-start animate-marquee whitespace-nowrap">
           {duplicatedItems.map((item, index) => (

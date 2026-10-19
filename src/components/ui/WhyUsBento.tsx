@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import Image from "next/image";
 import { IsometricBoxes02 } from "./IsometricVisuals";
 import { BRAND } from "@/lib/design-tokens";
 import { Phone, FileText, Code2, Rocket, ArrowRight } from "lucide-react";
@@ -22,14 +21,14 @@ export function WhyUsBento() {
           </div>
           
           <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-            <div className="w-12 h-12 rounded-xl bg-white/55 flex items-center justify-center border border-white/65 transition-colors group-hover:border-signal/50 shadow-[0_4px_12px_rgba(42,42,42,0.06)]">
-              <Code2 className="text-signal w-6 h-6" />
+            <div className="w-12 h-12 rounded-xl bg-white/[0.04] flex items-center justify-center border border-white/10 transition-colors group-hover:border-signal/50 shadow-[0_4px_12px_rgba(42,42,42,0.06)]">
+              <Code2 className="text-signal-bright w-6 h-6" />
             </div>
             
             <div>
               <div className="relative overflow-hidden mb-3 font-display text-2xl md:text-3xl font-bold h-10 flex items-center">
                 {/* Default Text Layer */}
-                <div className="absolute inset-0 flex text-charcoal">
+                <div className="absolute inset-0 flex text-ink">
                   {"AI & Automation".split("").map((char, index) => (
                     <motion.span
                       key={`default-${index}`}
@@ -42,7 +41,7 @@ export function WhyUsBento() {
                   ))}
                 </div>
                 {/* Hover Text Layer (Red) */}
-                <div className="absolute inset-0 flex text-signal">
+                <div className="absolute inset-0 flex text-signal-bright">
                   {"AI & Automation".split("").map((char, index) => (
                     <motion.span
                       key={`hover-${index}`}
@@ -75,7 +74,7 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full">
             <div>
-              <h3 className="font-display text-xl font-bold text-charcoal mb-3 group-hover:text-signal transition-colors">
+              <h3 className="font-display text-xl font-bold text-ink mb-3 group-hover:text-signal-bright transition-colors">
                 From Idea to Production
               </h3>
               <p className="text-ink-soft text-sm leading-relaxed mb-6">
@@ -119,7 +118,7 @@ export function WhyUsBento() {
                     <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-signal"/> Architecture.</div>
                     <div className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-signal"/> Production.</div>
                   </div>
-                  <div className="text-[10px] font-mono font-bold text-signal mt-auto">
+                  <div className="text-[10px] font-mono font-bold text-signal-bright mt-auto">
                     {">"} READY TO EXECUTE <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>_</motion.span>
                   </div>
                 </motion.div>
@@ -140,7 +139,7 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full justify-between">
             <div className="mb-8">
-              <h3 className="font-display text-xl font-bold text-charcoal mb-2 group-hover:text-signal transition-colors">
+              <h3 className="font-display text-xl font-bold text-ink mb-2 group-hover:text-signal-bright transition-colors">
                 Built by Experienced Engineers
               </h3>
               <p className="text-ink-soft text-sm leading-relaxed line-clamp-3">
@@ -154,7 +153,7 @@ export function WhyUsBento() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="w-10 h-10 md:w-[42px] md:h-[42px] rounded-full border-[2.5px] border-charcoal-soft group-hover:border-charcoal-soft transition-colors bg-charcoal-deep overflow-hidden absolute left-0 z-40 shadow-lg"
               >
-                <Image src="/images/founder.jpg" alt="DEADCODE LABS experienced engineer team member" fill sizes="42px" className="object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center text-silver-bright" aria-hidden="true"><Code2 className="w-4 h-4" /></span>
               </motion.div>
               <motion.div
                 variants={{ hover: { x: 8, y: -4, rotate: 2, scale: 1.05 } }}
@@ -193,7 +192,7 @@ export function WhyUsBento() {
           
           <div className="relative z-10 flex flex-col h-full justify-between">
             <div className="mb-8">
-              <h3 className="font-display text-xl font-bold text-charcoal mb-2 group-hover:text-signal transition-colors">
+              <h3 className="font-display text-xl font-bold text-ink mb-2 group-hover:text-signal-bright transition-colors">
                 No Handoffs
               </h3>
               <p className="text-ink-soft text-sm leading-relaxed line-clamp-3">
@@ -205,7 +204,7 @@ export function WhyUsBento() {
             <div className="flex items-center justify-between text-ink-muted mt-auto pt-4 relative w-full">
               <motion.div 
                 variants={{ hover: { backgroundColor: "rgba(225, 6, 0, 0.25)" } }}
-                className="absolute top-[30px] left-2 right-2 h-[1px] bg-white/40 transition-colors" 
+                className="absolute top-[30px] left-2 right-2 h-[1px] bg-white/[0.04] transition-colors" 
               />
               {[
                 { icon: Phone, label: "CALL" },
@@ -214,7 +213,7 @@ export function WhyUsBento() {
                 { icon: ArrowRight, label: "DEPLOY" },
                 { icon: Rocket, label: "LAUNCH", isEnd: true },
               ].map((step, i) => (
-                <div key={step.label} className="flex flex-col items-center gap-1.5 relative z-10 bg-white/45 backdrop-blur-[10px] px-0.5 sm:px-1 group-hover:bg-white/58 transition-colors rounded">
+                <div key={step.label} className="flex flex-col items-center gap-1.5 relative z-10 bg-white/[0.04] backdrop-blur-[10px] px-0.5 sm:px-1 group-hover:bg-white/[0.08] transition-colors rounded">
                   <div className="relative w-8 h-8 flex items-center justify-center">
                     {step.isEnd && (
                       <motion.div
@@ -229,7 +228,7 @@ export function WhyUsBento() {
                       variants={{
                         hover: step.isEnd ? { color: BRAND.signal, borderColor: "rgba(225,6,0,0.5)" } : { color: BRAND.charcoal, borderColor: "rgba(255,255,255,0.4)" }
                       }}
-                      className="bg-white/55 w-[22px] h-[22px] md:w-7 md:h-7 rounded-full flex items-center justify-center border border-white/65 relative z-10 transition-colors"
+                      className="bg-white/[0.04] w-[22px] h-[22px] md:w-7 md:h-7 rounded-full flex items-center justify-center border border-white/10 relative z-10 transition-colors"
                     >
                       <step.icon className="w-3 h-3 md:w-3.5 md:h-3.5" />
                     </motion.div>
@@ -259,7 +258,7 @@ export function WhyUsBento() {
           </div>
           
           <div className="relative z-10 md:w-5/12 flex flex-col mb-10 md:mb-0">
-            <h3 className="font-display text-2xl font-bold text-charcoal mb-3 group-hover:text-signal transition-colors">
+            <h3 className="font-display text-2xl font-bold text-ink mb-3 group-hover:text-signal-bright transition-colors">
               Deep Engineering
             </h3>
             <p className="text-ink-soft text-sm md:text-base leading-relaxed max-w-md">

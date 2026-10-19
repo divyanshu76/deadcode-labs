@@ -144,7 +144,7 @@ export function CustomCursor() {
         }}
       >
         <span 
-          className="font-mono text-[9px] tracking-widest text-signal font-bold transition-opacity duration-200"
+          className="font-mono text-[9px] tracking-widest text-signal-bright font-bold transition-opacity duration-200"
           style={{ opacity: 0 }}
         >
           VIEW
