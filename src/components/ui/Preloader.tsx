@@ -134,6 +134,7 @@ export function Preloader() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.18 }}
+                  lang={statusIndex % 2 ? "hi" : undefined}
                   className={`absolute text-[11px] tracking-[0.2em] text-silver-dark ${statusIndex % 2 ? "font-sans tracking-normal" : "font-mono uppercase"}`}
                 >
                   {sequence[statusIndex]}

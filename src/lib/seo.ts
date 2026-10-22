@@ -21,6 +21,15 @@ export function absoluteUrl(path = "/") {
   return path === "/" ? SITE_URL : `${SITE_URL}${path}`;
 }
 
+// Served by app/opengraph-image.tsx. Pages that set `openGraph` replace the
+// file-based image, so the shared card is referenced explicitly here.
+const SHARE_IMAGE = {
+  url: absoluteUrl("/opengraph-image"),
+  width: 1200,
+  height: 630,
+  alt: "DEADCODE LABS — Digital ideas, engineered.",
+};
+
 /**
  * Per-page metadata with a self-referencing canonical and a complete Open Graph block.
  * Next.js merges metadata shallowly, so a page that sets `openGraph` must set all of it.
@@ -48,11 +57,13 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: "en_US",
       type: "website",
+      images: [SHARE_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [SHARE_IMAGE],
     },
   };
 }
