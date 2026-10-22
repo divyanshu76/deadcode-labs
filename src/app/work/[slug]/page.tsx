@@ -150,9 +150,9 @@ export default async function ProjectPage({ params }: Props) {
           {/* Content Details */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
             <div className="md:col-span-4">
-              <h3 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
+              <h2 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
                 The Challenge
-              </h3>
+              </h2>
             </div>
             <div className="md:col-span-8">
               <p className="text-xl md:text-3xl font-light leading-relaxed mb-24 text-foreground/90">
@@ -161,9 +161,9 @@ export default async function ProjectPage({ params }: Props) {
             </div>
 
             <div className="md:col-span-4">
-              <h3 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
+              <h2 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
                 The Approach
-              </h3>
+              </h2>
             </div>
             <div className="md:col-span-8">
               <p className="text-lg md:text-2xl font-light leading-relaxed mb-24 text-foreground/80">
@@ -172,9 +172,9 @@ export default async function ProjectPage({ params }: Props) {
             </div>
 
             <div className="md:col-span-4">
-              <h3 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
+              <h2 className="text-sm font-mono tracking-widest uppercase text-secondary mb-4 border-b border-border pb-4">
                 Key Features
-              </h3>
+              </h2>
             </div>
             <div className="md:col-span-8 mb-24">
               <ul className="space-y-6">

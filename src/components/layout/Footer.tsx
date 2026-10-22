@@ -24,7 +24,7 @@ const NETWORK = [
   { label: "LinkedIn", href: FOUNDER.linkedin, ariaLabel: "Founder Divyanshu Verma on LinkedIn" },
   { label: "Instagram", href: "https://www.instagram.com/truly_divyanshu/", ariaLabel: "Founder Divyanshu Verma on Instagram" },
   { label: "GitHub", href: FOUNDER.github, ariaLabel: "Founder Divyanshu Verma on GitHub" },
-  { label: "Founder Portfolio ↗", href: "https://www.divyanshu.space/", ariaLabel: "Founder Divyanshu Verma's portfolio" },
+  { label: "Founder Portfolio ↗", href: "https://www.divyanshu.space/", ariaLabel: "Founder Portfolio: Divyanshu Verma" },
 ];
 
 const LEGAL = [
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer" className="md:col-span-2 flex flex-col gap-2.5">
-            <h4 className={headingClass}>Navigate</h4>
+            <h2 className={headingClass}>Navigate</h2>
             {NAV.map((l) => (
               <Link key={l.href} href={l.href} className={linkClass}>
                 {l.label}
@@ -76,7 +76,7 @@ export function Footer() {
           </nav>
 
           <div className="md:col-span-3 flex flex-col gap-2.5">
-            <h4 className={headingClass}>Capabilities</h4>
+            <h2 className={headingClass}>Capabilities</h2>
             {CAPABILITIES.map((l) => (
               <Link key={l.href} href={l.href} className={linkClass}>
                 {l.label}
@@ -85,7 +85,7 @@ export function Footer() {
           </div>
 
           <div className="col-span-2 md:col-span-2 flex flex-col gap-2.5">
-            <h4 className={headingClass}>Studio Network</h4>
+            <h2 className={headingClass}>Studio Network</h2>
             {NETWORK.map((l) => (
               <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={`${l.ariaLabel} (opens in a new tab)`} className={linkClass}>
                 {l.label}

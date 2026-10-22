@@ -40,6 +40,8 @@ const alokCapabilities = [
 /** On the standalone /about page the section heading is the page's h1. */
 export function FounderSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const SubHeading = headingLevel === "h1" ? "h2" : "h3";
+  const NameHeading = headingLevel === "h1" ? "h3" : "h4";
 
   return (
     <section id="about" className="atmo atmo-silver-right py-12 md:py-20 lg:py-32 relative z-10 border-t border-white/[0.06] overflow-hidden">
@@ -99,9 +101,9 @@ export function FounderSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="flex items-center gap-4 mb-6 md:mb-8">
-            <h3 className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-widest uppercase text-ink font-semibold">
+            <SubHeading className="font-mono text-[10px] sm:text-[11px] md:text-xs tracking-widest uppercase text-ink font-semibold">
               Founding Team
-            </h3>
+            </SubHeading>
             <div className="h-px bg-white/10 flex-1"></div>
           </div>
           
@@ -114,7 +116,7 @@ export function FounderSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
               
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
                 <div>
-                  <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Divyanshu Verma</h4>
+                  <NameHeading className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Divyanshu Verma</NameHeading>
                   <p className="text-[12px] sm:text-[13px] md:text-sm text-signal-bright font-medium mt-1.5 uppercase tracking-wider">
                     Founder · Full Stack Developer
                   </p>
@@ -193,7 +195,7 @@ export function FounderSection({ headingLevel = "h2" }: { headingLevel?: "h1" | 
               
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
                 <div>
-                  <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Alok Verma</h4>
+                  <NameHeading className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Alok Verma</NameHeading>
                   <p className="text-[12px] sm:text-[13px] md:text-sm text-signal-bright font-medium mt-1.5 uppercase tracking-wider">
                     Founding Client Success Lead
                   </p>
