@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/security",
   title: "Security & Responsible Disclosure",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "Security practices and responsible disclosure policy for DEADCODE LABS.",
+});
 
 export default function securityPage() {
   return (

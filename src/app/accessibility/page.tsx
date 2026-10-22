@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/accessibility",
   title: "Accessibility Statement",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "DEADCODE LABS accessibility statement: our commitment, implemented features and how to report barriers.",
+});
 
 export default function accessibilityPage() {
   return (

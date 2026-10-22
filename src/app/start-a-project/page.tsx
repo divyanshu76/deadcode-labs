@@ -1,16 +1,12 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ProjectEstimator } from "@/components/sections/ProjectEstimator";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/start-a-project",
   title: "Start a Project",
-  description: "Ready to build something exceptional? Use our project estimator to get started with DEADCODE LABS.",
-  alternates: {
-    canonical: "https://deadcode.space/start-a-project",
-  },
-  openGraph: {
-    url: "https://deadcode.space/start-a-project",
-  },
-};
+  description:
+    "Ready to build something exceptional? Use our project estimator to get started with DEADCODE LABS.",
+});
 
 export default function StartProjectPage() {
   return (

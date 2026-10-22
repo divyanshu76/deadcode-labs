@@ -97,7 +97,7 @@ export function Preloader() {
             {/* Corner metadata */}
             <div className="absolute top-6 left-6 right-6 flex justify-between font-mono text-[10px] tracking-[0.24em] uppercase text-silver-dark">
               <span>Digital Product Studio</span>
-              <span className="hidden sm:inline">Lucknow / Global</span>
+              <span className="hidden sm:inline">Mirzapur / Remote</span>
             </div>
 
             <motion.span

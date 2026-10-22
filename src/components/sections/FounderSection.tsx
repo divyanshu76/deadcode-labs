@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { FOUNDER } from "@/lib/seo";
 
 const divyanshuTechGroups = [
   {
@@ -104,14 +105,14 @@ export function FounderSection() {
             <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 items-start">
             
             {/* Divyanshu Profile Card */}
-            <div className="p-5 sm:p-6 md:p-8 rounded-2xl glass-panel metal-edge group hover:-translate-y-1 transition-all duration-500 border border-white/10 hover:border-signal/30 hover:shadow-xl hover:shadow-charcoal/5 relative overflow-hidden flex flex-col">
+            <div id="founder" className="scroll-mt-28 p-5 sm:p-6 md:p-8 rounded-2xl glass-panel metal-edge group hover:-translate-y-1 transition-all duration-500 border border-white/10 hover:border-signal/30 hover:shadow-xl hover:shadow-charcoal/5 relative overflow-hidden flex flex-col">
               <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-signal/5 rounded-bl-full -z-10 transition-transform duration-700 group-hover:scale-110"></div>
               
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
                 <div>
                   <h4 className="font-display text-2xl md:text-3xl font-bold text-foreground tracking-tight">Divyanshu Verma</h4>
                   <p className="text-[12px] sm:text-[13px] md:text-sm text-signal-bright font-medium mt-1.5 uppercase tracking-wider">
-                    Founding Full Stack Developer
+                    Founder · Full Stack Developer
                   </p>
                   <p className="text-[11px] sm:text-[12px] md:text-[13px] text-secondary mt-1">
                     6+ Years Experience
@@ -128,8 +129,31 @@ export function FounderSection() {
               </div>
               
               <p className="text-[13.5px] md:text-[14.5px] text-secondary leading-relaxed mb-6 md:mb-8">
-                Full-stack developer focused on building high-performance web applications, digital products and scalable systems. Combines product thinking, engineering discipline and interface craftsmanship to turn complex ideas into polished digital experiences.
+                Founder of DEADCODE LABS. Full-stack developer focused on building high-performance web applications, digital products and scalable systems. Combines product thinking, engineering discipline and interface craftsmanship to turn complex ideas into polished digital experiences.
               </p>
+
+              <div className="flex flex-wrap gap-x-5 gap-y-2 -mt-2 mb-6 md:mb-8">
+                <a
+                  href={FOUNDER.github}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label="Divyanshu Verma on GitHub (opens in a new tab)"
+                  className="inline-flex items-center font-mono text-[11px] md:text-xs tracking-wider uppercase text-ink-soft hover:text-signal-bright transition-colors"
+                >
+                  GitHub
+                  <ArrowUpRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+                <a
+                  href={FOUNDER.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  aria-label="Divyanshu Verma on LinkedIn (opens in a new tab)"
+                  className="inline-flex items-center font-mono text-[11px] md:text-xs tracking-wider uppercase text-ink-soft hover:text-signal-bright transition-colors"
+                >
+                  LinkedIn
+                  <ArrowUpRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </div>
               
               <div className="pt-5 md:pt-6 border-t border-white/10">
                 <span className="font-mono text-[9px] md:text-[10px] tracking-widest uppercase text-ink font-semibold block mb-4 md:mb-5">

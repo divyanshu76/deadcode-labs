@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/intellectual-property",
   title: "Intellectual Property Policy",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "How intellectual property and ownership of delivered work are handled by DEADCODE LABS.",
+});
 
 export default function intellectualpropertyPage() {
   return (

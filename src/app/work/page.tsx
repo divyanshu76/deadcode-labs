@@ -1,17 +1,13 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { FeaturedWorkSection } from "@/components/sections/FeaturedWorkSection";
 import { Container } from "@/components/ui/Container";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/work",
   title: "Work & Projects",
-  description: "Explore our portfolio of bespoke websites, e-commerce platforms, and scalable web applications engineered by DEADCODE LABS.",
-  alternates: {
-    canonical: "https://deadcode.space/work",
-  },
-  openGraph: {
-    url: "https://deadcode.space/work",
-  },
-};
+  description:
+    "Explore our portfolio of bespoke websites, e-commerce platforms, and scalable web applications engineered by DEADCODE LABS.",
+});
 
 export default function WorkPage() {
   return (

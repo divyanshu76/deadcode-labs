@@ -51,7 +51,8 @@ export default function ContactPage() {
                 
                 <div>
                   <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Location</h3>
-                  <p className="text-xl font-medium">India / International</p>
+                  <p className="text-xl font-medium">Mirzapur, India</p>
+                  <p className="text-sm text-secondary mt-1">Online &amp; remote — working with clients in India and internationally.</p>
                 </div>
                 
                 <div>
