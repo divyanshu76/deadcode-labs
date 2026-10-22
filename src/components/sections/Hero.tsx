@@ -88,6 +88,8 @@ export function Hero() {
                   line
                 )}
               </motion.span>
+              {/* Block lines render no gap; this keeps the words separated in the DOM text. */}
+              {i < HEADLINE.length - 1 && " "}
             </span>
           ))}
         </h1>

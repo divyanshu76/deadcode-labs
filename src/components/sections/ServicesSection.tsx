@@ -62,6 +62,7 @@ const services = [
 /** On the standalone /services page the section heading is the page's h1. */
 export function ServicesSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const CardHeading = headingLevel === "h1" ? "h2" : "h3";
 
   return (
     <section id="services" className="atmo atmo-alt py-16 md:py-28 relative z-10">
@@ -132,9 +133,9 @@ export function ServicesSection({ headingLevel = "h2" }: { headingLevel?: "h1" |
                     <span className="font-mono text-[11px] tracking-[0.2em] text-ink-muted">{service.number}</span>
                     <ArrowUpRight className="w-4 h-4 text-ink-muted transition-all duration-300 group-hover:text-signal-bright group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
                   </div>
-                  <h3 className={cn("text-ink tracking-tight", featured ? "font-display text-4xl md:text-5xl leading-[1.02]" : "text-[17px] md:text-xl font-semibold")}>
+                  <CardHeading className={cn("text-ink tracking-tight", featured ? "font-display text-4xl md:text-5xl leading-[1.02]" : "text-[17px] md:text-xl font-semibold")}>
                     {service.title}
-                  </h3>
+                  </CardHeading>
                   <p className={cn("text-ink-soft leading-relaxed mt-2", featured ? "text-base md:text-lg max-w-lg mt-4" : "text-[14px] md:text-[15px]")}>
                     {service.description}
                   </p>

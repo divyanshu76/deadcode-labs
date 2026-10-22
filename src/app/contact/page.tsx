@@ -36,27 +36,27 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Email</h3>
+                  <h2 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Email</h2>
                   <a href="mailto:contact@deadcode.space" className="text-xl font-medium hover:text-accent transition-colors">
                     contact@deadcode.space
                   </a>
                 </div>
                 
                 <div>
-                  <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">WhatsApp</h3>
+                  <h2 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">WhatsApp</h2>
                   <a href="https://wa.me/919151741310" target="_blank" rel="noopener noreferrer" className="text-xl font-medium hover:text-accent transition-colors">
                     +91 9151741310
                   </a>
                 </div>
                 
                 <div>
-                  <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Location</h3>
+                  <h2 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Location</h2>
                   <p className="text-xl font-medium">Mirzapur, India</p>
                   <p className="text-sm text-secondary mt-1">Online &amp; remote — working with clients in India and internationally.</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Availability</h3>
+                  <h2 className="text-sm font-semibold text-secondary uppercase tracking-wider mb-2">Availability</h2>
                   <div className="flex items-center space-x-2">
                     <span className="relative flex h-3 w-3">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -157,7 +157,7 @@ export default function ContactPage() {
                   <div className="w-20 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mb-8">
                     <CheckCircle2 size={40} />
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Your project brief has reached the lab.</h3>
+                  <h2 className="text-3xl font-bold mb-4">Your project brief has reached the lab.</h2>
                   <p className="text-lg text-secondary">
                     Thank you for reaching out. We will review your requirements and get back to you within 24 hours to schedule a discovery call.
                   </p>

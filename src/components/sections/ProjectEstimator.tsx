@@ -750,7 +750,9 @@ function ProgressBar({ step }: { step: number }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export function ProjectEstimator() {
+/** On the standalone /start-a-project page the section heading is the page's h1. */
+export function ProjectEstimator({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const [state, dispatch] = useReducer(formReducer, {
     step: 0,
     data: EMPTY_INQUIRY,
@@ -851,12 +853,12 @@ export function ProjectEstimator() {
               <span className="chapter-label mb-4">
                 06 — PROJECT ESTIMATOR
               </span>
-              <h2
+              <Heading
                 id="estimator-heading"
                 className="font-display text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tight text-ink mb-4 leading-[1.05]"
               >
                 Start a project.
-              </h2>
+              </Heading>
               <p className="text-sm md:text-base text-ink-soft max-w-md mx-auto leading-relaxed">
                 Tell us what you&apos;re building. We&apos;ll help shape the scope, estimate the
                 effort, and define the right technical direction.
