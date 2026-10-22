@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/cookie-policy",
   title: "Cookie Policy",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "How DEADCODE LABS uses cookies and similar technologies on deadcode.space, and how to manage your preferences.",
+});
 
 export default function cookiepolicyPage() {
   return (

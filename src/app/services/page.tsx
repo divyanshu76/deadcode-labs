@@ -1,17 +1,13 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { TechnologySection } from "@/components/sections/TechnologySection";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/services",
   title: "Services & Capabilities",
-  description: "Explore our premium digital services including web development, e-commerce, AI systems, and custom web applications.",
-  alternates: {
-    canonical: "https://deadcode.space/services",
-  },
-  openGraph: {
-    url: "https://deadcode.space/services",
-  },
-};
+  description:
+    "Explore our premium digital services including web development, e-commerce, AI systems, and custom web applications.",
+});
 
 export default function ServicesPage() {
   return (

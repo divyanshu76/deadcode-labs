@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/service-terms",
   title: "Service Terms / Project Agreement",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "Service terms and project agreement covering engagements with DEADCODE LABS.",
+});
 
 export default function servicetermsPage() {
   return (

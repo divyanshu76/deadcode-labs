@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/terms-and-conditions",
   title: "Terms & Conditions",
-  description: "Legal documentation and policies for DEADCODE LABS.",
-};
+  description: "Terms and conditions governing use of the DEADCODE LABS website at deadcode.space.",
+});
 
 export default function termsandconditionsPage() {
   return (

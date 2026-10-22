@@ -10,6 +10,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { BackgroundSpheres } from "@/components/ui/BackgroundSpheres";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { FOUNDER, SITE_URL, jsonLdString, siteGraph } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,7 +28,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deadcode.space"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
     template: "%s | DEADCODE LABS",
@@ -43,11 +44,8 @@ export const metadata: Metadata = {
     "Custom Web Applications",
     "UI/UX"
   ],
-  authors: [{ name: "Divyanshu Verma", url: "https://github.com/divyanshu76" }],
+  authors: [{ name: FOUNDER.name, url: FOUNDER.url }],
   creator: "DEADCODE LABS",
-  alternates: {
-    canonical: "https://deadcode.space",
-  },
   openGraph: {
     title: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
     description: "A premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation for ambitious businesses.",
@@ -60,7 +58,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DEADCODE LABS — Digital Products, Web Development & AI Systems",
     description: "A premium digital product studio engineering bespoke web development, e-commerce storefronts, AI systems, and automation for ambitious businesses.",
-    creator: "@truly_divyanshu",
   },
   robots: {
     index: true,
@@ -86,6 +83,10 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col ambient-bg text-foreground relative">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdString(siteGraph) }}
+        />
         <MotionProvider>
           <BackgroundSpheres />
           <CustomCursor />

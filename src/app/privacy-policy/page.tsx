@@ -1,10 +1,11 @@
 import { LegalLayout, LegalSection } from "@/components/layout/LegalLayout";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/privacy-policy",
   title: "Privacy Policy",
-  description: "Privacy policy and data protection practices for DEADCODE LABS.",
-};
+  description: "How DEADCODE LABS collects, uses and protects personal data submitted through deadcode.space.",
+});
 
 export default function privacypolicyPage() {
   return (
@@ -56,7 +57,7 @@ export default function privacypolicyPage() {
         <p>If you have questions regarding this Privacy Policy or data governance practices, please reach out to:</p>
         <p><strong>DEADCODE LABS</strong></p>
         <p>Email: <a href="mailto:contact@deadcode.space" className="text-signal-bright font-semibold underline hover:text-signal-dark">contact@deadcode.space</a></p>
-        <p>Office: Lucknow, Uttar Pradesh, India / Global Edge</p>
+        <p>Location: Mirzapur, Uttar Pradesh, India. Services are delivered online; we do not operate a customer-facing office.</p>
       </LegalSection>
     
     </LegalLayout>

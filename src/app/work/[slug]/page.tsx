@@ -4,14 +4,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { projects } from "@/data/projects";
+import {
+  ORGANIZATION_ID,
+  absoluteUrl,
+  breadcrumbJsonLd,
+  jsonLdString,
+  pageMetadata,
+} from "@/lib/seo";
 
 interface Props {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  return pageMetadata({
+    path: `/work/${project.slug}`,
+    title: `${project.title} — ${project.category} Case Study`,
+    description: project.shortDescription,
+  });
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -26,9 +47,34 @@ export default async function ProjectPage({ params }: Props) {
   const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
   const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
 
+  const pageUrl = absoluteUrl(`/work/${project.slug}`);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "@id": `${pageUrl}#work`,
+      name: project.title,
+      headline: `${project.title} — ${project.category}`,
+      description: project.shortDescription,
+      url: pageUrl,
+      ...(project.image && { image: absoluteUrl(project.image) }),
+      ...(project.liveUrl && { sameAs: project.liveUrl }),
+      keywords: project.technology.join(", "),
+      creator: { "@id": ORGANIZATION_ID },
+    },
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Work", path: "/work" },
+      { name: project.title, path: `/work/${project.slug}` },
+    ]),
+  ];
+
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
+    <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
+      />
 
       <article className="pt-32 md:pt-48 pb-24 md:pb-40">
         <Container>
@@ -176,8 +222,6 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </Container>
       </section>
-
-      <Footer />
-    </main>
+    </div>
   );
 }

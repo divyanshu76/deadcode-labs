@@ -218,7 +218,7 @@ export function MobileNav({
                   </a>
                 </div>
                 <p className="text-[12px] font-mono text-ink-muted">
-                  Studio Office · Lucknow / Global Edge
+                  Mirzapur, India · Remote / International
                 </p>
               </motion.div>
             </div>

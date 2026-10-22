@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CookieSettingsTrigger } from "@/components/ui/CookieSettingsTrigger";
+import { FOUNDER } from "@/lib/seo";
 
 const NAV = [
   { label: "Home", href: "/#home" },
@@ -8,6 +9,7 @@ const NAV = [
   { label: "Services", href: "/#services" },
   { label: "Process", href: "/#process" },
   { label: "About", href: "/#about" },
+  { label: "Founder", href: "/about#founder" },
   { label: "Start a Project", href: "/#start-project" },
 ];
 
@@ -19,10 +21,10 @@ const CAPABILITIES = [
 ];
 
 const NETWORK = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/divyanshuverma09/" },
-  { label: "Instagram", href: "https://www.instagram.com/truly_divyanshu/" },
-  { label: "GitHub", href: "https://github.com/divyanshu76" },
-  { label: "Founder Portfolio ↗", href: "https://www.divyanshu.space/" },
+  { label: "LinkedIn", href: FOUNDER.linkedin, ariaLabel: "Founder Divyanshu Verma on LinkedIn" },
+  { label: "Instagram", href: "https://www.instagram.com/truly_divyanshu/", ariaLabel: "Founder Divyanshu Verma on Instagram" },
+  { label: "GitHub", href: FOUNDER.github, ariaLabel: "Founder Divyanshu Verma on GitHub" },
+  { label: "Founder Portfolio ↗", href: "https://www.divyanshu.space/", ariaLabel: "Founder Divyanshu Verma's portfolio" },
 ];
 
 const LEGAL = [
@@ -85,7 +87,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-2 flex flex-col gap-2.5">
             <h4 className={headingClass}>Studio Network</h4>
             {NETWORK.map((l) => (
-              <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" aria-label={`${l.ariaLabel} (opens in a new tab)`} className={linkClass}>
                 {l.label}
               </a>
             ))}

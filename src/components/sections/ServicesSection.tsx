@@ -12,6 +12,7 @@ const services = [
   {
     number: "01",
     glyph: "web" as ServiceGlyphKind,
+    id: "web-experiences",
     title: "Web Experiences",
     description: "High-performance brand flagship websites and interactive digital environments built to convert.",
     tags: ["Next.js", "Framer Motion", "Tailwind"],
@@ -19,6 +20,7 @@ const services = [
   {
     number: "02",
     glyph: "commerce" as ServiceGlyphKind,
+    id: "e-commerce",
     title: "E-Commerce Systems",
     description: "Bespoke headless Shopify and high-volume commerce architectures optimized for checkout speed.",
     tags: ["Shopify Plus", "Headless", "Stripe"],
@@ -26,6 +28,7 @@ const services = [
   {
     number: "03",
     glyph: "app" as ServiceGlyphKind,
+    id: "web-applications",
     title: "Web Applications",
     description: "Scalable dashboards, authenticated client portals, and internal enterprise software tooling.",
     tags: ["React", "Supabase", "Node.js"],
@@ -33,6 +36,7 @@ const services = [
   {
     number: "04",
     glyph: "ai" as ServiceGlyphKind,
+    id: "ai-products",
     title: "AI Product Design",
     description: "Custom intelligent assistants, context-aware LLM agents, and automated data pipelines.",
     tags: ["OpenAI", "Gemini", "LangChain"],
@@ -40,6 +44,7 @@ const services = [
   {
     number: "05",
     glyph: "automation" as ServiceGlyphKind,
+    id: "workflow-automation",
     title: "Workflow Automation",
     description: "End-to-end automation connecting CRMs, databases, and operational APIs to save team hours.",
     tags: ["n8n", "Webhooks", "Zapier"],
@@ -47,6 +52,7 @@ const services = [
   {
     number: "06",
     glyph: "saas" as ServiceGlyphKind,
+    id: "saas-digital-products",
     title: "SaaS & Systems",
     description: "Complete MVP architecture from UX design tokens down to production cloud infrastructure.",
     tags: ["TypeScript", "PostgreSQL", "AWS"],
@@ -77,24 +83,24 @@ export function ServicesSection() {
         {/* Featured service + supporting modules. Each carries an illustration of what it is. */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {services.map((service, index) => {
-            const slug = service.title.toLowerCase().replace(/s+/g, "-").replace(/[^a-z0-9-]/g, "");
             const featured = index === 0;
 
             return (
               <motion.article
                 key={service.number}
+                id={service.id}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: (index % 3) * 0.07, duration: 0.6, ease: EASE_OUT_EXPO }}
                 className={cn(
-                  "group relative rounded-[24px] metal-edge overflow-hidden transition-shadow duration-500",
+                  "group relative scroll-mt-28 rounded-[24px] metal-edge overflow-hidden transition-shadow duration-500",
                   featured
                     ? "glass-dark signal-glow md:col-span-2 lg:row-span-2 p-6 md:p-10 flex flex-col"
                     : "premium-card p-5 md:p-6 flex flex-row md:flex-col gap-5 md:gap-0"
                 )}
               >
-                <Link href={`/services#${slug}`} className="absolute inset-0 z-20 rounded-[24px]" aria-label={`Explore ${service.title}`}>
+                <Link href={`/services#${service.id}`} className="absolute inset-0 z-20 rounded-[24px]" aria-label={`Explore ${service.title}`}>
                   <span className="sr-only">Explore {service.title}</span>
                 </Link>
 
