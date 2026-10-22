@@ -59,7 +59,10 @@ const services = [
   },
 ];
 
-export function ServicesSection() {
+/** On the standalone /services page the section heading is the page's h1. */
+export function ServicesSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
+
   return (
     <section id="services" className="atmo atmo-alt py-16 md:py-28 relative z-10">
       <Container>
@@ -73,10 +76,11 @@ export function ServicesSection() {
             <span className="chapter-label mb-4">
               04 — CAPABILITIES & EXPERTISE
             </span>
-            <h2 className="font-display text-[length:clamp(40px,6vw,80px)] tracking-[-0.015em] text-ink leading-[1.02]">
+            <Heading className="font-display text-[length:clamp(40px,6vw,80px)] tracking-[-0.015em] text-ink leading-[1.02]">
+              {headingLevel === "h1" && <span className="sr-only">DEADCODE LABS services and capabilities: </span>}
               Everything digital. <br />
               <span className="italic text-silver-dark">Engineered</span> properly.
-            </h2>
+            </Heading>
           </motion.div>
         </div>
 
