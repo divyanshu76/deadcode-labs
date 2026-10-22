@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 export default function ServicesPage() {
   return (
     <div className="pt-24 min-h-screen bg-background">
-      <ServicesSection />
+      <ServicesSection headingLevel="h1" />
       <TechnologySection />
     </div>
   );

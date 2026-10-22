@@ -42,7 +42,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdString(aboutJsonLd) }}
       />
-      <FounderSection />
+      <FounderSection headingLevel="h1" />
       <WhyUsSection />
       <ProcessSection />
     </div>

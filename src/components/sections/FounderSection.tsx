@@ -37,7 +37,10 @@ const alokCapabilities = [
   "Documentation & Workflow",
 ];
 
-export function FounderSection() {
+/** On the standalone /about page the section heading is the page's h1. */
+export function FounderSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
+
   return (
     <section id="about" className="atmo atmo-silver-right py-12 md:py-20 lg:py-32 relative z-10 border-t border-white/[0.06] overflow-hidden">
       <Container>
@@ -56,10 +59,11 @@ export function FounderSection() {
               <span className="chapter-label mb-4">
                 08 — ABOUT DEADCODE LABS
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-ink">
+              <Heading className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-ink">
+                {headingLevel === "h1" && <span className="sr-only">About DEADCODE LABS and founder Divyanshu Verma: </span>}
                 Engineering <br />
                 <span className="italic text-silver-dark">meets</span> aesthetics.
-              </h2>
+              </Heading>
             </motion.div>
 
             {/* RIGHT: Studio Statement & Metadata */}
