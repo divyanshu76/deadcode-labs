@@ -31,15 +31,15 @@ export const projects: Project[] = [
   {
     title: "CozyCraft",
     slug: "cozycraft",
-    category: "E-Commerce / Retail",
-    shortDescription: "A modern, high-converting e-commerce platform for handcrafted furniture and home decor.",
+    category: "E-Commerce / Handmade Gifts",
+    shortDescription: "An online store for a handmade gifts brand: keychains, flower bouquets, charms, hair accessories and gift bundles, made in small batches in India.",
     url: "#",
     liveUrl: "https://www.cozycrafts.shop/",
     image: "/projects/COZYCRAFTS.png",
-    challenge: "Designing a digital storefront that conveys the physical warmth of handcrafted furniture while driving e-commerce conversions.",
-    approach: "Built a lightning-fast headless commerce experience with large, immersive product imagery, smooth cart transitions, and an optimized checkout flow.",
-    features: ["Headless Commerce", "Product Galleries", "Seamless Checkout"],
-    technology: ["Next.js", "Shopify", "Tailwind CSS"],
+    challenge: "How can a small-batch handmade gifts brand show the care behind each piece online, while keeping browsing and buying simple?",
+    approach: "We built a Next.js storefront on Vercel with Supabase powering the product catalogue and images. Shoppers browse by category or search, save favourites to a wishlist, and buy through Quick Add, the cart or Buy Now. Product pages carry structured data, and customers can track their orders.",
+    features: ["Category Browsing & Search", "Wishlist", "Cart, Quick Add & Buy Now", "Order Tracking", "Product Structured Data"],
+    technology: ["Next.js", "Supabase", "Tailwind CSS", "Vercel"],
     hasScreenshots: false
   },
   {

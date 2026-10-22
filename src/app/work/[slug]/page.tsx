@@ -47,6 +47,8 @@ export default async function ProjectPage({ params }: Props) {
   const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
   const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
 
+  // `url` is "#" for projects whose live link lives only in `liveUrl`.
+  const liveSite = project.liveUrl ?? (project.url !== "#" ? project.url : undefined);
   const pageUrl = absoluteUrl(`/work/${project.slug}`);
   const jsonLd = [
     {
@@ -58,7 +60,7 @@ export default async function ProjectPage({ params }: Props) {
       description: project.shortDescription,
       url: pageUrl,
       ...(project.image && { image: absoluteUrl(project.image) }),
-      ...(project.liveUrl && { sameAs: project.liveUrl }),
+      ...(liveSite && { sameAs: liveSite }),
       keywords: project.technology.join(", "),
       creator: { "@id": ORGANIZATION_ID },
     },
@@ -101,10 +103,11 @@ export default async function ProjectPage({ params }: Props) {
             </p>
 
             <div className="flex flex-wrap gap-6 items-center">
-              {project.url !== "#" && (
+              {liveSite && (
                 <Button asChild size="lg" className="h-14 px-8 text-base">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer">
-                    Visit Live Site <ExternalLink className="ml-2 h-5 w-5" />
+                  <a href={liveSite} target="_blank" rel="noopener noreferrer">
+                    Visit Live Site <ExternalLink className="ml-2 h-5 w-5" aria-hidden="true" />
+                    <span className="sr-only">(opens in a new tab)</span>
                   </a>
                 </Button>
               )}
