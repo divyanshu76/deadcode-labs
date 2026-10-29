@@ -124,6 +124,9 @@ export const siteGraph = {
       name: FOUNDER.name,
       url: FOUNDER.url,
       jobTitle: "Founder & Full Stack Developer",
+      // Mirrors the visible founder bio on /about.
+      description:
+        "Founder of DEADCODE LABS. Full-stack developer focused on building high-performance web applications, digital products and scalable systems.",
       worksFor: { "@id": ORGANIZATION_ID },
       sameAs: [FOUNDER.github, FOUNDER.linkedin],
     },
