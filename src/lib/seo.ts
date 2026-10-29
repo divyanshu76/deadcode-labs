@@ -10,6 +10,15 @@ export const FOUNDER = {
   url: `${SITE_URL}/about#founder`,
   github: "https://github.com/divyanshu76",
   linkedin: "https://www.linkedin.com/in/divyanshuverma09/",
+  instagram: "https://www.instagram.com/truly_divyanshu/",
+  // Same list, in the same order, as the skills shown on the founder card
+  // (divyanshuTechGroups in components/sections/FounderSection.tsx).
+  skills: [
+    "React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Framer Motion",
+    "Node.js", "Python", "FastAPI", "REST APIs",
+    "PostgreSQL", "MongoDB", "MySQL", "Supabase", "Firebase",
+    "Shopify", "Liquid", "UI/UX",
+  ],
 };
 
 // Stable entity identifiers shared by every JSON-LD block on the site.
@@ -128,7 +137,8 @@ export const siteGraph = {
       description:
         "Founder of DEADCODE LABS. Full-stack developer focused on building high-performance web applications, digital products and scalable systems.",
       worksFor: { "@id": ORGANIZATION_ID },
-      sameAs: [FOUNDER.github, FOUNDER.linkedin],
+      knowsAbout: FOUNDER.skills,
+      sameAs: [FOUNDER.github, FOUNDER.linkedin, FOUNDER.instagram],
     },
   ],
 };
